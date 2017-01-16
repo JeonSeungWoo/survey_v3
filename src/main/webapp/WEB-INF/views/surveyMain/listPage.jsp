@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,42 +11,127 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>리스트</h1>
-<ul>
-<li><a href="/surveyMain/create">등록</a></li>
-</ul>
-<form action="listPage">
-<input type = "hidden" name = "page" value="${param.page}">
+	<h1>리스트</h1>
+
+	<div class='box-body'>
+
+		<select name="searchType">
+			<option value="n"
+				<c:out value="${cri.searchType == null?'selected':''}"/>>
+				---</option>
+			<option value="t"
+				<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+				Title</option>
+			<option value="c"
+				<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
+				Content</option>
+			<option value="w"
+				<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+				Writer</option>
+			<option value="tc"
+				<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
+				Title OR Content</option>
+			<option value="cw"
+				<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
+				Content OR Writer</option>
+			<option value="tcw"
+				<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
+				Title OR Content OR Writer</option>
+		</select> <input type="text" name='keyword' id="keywordInput"
+			value='${cri.keyword }'>
+		<button id='searchBtn'>검색</button>
+		<button id='newBtn'>등록</button>
+
+	</div>
 
 
-<c:forEach items="${listPage}" var="SurveyMainVO">
 
-<ul>
-<li><a href='read?smno=${SurveyMainVO.smno}'>글 번호 : ${SurveyMainVO.smno}</a></li>
-<li>${SurveyMainVO.smtitle}</li>
-<li>${SurveyMainVO.smcontent}</li>
-</ul>
-
-</c:forEach>
-
-</form>
+	<form action="listPage">
+		<input type="hidden" name="page" value="${param.page}">
 
 
-<c:if test="${pageMaker.prev}">
-<h1><a href = "listPage?page=${pageMaker.start - 1}">이전</a></h1>
-</c:if>
+		<c:forEach items="${listPage}" var="SurveyMainVO">
 
-<c:forEach begin="${pageMaker.start}" end= "${pageMaker.end}" var ="idx">
- 
-<h1><c:out value="${pageMaker.page == idx ? '':''}"></c:out>
-<a href="listPage?page=${idx}">${idx}</a>
-</h1>
-</c:forEach>
+			<ul>
+				<li><a href='read?smno=${SurveyMainVO.smno}'>글 번호 :
+						${SurveyMainVO.smno}</a></li>
+				<li>${SurveyMainVO.smtitle}</li>
+				<li>${SurveyMainVO.smcontent}</li>
+			</ul>
 
-<c:if test="${pageMaker.next && pageMaker.end > 0}">
-<h1>
-<a href="listPage?page=${pageMaker.end + 1}">다음</a></h1>
-</c:if>
+		</c:forEach>
+
+	</form>
+
+	<%-- 	<c:forEach items="${listPage}" var="SurveyMainVO">
+
+		<tr>
+			<td>${SurveyMainVO.smno}</td>
+			<td><a
+				href='/surveyMain/read${pageMaker.makeSearch(pageMaker.cri.page) }&smno=${SurveyMainVO.smno}'>
+					${SurveyMainVO.smtitle} </a></td>
+			<td>${SurveyMainVO.smwriter}</td>
+						<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+					value="${SurveyMainVO.regdate}" /></td>
+		</tr>
+
+	</c:forEach> --%>
+
+
+	<div class="text-center">
+		<ul class="pagination">
+
+			<c:if test="${pageMaker.prev}">
+				<li><a
+					href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+			</c:if>
+
+			<c:forEach begin="${pageMaker.startPage }"
+				end="${pageMaker.endPage }" var="idx">
+				<li <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+					<a href="list${pageMaker.makeSearch(idx)}">${idx}</a>
+				</li>
+			</c:forEach>
+
+			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+				<li><a
+					href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+			</c:if>
+
+		</ul>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.js"
+		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+		crossorigin="anonymous"></script>
+
+
+	<script>
+		var result = '${msg}';
+		if (result == 'SUCCESS') {
+			alert("처리가 완료되었습니다.");
+		}
+	</script>
+
+	<script>
+		$(document).ready(
+				function() {
+					$('#searchBtn').on(
+							"click",
+							function(event) {
+								self.location = "listPage"
+										+ '${pageMaker.makeQuery(1)}'
+										+ "&searchType="
+										+ $("select option:selected").val()
+										+ "&keyword="
+										+ $('#keywordInput').val();
+							});
+
+					$('#newBtn').on("click", function(event) {
+						self.location = "register";
+					});
+				});
+	</script>
 
 </body>
 </html>

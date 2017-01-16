@@ -2,28 +2,70 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="org.survey.mappers.SurveyMainMapper">
 
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and title like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and smcontent like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and smwriter like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and ( title like CONCAT('%', #{keyword}, '%') OR
+				smcontent
+				like
+				CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and ( smcontent like CONCAT('%', #{keyword}, '%') OR
+				smwriter
+				like
+				CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and ( title like CONCAT('%', #{keyword}, '%')
+				OR
+				smcontent
+				like CONCAT('%', #{keyword}, '%')
+				OR
+				smwriter like CONCAT('%',
+				#{keyword}, '%'))
+			</if>
+		</if>
+	</sql>
+
+
 	<insert id="create" parameterType="SurveyMainVO">
-		insert tbl_surveymain(smtitle,smcontent,smwriter,smimage)
-		values (#{smtitle},#{smcontent},#{smwriter},#{smimage})
+		insert
+		tbl_surveymain(smtitle,smcontent,smwriter,smimage)
+		values
+		(#{smtitle},#{smcontent},#{smwriter},#{smimage})
 	</insert>
 
 	<select id="read" resultType="SurveyMainVO">
-		select * from tbl_surveymain where smno = #{smno}
+		select * from tbl_surveymain where
+		smno = #{smno}
 	</select>
 
 	<update id="update" parameterType="SurveyMainVO">
-	update tbl_surveymain 
-	set smtitle = #{smtitle},
-	smcontent = #{smcontent},
-	smwriter = #{smwriter},
-	smimage = #{smimage}
-	where smno = #{smno}
+		update tbl_surveymain
+		set
+		smtitle = #{smtitle},
+		smcontent = #{smcontent},
+		smwriter = #{smwriter},
+		smimage = #{smimage}
+		where smno = #{smno}
 	</update>
 
 	<delete id="delete" parameterType="SurveyMainVO">
-		delete from tbl_surveymain where smno = #{smno};
+		delete from tbl_surveymain
+		where smno = #{smno};
 	</delete>
 
 	<select id="listAll" resultType="SurveyMainVO">
@@ -33,14 +75,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="listPage" resultType="SurveyMainVO">
-		select * from tbl_surveymain
-		where smno > 0
-		order by smno desc
-		limit #{page},15
+ <![CDATA[
+ select 
+   * 
+ from 
+   tbl_surveymain
+ where smno > 0 
+ order by smno desc, smregdate desc
+ limit #{page}, 15
+ ]]>
+	</select>
+
+	<select id="listSearch" resultType="SurveyMainVO">
+<![CDATA[  
+  select * 
+  from tbl_surveymain 
+  where smno > 0 
+]]>
+
+		<include refid="search"></include>
+  
+<![CDATA[    
+  order by smno desc
+  limit #{pageStart}, #{perPageNum}
+]]>
 	</select>
 
 	<select id="count" resultType="java.lang.Integer">
-		select count(*) from tbl_surveymain
+		select count(*) from
+		tbl_surveymain
+	</select>
+
+	<select id="listSearchCount" resultType="java.lang.Integer">
+<![CDATA[  
+  select count(smno) 
+  from tbl_surveymain 
+  where smno > 0 
+]]>
+		<include refid="search"></include>
+
 	</select>
 
 </mapper>
