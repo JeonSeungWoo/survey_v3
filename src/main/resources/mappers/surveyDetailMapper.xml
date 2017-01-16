@@ -4,7 +4,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.survey.mappers.SurveyDetailMapper">
 
+<select id="list" resultType="SurveyDetailVO">
+select * from tbl_surveydetail
+where smno > #{smno}
+order by sdno desc
+</select>
 
+<insert id="create" parameterType="SurveyDetailVO">
+insert into tbl_surveydetail (smno,sdtitle,sdcontent,sdimage,sdtype)
+values(#{smno},#{sdtitle},#{sdcontent},#{sdimage},#{sdtype})
+</insert>
+
+<update id="upadte" parameterType="SurveyDetailVO">
+update tbl_surveydetail set sdtitle = #{sdtitle},
+ sdcontent =#{sdcontent},
+sdimage = #{sdimage},
+ sdtype = #{sdtype} 
+ where sdno = #{sdno}
+</update>
+
+<delete id="delete" parameterType="SurveyDetailVO">
+delete from tbl_surveydetail where sdno = #{sdno}
+</delete>
 
 
 </mapper>
