@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.survey.mappers.SurveyMainMapper">
+
+	<insert id="create" parameterType="SurveyMainVO">
+		insert tbl_surveymain(smtitle,smcontent,smwriter,smimage)
+		values (#{smtitle},#{smcontent},#{smwriter},#{smimage})
+	</insert>
+
+	<select id="read" resultType="SurveyMainVO">
+		select * from tbl_surveymain where smno = #{smno}
+	</select>
+
+	<update id="update" parameterType="SurveyMainVO">
+	update tbl_surveymain 
+	set smtitle = #{smtitle},
+	smcontent = #{smcontent},
+	smwriter = #{smwriter},
+	smimage = #{smimage}
+	where smno = #{smno}
+	</update>
+
+	<delete id="delete" parameterType="SurveyMainVO">
+		delete from tbl_surveymain where smno = #{smno};
+	</delete>
+
+	<select id="listAll" resultType="SurveyMainVO">
+		select * from tbl_surveymain
+		where smno > 0
+		order by smno desc
+	</select>
+
+	<select id="listPage" resultType="SurveyMainVO">
+		select * from tbl_surveymain
+		where smno > 0
+		order by smno desc
+		limit #{page},15
+	</select>
+
+	<select id="count" resultType="java.lang.Integer">
+		select count(*) from tbl_surveymain
+	</select>
+
+</mapper>
