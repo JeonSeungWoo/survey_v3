@@ -27,7 +27,7 @@
 </beans:bean>
 
 <beans:bean id = "uploadPath" class = "java.lang.String">
-<beans:constructor-arg value="C://zzz//uploadFile//" >
+<beans:constructor-arg value="C://Users//BitCamp//workspace//survey_v3//src//main//webapp//resources//uploadFilePath//" >
 </beans:constructor-arg>
 </beans:bean>	
 	
