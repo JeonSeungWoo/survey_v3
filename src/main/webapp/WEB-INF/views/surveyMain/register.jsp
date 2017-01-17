@@ -8,17 +8,17 @@
 </head>
 <body>
 
-<form action="register" method="post" enctype="multiport/form-data">
+<form action="register" method="post" enctype="multipart/form-data">
 
 <div>
 <ul>
-<li>제목<input type="text" onfocus="if(this.value =='설문조사 제목') this.value='';" onblur="if(this.value =='') this.value='설문조사 제목';" value="설문조사 제목"></li>
+<li>제목<input type="text" name ="smtitle" onfocus="if(this.value =='설문조사 제목') this.value='';" onblur="if(this.value =='') this.value='설문조사 제목';" value="설문조사 제목"></li>
 
-<li>설명<input type="text" onfocus="if(this.value =='설문조사 내용') this.value='';" onblur="if(this.value =='') this.value='설문조사 내용';" value="설문조사 내용"></li>
+<li>설명<input type="text" name ="smcontent" onfocus="if(this.value =='설문조사 내용') this.value='';" onblur="if(this.value =='') this.value='설문조사 내용';" value="설문조사 내용"></li>
 
 <li>작성자<input type="text" name = "smwriter" value ="user">
 
-<li>이미지<input type ="file" name ="smimage"></li>
+<li>이미지<input type ="file" name ="file"></li>
 </ul>
 </div>
 

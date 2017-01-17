@@ -1,15 +1,25 @@
 package org.survey.web;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.util.UUID;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.survey.domain.PageMaker;
 import org.survey.domain.SearchCriteria;
@@ -68,6 +78,19 @@ public class SurveyMainController {
 		return "redirect:/surveyMain/listPage?page=1";
 	}*/
 	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
+	
+	@GetMapping(value = "/show",produces = {"image/jpg","image/gif","image/png"})
+	public @ResponseBody byte[] createGet(String fileName)throws Exception{
+		logger.info("GET create call......");
+		
+		InputStream in =  new FileInputStream(uploadPath +fileName);
+		
+		return IOUtils.toByteArray(in);
+		
+	}
+	
 	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
 	public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
@@ -92,11 +115,26 @@ public class SurveyMainController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registPOST(SurveyMainVO vo, RedirectAttributes rttr) throws Exception {
+	public String registPOST(SurveyMainVO vo, RedirectAttributes rttr,
+			@RequestParam("file") MultipartFile file) throws Exception {
 
 		logger.info("regist post ...........");
 		logger.info(vo.toString());
+		
+		UUID uid = UUID.randomUUID();
+		
+		String fileName = file.getOriginalFilename();
+		
+		String uploadName = uid + "_" + fileName;
+		
+		FileOutputStream fos = new FileOutputStream(uploadPath+uploadName);
+		
+		IOUtils.copy(file.getInputStream(),fos);
+		fos.close();
 
+		rttr.addAttribute("uploadName",uploadName);
+		vo.setSmimage(uploadName);
+		
 		service.regist(vo);
 
 		rttr.addFlashAttribute("msg", "SUCCESS");
@@ -112,7 +150,8 @@ public class SurveyMainController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String delete(@RequestParam("smno") int smno, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+	public String delete(@RequestParam("smno") int smno,
+			SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 
 		service.delete(smno);
 
@@ -133,9 +172,28 @@ public class SurveyMainController {
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String updatePagingPOST(SurveyMainVO vo, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+	public String updatePagingPOST(SurveyMainVO vo, SearchCriteria cri,
+			RedirectAttributes rttr,
+			@RequestParam("file") MultipartFile file) throws Exception {
 
 		logger.info(cri.toString());
+		
+		UUID uid = UUID.randomUUID();
+		
+		String fileName = file.getOriginalFilename();
+		
+		String uploadName = uid + "_" + fileName;
+		
+		FileOutputStream fos = new FileOutputStream(uploadPath+uploadName);
+		
+		IOUtils.copy(file.getInputStream(),fos);
+		fos.close();
+
+		rttr.addAttribute("uploadName",uploadName);
+		vo.setSmimage(uploadName);
+		
+		
+		
 		service.update(vo);
 
 		rttr.addAttribute("page", cri.getPage());

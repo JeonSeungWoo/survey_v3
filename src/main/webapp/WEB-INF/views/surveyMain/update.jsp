@@ -7,7 +7,7 @@
 </head>
 <body>
 
-	<form role="form" action="update" method="post">
+	<form role="form" action="update" method="post" enctype="multipart/form-data">
 
 		<input type='hidden' name='page' value="${cri.page}"> <input
 			type='hidden' name='perPageNum' value="${cri.perPageNum}"> <input
@@ -20,8 +20,9 @@
 				type="hidden" name="page" value="${param.page}"> <input
 				type="text" name="smtitle" value="${SurveyMainVO.smtitle}"> <input
 				type="text" name="smcontent" value="${SurveyMainVO.smcontent}"> <input
-				type="text" name="smwriter" value="${SurveyMainVO.smwriter}"> <input type="file"
-				name="smimage" value="${SurveyMainVO.smimage}">
+				type="text" name="smwriter" value="${SurveyMainVO.smwriter}">
+				<input type="file"
+				name="file" value="${SurveyMainVO.smimage}">
 		</div>
 		<!-- /.box-body -->
 	</form>

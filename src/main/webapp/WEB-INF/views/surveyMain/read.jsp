@@ -27,7 +27,8 @@
 				<li>글번호 : ${SurveyMainVO.smno }</li>
 				<li>제목 : ${SurveyMainVO.smtitle }</li>
 				<li>설문내용 : ${SurveyMainVO.smcontent }</li>
-				<li>이미지 : ${SurveyMainVO.smimage }</li>
+				<li>
+				<img id="img" src="show?fileName=${SurveyMainVO.smimage }"></li>
 
 				<li>설문시작일자 : ${SurveyMainVO.smregdate }</li>
 				<li>설문수정일자 : ${SurveyMainVO.smupdatedate }</li>
