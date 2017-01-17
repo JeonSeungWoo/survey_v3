@@ -19,8 +19,7 @@
 				<c:out value="${cri.searchType == null?'selected':''}"/>>
 				---</option>
 			<option value="t"
-				<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-				제목</option>
+				<c:out value="${cri.searchType eq 't'?'selected':''}"/>>제목</option>
 			<option value="c"
 				<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
 				설문내용</option>
@@ -40,6 +39,7 @@
 			value='${cri.keyword }'>
 		<button id='searchBtn'>검색</button>
 		<button id='newBtn'>등록</button>
+		<button id='listBtn'>목록</button>
 
 	</div>
 
@@ -128,6 +128,10 @@
 
 					$('#newBtn').on("click", function(event) {
 						self.location = "register";
+					});
+
+					$('#listBtn').on("click", function(event) {
+						self.location = "listPage";
 					});
 				});
 	</script>

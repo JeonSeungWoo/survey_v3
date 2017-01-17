@@ -12,9 +12,9 @@
 
 <div>
 <ul>
-<li>제목<input type="text" name="smtitle" value="설문조사 제목"></li>
+<li>제목<input type="text" onfocus="if(this.value =='설문조사 제목') this.value='';" onblur="if(this.value =='') this.value='설문조사 제목';" value="설문조사 제목"></li>
 
-<li>설명<input type="text" name = "smcontent" value="설문조사 설명"></li>
+<li>설명<input type="text" onfocus="if(this.value =='설문조사 내용') this.value='';" onblur="if(this.value =='') this.value='설문조사 내용';" value="설문조사 내용"></li>
 
 <li>작성자<input type="text" name = "smwriter" value ="user">
 
