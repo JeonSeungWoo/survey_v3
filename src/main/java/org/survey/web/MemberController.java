@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.survey.domain.MemberVO;
 import org.survey.domain.PageMaker;
 import org.survey.domain.SearchCriteria;
@@ -41,11 +42,11 @@ public class MemberController {
 
 	}
 
-	@GetMapping("/mread")
-	public void read(@RequestParam("membername") String membername, Model model) throws Exception {
-		logger.info("read call..............");
-		model.addAttribute("read", service.read(membername));
-	}
+//	@GetMapping("/mread")
+//	public void read(@RequestParam("membername") String membername, Model model) throws Exception {
+//		logger.info("read call..............");
+//		model.addAttribute("read", service.read(membername));
+//	}
 
 	@GetMapping("/mupdate")
 	public void updateGet(@RequestParam("membername") String membername, Model model) throws Exception {
@@ -57,14 +58,21 @@ public class MemberController {
 	public String updatePost(MemberVO vo, Model model) throws Exception {
 		logger.info("updatePost call................");
 		service.update(vo);
-		return "redirect:/member/listAll";
+		return "redirect:/member/mlistPage";
 	}
-
+	
 	@PostMapping("/mdelete")
-	public String delete(@RequestParam("membername") String membername) throws Exception {
+	public String deletePost(@RequestParam("membername") String membername, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 		logger.info("deletePost call.............");
 		service.delete(membername);
-		return "redirect:/member/listAll";
+		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/member/mlistPage";
 	}
 
 	@GetMapping("/mlistAll")

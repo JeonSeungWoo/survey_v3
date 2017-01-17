@@ -11,8 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>리스트</h1>
-	
+	<h1>멤버리스트</h1>
+
 	<div class='box-body'>
 
 		<select name="searchType">
@@ -25,18 +25,11 @@
 			<option value="e"
 				<c:out value="${cri.searchType eq 'e'?'selected':''}"/>>
 				이메일</option>
-			<option value="j"
-				<c:out value="${cri.searchType eq 'j'?'selected':''}"/>>
-				가입일</option>
+
 			<option value="me"
 				<c:out value="${cri.searchType eq 'me'?'selected':''}"/>>
 				닉네임 or 이메일</option>
-			<option value="ej"
-				<c:out value="${cri.searchType eq 'ej'?'selected':''}"/>>
-				이메일 or 가입일</option>
-			<option value="mej"
-				<c:out value="${cri.searchType eq 'mej'?'selected':''}"/>>
-				닉네임 or 이메일 or 가입일</option>
+
 		</select> <input type="text" name='keyword' id="keywordInput"
 			value='${cri.keyword }'>
 		<button id='searchBtn'>검색</button>
@@ -44,19 +37,24 @@
 
 	</div>
 
-		<form action="mlistPage">
+	<form action="mlistPage" method="post" id="f1">
 		<input type="hidden" name="page" value="${param.page}">
+		<input type="hidden" id='membername' name="membername" value="">
 
 
 		<c:forEach items="${listPage}" var="MemberVO">
 
-			<ul>
-				<li><a href='mread?membername=${MemberVO.membername}'>글 번호 :
-						${MemberVO.membername}</a></li>
-				<li>${MemberVO.email}</li>
-				<li>${MemberVO.joindate}</li>
+			<ul >
+				<li><a href='mread?membername=${MemberVO.membername}'>
+					닉네임 :${MemberVO.membername}</a></li>
+				<li>이메일 : ${MemberVO.email}</li>
+				<li>가입일 : ${MemberVO.joindate}</li>
 			</ul>
-
+			
+			<div id="Button">
+			<button type="submit" id="updateBtn" class= "btn btn-warning">수정</button>
+			<button data-mname ='${MemberVO.membername}' type="submit" id="deleteBtn" class= "btn btn-danger deleteBtn">삭제</button>
+			</div>
 		</c:forEach>
 
 	</form>
@@ -97,8 +95,7 @@
 	</script>
 
 	<script>
-		$(document).ready(
-				function() {
+		$(document).ready(function() {
 					$('#searchBtn').on(
 							"click",
 							function(event) {
@@ -109,11 +106,34 @@
 										+ "&keyword="
 										+ $('#keywordInput').val();
 							});
-
-					$('#newBtn').on("click", function(event) {
-						self.location = "register";
-					});
 				});
+		
+		
+		$(document).ready(function(){
+		var formObj = $("#f1");
+		
+		$('.deleteBtn').on("click", function(event) {
+			
+			var targetName = $(this).attr("data-mname");
+			
+			event.preventDefault();
+			
+			
+			$("#membername").val(targetName);
+			//formObj.attr("action", "mdelete").attr("Method","Post").submit();
+			formObj.attr("action", "mdelete").attr("method","post");
+			
+			console.log(formObj.attr("action"));
+			console.log(formObj.attr("method"));
+			
+			console.log(targetName);
+			console.log("-------------------------"); 
+			
+			formObj.submit();
+			
+			
+		});
+		});
 	</script>
 
 </body>

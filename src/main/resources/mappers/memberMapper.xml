@@ -13,29 +13,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="searchType == 'e'.toString()">
 				where email like CONCAT('%', #{keyword}, '%')
 			</if>
-			<if test="searchType == 'j'.toString()">
-				where joindate like CONCAT('%', #{keyword}, '%')
-			</if>
+			
 			<if test="searchType == 'me'.toString()">
 				where ( membername like CONCAT('%', #{keyword}, '%') OR
 				email
 				like
 				CONCAT('%', #{keyword}, '%'))
-			</if>
-			<if test="searchType == 'ej'.toString()">
-				where ( email like CONCAT('%', #{keyword}, '%') OR
-				joindate
-				like
-				CONCAT('%', #{keyword}, '%'))
-			</if>
-			<if test="searchType == 'mej'.toString()">
-				where ( member like CONCAT('%', #{keyword}, '%')
-				OR
-				email
-				like CONCAT('%', #{keyword}, '%')
-				OR
-				joindate like CONCAT('%',
-				#{keyword}, '%'))
 			</if>
 		</if>
 	</sql>
@@ -62,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<delete id="delete" parameterType="MemberVO">
 		delete from tbl_member
-		where membername = #{membername};
+		where membername = #{membername}
 	</delete>
 
 	<select id="listAll" resultType="MemberVO">

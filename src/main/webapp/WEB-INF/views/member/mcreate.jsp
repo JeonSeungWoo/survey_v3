@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="create" method="post">
+	<form action="mcreate" method="post">
 
 		<div>
 			<ul>
