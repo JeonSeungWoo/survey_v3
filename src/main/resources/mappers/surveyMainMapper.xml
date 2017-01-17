@@ -4,7 +4,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.survey.mappers.SurveyMainMapper">
-
 	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 't'.toString()">
@@ -34,7 +33,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				smcontent
 				like CONCAT('%', #{keyword}, '%')
 				OR
-				smwriter like CONCAT('%',
+				smwriter like
+				CONCAT('%',
 				#{keyword}, '%'))
 			</if>
 		</if>
