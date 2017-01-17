@@ -7,8 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 	<h1>리스트</h1>
@@ -21,22 +20,22 @@
 				---</option>
 			<option value="t"
 				<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-				Title</option>
+				smtitle</option>
 			<option value="c"
 				<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
-				Content</option>
+				smcontent</option>
 			<option value="w"
 				<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-				Writer</option>
+				smwriter</option>
 			<option value="tc"
 				<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
-				Title OR Content</option>
+				smtitle OR smcontent</option>
 			<option value="cw"
 				<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
-				Content OR Writer</option>
+				smcontent OR smwriter</option>
 			<option value="tcw"
 				<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
-				Title OR Content OR Writer</option>
+				smtitle OR smcontent OR smwriter</option>
 		</select> <input type="text" name='keyword' id="keywordInput"
 			value='${cri.keyword }'>
 		<button id='searchBtn'>검색</button>

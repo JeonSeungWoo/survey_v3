@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="create" method="post" enctype="multiport/form-data">
+<form action="register" method="post" enctype="multiport/form-data">
 
 <div>
 <ul>

@@ -108,7 +108,7 @@ public class SurveyMainController {
 	public void read(@RequestParam("smno") int smno, @ModelAttribute("cri") SearchCriteria cri, Model model)
 			throws Exception {
 
-		model.addAttribute(service.read(smno));
+		model.addAttribute("SurveyMainVO",service.read(smno));
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)

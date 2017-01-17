@@ -6,75 +6,69 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
-	<form action="read" id="f1">
-		<input type="hidden" name="smno" value="${read.smno}"> <input
-			type="hidden" name="page" value="${param.page}">
+	<form role="form" action="modifyPage" method="post">
+
+		<input type='hidden' name='smno' value="${read.smno}">
+		<input type='hidden' name='page' value="${cri.page}"> <input
+			type='hidden' name='perPageNum' value="${cri.perPageNum}"> <input
+			type='hidden' name='searchType' value="${cri.searchType}"> <input
+			type='hidden' name='keyword' value="${cri.keyword}">
+
+	</form>
+
+	<form action="SurveyMainVO" id="f1">
+		<input type="hidden" name="smno" value="${SurveyMainVO.smno}">
+		<input type="hidden" name="page" value="${param.page}">
 
 		<div>
 			<ul>
-				<li>글번호 : ${read.smno }</li>
-				<li>제목 : ${read.smtitle }</li>
-				<li>설문내용 : ${read.smcontent }</li>
-				<li>이미지 : ${read.smimage }</li>
+				<li>글번호 : ${SurveyMainVO.smno }</li>
+				<li>제목 : ${SurveyMainVO.smtitle }</li>
+				<li>설문내용 : ${SurveyMainVO.smcontent }</li>
+				<li>이미지 : ${SurveyMainVO.smimage }</li>
 
-				<li>설문시작일자 : ${read.smregdate }</li>
-				<li>설문수정일자 : ${read.smupdatedate }</li>
+				<li>설문시작일자 : ${SurveyMainVO.smregdate }</li>
+				<li>설문수정일자 : ${SurveyMainVO.smupdatedate }</li>
 			</ul>
 		</div>
 	</form>
 
-	<div id="Btn">
-		<button type="submit" id="updateBtn">수정</button>
-		<button type="submit" id="delBtn">삭제</button>
-		<button type="submit" id="listBtn">홈으로</button>
+	<div class="box-footer">
+		<button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
+		<button type="submit" class="btn btn-danger" id="removeBtn">삭제</button>
+		<button type="submit" class="btn btn-primary" id="goListBtn">목록</button>
 	</div>
-
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
 
 	<script>
-		$(document).ready(
-				function() {
+		$(document).ready(function() {
 
-					var obj = $("#f1");
+			var formObj = $("form[role='form']");
 
-					$("#updateBtn").on(
-							"click",
-							function() {
+			console.log(formObj);
 
-								obj.attr("action", "update").attr("method",
-										"get").submit();
-							});
+			$("#modifyBtn").on("click", function() {
+				formObj.attr("action", "/surveyMain/update");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
 
-					$("#delBtn").on(
-							"click",
-							function() {
+			$("#removeBtn").on("click", function() {
+				formObj.attr("action", "/surveyMain/delete");
+				formObj.submit();
+			});
 
-								obj.attr("action", "delete").attr("method",
-										"post").submit();
-							});
+			$("#goListBtn ").on("click", function() {
+				formObj.attr("method", "get");
+				formObj.attr("action", "/surveyMain/listPage");
+				formObj.submit();
+			});
 
-					$("#listBtn").on(
-							"click",
-							function() {
-
-								obj.attr("action", "listSearch").attr("method",
-										"get").submit();
-							});
-
-				});
+		});
 	</script>
-
-
-
-
-
-</body>
-
-
 </html>
