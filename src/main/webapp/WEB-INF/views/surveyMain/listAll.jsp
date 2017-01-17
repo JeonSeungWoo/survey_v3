@@ -8,6 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
+<style>
+* {
+border : 2px dotted green;
+}
+</style>
+
 <body>
 <h1>리스트</h1>
 <ul>
