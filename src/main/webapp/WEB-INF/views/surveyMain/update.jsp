@@ -1,56 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
 
-<form action="update" method="post">
-<div id="updateMain">
-<input type ="hidden" name="smno" value="${vo.smno}">
-<input type="hidden" name = "page" value ="${param.page}">
+	<form role="form" action="update" method="post">
 
-<input type="text" name="smtitle" value="설문조사 제목">
-
-<input type="text" name = "smcontent" value="설문조사 설명">
-<input type="text" name = "smwriter" value ="user">
-<input type ="file" name ="smimage" value="${vo.smimage}">
-</div>
-
-<button type = "submit" id= "updateBtn">수정</button>
-<button type="submit" id = "listBtn">목록으로</button>
-
-</form>
-<form action="listSearch" id= "f2">
-<input type ="hidden" name="smno" value="${vo.smno}">
-<input type="hidden" name = "page" value ="${param.page}">
-</form>
-
-<script src="https://code.jquery.com/jquery-2.2.4.js"
-integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-crossorigin="anonymous"></script>
-
-<script>
+		<input type='hidden' name='page' value="${cri.page}"> <input
+			type='hidden' name='perPageNum' value="${cri.perPageNum}"> <input
+			type='hidden' name='searchType' value="${cri.searchType}"> <input
+			type='hidden' name='keyword' value="${cri.keyword}">
 
 
-$(document).ready(function(){
+		<div id="updateMain">
+			<input type="hidden" name="smno" value="${SurveyMainVO.smno}"> <input
+				type="hidden" name="page" value="${param.page}"> <input
+				type="text" name="smtitle" value="${SurveyMainVO.smtitle}"> <input
+				type="text" name="smcontent" value="${SurveyMainVO.smcontent}"> <input
+				type="text" name="smwriter" value="${SurveyMainVO.smwriter}"> <input type="file"
+				name="smimage" value="${SurveyMainVO.smimage}">
+		</div>
+		<!-- /.box-body -->
+	</form>
+	<div class="box-footer">
+		<button type="submit" class="btn btn-primary">저장</button>
+		<button type="submit" class="btn btn-warning">취소</button>
+	</div>
 
-	$("#updateBtn").on("click",function(){
-		
-		obj.attr("action","update").attr("method","post").submit();
-	});
+	<script src="https://code.jquery.com/jquery-2.2.4.js"
+		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+		crossorigin="anonymous"></script>
 
-	$("#listBtn").on("click",function(){
-		$("#f2").attr("action","listPage").submit();
-		
-	});
-
-});
-
-</script>
-
+	<script>
+		$(document)
+				.ready(
+						function() {
+							var formObj = $("form[role='form']");
+							console.log(formObj);
+							$(".btn-warning")
+									.on(
+											"click",
+											function() {
+												self.location = "/surveyMain/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
+														+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
+											});
+							$(".btn-primary").on("click", function() {
+								formObj.submit();
+							});
+						});
+	</script>
 </body>
 </html>

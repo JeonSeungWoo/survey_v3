@@ -129,7 +129,7 @@ public class SurveyMainController {
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public void updatePagingGET(int smno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
-		model.addAttribute(service.read(smno));
+		model.addAttribute("SurveyMainVO",service.read(smno));
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)

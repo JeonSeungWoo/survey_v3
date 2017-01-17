@@ -20,22 +20,22 @@
 				---</option>
 			<option value="t"
 				<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-				smtitle</option>
+				제목</option>
 			<option value="c"
 				<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
-				smcontent</option>
+				설문내용</option>
 			<option value="w"
 				<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-				smwriter</option>
+				작성자</option>
 			<option value="tc"
 				<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
-				smtitle OR smcontent</option>
+				제목 OR 설문내용</option>
 			<option value="cw"
 				<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
-				smcontent OR smwriter</option>
+				설문내용 OR 작성자</option>
 			<option value="tcw"
 				<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
-				smtitle OR smcontent OR smwriter</option>
+				제목 OR 설문내용 OR 작성자</option>
 		</select> <input type="text" name='keyword' id="keywordInput"
 			value='${cri.keyword }'>
 		<button id='searchBtn'>검색</button>

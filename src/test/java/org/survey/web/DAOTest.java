@@ -38,11 +38,11 @@ public class DAOTest {
 	@Test
 	public void updateTest()throws Exception{
 		SurveyMainVO vo = new SurveyMainVO();
-		vo.setSmtitle("원빈화 에대한 설문");
-		vo.setSmcontent("원빈화 얼마나 진행 되었는가?");
+		vo.setSmtitle("고귀한");
+		vo.setSmcontent("왜 안되는것인가?");
 		vo.setSmwriter("gonoble");
 		vo.setSmimage("이미지123");
-		vo.setSmno(1);
+		vo.setSmno(14);
 		
 		dao.update(vo);
 	}

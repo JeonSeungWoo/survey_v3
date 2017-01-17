@@ -8,9 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-	<form role="form" action="modifyPage" method="post">
+	<form role="form" action="update" method="post">
 
-		<input type='hidden' name='smno' value="${read.smno}">
+		<input type='hidden' name='smno' value="${SurveyMainVO.smno}">
 		<input type='hidden' name='page' value="${cri.page}"> <input
 			type='hidden' name='perPageNum' value="${cri.perPageNum}"> <input
 			type='hidden' name='searchType' value="${cri.searchType}"> <input
