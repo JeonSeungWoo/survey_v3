@@ -45,6 +45,7 @@
 							$("#saveBtn").on("click",function() {
 								self.location = "/surveyMain/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
 												+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
+								formObj.submit();
 											});
 							
 							$("#cancelBtn").on("click", function() {
