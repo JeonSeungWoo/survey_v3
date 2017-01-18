@@ -10,10 +10,6 @@
 <meta http-equiv="content-Type" content="text/html; charset=UTF-8">
 </head>
 
-<style>
-* {
-border: 2px dotted green;
-}</style>
 
 <body>
 	<h1>리스트</h1>
