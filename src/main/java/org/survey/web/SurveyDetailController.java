@@ -27,18 +27,22 @@ public class SurveyDetailController {
 	private SurveyDetailService service;
 	
 	@PostMapping("")
-	public ResponseEntity<String> register(@RequestBody SurveyDetailVO vo){
+	public ResponseEntity<String> register(SurveyDetailVO vo){
 		
 		ResponseEntity<String> entity = null;
 		
 		try {
 			
-			service.create(vo);
-			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			//service.create(vo);
+			//entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			logger.info("vo : " + vo);
+			//logger.info("entity :" +entity);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+			
+			logger.info("entity :" +entity);
 		}
 		
 		return entity;
@@ -67,7 +71,7 @@ public class SurveyDetailController {
 			method = {RequestMethod.PUT,RequestMethod.PATCH})
 	public ResponseEntity<String> update(
 			@PathVariable("sdno") Integer sdno,
-			@RequestBody SurveyDetailVO vo)throws Exception{
+			SurveyDetailVO vo)throws Exception{
 		
 		ResponseEntity<String> entity = null;
 		
