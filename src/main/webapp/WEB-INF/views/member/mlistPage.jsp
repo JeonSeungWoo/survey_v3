@@ -10,13 +10,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<style type="text/css">
+<style>
+.pagination li {
+	list-style: none;
+	float: left;
+	margin: 1em;
+}
 
-.lipage{
-list-style: none;
-float: left;
-margin: 1em;
+.pagination .prev {
+	list-style: none;
+}
 
+.pagination .next {
+	list-style: none;
 }
 </style>
 
@@ -49,22 +55,24 @@ margin: 1em;
 	</div>
 
 	<form action="mlistPage" method="post" id="f1">
-		<input type="hidden" name="page" value="${param.page}">
-		<input type="hidden" id='membername' name="membername" value="">
+		<input type="hidden" name="page" value="${param.page}"> <input
+			type="hidden" id='membername' name="membername" value="">
 
 
 		<c:forEach items="${listPage}" var="MemberVO">
 
-			<ul >
-				<li><a href='mread?membername=${MemberVO.membername}'>
-					닉네임 :${MemberVO.membername}</a></li>
+			<ul>
+				<li><a href='mread?membername=${MemberVO.membername}'> 닉네임
+						:${MemberVO.membername}</a></li>
 				<li>이메일 : ${MemberVO.email}</li>
 				<li>가입일 : ${MemberVO.joindate}</li>
 			</ul>
-			
+
 			<div id="Button">
-			<button data-mname ='${MemberVO.membername}' type="submit" id="updateBtn" class= "btn btn-warning updateBtn">수정</button>
-			<button data-mname ='${MemberVO.membername}' type="submit" id="deleteBtn" class= "btn btn-danger deleteBtn">삭제</button>
+				<button data-mname='${MemberVO.membername}' type="submit"
+					id="updateBtn" class="btn btn-warning updateBtn">수정</button>
+				<button data-mname='${MemberVO.membername}' type="submit"
+					id="deleteBtn" class="btn btn-danger deleteBtn">삭제</button>
 			</div>
 		</c:forEach>
 
@@ -74,20 +82,21 @@ margin: 1em;
 		<ul class="pagination">
 
 			<c:if test="${pageMaker.prev}">
-				<li><a href="mlistPage${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+				<li class="prev"><a
+					href="mlistPage${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 			</c:if>
 
 			<c:forEach begin="${pageMaker.startPage }"
 				end="${pageMaker.endPage }" var="idx">
-				<li class = "lipage" <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+				<li <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
 					<a href="mlistPage${pageMaker.makeSearch(idx)}">${idx}</a>
 				</li>
 			</c:forEach>
 
 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-				<li class = "lipage">
-				<a href="mlistPage${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
-				
+				<li class="next"><a
+					href="mlistPage${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+
 			</c:if>
 
 		</ul>
@@ -106,7 +115,8 @@ margin: 1em;
 	</script>
 
 	<script>
-		$(document).ready(function() {
+		$(document).ready(
+				function() {
 					$('#searchBtn').on(
 							"click",
 							function(event) {
@@ -118,53 +128,50 @@ margin: 1em;
 										+ $('#keywordInput').val();
 							});
 				});
-		
-		
-		$(document).ready(function(){
-		var formObj = $("#f1");
-		
-		$('.deleteBtn').on("click", function(event) {
-			
-			var targetName = $(this).attr("data-mname");
-			
-			event.preventDefault();
-			
-			
-			$("#membername").val(targetName);
-			
-			formObj.attr("action", "mdelete").attr("method","post");
-			
-			console.log(formObj.attr("action"));
-			console.log(formObj.attr("method"));
-			
-			console.log(targetName);
-			console.log("-------------------------"); 
-			
-			formObj.submit();
-			
-			
-		});
-		
-		$('.updateBtn').on("click", function(event){
-			
-			var targetName = $(this).attr("data-mname");
-			
-			event.preventDefault();
-			
-			$("#membername").val(targetName);
-			
-			formObj.attr("action", "mupdate").attr("method","get");
-			
-			console.log(formObj.attr("action"));
-			console.log(formObj.attr("method"));
-			
-			console.log(targetName);
-			console.log("-------------------------"); 
-			
-			formObj.submit();
-			
-		});
-		
+
+		$(document).ready(function() {
+			var formObj = $("#f1");
+
+			$('.deleteBtn').on("click", function(event) {
+
+				var targetName = $(this).attr("data-mname");
+
+				event.preventDefault();
+
+				$("#membername").val(targetName);
+
+				formObj.attr("action", "mdelete").attr("method", "post");
+
+				console.log(formObj.attr("action"));
+				console.log(formObj.attr("method"));
+
+				console.log(targetName);
+				console.log("-------------------------");
+
+				formObj.submit();
+
+			});
+
+			$('.updateBtn').on("click", function(event) {
+
+				var targetName = $(this).attr("data-mname");
+
+				event.preventDefault();
+
+				$("#membername").val(targetName);
+
+				formObj.attr("action", "mupdate").attr("method", "get");
+
+				console.log(formObj.attr("action"));
+				console.log(formObj.attr("method"));
+
+				console.log(targetName);
+				console.log("-------------------------");
+
+				formObj.submit();
+
+			});
+
 		});
 	</script>
 
