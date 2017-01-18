@@ -8,11 +8,23 @@
 <html>
 <head>
 <meta http-equiv="content-Type" content="text/html; charset=UTF-8">
+
+<style type="text/css">
+
+
+
+.lipage{
+list-style: none;
+float: left;
+margin: 0.5em;
+}
+</style>
+
 </head>
 
 
 <body>
-	<h1>리스트</h1>
+	<h1>마이페이지</h1>
 
 	<div class='box-body'>
 
@@ -42,6 +54,7 @@
 		<button id='searchBtn'>검색</button>
 		<button id='newBtn'>등록</button>
 		<button id='listBtn'>목록</button>
+		<button id="partiBtn">참여한목록</button>
 
 	</div>
 
@@ -83,19 +96,19 @@
 		<ul class="pagination">
 
 			<c:if test="${pageMaker.prev}">
-				<li><a
+				<li class = "lipage"><a
 					href="listPage${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 			</c:if>
 
 			<c:forEach begin="${pageMaker.startPage }"
 				end="${pageMaker.endPage }" var="idx">
-				<li <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+				<li  class = "lipage" <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
 					<a href="listPage${pageMaker.makeSearch(idx)}">${idx}</a>
 				</li>
 			</c:forEach>
 
 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-				<li><a
+				<li class = "lipage" ><a
 					href="listPage${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 			</c:if>
 
