@@ -78,7 +78,7 @@
 
 			<ul class="page">
 				<li><a
-					href='read?smno=${SurveyMainVO.smno}
+					href='read?smno=${SurveyMainVO.smno}&page=${param.page}
 				&searchType=${param.searchType}&keyword=${param.keyword}'>
 						글 번호 :${SurveyMainVO.smno}</a></li>
 				<li>${SurveyMainVO.smtitle}</li>
