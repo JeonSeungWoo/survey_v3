@@ -158,7 +158,7 @@
 					});
 
 					$('#listBtn').on("click", function(event) {
-						self.location = "listPage";
+						self.location = "listPage?page=${cri.page}";
 					});
 				});
 	</script>

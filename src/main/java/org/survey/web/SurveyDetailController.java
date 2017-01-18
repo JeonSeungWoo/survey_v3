@@ -27,6 +27,30 @@ public class SurveyDetailController {
 	private SurveyDetailService service;
 	
 	@PostMapping("")
+	public ResponseEntity<String> register(Integer smno, String test,String sdtitle){
+		
+		ResponseEntity<String> entity = null;
+		
+		try {
+			
+			//service.create(vo);
+			//entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			logger.info("vo : " + test);
+			logger.info("smno : " + smno);
+			logger.info("sdtitle : " +sdtitle);
+			//logger.info("entity :" +entity);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+			
+			logger.info("entity :" +entity);
+		}
+		
+		return entity;
+	}
+	
+/*	@PostMapping("")
 	public ResponseEntity<String> register(SurveyDetailVO vo){
 		
 		ResponseEntity<String> entity = null;
@@ -46,7 +70,7 @@ public class SurveyDetailController {
 		}
 		
 		return entity;
-	}
+	}*/
 	
 	@GetMapping("/all/{smno}")
 	public ResponseEntity<List<SurveyDetailVO>>list(
