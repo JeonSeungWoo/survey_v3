@@ -9,6 +9,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<style>
+.pagination li {
+	list-style: none;
+	float: left;
+	margin: 1em;
+}
+
+.pagination .prev {
+	list-style: none;
+}
+
+.pagination .next {
+	list-style: none;
+}
+</style>
+
 </head>
 <body>
 	<h1>멤버리스트</h1>
@@ -38,22 +55,24 @@
 	</div>
 
 	<form action="mlistPage" method="post" id="f1">
-		<input type="hidden" name="page" value="${param.page}">
-		<input type="hidden" id='membername' name="membername" value="">
+		<input type="hidden" name="page" value="${param.page}"> <input
+			type="hidden" id='membername' name="membername" value="">
 
 
 		<c:forEach items="${listPage}" var="MemberVO">
 
-			<ul >
-				<li><a href='mread?membername=${MemberVO.membername}'>
-					닉네임 :${MemberVO.membername}</a></li>
+			<ul>
+				<li><a href='mread?membername=${MemberVO.membername}'> 닉네임
+						:${MemberVO.membername}</a></li>
 				<li>이메일 : ${MemberVO.email}</li>
 				<li>가입일 : ${MemberVO.joindate}</li>
 			</ul>
-			
+
 			<div id="Button">
-			<button data-mname ='${MemberVO.membername}' type="submit" id="updateBtn" class= "btn btn-warning updateBtn">수정</button>
-			<button data-mname ='${MemberVO.membername}' type="submit" id="deleteBtn" class= "btn btn-danger deleteBtn">삭제</button>
+				<button data-mname='${MemberVO.membername}' type="submit"
+					id="updateBtn" class="btn btn-warning updateBtn">수정</button>
+				<button data-mname='${MemberVO.membername}' type="submit"
+					id="deleteBtn" class="btn btn-danger deleteBtn">삭제</button>
 			</div>
 		</c:forEach>
 
@@ -63,7 +82,7 @@
 		<ul class="pagination">
 
 			<c:if test="${pageMaker.prev}">
-				<li><a
+				<li class="prev"><a
 					href="mlistPage${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 			</c:if>
 
@@ -75,8 +94,9 @@
 			</c:forEach>
 
 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-				<li><a
+				<li class="next"><a
 					href="mlistPage${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+
 			</c:if>
 
 		</ul>
@@ -95,7 +115,8 @@
 	</script>
 
 	<script>
-		$(document).ready(function() {
+		$(document).ready(
+				function() {
 					$('#searchBtn').on(
 							"click",
 							function(event) {
@@ -107,53 +128,50 @@
 										+ $('#keywordInput').val();
 							});
 				});
-		
-		
-		$(document).ready(function(){
-		var formObj = $("#f1");
-		
-		$('.deleteBtn').on("click", function(event) {
-			
-			var targetName = $(this).attr("data-mname");
-			
-			event.preventDefault();
-			
-			
-			$("#membername").val(targetName);
-			
-			formObj.attr("action", "mdelete").attr("method","post");
-			
-			console.log(formObj.attr("action"));
-			console.log(formObj.attr("method"));
-			
-			console.log(targetName);
-			console.log("-------------------------"); 
-			
-			formObj.submit();
-			
-			
-		});
-		
-		$('.updateBtn').on("click", function(event){
-			
-			var targetName = $(this).attr("data-mname");
-			
-			event.preventDefault();
-			
-			$("#membername").val(targetName);
-			
-			formObj.attr("action", "mupdate").attr("method","get");
-			
-			console.log(formObj.attr("action"));
-			console.log(formObj.attr("method"));
-			
-			console.log(targetName);
-			console.log("-------------------------"); 
-			
-			formObj.submit();
-			
-		});
-		
+
+		$(document).ready(function() {
+			var formObj = $("#f1");
+
+			$('.deleteBtn').on("click", function(event) {
+
+				var targetName = $(this).attr("data-mname");
+
+				event.preventDefault();
+
+				$("#membername").val(targetName);
+
+				formObj.attr("action", "mdelete").attr("method", "post");
+
+				console.log(formObj.attr("action"));
+				console.log(formObj.attr("method"));
+
+				console.log(targetName);
+				console.log("-------------------------");
+
+				formObj.submit();
+
+			});
+
+			$('.updateBtn').on("click", function(event) {
+
+				var targetName = $(this).attr("data-mname");
+
+				event.preventDefault();
+
+				$("#membername").val(targetName);
+
+				formObj.attr("action", "mupdate").attr("method", "get");
+
+				console.log(formObj.attr("action"));
+				console.log(formObj.attr("method"));
+
+				console.log(targetName);
+				console.log("-------------------------");
+
+				formObj.submit();
+
+			});
+
 		});
 	</script>
 

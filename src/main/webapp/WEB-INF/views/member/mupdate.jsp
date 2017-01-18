@@ -10,37 +10,33 @@
 	
 	<form role="form" action="mupdate" method="post" id="f2">
 	
-	<div class="box-body">
-	
 		<input type='hidden' name='page' value="${cri.page}">
 		<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 		<input type='hidden' name='searchType' value="${cri.searchType}">
 		<input type='hidden' name='keyword' value="${cri.keyword}">
 		
+	<div class="box-body">
+	
 		<div id="updateMember">
 			닉네임 : <input type="text" readonly="readonly" name="membername" value="${MemberVO.membername}"><br>
 			이메일 : <input type="text" name="email" value="${MemberVO.email}"><br>
-			가입일 : "${MemberVO.joindate}"<br>
+			가입일 : ${MemberVO.joindate}<br>
 		</div>
 		
-		<!-- /.box-body -->
-		
-		
-	
 	</form>
 		
 		<div class="box-footer">
 			<button data-mname ='${MemberVO.membername}' type="submit" id="updateBtn" class="btn btn-primary">수정</button>
-			<button data-mname ='${MemberVO.membername}' type="submit" id="cancelBtn" class="btn btn-warning">취소</button>
 		</div>
 		
-		<script>
-		var result = '${msg}';
-		if (result == 'SUCCESS') {
-			alert("처리가 완료되었습니다.");
-		}
-	</script>
-
+	
+	<form action="mlistPage" id = "f4" method="get">
+	
+	<button type="submit" class="btn btn-warning">취소</button>
+	
+	</form>	
+		
+		
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
@@ -50,7 +46,7 @@
 			
 			var formObj = $("#f2");
 			
-			$('#updateBtn').on("click", function(event) {
+			$('.updateBtn').on("click", function(event) {
 			
 			var targetName = $(this).attr("data-mname");
 			console.log(formObj);
@@ -65,9 +61,18 @@
 			console.log(targetName);
 			console.log("-------------------------"); 
 			
-			formObj.submit();		
+			formObj.submit();
+			
 			
 		});
+		
+		$(".btn-warning").on("click",function() {
+			
+			$("#f4").attr("action","mlistPage?${cri.page}"),attr("method","get").submit();
+			
+			
+		});
+		
 		});
 	</script> 
 	

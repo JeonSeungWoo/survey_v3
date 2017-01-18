@@ -48,7 +48,7 @@
 											});
 							
 							$("#cancelBtn").on("click", function() {
-								formObj.attr("action","listPage?page=1");
+								formObj.attr("action","listPage?page=${cri.page}");
 								formObj.attr("method", "get");
 								formObj.submit();
 							});

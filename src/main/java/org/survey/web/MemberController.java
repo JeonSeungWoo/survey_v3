@@ -38,7 +38,7 @@ public class MemberController {
 		logger.info("mcreatePost call.....");
 		service.create(vo);
 
-		return "redirect:/member/listAll";
+		return "redirect:/member/mlistPage";
 
 	}
 
@@ -68,7 +68,7 @@ public class MemberController {
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		logger.info(rttr.toString());
-		return "redirect:/member/mlistPage";
+		return "redirect:/member/mlistPage?${cri.page}";
 	}
 	
 	@PostMapping("/mdelete")
