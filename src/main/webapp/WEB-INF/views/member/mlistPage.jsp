@@ -52,7 +52,7 @@
 			</ul>
 			
 			<div id="Button">
-			<button type="submit" id="updateBtn" class= "btn btn-warning">수정</button>
+			<button data-mname ='${MemberVO.membername}' type="submit" id="updateBtn" class= "btn btn-warning updateBtn">수정</button>
 			<button data-mname ='${MemberVO.membername}' type="submit" id="deleteBtn" class= "btn btn-danger deleteBtn">삭제</button>
 			</div>
 		</c:forEach>
@@ -120,7 +120,7 @@
 			
 			
 			$("#membername").val(targetName);
-			//formObj.attr("action", "mdelete").attr("Method","Post").submit();
+			
 			formObj.attr("action", "mdelete").attr("method","post");
 			
 			console.log(formObj.attr("action"));
@@ -133,6 +133,27 @@
 			
 			
 		});
+		
+		$('.updateBtn').on("click", function(event){
+			
+			var targetName = $(this).attr("data-mname");
+			
+			event.preventDefault();
+			
+			$("#membername").val(targetName);
+			
+			formObj.attr("action", "mupdate").attr("method","get");
+			
+			console.log(formObj.attr("action"));
+			console.log(formObj.attr("method"));
+			
+			console.log(targetName);
+			console.log("-------------------------"); 
+			
+			formObj.submit();
+			
+		});
+		
 		});
 	</script>
 

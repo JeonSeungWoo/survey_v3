@@ -35,8 +35,8 @@ public class MemberTest {
 	@Test
 	public void updateTest() throws Exception {
 		MemberVO vo = new MemberVO();
-		vo.setMembername("최원빈");
 		vo.setEmail("peakapeak@naver.com");
+		vo.setMembername("전승우");
 		
 		dao.update(vo);
 	}

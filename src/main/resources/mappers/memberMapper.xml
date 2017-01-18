@@ -38,8 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="update" parameterType="MemberVO">
 		update tbl_member
-		set
-		email = #{email}
+		set email = #{email}
 		where membername = #{membername}
 	</update>
 
