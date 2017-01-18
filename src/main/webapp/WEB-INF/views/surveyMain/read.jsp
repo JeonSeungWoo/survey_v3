@@ -108,16 +108,15 @@ $(".surveyAddBtn").on("click",function(event){
 	
 	console.log("--------------------------");
 	
-	var  form = $('#FILE_FORM')[0];
+	var  form = $('FILE_FORM')[0];
 	var formData =  new FormData(form);
 	
 	formData.append("smno", $(".newSmno").val());
-	//formData.append("sdtitle",$(".newSdtitle").val());
-	//formData.append("sdcontent",$(".newSdcontent").val());
-	//formData.append("fileObj", $(".newSdimage")[0].files[0]);
-	//formData.append("sdtype",$(".newSdtype").val());
-	
-	formData.append("test","test Data");
+	formData.append("sdtitle",$(".newSdtitle").val());
+	formData.append("sdcontent",$(".newSdcontent").val());
+	formData.append("sdimage", $(".newSdimage")[0].files[0]);
+	formData.append("sdtype",$(".newSdtype").val());
+
 	
 	console.log("-----------------");
 	console.log(formData);
@@ -135,6 +134,10 @@ $(".surveyAddBtn").on("click",function(event){
 		});
 });
 
+
+
+
+
 var printData =  function(surveyArr, target, templateObject){
 	var template = Handlebars.compile(templateObject.html());
 	var html = template(surveyArr);
@@ -151,11 +154,19 @@ function getPage(pageInfo){
 	});
 }
 
+$("#surveyDiv").on("click",function(){
+	if($(".timeline li").size() > 1){
+		return;
+	}
+	getPage("/surveyDetail/"+smno+"/1");
+});
 
-
-
+$(".timelin").on("click",".surveyLi",function(event){
+	var survey = $(this);
+	$(".newSdtitle").val(survey.find(".timeline-body").text());
+	$(".modal-title").html(survey.attr());
 	
-	
+});
 
 </script>
 

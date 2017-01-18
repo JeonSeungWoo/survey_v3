@@ -27,17 +27,18 @@ public class SurveyDetailController {
 	private SurveyDetailService service;
 	
 	@PostMapping("")
-	public ResponseEntity<String> register(Integer smno, String test,String sdtitle){
+	public ResponseEntity<String> register(SurveyDetailVO vo){
 		
 		ResponseEntity<String> entity = null;
 		
 		try {
 			
-			//service.create(vo);
-			//entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-			logger.info("vo : " + test);
-			logger.info("smno : " + smno);
-			logger.info("sdtitle : " +sdtitle);
+			
+			
+			
+			service.create(vo);
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			
 			//logger.info("entity :" +entity);
 			
 		} catch (Exception e) {
