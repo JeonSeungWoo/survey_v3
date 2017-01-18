@@ -49,15 +49,23 @@ height: 200px;
 	</div>
 	
 	
+	
+	
 <form id="FILE_FORM" method="post" enctype="multipart/form-data" action="/surveyDetail">
-  
+
+
+<ul class ="timeLine">
+<li class = "time-label" id ="surveyDiv">
+<span class="bg-green">항목</span></li>
+</ul>
+
 
 <ul>
 <li>번호<input type = "text" name="smno" class ="newSmno" value="${SurveyMainVO.smno}" readonly="readonly"></li>
-<li>제목<input type = "text" name="sdtitle" class ="newSdtitle"></li>
-<li>내용<input type = "text" name="sdcontent" class ="newSdcontent"></li>
+<li>제목<input type = "text" name="sdtitle" class ="newSdtitle" value="제목입력하세요"></li>
+<li>내용<input type = "text" name="sdcontent" class ="newSdcontent" value = "내용을 입력하세요"></li>
 <li>이미지<input type = "file" name="sdimage" class ="newSdimage"></li>
-<li><input type ="text" name="sdtype" class ="newSdtype" value = "A" readonly="readonly">OX퀴즈</li>
+<li>타입<input type ="text" name="sdtype" class ="newSdtype" value = "A"></li>
 </ul>        
 
 <button type ="submit"  class= "surveyAddBtn">항목 등록</button>
@@ -74,44 +82,79 @@ height: 200px;
 
 <script type="text/javascript" src="/resources/js/jquery.form.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.amd.js"></script>
+
+<script id ="template" type ="text/x-handlebars-template">
+{{#each.}}
+<li class ="surbeyLi" data-sdno={{sdno}}>
+<i class ="fa fa-comments bg-blue"></i>
+<div class ="timeline-item">
+<span class="time">
+<h3 class="timeline-header"><strong>{{sdno}}</strong> - {{sdtitle}}</h3>
+<div class="timeline-body">{{sdcontent}}</div>
+<div class="timeline-body">{{sdimage}}</div>
+<div class="timeline-body">{{sdtype}}</div>
+{{#eqSurvey servey}}
+{{/eqSurvey}}
+</div>
+</li>
+</script>
+
 <script>
 
-$(".surveyAddBtn").on("click",function(){
+$(".surveyAddBtn").on("click",function(event){
+	
+	event.preventDefault();
+	
+	console.log("--------------------------");
+	
 	var  form = $('#FILE_FORM')[0];
 	var formData =  new FormData(form);
-	formData.append("smno",$(".newSmno"));
-	formData.append("fileObj",$(".newSdimage")[0].files[0]);
-	formData.append("sdcontent",$(".newSdtitle"));
-	formData.append("sdtitle",$(".newSdcontent"));
-	formData.append("sdtype",$(".newSdtype"));
 	
+	formData.append("smno", $(".newSmno").val());
+	//formData.append("sdtitle",$(".newSdtitle").val());
+	//formData.append("sdcontent",$(".newSdcontent").val());
+	//formData.append("fileObj", $(".newSdimage")[0].files[0]);
+	//formData.append("sdtype",$(".newSdtype").val());
+	
+	formData.append("test","test Data");
+	
+	console.log("-----------------");
+	console.log(formData);
 	$.ajax({
-		type : "POST",
-		url : "/surveyDetail",
-		headers : {
-			"Content-Type" : "application/json",
-			"X-HTTP-Method-Override" : "POST"
-		},
-		data : formData,
-	
+		
+		url:'/surveyDetail',
+		processData: false,
+        contentType: false,
+        data: formData,
+        type: 'POST',
 		success : function(result){
 				alert("등록 되었습니다.");
 			}
-		});
 		
+		});
+});
+
+var printData =  function(surveyArr, target, templateObject){
+	var template = Handlebars.compile(templateObject.html());
+	var html = template(surveyArr);
+	$(".surbeyLi").remove();
+	target.after(html);
+	
+}
+
+var sdno = ${SurveyMainVO.smno};
+function getPage(pageInfo){
+	
+	$.getJSON(pageInfo, function(data){
+		printData(data.list, $("#surveyDiv"),$("#template"));
 	});
-	
-	
-var options = {
-        dataType:"text",//결과
-        success:function(responseText){
-            alert("업로드 성공!!");
-        }, error:function(e){e.responseText();}
-    };
-    
+}
 
-$("#FILE_FORM").ajaxForm(options).submit();
 
+
+
+	
 	
 
 </script>

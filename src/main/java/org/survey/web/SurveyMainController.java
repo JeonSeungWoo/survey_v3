@@ -139,7 +139,7 @@ public class SurveyMainController {
 
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/surveyMain/listPage";
+		return "redirect:/surveyMain/listPage?page=1";
 	}
 
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
