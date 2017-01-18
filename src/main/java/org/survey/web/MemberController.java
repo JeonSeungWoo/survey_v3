@@ -49,15 +49,25 @@ public class MemberController {
 //	}
 
 	@GetMapping("/mupdate")
-	public void updateGet(@RequestParam("membername") String membername, Model model) throws Exception {
+	public void updateGet(@RequestParam("membername") String membername, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 		logger.info("updateGet call...................");
-		model.addAttribute("vo", service.read(membername));
+		model.addAttribute("MemberVO", service.read(membername));
 	}
 
 	@PostMapping("/mupdate")
-	public String updatePost(MemberVO vo, Model model) throws Exception {
-		logger.info("updatePost call................");
+	public String updatePost(MemberVO vo, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+		logger.info("updatePost call.............");
+		
+		logger.info(cri.toString());
 		service.update(vo);
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		logger.info(rttr.toString());
 		return "redirect:/member/mlistPage";
 	}
 	
