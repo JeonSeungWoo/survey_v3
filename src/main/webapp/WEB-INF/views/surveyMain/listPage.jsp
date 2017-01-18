@@ -9,14 +9,24 @@
 <head>
 <meta http-equiv="content-Type" content="text/html; charset=UTF-8">
 
-<style type="text/css">
+<style>
+.page {
+	list-style: none;
+}
 
+.pagination li {
+	list-style: none;
+	float: left;
+	margin: 0.5em;
+	border: 1px solid black;
+}
 
+.pagination .prev {
+	background-color: red;
+}
 
-.lipage{
-list-style: none;
-float: left;
-margin: 0.5em;
+.pagination .next {
+	background-color: red;
 }
 </style>
 
@@ -33,8 +43,7 @@ margin: 0.5em;
 				<c:out value="${cri.searchType == null?'selected':''}"/>>
 				---</option>
 			<option value="t"
-				<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-				제목</option>
+				<c:out value="${cri.searchType eq 't'?'selected':''}"/>>제목</option>
 			<option value="c"
 				<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
 				설문내용</option>
@@ -67,10 +76,11 @@ margin: 0.5em;
 
 		<c:forEach items="${listPage}" var="SurveyMainVO">
 
-			<ul>
-				<li><a href='read?smno=${SurveyMainVO.smno}
+			<ul class="page">
+				<li><a
+					href='read?smno=${SurveyMainVO.smno}
 				&searchType=${param.searchType}&keyword=${param.keyword}'>
-				글 번호 :${SurveyMainVO.smno}</a></li>
+						글 번호 :${SurveyMainVO.smno}</a></li>
 				<li>${SurveyMainVO.smtitle}</li>
 				<li>${SurveyMainVO.smcontent}</li>
 			</ul>
@@ -98,19 +108,19 @@ margin: 0.5em;
 		<ul class="pagination">
 
 			<c:if test="${pageMaker.prev}">
-				<li class = "lipage"><a
+				<li class="prev"><a
 					href="listPage${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 			</c:if>
 
 			<c:forEach begin="${pageMaker.startPage }"
 				end="${pageMaker.endPage }" var="idx">
-				<li  class = "lipage" <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+				<li <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
 					<a href="listPage${pageMaker.makeSearch(idx)}">${idx}</a>
 				</li>
 			</c:forEach>
 
 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-				<li class = "lipage" ><a
+				<li class="next"><a
 					href="listPage${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 			</c:if>
 

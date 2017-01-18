@@ -27,8 +27,8 @@
 		<!-- /.box-body -->
 	</form>
 	<div class="box-footer">
-		<button type="submit" class="btn btn-primary">저장</button>
-		<button type="submit" class="btn btn-warning">취소</button>
+		<button type="submit" class="btn btn-primary" id="saveBtn">저장</button>
+		<button type="submit" class="btn btn-warning" id="cancelBtn">취소</button>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
@@ -41,16 +41,18 @@
 						function() {
 							var formObj = $("form[role='form']");
 							console.log(formObj);
-							$(".btn-warning")
-									.on(
-											"click",
-											function() {
-												self.location = "/surveyMain/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
-														+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
+							
+							$("#saveBtn").on("click",function() {
+								self.location = "/surveyMain/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
+												+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
 											});
-							$(".btn-primary").on("click", function() {
+							
+							$("#cancelBtn").on("click", function() {
+								formObj.attr("action","listPage?page=1");
+								formObj.attr("method", "get");
 								formObj.submit();
 							});
+						
 						});
 	</script>
 </body>
