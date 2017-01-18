@@ -9,6 +9,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<style type="text/css">
+
+.lipage{
+list-style: none;
+float: left;
+margin: 1em;
+
+}
+</style>
+
 </head>
 <body>
 	<h1>멤버리스트</h1>
@@ -63,20 +74,20 @@
 		<ul class="pagination">
 
 			<c:if test="${pageMaker.prev}">
-				<li><a
-					href="mlistPage${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+				<li><a href="mlistPage${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 			</c:if>
 
 			<c:forEach begin="${pageMaker.startPage }"
 				end="${pageMaker.endPage }" var="idx">
-				<li <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+				<li class = "lipage" <c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
 					<a href="mlistPage${pageMaker.makeSearch(idx)}">${idx}</a>
 				</li>
 			</c:forEach>
 
 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-				<li><a
-					href="mlistPage${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+				<li class = "lipage">
+				<a href="mlistPage${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+				
 			</c:if>
 
 		</ul>

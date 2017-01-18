@@ -16,7 +16,7 @@
 
 				<li>이메일<input type="text" name="email" value="이메일을 쓰시오"></li>
 
-				<input type="hidden" name="joindate" value="가입일">
+				
 			</ul>
 		</div>
 
