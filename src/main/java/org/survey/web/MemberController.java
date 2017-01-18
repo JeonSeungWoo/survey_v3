@@ -68,7 +68,7 @@ public class MemberController {
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		logger.info(rttr.toString());
-		return "redirect:/member/mlistPage?${cri.page}";
+		return "redirect:/member/mlistPage";
 	}
 	
 	@PostMapping("/mdelete")

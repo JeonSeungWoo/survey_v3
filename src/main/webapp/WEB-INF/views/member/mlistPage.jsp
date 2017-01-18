@@ -55,8 +55,11 @@
 	</div>
 
 	<form action="mlistPage" method="post" id="f1">
-		<input type="hidden" name="page" value="${param.page}"> <input
-			type="hidden" id='membername' name="membername" value="">
+		<input type="hidden" name="page" value="${param.page}"> 
+		<input type="hidden" id='membername' name="membername" value="">
+		<input type="hidden" name="searchType" value="${param.searchType}">
+		<input type="hidden" name="keyword" value="${param.keyword}">
+		
 
 
 		<c:forEach items="${listPage}" var="MemberVO">
@@ -142,12 +145,7 @@
 
 				formObj.attr("action", "mdelete").attr("method", "post");
 
-				console.log(formObj.attr("action"));
-				console.log(formObj.attr("method"));
-
-				console.log(targetName);
-				console.log("-------------------------");
-
+				
 				formObj.submit();
 
 			});

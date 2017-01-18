@@ -20,11 +20,11 @@ public class MemberTest {
 	@Test
 	public void createTest() throws Exception {
 		
-		for(int i = 0; i < 100; i++){
+		for(int i = 0; i < 30; i++){
 			
 		MemberVO vo = new MemberVO();
-		vo.setMembername("강요천" + i);
-		vo.setEmail("zerock@naver.com" + i);
+		vo.setMembername("고귀한" + i);
+		vo.setEmail("gonoble@gmail "+ i +".com");
 		
 		dao.create(vo);
 		}

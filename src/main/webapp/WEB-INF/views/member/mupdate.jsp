@@ -22,16 +22,21 @@
 			이메일 : <input type="text" name="email" value="${MemberVO.email}"><br>
 			가입일 : ${MemberVO.joindate}<br>
 		</div>
-		
-	</form>
+	
 		
 		<div class="box-footer">
 			<button data-mname ='${MemberVO.membername}' type="submit" id="updateBtn" class="btn btn-primary">수정</button>
 		</div>
-		
+		</div>
+	</form>
 	
 	<form action="mlistPage" id = "f4" method="get">
 	
+		<input type='hidden' name='page' value="${cri.page}">
+		<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
+		<input type='hidden' name='searchType' value="${cri.searchType}">
+		<input type='hidden' name='keyword' value="${cri.keyword}">
+			
 	<button type="submit" class="btn btn-warning">취소</button>
 	
 	</form>	
@@ -68,7 +73,7 @@
 		
 		$(".btn-warning").on("click",function() {
 			
-			$("#f4").attr("action","mlistPage?${cri.page}"),attr("method","get").submit();
+			$("#f4").attr("action","mlistPage"),attr("method","get").submit();
 			
 			
 		});
