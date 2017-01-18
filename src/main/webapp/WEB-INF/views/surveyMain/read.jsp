@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
 #img{
-width: 100px;
-height: 100px;
+width: 200px;
+height: 200px;
 }
 </style>
 
