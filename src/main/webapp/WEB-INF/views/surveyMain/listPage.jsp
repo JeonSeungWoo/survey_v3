@@ -33,7 +33,8 @@ margin: 0.5em;
 				<c:out value="${cri.searchType == null?'selected':''}"/>>
 				---</option>
 			<option value="t"
-				<c:out value="${cri.searchType eq 't'?'selected':''}"/>>제목</option>
+				<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+				제목</option>
 			<option value="c"
 				<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
 				설문내용</option>
@@ -67,8 +68,9 @@ margin: 0.5em;
 		<c:forEach items="${listPage}" var="SurveyMainVO">
 
 			<ul>
-				<li><a href='read?smno=${SurveyMainVO.smno}'>글 번호 :
-						${SurveyMainVO.smno}</a></li>
+				<li><a href='read?smno=${SurveyMainVO.smno}
+				&searchType=${param.searchType}&keyword=${param.keyword}'>
+				글 번호 :${SurveyMainVO.smno}</a></li>
 				<li>${SurveyMainVO.smtitle}</li>
 				<li>${SurveyMainVO.smcontent}</li>
 			</ul>

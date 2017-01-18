@@ -66,8 +66,8 @@
 			});
 
 			$("#goListBtn ").on("click", function() {
+				formObj.attr("action","listPage?page=1");
 				formObj.attr("method", "get");
-				formObj.attr("action", "/surveyMain/listPage");
 				formObj.submit();
 			});
 
