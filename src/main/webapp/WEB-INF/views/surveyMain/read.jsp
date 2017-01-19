@@ -53,11 +53,13 @@ height: 200px;
 	
 <form id="FILE_FORM" method="post" enctype="multipart/form-data" action="/surveyDetail">
 
+<div>
+<ul id="serveies">
 
-<ul class ="timeLine">
-<li class = "time-label" id ="surveyDiv">
-<span class="bg-green">항목</span></li>
 </ul>
+
+</div>
+
 
 
 <ul>
@@ -69,6 +71,7 @@ height: 200px;
 </ul>        
 
 <button type ="submit"  class= "surveyAddBtn">항목 등록</button>
+
 
 </form>
 
@@ -82,25 +85,36 @@ height: 200px;
 
 <script type="text/javascript" src="/resources/js/jquery.form.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.amd.js"></script>
-
-<script id ="template" type ="text/x-handlebars-template">
-{{#each.}}
-<li class ="surbeyLi" data-sdno={{sdno}}>
-<i class ="fa fa-comments bg-blue"></i>
-<div class ="timeline-item">
-<span class="time">
-<h3 class="timeline-header"><strong>{{sdno}}</strong> - {{sdtitle}}</h3>
-<div class="timeline-body">{{sdcontent}}</div>
-<div class="timeline-body">{{sdimage}}</div>
-<div class="timeline-body">{{sdtype}}</div>
-{{#eqSurvey servey}}
-{{/eqSurvey}}
-</div>
-</li>
-</script>
 
 <script>
+
+
+var smno = ${SurveyMainVO.smno};
+getAllList();
+
+function getAllList(){
+	
+	$.getJSON("/surveyDetail/all/" + smno, function(data){
+		
+		var str= "";
+		console.log(data.length);
+		
+		$(data).each(function(){
+			
+			str += "<li data-sdno='"+this.sdno+"' class='surveyLi'></li>"+
+			"<li>제목  : " + this.sdtitle + "</li>" +
+			"<li>내용  : " + this.sdcontent + "</li>" +
+			"<li>이미지  : " + this.sdimage + "</li>" +
+			"<li>타입  : " + this.sdtype + "</li>";
+			
+		});
+		
+		$("#serveies").html(str);
+		
+		
+	});
+
+}
 
 $(".surveyAddBtn").on("click",function(event){
 	
@@ -114,7 +128,7 @@ $(".surveyAddBtn").on("click",function(event){
 	formData.append("smno", $(".newSmno").val());
 	formData.append("sdtitle",$(".newSdtitle").val());
 	formData.append("sdcontent",$(".newSdcontent").val());
-	formData.append("sdimage", $(".newSdimage")[0].files[0]);
+	formData.append("sdimage", $(".newSdimage").val());
 	formData.append("sdtype",$(".newSdtype").val());
 
 	
@@ -138,35 +152,9 @@ $(".surveyAddBtn").on("click",function(event){
 
 
 
-var printData =  function(surveyArr, target, templateObject){
-	var template = Handlebars.compile(templateObject.html());
-	var html = template(surveyArr);
-	$(".surbeyLi").remove();
-	target.after(html);
-	
-}
 
-var sdno = ${SurveyMainVO.smno};
-function getPage(pageInfo){
-	
-	$.getJSON(pageInfo, function(data){
-		printData(data.list, $("#surveyDiv"),$("#template"));
-	});
-}
 
-$("#surveyDiv").on("click",function(){
-	if($(".timeline li").size() > 1){
-		return;
-	}
-	getPage("/surveyDetail/"+smno+"/1");
-});
 
-$(".timelin").on("click",".surveyLi",function(event){
-	var survey = $(this);
-	$(".newSdtitle").val(survey.find(".timeline-body").text());
-	$(".modal-title").html(survey.attr());
-	
-});
 
 </script>
 

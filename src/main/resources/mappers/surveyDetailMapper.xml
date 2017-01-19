@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <select id="list" resultType="SurveyDetailVO">
 select * from tbl_surveydetail
-where smno > #{smno}
+where smno = #{smno}
 order by sdno desc
 </select>
 
