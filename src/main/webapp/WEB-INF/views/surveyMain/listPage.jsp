@@ -83,6 +83,7 @@
 						글 번호 :${SurveyMainVO.smno}</a></li>
 				<li>${SurveyMainVO.smtitle}</li>
 				<li>${SurveyMainVO.smcontent}</li>
+				<li>${SurveyMainVO.smwriter}</li>
 			</ul>
 
 		</c:forEach>

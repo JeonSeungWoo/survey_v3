@@ -18,7 +18,7 @@ public class SurveyMainServiceImpl implements SurveyMainService {
 
 	@Override
 	public void regist(SurveyMainVO vo) throws Exception {
-		dao.create(vo);		
+		dao.create(vo);
 	}
 
 	@Override
@@ -69,6 +69,13 @@ public class SurveyMainServiceImpl implements SurveyMainService {
 	public int listSearchCount(SearchCriteria cri) throws Exception {
 
 		return dao.listSearchCount(cri);
+	}
+
+	@Override
+	public void newArticle(SurveyMainVO vo) throws Exception {
+
+		dao.newArticle(vo);
+
 	}
 
 }

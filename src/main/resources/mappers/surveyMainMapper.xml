@@ -65,7 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<delete id="delete" parameterType="SurveyMainVO">
 		delete from tbl_surveymain
-		where smno = #{smno};
+		where smno = #{smno}
 	</delete>
 
 	<select id="listAll" resultType="SurveyMainVO">
@@ -116,4 +116,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
+	<select id="newArticle" resultType="SurveyMainVO">
+		select * from tbl_surveymain
+		where smwriter = #{smwriter}
+		order by smno desc
+		limit 0,1
+	</select>
 </mapper>

@@ -25,4 +25,6 @@ public interface SurveyMainService {
 	public List<SurveyMainVO> listSearchCriteria(SearchCriteria cri) throws Exception;
 
 	public int listSearchCount(SearchCriteria cri) throws Exception;
+
+	public void newArticle(SurveyMainVO vo) throws Exception;
 }
