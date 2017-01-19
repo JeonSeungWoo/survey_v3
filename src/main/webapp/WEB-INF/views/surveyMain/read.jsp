@@ -105,7 +105,8 @@ function getAllList(){
 			"<li>제목  : " + this.sdtitle + "</li>" +
 			"<li>내용  : " + this.sdcontent + "</li>" +
 			"<li>이미지  : " + this.sdimage + "</li>" +
-			"<li>타입  : " + this.sdtype + "</li>";
+			"<li>타입  : " + this.sdtype + "</li>" +
+			"<button type ='submit' id = 'modBtn'>항목변경</button>";
 			
 		});
 		
