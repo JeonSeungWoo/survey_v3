@@ -11,6 +11,19 @@
 width: 200px;
 height: 200px;
 }
+
+#modDiv{
+width:400px;
+height:300px;
+background-color: gray;
+position: absolute;
+padding: 10px;
+z-index: 1000;
+top: 50%;
+left: 50%;  
+margin-top:-50px; 
+}
+
 </style>
 
 </head>
@@ -49,19 +62,42 @@ height: 200px;
 	</div>
 	
 	
+<div>
+<ul id="surveyDetiles">
+</ul>
+</div>
+	
+	
+<!-- SurveyDetail modDiv Button -->
+<div id ="modDiv" style="display: none;">
+<div class="modal-title"></div>
+<div>
+<ul>
+<li>번호<input type = "text" name="smno" class ="modSmno" value="${SurveyMainVO.smno}" readonly="readonly"></li>
+<li>제목<input type = "text" name="sdtitle" id ="modSdtitle" value="제목입력하세요"></li>
+<li>내용<input type = "text" name="sdcontent" id ="modSdcontent" value = "내용을 입력하세요"></li>
+<li>이미지<input type = "file" name="sdimage" id ="modSdimage"></li>
+<li>타입<input type ="text" name="sdtype" id ="modSdtype" value = "A"></li>
+</ul>       
+</div>
+
+<div>
+<button type="submit" id ="surveyUpdateBtn">수정</button>
+<button type="submit" id ="surveyDelBtn">삭제</button>
+<button type="submit" id ="closeBtn">닫기</button>
+</div>
+</div>
+	
 	
 	
 <form id="FILE_FORM" method="post" enctype="multipart/form-data" action="/surveyDetail">
 
+
+
+
+
+<!-- SurveyDetailCreate -->
 <div>
-<ul id="serveies">
-
-</ul>
-
-</div>
-
-
-
 <ul>
 <li>번호<input type = "text" name="smno" class ="newSmno" value="${SurveyMainVO.smno}" readonly="readonly"></li>
 <li>제목<input type = "text" name="sdtitle" class ="newSdtitle" value="제목입력하세요"></li>
@@ -69,11 +105,15 @@ height: 200px;
 <li>이미지<input type = "file" name="sdimage" class ="newSdimage"></li>
 <li>타입<input type ="text" name="sdtype" class ="newSdtype" value = "A"></li>
 </ul>        
-
+</div>
 <button type ="submit"  class= "surveyAddBtn">항목 등록</button>
 
 
+
+
 </form>
+
+
 
 
 
@@ -101,21 +141,42 @@ function getAllList(){
 		
 		$(data).each(function(){
 			
-			str += "<li data-sdno='"+this.sdno+"' class='surveyLi'></li>"+
+			str += "<p></p>"+
+			"<li data-sdno='"+this.sdno+"' class='surveyLi'>"+
+			"<button type='submit' id='surveyModBtn'>MOD</button></li>"+
 			"<li>제목  : " + this.sdtitle + "</li>" +
 			"<li>내용  : " + this.sdcontent + "</li>" +
 			"<li>이미지  : " + this.sdimage + "</li>" +
-			"<li>타입  : " + this.sdtype + "</li>" +
-			"<button type ='submit' id = 'modBtn'>항목변경</button>";
+			"<li>타입  : " + this.sdtype + "</li>";
 			
 		});
 		
-		$("#serveies").html(str);
+		$("#surveyDetiles").html(str);
 		
 		
 	});
 
 }
+
+
+
+
+$("#surveyDetiles").on("click",".surveyLi button",function(){
+	
+	var surveyno = $(this).parent();
+	
+	var sdno = surveyno.attr("data-sdno");
+	
+	alert(sdno +":");
+	                
+	$(".modal-title").html(sdno);
+	
+	$("#modDiv").show("slow");
+	
+});
+
+
+
 
 $(".surveyAddBtn").on("click",function(event){
 	
@@ -125,7 +186,6 @@ $(".surveyAddBtn").on("click",function(event){
 	
 	var  form = $('FILE_FORM')[0];
 	var formData =  new FormData(form);
-	
 	formData.append("smno", $(".newSmno").val());
 	formData.append("sdtitle",$(".newSdtitle").val());
 	formData.append("sdcontent",$(".newSdcontent").val());
@@ -144,14 +204,65 @@ $(".surveyAddBtn").on("click",function(event){
         type: 'POST',
 		success : function(result){
 				alert("등록 되었습니다.");
+				getAllList();
 			}
 		
 		});
 });
 
 
+$("#surveyUpdateBtn").on("click",function(){
+	var sdno = $(".modal-title").html();
+	
+	var  form = $('FILE_FORM')[0];
+	var formData =  new FormData(form);
+	
+	formData.append("smno", $("#modSmno").val());
+	formData.append("sdtitle",$("#modSdtitle").val());
+	formData.append("sdcontent",$("#modSdcontent").val());
+	formData.append("sdimage", $("#newSdimage").val());
+	formData.append("sdtype",$("#modSdtype").val());
+
+	
+	console.log("-----------------");
+	console.log(formData);
+	
+	
+	$.ajax({
+		type:"put",
+		url:"/surveyDetail/" + sdno,
+		data:formData,
+		success : function(result){
+			if(result == "SUCCESS"){
+			alert("수정되었습니다.");
+			$("#modDiv").hide("slow");
+			getAllList();
+		}
+		}
+	});
+	
+});
 
 
+$("#surveyDelBtn").on("click",function(){
+	
+	var sdno = $(".modal-title").html();
+	
+	$.ajax({
+		type : "delete",
+		url : "/surveyDetail/" + sdno,
+		
+		success : function(result){
+			console.log("result : " +result );
+			if(result == "SUCCESS"){
+				alert("삭제 되었습니다.");
+				$("#modDiv").hide("slow");
+				getAllList();
+			}
+		}
+	});
+	
+});
 
 
 
