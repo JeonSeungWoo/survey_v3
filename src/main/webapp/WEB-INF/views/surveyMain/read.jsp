@@ -68,16 +68,21 @@ margin-top:-50px;
 </div>
 	
 	
+
+	
+<form id="FILE_FORM" method="post" enctype="multipart/form-data" action="/surveyDetail">
+
+
 <!-- SurveyDetail modDiv Button -->
 <div id ="modDiv" style="display: none;">
 <div class="modal-title"></div>
 <div>
 <ul>
-<li>번호<input type = "text" name="smno" class ="modSmno" value="${SurveyMainVO.smno}" readonly="readonly"></li>
-<li>제목<input type = "text" name="sdtitle" id ="modSdtitle" value="제목입력하세요"></li>
-<li>내용<input type = "text" name="sdcontent" id ="modSdcontent" value = "내용을 입력하세요"></li>
-<li>이미지<input type = "file" name="sdimage" id ="modSdimage"></li>
-<li>타입<input type ="text" name="sdtype" id ="modSdtype" value = "A"></li>
+
+<li>제목<input type = "text" name="sdtitle" class ="sdtitle"></li>
+<li>내용<input type = "text" name="sdcontent" class ="sdcontent"></li>
+<li>이미지<input type = "file" name="sdimage" class ="sdimage"></li>
+<li>타입<input type ="text" name="sdtype" class ="sdtype"></li>
 </ul>       
 </div>
 
@@ -88,12 +93,6 @@ margin-top:-50px;
 </div>
 </div>
 	
-	
-	
-<form id="FILE_FORM" method="post" enctype="multipart/form-data" action="/surveyDetail">
-
-
-
 
 
 <!-- SurveyDetailCreate -->
@@ -144,10 +143,10 @@ function getAllList(){
 			str += "<p></p>"+
 			"<li data-sdno='"+this.sdno+"' class='surveyLi'>"+
 			"<button type='submit' id='surveyModBtn'>MOD</button></li>"+
-			"<li>제목  : " + this.sdtitle + "</li>" +
-			"<li>내용  : " + this.sdcontent + "</li>" +
-			"<li>이미지  : " + this.sdimage + "</li>" +
-			"<li>타입  : " + this.sdtype + "</li>";
+			"<li>제목  : "+"<small class='surveyTitle'>" + this.sdtitle + "</small></li>" +
+			"<li>내용  : "+"<small class='surveyContent'>" + this.sdcontent + "</small></li>" +
+			"<li>이미지  : "+"<small class='surveyImage'>" + this.sdimage + "</small></li>" +
+			"<li>타입  : "+"<small class='surveyType'>" + this.sdtype + "</small></li>";
 			
 		});
 		
@@ -166,16 +165,30 @@ $("#surveyDetiles").on("click",".surveyLi button",function(){
 	var surveyno = $(this).parent();
 	
 	var sdno = surveyno.attr("data-sdno");
+	var surveyTitle =  $(".surveyTitle").html();
+	var surveyContent =  $(".surveyContent").html();
+	var surveyImage =  $(".surveyImage").html();
+	var surveyType =  $(".surveyType").html();
 	
-	alert(sdno +":");
+	
+	
+	alert(sdno + " : " + surveyTitle + " : " + surveyContent + " : " + surveyImage + " : " + surveyType);
 	                
 	$(".modal-title").html(sdno);
+	$(".sdtitle").val(surveyTitle);
+	$(".sdcontent").val(surveyContent);
+	$(".sdimage").val(surveyImage);
+	$(".sdtype").val(surveyType);
 	
 	$("#modDiv").show("slow");
 	
 });
 
-
+$("#closeBtn").on("click",function(event){
+	event.preventDefault();
+	$("#modDiv").hide("slow");
+	
+});
 
 
 $(".surveyAddBtn").on("click",function(event){
@@ -186,7 +199,8 @@ $(".surveyAddBtn").on("click",function(event){
 	
 	var  form = $('FILE_FORM')[0];
 	var formData =  new FormData(form);
-	formData.append("smno", $(".newSmno").val());
+	
+ 	formData.append("smno", $(".newSmno").val());
 	formData.append("sdtitle",$(".newSdtitle").val());
 	formData.append("sdcontent",$(".newSdcontent").val());
 	formData.append("sdimage", $(".newSdimage").val());
@@ -211,17 +225,25 @@ $(".surveyAddBtn").on("click",function(event){
 });
 
 
-$("#surveyUpdateBtn").on("click",function(){
+$("#surveyUpdateBtn").on("click",function(event){
+	event.preventDefault();
+ 
 	var sdno = $(".modal-title").html();
 	
+	
+	var surveyTitle =  $(".surveyTitle").html();
+	var surveyContent =  $(".surveyContent").html();
+	var surveyImage =  $(".surveyImage").html();
+	var surveyType =  $(".surveyType").html();
+	
+	console.log("--------------------------");
 	var  form = $('FILE_FORM')[0];
 	var formData =  new FormData(form);
 	
-	formData.append("smno", $("#modSmno").val());
-	formData.append("sdtitle",$("#modSdtitle").val());
-	formData.append("sdcontent",$("#modSdcontent").val());
-	formData.append("sdimage", $("#newSdimage").val());
-	formData.append("sdtype",$("#modSdtype").val());
+	formData.append("sdtitle",$(".sdtitle").val(surveyTitle));
+	formData.append("sdcontent",$(".scontent").val(surveyContent));
+	formData.append("sdimage", $(".sdimage").val(surveyImage));
+	formData.append("sdtype",$(".sdtype").val(surveyType));
 
 	
 	console.log("-----------------");
@@ -229,9 +251,12 @@ $("#surveyUpdateBtn").on("click",function(){
 	
 	
 	$.ajax({
-		type:"put",
+		
 		url:"/surveyDetail/" + sdno,
-		data:formData,
+		processData: false,
+        contentType: false,
+		data : formData,
+		type:"PUT",
 		success : function(result){
 			if(result == "SUCCESS"){
 			alert("수정되었습니다.");
@@ -244,8 +269,8 @@ $("#surveyUpdateBtn").on("click",function(){
 });
 
 
-$("#surveyDelBtn").on("click",function(){
-	
+$("#surveyDelBtn").on("click",function(event){
+	event.preventDefault();
 	var sdno = $(".modal-title").html();
 	
 	$.ajax({

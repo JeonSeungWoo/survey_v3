@@ -16,7 +16,8 @@ values(#{smno},#{sdtitle},#{sdcontent},#{sdimage},#{sdtype})
 </insert>
 
 <update id="upadte" parameterType="SurveyDetailVO">
-update tbl_surveydetail set sdtitle = #{sdtitle},
+update tbl_surveydetail set 
+sdtitle = #{sdtitle},
  sdcontent =#{sdcontent},
 sdimage = #{sdimage},
  sdtype = #{sdtype} 

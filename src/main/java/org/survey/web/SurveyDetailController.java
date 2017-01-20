@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.survey.domain.SurveyDetailVO;
 import org.survey.service.SurveyDetailService;
 
@@ -51,6 +53,7 @@ public class SurveyDetailController {
 		return entity;
 	}
 	
+	
 /*	@PostMapping("")
 	public ResponseEntity<String> register(SurveyDetailVO vo){
 		
@@ -84,27 +87,47 @@ public class SurveyDetailController {
 					service.list(smno),HttpStatus.OK);
 			
 			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			
+			
 		}
 		
 		return entity;
 	}
 	
-	@RequestMapping(value ="/{sdno}",
-			method = {RequestMethod.PUT,RequestMethod.PATCH})
+	
+	
+	
+	@RequestMapping(value ="/{sdno}",method = {RequestMethod.PUT,RequestMethod.PATCH})
 	public ResponseEntity<String> update(
 			@PathVariable("sdno") Integer sdno,
-			SurveyDetailVO vo)throws Exception{
+		SurveyDetailVO vo)throws Exception{
 		
 		ResponseEntity<String> entity = null;
 		
 		try {
+		
 			vo.setSdno(sdno);
 			service.update(vo);
 			
+			
 			entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);
+			
+			logger.info("-----------------------------");
+			logger.info("-----------------------------");
+			logger.info("-----------------------------");
+			logger.info("-----------------------------");
+			logger.info("-----------------------------");
+			logger.info("-----------------------------");
+			logger.info("-----------------------------");
+			logger.info("-----------------------------");
+			logger.info("-----------------------------");
+			logger.info("-----------------------------");
+			logger.info("entity : " +entity);
+			
 			
 			
 		} catch (Exception e) {
@@ -115,6 +138,9 @@ public class SurveyDetailController {
 		
 		return entity;
 	}
+	
+	
+	
 	
 	@RequestMapping(value ="/{sdno}",method = {RequestMethod.DELETE})
 	public ResponseEntity<String> delete(
