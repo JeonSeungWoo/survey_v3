@@ -49,7 +49,7 @@ public class SurveyDetailController {
 		
 	}
 	
-	private String uploadFile(String originalName, byte[]fileData)throws Exception{
+	private String detailUploadFile(String originalName, byte[]fileData)throws Exception{
 		
 		UUID uid = UUID.randomUUID();
 		
@@ -76,14 +76,14 @@ public class SurveyDetailController {
 //			logger.info("size : " + file.getSize());
 //			logger.info("contentType : " + file.getContentType());
 //			
-//			String savedName = uploadFile(file.getOriginalFilename(),file.getBytes());
+//			String savedName = detailUploadFile(file.getOriginalFilename(),file.getBytes());
 //			
 //			model.addAttribute("savedName",savedName);
 			
 			
 			service.create(vo);
 			
-			//vo.setSdimage(savedName);
+//			vo.setSdimage(savedName);
 			
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 			

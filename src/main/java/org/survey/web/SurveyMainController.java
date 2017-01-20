@@ -132,7 +132,7 @@ public class SurveyMainController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registPOST(SurveyMainVO vo, RedirectAttributes rttr,
-			@RequestParam("file") MultipartFile file) throws Exception {
+			MultipartFile file) throws Exception {
 
 		logger.info("regist post ...........");
 		logger.info(vo.toString());
