@@ -120,31 +120,6 @@
  
  
  
-=======
 
-
-<div class="title">
-
-</div>
-
-<div class="header"></div>
-
-<div class="navigation">
-	
-	<ul>
-		<li class="home"><a href="/">home</a></li>
-		<li><a href="/">home</a></li>
-		<li><a href="/">home</a></li>
-		<li><a href="/">home</a></li>
-		<li><a href="/">home</a></li>
-	</ul>
-
-	<div class="clearer"></div>
-
-</div>
-
-
-
->>>>>>> branch 'master' of https://github.com/janseoungwoo/survey_v3.git
 </body>
 </html>
