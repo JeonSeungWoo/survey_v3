@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="list" resultType="SurveyDetailVO">
 select * from tbl_surveydetail
 where smno = #{smno}
-order by sdno desc
+order by sdno asc
 </select>
 
 <insert id="create" parameterType="SurveyDetailVO">
@@ -16,7 +16,8 @@ values(#{smno},#{sdtitle},#{sdcontent},#{sdimage},#{sdtype})
 </insert>
 
 <update id="upadte" parameterType="SurveyDetailVO">
-update tbl_surveydetail set sdtitle = #{sdtitle},
+update tbl_surveydetail set 
+sdtitle = #{sdtitle},
  sdcontent =#{sdcontent},
 sdimage = #{sdimage},
  sdtype = #{sdtype} 

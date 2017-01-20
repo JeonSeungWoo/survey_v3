@@ -22,6 +22,7 @@
   text-align: center;
   padding: 0;
   margin: 0;
+<<<<<<< HEAD
  
 }
  
@@ -55,10 +56,46 @@
   cursor: default;
 }
  
+=======
+
+}
+
+.navigation li {
+  float:left;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  width: 200px;
+  display:inline-block;
+  
+  
+
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.navigation a:hover {
+  background-color: #005f5f;
+}
+
+.navigation a:ACTIVE {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+
+>>>>>>> branch 'master' of https://github.com/janseoungwoo/survey_v3.git
 	</style>
 	
 </head>
 <body>
+<<<<<<< HEAD
  
  
 <div class="title">
@@ -83,5 +120,31 @@
  
  
  
+=======
+
+
+<div class="title">
+
+</div>
+
+<div class="header"></div>
+
+<div class="navigation">
+	
+	<ul>
+		<li class="home"><a href="/">home</a></li>
+		<li><a href="/">home</a></li>
+		<li><a href="/">home</a></li>
+		<li><a href="/">home</a></li>
+		<li><a href="/">home</a></li>
+	</ul>
+
+	<div class="clearer"></div>
+
+</div>
+
+
+
+>>>>>>> branch 'master' of https://github.com/janseoungwoo/survey_v3.git
 </body>
 </html>
