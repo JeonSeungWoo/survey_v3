@@ -1,5 +1,6 @@
 package org.survey.web;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -13,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -108,6 +110,20 @@ public class SurveyMainController {
 		model.addAttribute("pageMaker", pageMaker);
 	}
 	
+	private String uploadFile(String originalName, byte[]fileData)throws Exception{
+		
+		UUID uid = UUID.randomUUID();
+		
+		String savedName = uid.toString() + "_" + originalName;
+		
+		File target = new File(uploadPath,savedName);
+		
+		FileCopyUtils.copy(fileData,target);
+		
+		return savedName;
+		
+	}
+	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registGET() throws Exception {
 
@@ -121,19 +137,14 @@ public class SurveyMainController {
 		logger.info("regist post ...........");
 		logger.info(vo.toString());
 		
-		UUID uid = UUID.randomUUID();
+		logger.info("originalName : " + file.getOriginalFilename());
+		logger.info("size : " + file.getSize());
+		logger.info("contentType : " + file.getContentType());
 		
-		String fileName = file.getOriginalFilename();
-		
-		String uploadName = uid + "_" + fileName;
-		
-		FileOutputStream fos = new FileOutputStream(uploadPath+uploadName);
-		
-		IOUtils.copy(file.getInputStream(),fos);
-		fos.close();
+		String savedName = uploadFile(file.getOriginalFilename(),file.getBytes());
 
-		rttr.addAttribute("uploadName",uploadName);
-		vo.setSmimage(uploadName);
+		rttr.addAttribute("uploadName",savedName);
+		vo.setSmimage(savedName);
 		
 		service.regist(vo);
 

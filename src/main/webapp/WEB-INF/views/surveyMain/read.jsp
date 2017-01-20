@@ -93,8 +93,6 @@ margin-top:-50px;
 </div>
 </div>
 	
-
-
 <!-- SurveyDetailCreate -->
 <div>
 <ul>
@@ -106,9 +104,6 @@ margin-top:-50px;
 </ul>        
 </div>
 <button type ="submit"  class= "surveyAddBtn">항목 등록</button>
-
-
-
 
 </form>
 
@@ -203,7 +198,7 @@ $(".surveyAddBtn").on("click",function(event){
  	formData.append("smno", $(".newSmno").val());
 	formData.append("sdtitle",$(".newSdtitle").val());
 	formData.append("sdcontent",$(".newSdcontent").val());
-	formData.append("sdimage", $(".newSdimage").val());
+	formData.append("sdimage", $(".newSdimage")[0].files[0]);
 	formData.append("sdtype",$(".newSdtype").val());
 
 	
@@ -242,7 +237,7 @@ $("#surveyUpdateBtn").on("click",function(event){
 	
 	formData.append("sdtitle",$(".sdtitle").val(surveyTitle));
 	formData.append("sdcontent",$(".scontent").val(surveyContent));
-	formData.append("sdimage", $(".sdimage").val(surveyImage));
+	formData.append("sdimage", $(".sdimage").val(surveyImage)[0].files[0]);
 	formData.append("sdtype",$(".sdtype").val(surveyType));
 
 	
