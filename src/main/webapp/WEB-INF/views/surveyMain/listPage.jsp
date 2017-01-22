@@ -81,6 +81,7 @@
 					href='read?smno=${SurveyMainVO.smno}&page=${param.page}
 				&searchType=${param.searchType}&keyword=${param.keyword}'>
 						글 번호 :${SurveyMainVO.smno}</a></li>
+				<li><img src="show?name=${SurveyMainVO.smimage}"></li>		
 				<li>${SurveyMainVO.smtitle}</li>
 				<li>${SurveyMainVO.smcontent}</li>
 				<li>${SurveyMainVO.smwriter}</li>

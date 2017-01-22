@@ -7,7 +7,16 @@
 </head>
 <body>
 
-	<form role="form" action="update" method="post" enctype="multipart/form-data">
+	<style>
+.fileDrop {
+	width: 150px;
+	height: 160px;
+	border: 3px dotted blue;
+}
+</style>
+
+	<form role="form" action="update" method="post"
+		enctype="multipart/form-data">
 
 		<input type='hidden' name='page' value="${cri.page}"> <input
 			type='hidden' name='perPageNum' value="${cri.perPageNum}"> <input
@@ -16,13 +25,16 @@
 
 
 		<div id="updateMain">
-			<input type="hidden" name="smno" value="${SurveyMainVO.smno}"> <input
-				type="hidden" name="page" value="${param.page}"> <input
-				type="text" name="smtitle" value="${SurveyMainVO.smtitle}"> <input
-				type="text" name="smcontent" value="${SurveyMainVO.smcontent}"> <input
-				type="text" name="smwriter" value="${SurveyMainVO.smwriter}">
-				<input type="file"
-				name="file" value="${SurveyMainVO.smimage}">
+			<input type="hidden" name="smno" value="${SurveyMainVO.smno}">
+			<input type="hidden" name="page" value="${param.page}"> <input
+				type="text" name="smtitle" value="${SurveyMainVO.smtitle}">
+			<input type="text" name="smcontent" value="${SurveyMainVO.smcontent}">
+			<input type="text" name="smwriter" value="${SurveyMainVO.smwriter}">
+			<input type="hidden" name="smimage" id="smimage">
+			<div class='fileDrop'>
+				Drop Here
+				<div class="uploadedList"></div>
+			</div>
 		</div>
 		<!-- /.box-body -->
 	</form>
@@ -41,19 +53,64 @@
 						function() {
 							var formObj = $("form[role='form']");
 							console.log(formObj);
-							
-							$("#saveBtn").on("click",function() {
-								self.location = "/surveyMain/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
-												+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
-								formObj.submit();
+
+							$("#saveBtn")
+									.on(
+											"click",
+											function() {
+												self.location = "/surveyMain/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
+														+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
+												formObj.submit();
 											});
-							
-							$("#cancelBtn").on("click", function() {
-								formObj.attr("action","listPage?page=${cri.page}");
-								formObj.attr("method", "get");
-								formObj.submit();
-							});
-						
+
+							var uploadedList = $(".uploadedList");
+
+							$(".fileDrop").on("dragenter dragover",
+									function(event) {
+										event.preventDefault();
+									});
+							$(".fileDrop")
+									.on(
+											"drop",
+											function(event) {
+												event.preventDefault();
+												var files = event.originalEvent.dataTransfer.files;
+												var file = files[0];
+												var formData = new FormData();
+												$('.uploadedList').empty();
+												formData.append("file", file);
+												console.log(formData);
+												$.ajax({
+															url : "uploadFile",
+															data : formData,
+															dataType : 'text',
+															type : "post",
+															contentType : false,
+															processData : false,
+															success : function(
+																	data) {
+																console
+																		.log(data);
+																uploadedList
+																		.html("<img src=show?name="
+																				+ data
+																				+ ">");
+																$("#smimage")
+																		.val(
+																				data);
+															}
+														});
+											});
+
+							$("#cancelBtn").on(
+									"click",
+									function() {
+										formObj.attr("action",
+												"listPage?page=${cri.page}");
+										formObj.attr("method", "get");
+										formObj.submit();
+									});
+
 						});
 	</script>
 </body>
