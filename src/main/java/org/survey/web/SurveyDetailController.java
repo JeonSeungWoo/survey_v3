@@ -151,6 +151,7 @@ public class SurveyDetailController {
 			logger.info("size : " + file.getSize());
 			logger.info("contentType : " + file.getContentType());
 			
+			
 			String savedName = detailUploadFile(file.getOriginalFilename(),file.getBytes());
 			
 			logger.info("savedName : " + savedName);
