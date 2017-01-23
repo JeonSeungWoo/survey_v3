@@ -38,4 +38,39 @@ order by bno desc, bhit desc
 ]]>
 </select>
 
+<select id="listPage" resultType="BoardVO">
+<![CDATA[
+select
+ bno, btitle, bcontent, bwriter, bstarttime, bendtime, bhit
+ from
+ 	tbl_board
+where bno > 0
+order by bno desc
+limit #{page}, 10
+]]>
+</select>
+
+<select id="listCriteria" resultType="BoardVO">
+<![CDATA[
+select
+	bno, btitle, bcontent, bwriter, bstarttime, bendtime, bhit
+from
+	tbl_board
+where bno > 0
+order by bno desc
+limit #{pageStart}, #{perPageNum}
+]]>
+</select>
+
+<select id="countPaging" resultType="int">
+<![CDATA[
+select
+	count(bno)
+from
+	tbl_board
+where
+	bno > 0
+]]>
+</select>
+
 </mapper>

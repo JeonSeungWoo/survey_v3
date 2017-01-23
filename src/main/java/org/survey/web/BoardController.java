@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.survey.domain.BoardVO;
+import org.survey.domain.Criteria;
+import org.survey.domain.PageMaker;
 import org.survey.service.BoardService;
 
 @RequestMapping("/board/*")
@@ -75,4 +77,22 @@ public class BoardController {
 		return "redirect:/board/listAll";
 	}
 	
+	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
+	public void listAll(Criteria cri, Model model) throws Exception{
+		logger.info("show list Page with Criteria...............................");
+		
+		model.addAttribute("list", service.listCriteria(cri));
+	}
+	
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	public void listPage(Criteria cri, Model model) throws Exception{
+		logger.info(cri.toString());
+		
+		model.addAttribute("list", service.listCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(131);
+		
+		model.addAttribute("pageMaker", pageMaker);
+	}
 }

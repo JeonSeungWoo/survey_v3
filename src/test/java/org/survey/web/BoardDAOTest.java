@@ -2,6 +2,8 @@ package org.survey.web;
 
 import static org.junit.Assert.fail;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
@@ -9,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.survey.domain.BoardVO;
+import org.survey.domain.Criteria;
 import org.survey.persistence.BoardDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -52,6 +55,27 @@ public class BoardDAOTest {
 		fail("Not yet implemented");
 	}
 	
+	@Test
+	public void testListPage()throws Exception {
+		int page = 3;
+	List<BoardVO> list = dao.listPage(page);
 	
+	for (BoardVO boardVO : list) {
+		System.out.println(boardVO.getBno() + boardVO.getBtitle());
+		}
+	}
+	
+	@Test
+	public void testListCriteria()throws Exception{
+		Criteria cri = new Criteria();
+		cri.setPage(2);
+		cri.setPerPageNum(20);
+		
+		List<BoardVO> list = dao.listCriteria(cri);
+		
+		for (BoardVO boardVO : list) {
+			System.out.println(boardVO.getBno() + ":" + boardVO.getBtitle());
+		}
+	}
 
 }
