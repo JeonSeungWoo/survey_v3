@@ -56,7 +56,7 @@ text-align: center;
 </style>
 
 </head>
-
+<%@include file="header.jsp" %>
 
 <body>
 

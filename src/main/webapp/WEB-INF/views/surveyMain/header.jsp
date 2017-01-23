@@ -69,7 +69,7 @@ html {
 	    
 		<li><a href="/surveyMain/listPage?page=1">마이페이지</a></li>
 		
-		<li><a href="/">home</a></li>
+		<li><a href="/board/listPage">게시판</a></li>
 		
 		<li><a href="/">home</a></li>
 		
