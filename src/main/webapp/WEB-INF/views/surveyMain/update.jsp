@@ -7,12 +7,14 @@
 </head>
 <body>
 
+
 	<style>
 .fileDrop {
 	width: 150px;
 	height: 160px;
 	border: 3px dotted blue;
 }
+
 </style>
 
 	<form role="form" action="update" method="post"

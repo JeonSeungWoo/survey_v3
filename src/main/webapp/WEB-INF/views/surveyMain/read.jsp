@@ -11,6 +11,8 @@
 #img{
 width: 200px;
 height: 200px;
+background-image: url(/resources/img/no-image.png);
+text-align: center;
 }
 
 #modDiv{
@@ -29,6 +31,7 @@ margin-top:-50px;
 
 </head>
 <body>
+
 	<form role="form" action="/update" method="post">
 
 		<input type='hidden' name='smno' value="${SurveyMainVO.smno}">
@@ -166,14 +169,11 @@ $("#surveyDetiles").on("click",".surveyLi button",function(){
 	var surveyImage =  $(".surveyImage").html();
 	var surveyType =  $(".surveyType").html();
 	
-	
-	
 	alert(sdno + " : " + surveyTitle + " : " + surveyContent + " : " + surveyImage + " : " + surveyType);
 	                
 	$(".modal-title").html(sdno);
 	$(".sdtitle").val(surveyTitle);
 	$(".sdcontent").val(surveyContent);
-	$(".sdimage").val(surveyImage);
 	$(".sdtype").val(surveyType);
 	
 	$("#modDiv").show("slow");

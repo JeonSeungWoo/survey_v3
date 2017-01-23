@@ -14,6 +14,17 @@
 	list-style: none;
 }
 
+.page ul{
+background: aqua;
+width: 200px;
+height: 200px;
+}
+
+.page li{
+border: 1px solid black;
+padding: 10px;
+}
+
 .pagination li {
 	list-style: none;
 	float: left;
@@ -28,12 +39,27 @@
 .pagination .next {
 	background-color: red;
 }
+
+
+img{
+width: 200px;
+height: 200px;
+background-image: url(/resources/img/no-image.png);
+text-align: center;
+}
+
+.box-body{
+text-align: center;
+
+
+}
 </style>
 
 </head>
 
 
 <body>
+
 	<h1>마이페이지</h1>
 
 	<div class='box-body'>
@@ -75,10 +101,9 @@
 
 
 		<c:forEach items="${listPage}" var="SurveyMainVO">
-
+		<div class ="box-main">
 			<ul class="page">
-				<li><a
-					href='read?smno=${SurveyMainVO.smno}&page=${param.page}
+				<li><a href='read?smno=${SurveyMainVO.smno}&page=${param.page}
 				&searchType=${param.searchType}&keyword=${param.keyword}'>
 						글 번호 :${SurveyMainVO.smno}</a></li>
 				<li><img src="show?name=${SurveyMainVO.smimage}"></li>		
@@ -86,7 +111,7 @@
 				<li>${SurveyMainVO.smcontent}</li>
 				<li>${SurveyMainVO.smwriter}</li>
 			</ul>
-
+		</div>
 		</c:forEach>
 
 	</form>

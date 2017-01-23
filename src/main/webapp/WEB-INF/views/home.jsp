@@ -7,47 +7,40 @@
 	
 	<style>
     
-    html {
-     background: url(/resources/img/background.jpg) no-repeat center center fixed;
+html {
+     background: url(/resources/img/bg.gif) no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-     }
+}
     
-    .navigation ul {
+.navigation ul {
   
   list-style: none;
-  background-color: #444;
+  background-color:silver;
   text-align: center;
-  padding: 0;
-  margin: 0;
-<<<<<<< HEAD
- 
+
 }
  
 .navigation li {
   float:left;
-  font-family: 'Oswald', sans-serif;
   font-size: 1.2em;
   line-height: 40px;
   height: 40px;
   width: 200px;
   display:inline-block;
-  
-  
- 
+  background-color:silver;
 }
  
 .navigation a {
   text-decoration: none;
   color: #fff;
   display: block;
-  transition: .3s background-color;
 }
  
 .navigation a:hover {
-  background-color: #005f5f;
+  background-color: black;
 }
  
 .navigation a:ACTIVE {
@@ -56,46 +49,11 @@
   cursor: default;
 }
  
-=======
-
-}
-
-.navigation li {
-  float:left;
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2em;
-  line-height: 40px;
-  height: 40px;
-  width: 200px;
-  display:inline-block;
-  
-  
-
-}
-
-.navigation a {
-  text-decoration: none;
-  color: #fff;
-  display: block;
-  transition: .3s background-color;
-}
-
-.navigation a:hover {
-  background-color: #005f5f;
-}
-
-.navigation a:ACTIVE {
-  background-color: #fff;
-  color: #444;
-  cursor: default;
-}
-
->>>>>>> branch 'master' of https://github.com/janseoungwoo/survey_v3.git
-	</style>
+</style>
 	
 </head>
 <body>
-<<<<<<< HEAD
+
  
  
 <div class="title">
@@ -108,9 +66,13 @@
 	
 	<ul>
 		<li class="home"><a href="/">home</a></li>
+	    
 		<li><a href="/">home</a></li>
+		
 		<li><a href="/">home</a></li>
+		
 		<li><a href="/">home</a></li>
+		
 		<li><a href="/">home</a></li>
 	</ul>
  

@@ -16,6 +16,7 @@ border : 2px dotted green;
 </style>
 
 <body>
+
 <h1>리스트</h1>
 <ul>
 <li><a href="/surveyMain/create">등록</a></li>
