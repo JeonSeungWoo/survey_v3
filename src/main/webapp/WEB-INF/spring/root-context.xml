@@ -36,9 +36,6 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 
-
-
-
 	<context:component-scan base-package="org.survey.persistence" />
 	<context:component-scan base-package="org.survey.service" />
 
