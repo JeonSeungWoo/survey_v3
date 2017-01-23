@@ -92,5 +92,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<include refid="search"></include>
 
 	</select>
+	
+	<select id='login' parameterType="MemberVO" resultType='String'>
+		select
+		membername from
+		tbl_member where
+		membername=#{membername} and
+		email=#{email}
+	</select>
 
 </mapper>

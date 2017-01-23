@@ -15,7 +15,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Inject
 	private MemberDAO dao;
-	
+
 	@Override
 	public void create(MemberVO vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -76,5 +76,13 @@ public class MemberServiceImpl implements MemberService {
 		return dao.listSearchCount(cri);
 	}
 
+	@Override
+	public boolean login(MemberVO vo) throws Exception {
+		
+		boolean tf = dao.login(vo);
+		System.out.println(tf + " true or false ");
+
+		return dao.login(vo);
+	}
 
 }

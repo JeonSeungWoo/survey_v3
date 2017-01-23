@@ -28,6 +28,8 @@ public interface MemberDAO {
 	public List<MemberVO> listSearch(SearchCriteria cri) throws Exception;
 
 	public int listSearchCount(SearchCriteria cri) throws Exception;
+	
+	public boolean login(MemberVO vo) throws Exception;
 
 	
 }

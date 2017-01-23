@@ -42,14 +42,16 @@ public class MemberController {
 
 	}
 
-//	@GetMapping("/mread")
-//	public void read(@RequestParam("membername") String membername, Model model) throws Exception {
-//		logger.info("read call..............");
-//		model.addAttribute("read", service.read(membername));
-//	}
+	// @GetMapping("/mread")
+	// public void read(@RequestParam("membername") String membername, Model
+	// model) throws Exception {
+	// logger.info("read call..............");
+	// model.addAttribute("read", service.read(membername));
+	// }
 
 	@GetMapping("/mupdate")
-	public void updateGet(@RequestParam("membername") String membername, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+	public void updateGet(@RequestParam("membername") String membername, @ModelAttribute("cri") SearchCriteria cri,
+			Model model) throws Exception {
 		logger.info("updateGet call...................");
 		model.addAttribute("MemberVO", service.read(membername));
 	}
@@ -57,30 +59,31 @@ public class MemberController {
 	@PostMapping("/mupdate")
 	public String updatePost(MemberVO vo, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 		logger.info("updatePost call.............");
-		
+
 		logger.info(cri.toString());
 		service.update(vo);
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addAttribute("searchType", cri.getSearchType());
 		rttr.addAttribute("keyword", cri.getKeyword());
-		
+
 		rttr.addFlashAttribute("msg", "SUCCESS");
-		
+
 		logger.info(rttr.toString());
 		return "redirect:/member/mlistPage";
 	}
-	
+
 	@PostMapping("/mdelete")
-	public String deletePost(@RequestParam("membername") String membername, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+	public String deletePost(@RequestParam("membername") String membername, SearchCriteria cri, RedirectAttributes rttr)
+			throws Exception {
 		logger.info("deletePost call.............");
 		service.delete(membername);
-		
+
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addAttribute("searchType", cri.getSearchType());
 		rttr.addAttribute("keyword", cri.getKeyword());
-		
+
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		return "redirect:/member/mlistPage";
 	}
@@ -97,11 +100,53 @@ public class MemberController {
 	public void listPageGet(Model model, @ModelAttribute("cri") SearchCriteria cri) throws Exception {
 		logger.info(cri.toString());
 		model.addAttribute("listPage", service.listSearchCriteria(cri));
-		
+
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.listSearchCount(cri));
-		
+
 		model.addAttribute("pageMaker", pageMaker);
+	}
+
+	@GetMapping("/login")
+	public void loginGet() {
+		logger.info("login get......");
+	}
+
+	@PostMapping("/login")
+	public String loginPost(Model model, MemberVO vo) throws Exception {
+
+		logger.info("login post..");
+		logger.info("membername: " + vo.getMembername());
+		logger.info("email: " + vo.getEmail());
+
+		boolean loginCheck = service.login(vo);
+
+		if (loginCheck == true) {
+			logger.info("성공");
+
+			model.addAttribute("value", vo.getMembername());
+
+			return "redirect:/board/listPage?page1";
+
+		}
+		logger.info("실패");
+
+		return "redirect:./loginFail";
+
+	}
+
+	@PostMapping("/logout")
+	public String logout() throws Exception {
+
+		logger.info("logout .....");
+
+		return "redirect:./login";
+
+	}
+
+	@GetMapping("/loginFail")
+	public void loginFail() {
+		logger.info("loginFail call......");
 	}
 }
