@@ -38,17 +38,6 @@ public class SurveyDetailController {
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 	
-	
-	@GetMapping(value = "/show",produces = {"image/jpg","image/gif","image/png"})
-	public @ResponseBody byte[] createGet(String fileName)throws Exception{
-		logger.info("GET create call......");
-		
-		InputStream in =  new FileInputStream(uploadPath +fileName);
-		
-		return IOUtils.toByteArray(in);
-		
-	}
-	
 	private String detailUploadFile(String originalName, byte[]fileData)throws Exception{
 		
 		UUID uid = UUID.randomUUID();
@@ -72,18 +61,24 @@ public class SurveyDetailController {
 		
 		try {
 			
-//			logger.info("originalName : " + file.getOriginalFilename());
-//			logger.info("size : " + file.getSize());
-//			logger.info("contentType : " + file.getContentType());
-//			
-//			String savedName = detailUploadFile(file.getOriginalFilename(),file.getBytes());
-//			
-//			model.addAttribute("savedName",savedName);
+			logger.info("originalName : " + file.getOriginalFilename());
+			logger.info("size : " + file.getSize());
+			logger.info("contentType : " + file.getContentType());
 			
+			String savedName = detailUploadFile(file.getOriginalFilename(),file.getBytes());
+			
+			logger.info("savedName : " + savedName);
+			
+			model.addAttribute("savedName",savedName);
+			
+			
+			
+			
+			logger.info("vo : " + vo);
+			
+			vo.setSdimage(savedName);
 			
 			service.create(vo);
-			
-//			vo.setSdimage(savedName);
 			
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 			
@@ -147,29 +142,30 @@ public class SurveyDetailController {
 			method = {RequestMethod.PUT,RequestMethod.PATCH})
 	public ResponseEntity<String> update(
 			@PathVariable("sdno") Integer sdno,
-			SurveyDetailVO vo)throws Exception{
+			SurveyDetailVO vo,MultipartFile file, Model model)throws Exception{
 		
 		ResponseEntity<String> entity = null;
 		
 		try {
+			logger.info("originalName : " + file.getOriginalFilename());
+			logger.info("size : " + file.getSize());
+			logger.info("contentType : " + file.getContentType());
+			
+			String savedName = detailUploadFile(file.getOriginalFilename(),file.getBytes());
+			
+			logger.info("savedName : " + savedName);
+			
+			model.addAttribute("savedName",savedName);
+			
+			logger.info("vo : " + vo);
+			
+			
 			vo.setSdno(sdno);
+			vo.setSdimage(savedName);
 			
 			service.update(vo);
 			
 			entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);
-			logger.info("-----------------------------");
-			logger.info("-----------------------------");
-			logger.info("-----------------------------");
-			logger.info("-----------------------------");
-			logger.info("-----------------------------");
-			logger.info("-----------------------------");
-			logger.info("-----------------------------");
-			logger.info("-----------------------------");
-			logger.info("-----------------------------");
-			logger.info("-----------------------------");
-			logger.info("entity :" +entity);
-			
-			
 			
 		} catch (Exception e) {
 		 e.printStackTrace();
@@ -187,7 +183,10 @@ public class SurveyDetailController {
 		ResponseEntity<String> entity = null;
 		
 		try {
+			
+			
 			service.delete(sdno);
+			new File(uploadPath).delete();
 			entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);
 			
 		} catch (Exception e) {

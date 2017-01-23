@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
-#img{
+img{
 width: 200px;
 height: 200px;
 background-image: url(/resources/img/no-image.png);
@@ -85,7 +85,7 @@ margin-top:-50px;
 
 <li>제목<input type = "text" name="sdtitle" class ="sdtitle"></li>
 <li>내용<input type = "text" name="sdcontent" class ="sdcontent"></li>
-<li>이미지<input type = "file" name="sdimage" class ="sdimage"></li>
+<li>이미지<input type = "file" name="file" class ="sdimage"></li>
 <li>타입<input type ="text" name="sdtype" class ="sdtype"></li>
 </ul>       
 </div>
@@ -103,7 +103,7 @@ margin-top:-50px;
 <li>번호<input type = "text" name="smno" class ="newSmno" value="${SurveyMainVO.smno}" readonly="readonly"></li>
 <li>제목<input type = "text" name="sdtitle" class ="newSdtitle" value="제목입력하세요"></li>
 <li>내용<input type = "text" name="sdcontent" class ="newSdcontent" value = "내용을 입력하세요"></li>
-<li>이미지<input type = "file" name="sdimage" class ="newSdimage"></li>
+<li>이미지<input type = "file" name="file" class ="newSdimage"></li>
 <li>타입<input type ="text" name="sdtype" class ="newSdtype" value = "A"></li>
 </ul>        
 </div>
@@ -144,8 +144,9 @@ function getAllList(){
 			"<button type='submit' id='surveyModBtn'>MOD</button></li>"+
 			"<li>제목  : "+"<small class='surveyTitle'>" + this.sdtitle + "</small></li>" +
 			"<li>내용  : "+"<small class='surveyContent'>" + this.sdcontent + "</small></li>" +
-			"<li>이미지  : "+"<small class='surveyImage'>" + this.sdimage + "</small></li>" +
-			"<li>타입  : "+"<small class='surveyType'>" + this.sdtype + "</small></li>";
+			"<li>이미지  : "+"<small class='surveyImage'>" +
+			"<img src='show?name="+this.sdimage+"'"  + "</small></li>" +
+			"<li>타입  : "+"<small class='surveyType'>" + this.sdtype + "</small></li></form>";
 			
 		});
 		
@@ -199,7 +200,7 @@ $(".surveyAddBtn").on("click",function(event){
  	formData.append("smno", $(".newSmno").val());
 	formData.append("sdtitle",$(".newSdtitle").val());
 	formData.append("sdcontent",$(".newSdcontent").val());
-	formData.append("sdimage", $(".newSdimage")[0].files[0]);
+	formData.append("file", $(".newSdimage")[0].files[0]);
 	formData.append("sdtype",$(".newSdtype").val());
 
 	
@@ -227,19 +228,13 @@ $("#surveyUpdateBtn").on("click",function(event){
 	var sdno = $(".modal-title").html();
 	
 	
-	var surveyTitle =  $(".surveyTitle").html();
-	var surveyContent =  $(".surveyContent").html();
-	var surveyImage =  $(".surveyImage").html();
-	var surveyType =  $(".surveyType").html();
-	
-	console.log("--------------------------");
-	var  form = $('FILE_FORM')[0];
+	var form = $('FILE_FORM')[0];
 	var formData =  new FormData(form);
-	
-	formData.append("sdtitle",$(".sdtitle").val(surveyTitle));
-	formData.append("sdcontent",$(".scontent").val(surveyContent));
-	formData.append("sdimage", $(".sdimage").val(surveyImage)[0].files[0]);
-	formData.append("sdtype",$(".sdtype").val(surveyType));
+
+	formData.append("sdtitle",$(".sdtitle").val());
+	formData.append("sdcontent",$(".sdcontent").val());
+	formData.append("file", $(".sdimage")[0].files[0]);
+	formData.append("sdtype",$(".sdtype").val());
 
 	
 	console.log("-----------------");
