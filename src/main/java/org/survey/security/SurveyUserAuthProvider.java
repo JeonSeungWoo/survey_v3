@@ -63,7 +63,7 @@ public class SurveyUserAuthProvider implements AuthenticationProvider {
 
 	@Override
 	public boolean supports(Class<?> arg0) {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
