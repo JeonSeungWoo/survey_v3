@@ -34,5 +34,5 @@ public class UserVO {
 	public String toString() {
 		return "UserVO [membername=" + membername + ", email=" + email + ", role=" + role + "]";
 	}
-
+//커밋용주석입니다
 }

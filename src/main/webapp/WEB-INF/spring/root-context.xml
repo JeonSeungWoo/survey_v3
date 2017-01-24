@@ -44,6 +44,5 @@
 
 	<context:component-scan base-package="org.survey.persistence" />
 	<context:component-scan base-package="org.survey.service" />
-	<context:component-scan base-package="org.survey.security" />
 
 </beans>
