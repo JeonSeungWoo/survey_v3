@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.1.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<security:http auto-config="true" use-expressions="false">
+
+		<security:form-login login-page="/member/login"
+			username-parameter="membername" password-parameter="email"
+			login-processing-url="/member/loginAction"
+			authentication-failure-handler-ref="LoginFailureHandler"
+			authentication-success-handler-ref="LoginSuccessHandler" />
+
+		<security:session-management>
+			<security:concurrency-control
+				max-sessions="1" expired-url="/member/login_duplicate" />
+		</security:session-management>
+
+		<security:logout delete-cookies="JSESSIONID"
+			invalidate-session="true" logout-url="/logout" />
+
+		<security:intercept-url pattern="/surveyMain/listPage"
+			access="ROLE_MEMBER" />
+		<security:intercept-url pattern="/surveyMain/read"
+			access="ROLE_MEMBER" />
+		<security:intercept-url pattern="/surveyMain/register"
+			access="ROLE_MEMBER" />
+		<security:intercept-url pattern="/surveyMain/update"
+			access="ROLE_MEMBER" />
+		<security:intercept-url pattern="/board/listPage"
+			access="ROLE_MEMBER" />
+		<security:intercept-url pattern="/board/read"
+			access="ROLE_MEMBER" />
+		<security:intercept-url pattern="/board/modifyPage"
+			access="ROLE_MEMBER" />
+		<security:intercept-url pattern="/board/register"
+			access="ROLE_MEMBER" />
+		<security:intercept-url pattern="/member/mlistPage"
+			access="ROLE_ADMIN" />
+		<security:intercept-url pattern="/member/mupdate"
+			access="ROLE_ADMIN" />
+		<security:csrf disabled="true" />
+
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select * from (
+                     select membername username,email password,true enable  from tbl_member) as id where id.username = ?"
+				authorities-by-username-query="
+               select * from ( select membername username, 'ROLE_MEMBER' authority from tbl_member) as id where id.username = ?" />
+			<security:password-encoder ref="bcryptEncoder" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+
+</beans>
