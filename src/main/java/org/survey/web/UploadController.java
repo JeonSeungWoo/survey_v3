@@ -15,10 +15,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.survey.util.MediaUtils;
@@ -37,25 +39,32 @@ public class UploadController {
 	public void uploadAjax(){
 		
 	}
-	
-	private String uploadFile(String originalName, byte[]fileData)throws Exception{
+	@PostMapping(value ="/uploadForm" , produces ="text/plain;charset=UTF-8" )
+	private String uploadFile(@RequestParam("modImageFile")MultipartFile file, Model model)throws Exception{
 		
 		UUID uid = UUID.randomUUID();
 		
-		String savedName = uid.toString() + "_" + originalName;
+		String savedName = uid.toString() + "_" + file.getOriginalFilename();
 		
 		File target = new File(uploadPath,savedName);
 		
-		FileCopyUtils.copy(fileData,target);
+		FileCopyUtils.copy(file.getBytes(),target);
 		
-		return savedName;
+		model.addAttribute("savedName", savedName);
+		model.addAttribute("result", "SUCCESS");
+		
+		return "uploadResult";
 		
 	}
 	
 	@ResponseBody
-	@PostMapping("/uploadAjax")
+	@PostMapping(value ="/uploadAjax" , produces ="text/plain;charset=UTF-8" )
 	public ResponseEntity<String> uploadAjax(MultipartFile file)throws Exception{
 		
+		logger.info("----------------------------------------");
+		logger.info("----------------------------------------");
+		logger.info("----------------------------------------");
+		logger.info("----------------------------------------");
 		logger.info("originalName : " + file.getOriginalFilename());
 		
 		return new ResponseEntity<>(
