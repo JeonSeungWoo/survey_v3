@@ -11,8 +11,8 @@
 img{
 width: 200px;
 height: 200px;
-text-align: center;
 
+text-align: center;
 }
 
 .fileDrop{
@@ -59,7 +59,7 @@ margin-top:-50px;
 				<li>글번호 : ${SurveyMainVO.smno }</li>
 				<li>제목 : ${SurveyMainVO.smtitle }</li>
 				<li>설문내용 : ${SurveyMainVO.smcontent }</li>
-				<li><img src="show?name=${SurveyMainVO.smimage}"onerror="this.style.display='none'"></li>
+				<li><img src="show?name=${SurveyMainVO.smimage}"></li>
 
 				<li>설문시작일자 : <fmt:formatDate value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
 				<li>설문수정일자 : <fmt:formatDate value="${SurveyMainVO.smupdatedate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
@@ -94,7 +94,7 @@ margin-top:-50px;
 <li>제목<input type = "text" name="sdtitle" class ="sdtitle"></li>
 <li>내용<input type = "text" name="sdcontent" class ="sdcontent"></li>
 <li>타입<input type ="text" name="sdtype" class ="sdtype"></li>
-<li><div>이미지<img name="sdimage" class ="sdimage" style='width:100px; height: 100px;'><p class='modDelImage' onerror="this.style.display='none'">이미지삭제</p></div></li>
+<li><div>이미지<img name="sdimage" class ="sdimage" style='width:100px; height: 100px;'><p class='modDelImage'>이미지삭제</p></div></li>
 <li>
       <form id="modImageForm" method="post" action="/upload/uploadForm" target="zeroFrame" enctype="multipart/form-data">
         <input type='file' name='modImageFile' id="modImageFile">
@@ -180,11 +180,10 @@ function getAllList(){
 			
 			var attachFile = this.attachFile;
 			
-		
-			
 			var link ="";
+			
 			if(attachFile){
-				link ="<img data-file='"+attachFile+"'"+" src='/upload/displayFile?fileName="+attachFile+"'>";
+				link = "<img data-file='"+attachFile+"'"+" src='/upload/displayFile?fileName="+attachFile +"'>";
 			}
 			
 			
