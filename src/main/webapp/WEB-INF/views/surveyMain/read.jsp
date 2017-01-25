@@ -334,4 +334,40 @@ $(document).ready(function(){
 </script>
 
 
+</script>
+
+
+
+	<script>
+		$(document).ready(function() {
+
+			var formObj = $("form[role='form']");
+
+			console.log(formObj);
+
+			$("#modifyBtn").on("click", function() {
+				formObj.attr("action", "/surveyMain/update");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+
+			$("#removeBtn").on("click", function() {
+				formObj.attr("action", "/surveyMain/delete");
+				formObj.submit();
+			});
+
+			$("#goListBtn ").on("click", function() {
+				formObj.attr("action","listPage?page=1");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+
+		});
+		
+	</script>
+
+
+
+
+
 </html>
