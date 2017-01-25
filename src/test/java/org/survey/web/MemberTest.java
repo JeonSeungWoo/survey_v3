@@ -23,7 +23,7 @@ public class MemberTest {
 		for(int i = 0; i < 30; i++){
 			
 		MemberVO vo = new MemberVO();
-		vo.setMembername("고귀한" + i);
+		vo.setMembername("GoGwuiHan" + i);
 		vo.setEmail("gonoble@gmail "+ i +".com");
 		
 		dao.create(vo);

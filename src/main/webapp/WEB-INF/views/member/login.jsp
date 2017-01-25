@@ -9,7 +9,7 @@
 <body>
 
 	<h1>LOGIN PAGE</h1>
-	<form id="f1" method="POST">
+	<form id="f1" method="POST" action="loginAction">
 		<p>
 			아이디: <input type='text' name='membername' id='membername'>
 		</p>
