@@ -11,7 +11,7 @@
 img{
 width: 200px;
 height: 200px;
-background-image: url(/resources/img/no-image.png);
+
 text-align: center;
 }
 
@@ -110,8 +110,12 @@ margin-top:-50px;
 </div>
 </div>
 	
+
+<div id="surveyDetailAdd"> +항목추가 </div>	
+	
+	
 <!-- SurveyDetailCreate -->
-<div class ="SurveyDetailMainCreate">
+<div class ="SurveyDetailMainCreate" style="display: none;">
 <div>
 <form id="detailForm" method="post"action="/surveyDetail" target="zeroFrame" enctype="multipart/form-data">
 
@@ -207,8 +211,20 @@ $(".surveyAddBtn").click(function(event){
 	event.preventDefault();
 	console.log("survey detail add Btn clicked");
 	$("#detailForm").submit();
+	$(".SurveyDetailMainCreate").hide("slow");
+});
+
+$("#surveyDetailAdd").on("click",function(){
+	var MainCreate = $(".SurveyDetailMainCreate");
+	MainCreate.hide().show('slow');
+});
+
+$("#closeBtn").on("click",function(event){
+	event.preventDefault();
+	$("#modDiv").hide("slow");
 	
 });
+
 
 $('#surveyDetiles').on("click",".detailDiv",function(event){
 	
@@ -332,11 +348,6 @@ $(document).ready(function(){
 });
 
 </script>
-
-
-</script>
-
-
 
 	<script>
 		$(document).ready(function() {
