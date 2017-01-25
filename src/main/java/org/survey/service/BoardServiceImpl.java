@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.survey.domain.BoardVO;
 import org.survey.domain.Criteria;
+import org.survey.domain.SearchCriteria;
 import org.survey.persistence.BoardDAO;
 
 @Service
@@ -49,6 +50,24 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> listCriteria(Criteria cri) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.listCriteria(cri);
+	}
+
+	@Override
+	public int listCountCriteria(Criteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.countPaging(cri);
+	}
+
+	@Override
+	public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.listSearch(cri);
+	}
+
+	@Override
+	public int listSearchCount(SearchCriteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.listSearchCount(cri);
 	}
 
 }
