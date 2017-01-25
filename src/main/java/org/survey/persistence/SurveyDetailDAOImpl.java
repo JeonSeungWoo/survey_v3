@@ -44,4 +44,32 @@ public class SurveyDetailDAOImpl implements SurveyDetailDAO {
 		session.delete(NAME + ".delete",sdno);
 	}
 
+	@Override
+	public void addAttach(String fullName) throws Exception {
+		// TODO Auto-generated method stub
+		session.insert(NAME + ".addAttach",fullName);
+		
+	}
+
+	@Override
+	public List<String> getAttach(Integer sdno) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(NAME + ".getAttach",sdno);
+	}
+
+	@Override
+	public void deleteFile(Integer sdno) {
+		
+		session.delete(NAME + ".deleteFile", sdno);
+		
+	}
+
+	@Override
+	public void insertFile(SurveyDetailVO vo) {
+		
+		
+		session.update(NAME + ".insertFile", vo);
+		
+	}
+
 }

@@ -15,6 +15,14 @@ background-image: url(/resources/img/no-image.png);
 text-align: center;
 }
 
+.fileDrop{
+width: 80%;
+height: 100px;
+border: 1px dotted black;
+background-color: gray;
+margin: auto;
+}
+
 #modDiv{
 width:400px;
 height:300px;
@@ -67,14 +75,13 @@ margin-top:-50px;
 	
 	
 <div>
-<ul id="surveyDetiles">
-</ul>
+<div id="surveyDetiles">
+</div>
 </div>
 	
 	
 
 	
-<form id="FILE_FORM" method="post" enctype="multipart/form-data" action="/surveyDetail">
 
 
 <!-- SurveyDetail modDiv Button -->
@@ -82,35 +89,48 @@ margin-top:-50px;
 <div class="modal-title"></div>
 <div>
 <ul>
-
+<input type='hidden' name='attachFile' class='hiddenfile'>
+<li>SDNO<input type = "text" name="sdno" class ="sdno" readonly="readonly"></li>
 <li>제목<input type = "text" name="sdtitle" class ="sdtitle"></li>
 <li>내용<input type = "text" name="sdcontent" class ="sdcontent"></li>
-<li>이미지<input type = "file" name="file" class ="sdimage"></li>
 <li>타입<input type ="text" name="sdtype" class ="sdtype"></li>
+<li><div>이미지<img name="sdimage" class ="sdimage" style='width:100px; height: 100px;'><p class='modDelImage'>이미지삭제</p></div></li>
+<li>
+      <form id="modImageForm" method="post" action="/upload/uploadForm" target="zeroFrame" enctype="multipart/form-data">
+        <input type='file' name='modImageFile' id="modImageFile">
+        <button id='changeImageBtn'>CHANGE IMAGE</button>
+	  </form>
 </ul>       
 </div>
 
 <div>
-<button type="submit" id ="surveyUpdateBtn">수정</button>
-<button type="submit" id ="surveyDelBtn">삭제</button>
+<button type="submit" id ="surveyDetailUpdateBtn">수정</button>
+<button type="submit" id ="surveyDetailDelBtn">삭제</button>
 <button type="submit" id ="closeBtn">닫기</button>
 </div>
 </div>
 	
 <!-- SurveyDetailCreate -->
+<div class ="SurveyDetailMainCreate">
 <div>
+<form id="detailForm" method="post"action="/surveyDetail" target="zeroFrame" enctype="multipart/form-data">
+
 <ul>
+
 <li>번호<input type = "text" name="smno" class ="newSmno" value="${SurveyMainVO.smno}" readonly="readonly"></li>
 <li>제목<input type = "text" name="sdtitle" class ="newSdtitle" value="제목입력하세요"></li>
 <li>내용<input type = "text" name="sdcontent" class ="newSdcontent" value = "내용을 입력하세요"></li>
-<li>이미지<input type = "file" name="file" class ="newSdimage"></li>
 <li>타입<input type ="text" name="sdtype" class ="newSdtype" value = "A"></li>
+<li>이미지<input type ="file" name="sdAttach" class ="newSdtype"></li>
+<li><button type ="submit"  class= "surveyAddBtn">항목 등록</button></li>
 </ul>        
-</div>
-<button type ="submit"  class= "surveyAddBtn">항목 등록</button>
-
 </form>
+</div>
 
+
+</div>
+
+<iframe name='zeroFrame' width='0px' height='0px'></iframe>
 
 
 
@@ -124,11 +144,26 @@ margin-top:-50px;
 <script type="text/javascript" src="/resources/js/jquery.form.js"></script>
 
 
+
+
 <script>
 
-
 var smno = ${SurveyMainVO.smno};
-getAllList();
+
+function showResult(result, savedName){
+	alert(result);
+	
+	if(result =='SUCCESS'){
+		document.getElementById("detailForm").reset();
+	}
+	
+	if(savedName){
+		$(".hiddenfile").val(savedName);
+		return;
+	}
+	
+	getAllList();
+}
 
 function getAllList(){
 	
@@ -139,14 +174,22 @@ function getAllList(){
 		
 		$(data).each(function(){
 			
-			str += "<p></p>"+
-			"<li data-sdno='"+this.sdno+"' class='surveyLi'>"+
-			"<button type='submit' id='surveyModBtn'>MOD</button></li>"+
+			var attachFile = this.attachFile;
+			
+			var link ="";
+			
+			if(attachFile){
+				link = "<img data-file='"+attachFile+"'"+" src='/upload/displayFile?fileName="+attachFile +"'>";
+			}
+			
+			
+			str += "<div class='detailDiv'>"+
+			"<ul><li data-sdno='"+this.sdno+"' class='surveyLi'>"+
+			"</li>"+
 			"<li>제목  : "+"<small class='surveyTitle'>" + this.sdtitle + "</small></li>" +
 			"<li>내용  : "+"<small class='surveyContent'>" + this.sdcontent + "</small></li>" +
-			"<li>이미지  : "+"<small class='surveyImage'>" +
-			"<img src='show?name="+this.sdimage+"'"  + "</small></li>" +
-			"<li>타입  : "+"<small class='surveyType'>" + this.sdtype + "</small></li></form>";
+			"<li>타입  : "+"<small class='surveyType'>" + this.sdtype + "</small></li>"+
+			"<li>이미지  : "+"<small class='surveryImage' >" + link + "</small></li></ul></div>";
 			
 		});
 		
@@ -159,110 +202,55 @@ function getAllList(){
 
 
 
-
-$("#surveyDetiles").on("click",".surveyLi button",function(){
 	
-	var surveyno = $(this).parent();
-	
-	var sdno = surveyno.attr("data-sdno");
-	var surveyTitle =  $(".surveyTitle").html();
-	var surveyContent =  $(".surveyContent").html();
-	var surveyImage =  $(".surveyImage").html();
-	var surveyType =  $(".surveyType").html();
-	
-	alert(sdno + " : " + surveyTitle + " : " + surveyContent + " : " + surveyImage + " : " + surveyType);
-	                
-	$(".modal-title").html(sdno);
-	$(".sdtitle").val(surveyTitle);
-	$(".sdcontent").val(surveyContent);
-	$(".sdtype").val(surveyType);
-	
-	$("#modDiv").show("slow");
+$(".surveyAddBtn").click(function(event){
+	event.preventDefault();
+	console.log("survey detail add Btn clicked");
+	$("#detailForm").submit();
 	
 });
 
-$("#closeBtn").on("click",function(event){
-	event.preventDefault();
-	$("#modDiv").hide("slow");
+$('#surveyDetiles').on("click",".detailDiv",function(event){
 	
+	console.log("detail div clicked...");
+	
+	var target = $(this);
+	
+	var sdno = target.find(".surveyLi").attr("data-sdno");
+	var sdtitle = target.find(".surveyTitle").text();
+	var sdcontent = target.find(".surveyContent").text();
+	var sdtype = target.find(".surveyType").text();	
+	var sdimageEle = target.find(".surveryImage");
+	
+	var sdimageFileName = target.find("img").attr("data-file");
+	
+	var sdimage = null;
+	
+	if(sdimageEle.find("img")){
+		sdimage = sdimageEle.find("img").attr("src");	
+	}
+	
+	console.log(sdno, sdtitle, sdcontent, sdtype, sdimageFileName);
+	
+	
+	
+	
+	var modDiv = $("#modDiv");
+	modDiv.find(".hiddenfile").val(sdimageFileName);
+	modDiv.find(".sdno").val(sdno);
+	modDiv.find(".sdtitle").val(sdtitle);
+	modDiv.find(".sdcontent").val(sdcontent);
+	modDiv.find(".sdtype").val(sdtype);
+	modDiv.find(".sdimage").attr("src", sdimage);
+	
+	modDiv.hide().show('slow');
 });
 
-
-$(".surveyAddBtn").on("click",function(event){
+$("#surveyDetailDelBtn").click(function(event){
 	
-	event.preventDefault();
+	var sdno = $(".sdno").val();
 	
-	console.log("--------------------------");
-	
-	var  form = $('FILE_FORM')[0];
-	var formData =  new FormData(form);
-	
- 	formData.append("smno", $(".newSmno").val());
-	formData.append("sdtitle",$(".newSdtitle").val());
-	formData.append("sdcontent",$(".newSdcontent").val());
-	formData.append("file", $(".newSdimage")[0].files[0]);
-	formData.append("sdtype",$(".newSdtype").val());
-
-	
-	console.log("-----------------");
-	console.log(formData);
-	$.ajax({
-		
-		url:'/surveyDetail',
-		processData: false,
-        contentType: false,
-        data: formData,
-        type: 'POST',
-		success : function(result){
-				alert("등록 되었습니다.");
-				getAllList();
-			}
-		
-		});
-});
-
-
-$("#surveyUpdateBtn").on("click",function(event){
-	event.preventDefault();
- 
-	var sdno = $(".modal-title").html();
-	
-	
-	var form = $('FILE_FORM')[0];
-	var formData =  new FormData(form);
-
-	formData.append("sdtitle",$(".sdtitle").val());
-	formData.append("sdcontent",$(".sdcontent").val());
-	formData.append("file", $(".sdimage")[0].files[0]);
-	formData.append("sdtype",$(".sdtype").val());
-
-	
-	console.log("-----------------");
-	console.log(formData);
-	
-	
-	$.ajax({
-		
-		url:"/surveyDetail/" + sdno,
-		processData: false,
-        contentType: false,
-		data : formData,
-		type:"PUT",
-		success : function(result){
-			if(result == "SUCCESS"){
-			alert("수정되었습니다.");
-			$("#modDiv").hide("slow");
-			getAllList();
-		}
-		}
-	});
-	
-});
-
-
-$("#surveyDelBtn").on("click",function(event){
-	event.preventDefault();
-	var sdno = $(".modal-title").html();
+	console.log("delete survey detail....." + sdno);
 	
 	$.ajax({
 		type : "delete",
@@ -278,10 +266,72 @@ $("#surveyDelBtn").on("click",function(event){
 		}
 	});
 	
+	
 });
 
 
+//modify survey detail 
 
+$("#surveyDetailUpdateBtn").click(function(event){
+	
+	
+	var target = $("#modDiv");
+	
+	var sdno = target.find(".sdno").val();
+	var sdtitle = target.find(".sdtitle").val();
+	var sdcontent = target.find(".sdcontent").val();
+	var sdtype = target.find(".sdtype").val();	
+	var sdfile = target.find(".hiddenfile").val();
+	
+	console.log("surveyDetailUpdateBtn..................1");
+	console.log(sdno, sdtitle, sdcontent, sdtype);
+	
+	var data = {
+			sdno:sdno,
+			sdtitle : sdtitle,
+			sdcontent : sdcontent,
+			sdtype : sdtype,
+			attachFile: sdfile
+	};
+	
+	console.log(data);	
+	
+	$.ajax({
+		
+		url:"/surveyDetail/" + sdno,
+		headers : {
+			"Content-Type":"application/json",
+			"X-HTTP-Method-Override" : "POST"
+		},
+		processData: false,
+        contentType: false,
+		data : JSON.stringify(data),
+		type:"PUT",
+		success : function(result){
+			if(result == "SUCCESS"){
+			alert("수정되었습니다.");
+			$("#modDiv").hide("slow");
+			getAllList();
+		}
+		}
+	});
+
+});
+
+
+$(".modDelImage").click(function(){
+	
+	var target = $("#modDiv");
+	target.find('.hiddenfile').val("");
+	target.find("img").attr("src","");
+});
+
+
+$(document).ready(function(){
+	getAllList();
+});
+
+</script>
 
 
 </script>
@@ -315,4 +365,9 @@ $("#surveyDelBtn").on("click",function(event){
 		});
 		
 	</script>
+
+
+
+
+
 </html>

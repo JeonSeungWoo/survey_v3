@@ -11,5 +11,13 @@ public interface SurveyDetailDAO {
 	public void create(SurveyDetailVO vo) throws Exception;
 	public void update(SurveyDetailVO vo)throws Exception;
 	public void delete(Integer sdno)throws Exception;
+	
+	public void addAttach(String fullName)throws Exception;
+	
+	public List<String> getAttach(Integer sdno)throws Exception;
 
+	public void deleteFile(Integer sdno);
+
+	public void insertFile(SurveyDetailVO vo);
+	
 }
