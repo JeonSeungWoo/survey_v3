@@ -8,9 +8,7 @@
 
 		<security:form-login login-page="/member/login"
 			username-parameter="membername" password-parameter="email"
-			login-processing-url="/member/loginAction"
-			authentication-failure-handler-ref="LoginFailureHandler"
-			authentication-success-handler-ref="LoginSuccessHandler" />
+			login-processing-url="/member/loginAction" />
 
 		<security:session-management>
 			<security:concurrency-control
@@ -20,7 +18,7 @@
 		<security:logout delete-cookies="JSESSIONID"
 			invalidate-session="true" logout-url="/logout" />
 
-		<security:intercept-url pattern="/surveyMain/listPage"
+		<!-- <security:intercept-url pattern="/surveyMain/listPage"
 			access="ROLE_MEMBER" />
 		<security:intercept-url pattern="/surveyMain/read"
 			access="ROLE_MEMBER" />
@@ -40,7 +38,7 @@
 			access="ROLE_ADMIN" />
 		<security:intercept-url pattern="/member/mupdate"
 			access="ROLE_ADMIN" />
-		<security:csrf disabled="true" />
+		<security:csrf disabled="true" /> -->
 
 	</security:http>
 
@@ -52,9 +50,10 @@
                      select membername username,email password,true enable  from tbl_member) as id where id.username = ?"
 				authorities-by-username-query="
                select * from ( select membername username, 'ROLE_MEMBER' authority from tbl_member) as id where id.username = ?" />
-			<security:password-encoder ref="bcryptEncoder" />
+			
 		</security:authentication-provider>
 	</security:authentication-manager>
 
-
+	<bean id="LoginSuccessHandler" class="org.survey.security.LoginSuccessHandler"></bean>
+	<bean id="LoginFailureHandler" class="org.survey.security.LoginFailureHandler"></bean>
 </beans>
