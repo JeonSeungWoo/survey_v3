@@ -124,7 +124,7 @@ margin-top:-50px;
 <li>번호<input type = "text" name="smno" class ="newSmno" value="${SurveyMainVO.smno}" readonly="readonly"></li>
 <li>제목<input type = "text" name="sdtitle" class ="newSdtitle" value="제목입력하세요"></li>
 <li>내용<input type = "text" name="sdcontent" class ="newSdcontent" value = "내용을 입력하세요"></li>
-<li>타입<input type ="text" name="sdtype" class ="newSdtype" value = "A"></li>
+<li>옵션<input type ="text" name="sdtype" class ="newSdtype" value = "ox"></li>
 <li>이미지<input type ="file" name="sdAttach" class ="newSdtype"></li>
 <li><button type ="submit"  class= "surveyAddBtn">항목 등록</button></li>
 </ul>        
