@@ -13,6 +13,11 @@ public class SurveyDetailVO {
 	private Date sdregdate;
 	private Date sdupdatedate;
 	
+	
+	
+	
+	
+
 	private String attachFile;
 
 	public Integer getSdno() {
@@ -85,6 +90,7 @@ public class SurveyDetailVO {
 				+ ", sdtype=" + sdtype + ", sdregdate=" + sdregdate + ", sdupdatedate=" + sdupdatedate + ", attachFile="
 				+ attachFile + "]";
 	}
+
 
 
 	

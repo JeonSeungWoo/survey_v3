@@ -1,6 +1,8 @@
 package org.survey.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -79,15 +81,20 @@ public class SurveyDetailDAOImpl implements SurveyDetailDAO {
 	}
 
 	@Override
-	public List<SurveyDetailVO> detailNum(int qnum) throws Exception {
+	public List<SurveyDetailVO> detailNum(Integer smno,Integer qnum) throws Exception {
+		
+		Map<String, Integer> paramMap = new HashMap<String, Integer>();
+		paramMap.put("smno",smno);
+		paramMap.put("qnum",qnum);
 
-		return session.selectList(NAME + ".numberPage",qnum);
+		return session.selectList(NAME + ".numberPage",paramMap);
+		
 	}
 
 	@Override
-	public int detailCount(int qnum) throws Exception {
+	public int detailCount(Integer smno) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne(NAME + ".DetailCount",qnum);
+		return session.selectOne(NAME + ".DetailCount",smno);
 	}
 
 }

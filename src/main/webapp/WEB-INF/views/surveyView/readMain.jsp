@@ -14,7 +14,7 @@
 
 	<input type="hidden" name="smno" value="${SurveyMainVO.smno}">
 	<input type="hidden" name="page" value="${param.page}">
-	<input type="hidden" name="qnum" value="${param.qnum}">
+	<input type="hidden" name="qnum" id='qnum'value="${param.qnum}">
 	
 	
 	<div>
@@ -50,7 +50,9 @@
 			console.log(formObj);
 			
 			$("#startBtn ").on("click", function() {
-				formObj.attr("action","/surveyView/readDetail?smno=${SurveyMainVO.smno}&page=1&qnum='0');
+				
+				$("#qnum").val("0");
+				formObj.attr("action","/surveyView/readDetail?smno=${SurveyMainVO.smno}&page=1");
 				formObj.attr("method", "get");
 				formObj.submit();
 			}); 

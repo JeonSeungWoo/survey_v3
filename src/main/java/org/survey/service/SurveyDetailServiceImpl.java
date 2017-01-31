@@ -77,17 +77,20 @@ public class SurveyDetailServiceImpl implements SurveyDetailService {
 	}
 
 
+	
+
+
 	@Override
-	public List<SurveyDetailVO> detailNum(int qnum) throws Exception {
+	public int detailCount(Integer smno) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.detailNum(qnum);
+		return dao.detailCount(smno);
 	}
 
 
 	@Override
-	public int detailCount(int qnum) throws Exception {
+	public List<SurveyDetailVO> detailNum(Integer smno, Integer qnum) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.detailCount(qnum);
+		return dao.detailNum(smno, qnum);
 	}
 
 }

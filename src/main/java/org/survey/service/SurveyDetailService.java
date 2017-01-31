@@ -14,6 +14,6 @@ public List<SurveyDetailVO> list(Integer smno)throws Exception;
 	public List<String> getAttach(Integer sdno)throws Exception;
 	public SurveyDetailVO readDetail(Integer smno) throws Exception;
 	
-	public List<SurveyDetailVO> detailNum(int qnum)throws Exception;
-	public int detailCount(int qnum)throws Exception;
+	public List<SurveyDetailVO> detailNum(Integer smno,Integer qnum)throws Exception;
+	public int detailCount(Integer smno)throws Exception;
 }

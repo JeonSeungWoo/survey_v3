@@ -8,15 +8,9 @@ public class DetailNumber {
 	public DetailNumber(int qnum){
 		this.qnum = 0;
 		
-		calcQnum();
+		
 	}
 
-	private void calcQnum() {
-		prev = qnum-1;
-		next = qnum+1;
-		
-		
-	}
 
 	public int getPrev() {
 		return prev;

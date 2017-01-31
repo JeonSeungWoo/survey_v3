@@ -54,7 +54,7 @@ order by sdno asc
 
 <select id="numberPage" resultType="SurveyDetailVO">
  select 
-   * 
+    sdno, smno, sdtitle, sdcontent, sdtype, sdregdate, sdupdatedate, (select  fullName from tbl_attach where sdno = tbl_surveydetail.sdno) attachFile  
  from 
    tbl_surveydetail
  where smno = #{smno} 
