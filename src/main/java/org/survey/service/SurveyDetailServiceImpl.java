@@ -46,11 +46,11 @@ public class SurveyDetailServiceImpl implements SurveyDetailService {
 		
 		if(vo.getAttachFile() == null || vo.getAttachFile().trim().length() == 0){
 			
-			System.out.println("update detail..............." + vo.getAttachFile());
+			
 			
 			
 		}else{
-			System.out.println(".......................update file also" + vo.getAttachFile());
+			
 			dao.insertFile(vo);
 		}
 		
@@ -67,6 +67,27 @@ public class SurveyDetailServiceImpl implements SurveyDetailService {
 	public List<String> getAttach(Integer sdno) throws Exception {
 		// TODO Auto-generated method stub
 		return dao.getAttach(sdno);
+	}
+
+
+	@Override
+	public SurveyDetailVO readDetail(Integer smno) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.readDetail(smno);
+	}
+
+
+	@Override
+	public List<SurveyDetailVO> detailNum(int qnum) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.detailNum(qnum);
+	}
+
+
+	@Override
+	public int detailCount(int qnum) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.detailCount(qnum);
 	}
 
 }

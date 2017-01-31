@@ -72,4 +72,22 @@ public class SurveyDetailDAOImpl implements SurveyDetailDAO {
 		
 	}
 
+	@Override
+	public SurveyDetailVO readDetail(Integer smno) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(NAME + ".readDetail",smno);
+	}
+
+	@Override
+	public List<SurveyDetailVO> detailNum(int qnum) throws Exception {
+
+		return session.selectList(NAME + ".numberPage",qnum);
+	}
+
+	@Override
+	public int detailCount(int qnum) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(NAME + ".DetailCount",qnum);
+	}
+
 }

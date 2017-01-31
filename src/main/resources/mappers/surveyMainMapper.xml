@@ -117,8 +117,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="newArticle" resultType="SurveyMainVO">
-		select * from tbl_surveymain
-		where smwriter = #{smwriter}
+	select smno from tbl_surveymain
+		where smno > 0
 		order by smno desc
 		limit 0,1
 	</select>

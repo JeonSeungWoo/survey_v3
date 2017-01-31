@@ -46,4 +46,24 @@ select fullname from tbl_attach where sdno = #{sdno}
 order by regdate
 </select>
 
+<select id="readDetail" resultType="SurveyDetailVO">
+select * from tbl_surveydetail where
+smno = #{smno}
+order by sdno asc
+</select>
+
+<select id="numberPage" resultType="SurveyDetailVO">
+ select 
+   * 
+ from 
+   tbl_surveydetail
+ where smno = #{smno} 
+ order by sdno asc
+ limit #{qnum}, 1
+</select>
+
+<select id="DetailCount" resultType="java.lang.Integer">
+select count(*) from tbl_surveyDetail where smno = #{smno}
+</select>
+
 </mapper>

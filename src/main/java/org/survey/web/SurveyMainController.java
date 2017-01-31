@@ -100,7 +100,8 @@ public class SurveyMainController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registPOST(SurveyMainVO vo, RedirectAttributes rttr) throws Exception {
+	public String registPOST(SurveyMainVO vo, RedirectAttributes rttr,
+			Integer smno) throws Exception {
 
 		logger.info("Post regist call........");
 
@@ -109,10 +110,16 @@ public class SurveyMainController {
 		logger.info(vo.toString());
 
 		rttr.addFlashAttribute("msg", "SUCCESS");
-
+		
 		return "redirect:/surveyMain/listPage?page=1";
 	}
 
+	@GetMapping("/SUCCESS")
+	public void SUCCESS(Model model,@RequestParam("smno") int smno)throws Exception{
+		logger.info("SUCCESS call........");
+		model.addAttribute("SurveyMainVO", service.read(smno));
+	}
+	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("smno") int smno, @ModelAttribute("cri") SearchCriteria cri, Model model)
 			throws Exception {

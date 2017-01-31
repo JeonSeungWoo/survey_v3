@@ -84,11 +84,6 @@ public class SurveyMainDAOImpl implements SurveyMainDAO {
 		return session.selectOne(NAME + ".listSearchCount", cri);
 	}
 
-	@Override
-	public void newArticle(SurveyMainVO vo) throws Exception {
 
-		session.selectOne(NAME + ".newArticle", vo);
-
-	}
 
 }

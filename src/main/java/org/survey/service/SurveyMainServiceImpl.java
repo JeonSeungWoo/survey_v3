@@ -71,11 +71,10 @@ public class SurveyMainServiceImpl implements SurveyMainService {
 		return dao.listSearchCount(cri);
 	}
 
-	@Override
-	public void newArticle(SurveyMainVO vo) throws Exception {
-
-		dao.newArticle(vo);
-
+	
+		
 	}
 
-}
+
+
+

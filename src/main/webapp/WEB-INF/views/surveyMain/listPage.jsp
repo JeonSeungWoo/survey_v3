@@ -105,7 +105,11 @@ text-align: center;
 				<li><a href='read?smno=${SurveyMainVO.smno}&page=${param.page}
 				&searchType=${param.searchType}&keyword=${param.keyword}'>
 						글 번호 :${SurveyMainVO.smno}</a></li>
-				<li><img src="show?name=${SurveyMainVO.smimage}"></li>		
+						
+				<li><a href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}
+				&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
+				<img src="show?name=${SurveyMainVO.smimage}"></a></li>	
+					
 				<li>${SurveyMainVO.smtitle}</li>
 				<li>${SurveyMainVO.smcontent}</li>
 				<li>${SurveyMainVO.smwriter}</li>

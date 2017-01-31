@@ -3,6 +3,7 @@ package org.survey.persistence;
 import java.util.List;
 
 import org.survey.domain.SurveyDetailVO;
+import org.survey.domain.SurveyMainVO;
 
 public interface SurveyDetailDAO {
 	
@@ -17,7 +18,13 @@ public interface SurveyDetailDAO {
 	public List<String> getAttach(Integer sdno)throws Exception;
 
 	public void deleteFile(Integer sdno);
-
+	
 	public void insertFile(SurveyDetailVO vo);
+	
+	public SurveyDetailVO readDetail(Integer smno) throws Exception;
+	
+	public List<SurveyDetailVO> detailNum(int qnum)throws Exception;
+	
+	public int detailCount(int qnum)throws Exception;
 	
 }

@@ -28,6 +28,6 @@ public interface SurveyMainDAO {
 
 	public int listSearchCount(SearchCriteria cri) throws Exception;
 
-	public void newArticle(SurveyMainVO vo) throws Exception;
+
 
 }
