@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -56,10 +59,10 @@ text-align: center;
 </style>
 
 </head>
-
+<%@ include file="/resources/include/menu.jsp" %>
 <body>
 
-	<h1>마이페이지</h1>
+	<h1>모든 설문조사</h1>
 
 	<div class='box-body'>
 
@@ -194,4 +197,5 @@ text-align: center;
 	</script>
 
 </body>
+
 </html>

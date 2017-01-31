@@ -36,5 +36,12 @@
 	</beans:bean>
 
 	<context:component-scan base-package="org.survey.web" />
+	
+	<resources location="/resources/images/" mapping="/images/**" />
 
+	<resources location="/resources/css/" mapping="/css/**" />
+
+	<resources location="/resources/js/" mapping="/js/**" />
+
+	<resources location="/resources/upload/" mapping="/upload/**" />
 </beans:beans>
