@@ -1,5 +1,6 @@
 package org.survey.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.survey.domain.Criteria;
 import org.survey.domain.MemberVO;
 import org.survey.domain.SearchCriteria;
+import org.survey.dto.MemberDTO;
 import org.survey.persistence.MemberDAO;
 
 @Service
@@ -18,71 +20,32 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void create(MemberVO vo) throws Exception {
-		// TODO Auto-generated method stub
 		dao.create(vo);
-	}
-
-	@Override
-	public MemberVO read(String membername) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.read(membername);
-	}
-
-	@Override
-	public void update(MemberVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		dao.update(vo);
-	}
-
-	@Override
-	public void delete(String membername) throws Exception {
-		// TODO Auto-generated method stub
-		dao.delete(membername);
-	}
-
-	@Override
-	public List<MemberVO> listAll() throws Exception {
-		// TODO Auto-generated method stub
-		return dao.listAll();
-	}
-
-	@Override
-	public List<MemberVO> listPage(int page) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.listPage(page);
-	}
-
-	@Override
-	public List<MemberVO> listCriteria(Criteria cri) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.listCriteria(cri);
-	}
-
-	@Override
-	public int listCountCriteria(Criteria cri) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.countPaging(cri);
-	}
-
-	@Override
-	public List<MemberVO> listSearchCriteria(SearchCriteria cri) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.listSearch(cri);
-	}
-
-	@Override
-	public int listSearchCount(SearchCriteria cri) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.listSearchCount(cri);
-	}
-
-	@Override
-	public boolean login(MemberVO vo) throws Exception {
 		
-		boolean tf = dao.login(vo);
-		System.out.println(tf + " true or false ");
+	}
 
-		return dao.login(vo);
+	@Override
+	public MemberVO login(MemberDTO dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.login(dto);
+	}
+
+	@Override
+	public void keepLogin(String userid, String sessionId, Date next) throws Exception {
+		dao.keepLogin(userid, sessionId, next);
+		
+	}
+
+	@Override
+	public MemberVO checkSessionKey(String value) {
+		// TODO Auto-generated method stub
+		return dao.checkSessionKey(value);
+	}
+
+	@Override
+	public Integer checkId(MemberVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.checkId(vo);
 	}
 
 }

@@ -8,35 +8,38 @@
 </head>
 <body>
 
-	<h1>LOGIN PAGE</h1>
-	<form id="f1" method="POST" action="loginAction">
-		<p>
-			아이디: <input type='text' name='membername' id='membername'>
-		</p>
-		<p>
-			패스워드: <input type='text' name='email' id='email'>
-		</p>
+<form action="/member/loginPost" method="post">
 
-	</form>
+<div class="header-box">
+<h1> 회원 로그인</h1>
+</div>
 
-	<p>
-		<button id="lBtn" type="submit">로그인</button>
-	</p>
+<div class="body-box">
+<ul>
+<li>아이디 : <input type="text" name ="userid"></li>
+
+<li>비밀번호 : <input type="text" name ="userpw"></li>
+
+<li> <input type="checkbox" name ="useCookie"></li>
+</ul>
+</div>
+
+<div class="footer-box">
+<button type="submit"> 로그인</button>
+<button><a href="/member/create"> 회원가입</a></button>
+<button><a href="/"> 홈으로</a></button>
+</div>
+
+
+
+</form>
+
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
 	
-	<script>
-		$(document).ready(function() {
-			/* 	var moveSuccess = function(){ 
-				self.locations = "list?page=1";
-			}; */
-			$('#lBtn').on("click", function() {
-				$("#f1").attr("action", "login").submit();
-			});
-		});
-	</script>
+
 
 </body>
 </html>

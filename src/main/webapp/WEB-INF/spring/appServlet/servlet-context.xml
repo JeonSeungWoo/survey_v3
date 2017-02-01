@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
 		infrastructure -->
@@ -34,6 +37,40 @@
 		<beans:constructor-arg value="C://sss//">
 		</beans:constructor-arg>
 	</beans:bean>
+	
+	
+	<beans:bean id="memberLoginInterceptor" class="org.survey.interceptor.MemberLoginInterceptor">
+	</beans:bean>
+	
+	<beans:bean id="memberAuthIntercetor" class="org.survey.interceptor.MemberAuthInterceptor">
+	</beans:bean>
+	
+	
+	<interceptors>
+	
+	<interceptor>
+	<mapping path="/member/loginPost"/>
+	<beans:ref bean="memberLoginInterceptor"/>
+	</interceptor>
+	
+	<interceptor>
+	
+	<mapping path="/surveyMain/register"/>
+	<mapping path="/surveyMain/update"/>
+	<mapping path="/surveyMain/delete"/>
+	<mapping path="/surveyMain/read"/>
+	<mapping path="/surveyView/readMain"/>
+	
+	<beans:ref bean="memberAuthIntercetor"/>
+	
+	</interceptor>
+	
+	</interceptors>
+	
+	
+	
+	
+	
 
 	<context:component-scan base-package="org.survey.web" />
 	

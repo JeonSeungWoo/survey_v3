@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>SUCCESS PAGE</h1>
-<h1>설문조사를 마쳤습니다. 감사합니다.</h1>
+<h1>설문조사를 마쳤습니다. 감사합니다. 3초뒤 리스트 페이지로 넘어갑니다.</h1>
 
 	<script>
 		setTimeout(function() {
