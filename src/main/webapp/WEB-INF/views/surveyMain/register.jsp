@@ -22,6 +22,7 @@ li {
 
 	<form role="form" action="register" method="post" enctype="multipart/form-data" id="f1">
 		<input type="hidden" name="smno" value="${param.page}">
+		
 		<h1> 광고성 글이나 욕설은 기재할 수 없습니다.</h1>
 		<div>
 			<ul>
@@ -45,7 +46,7 @@ li {
 		</div>
 
 		<button id="rBtn" onclick="validate_user_text();">등록</button>
-
+		<button id="goListBtn">목록으로</button>
 	</form>
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
@@ -119,7 +120,18 @@ li {
 
 
 	<script>
+	
+
+	
+	
 		$(document).ready(function() {
+			
+			$("#goListBtn ").on("click", function(event) {
+				event.preventDefault();
+				self.location = "/surveyMain/listPage?page=1";
+			});
+
+		
 			var uploadedList = $(".uploadedList");
 			$(".fileDrop").on("dragenter dragover", function(event) {
 				event.preventDefault();

@@ -28,6 +28,8 @@
 
 <div class="box-footer">
 <button type="submit">회원 가입</button>
+
+<button id="goListBtn">목록으로</button>
 </div>
 
 </form>
@@ -40,6 +42,12 @@
 		crossorigin="anonymous"></script>
 		
 <script>
+
+$("#goListBtn ").on("click", function() {
+	formObj.attr("action","/surveyMain/listPage?page=1");
+	formObj.attr("method", "get");
+	formObj.submit();
+});
 		$(document).ready(function(){
 			
 			

@@ -47,6 +47,7 @@ text-align: center;
 
 </form>
 <div id = "prev"></div>
+<button id="goListBtn">목록으로</button>
 <div id = "next"></div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"
@@ -101,7 +102,10 @@ $("#prevNext").on("click",function(){
 
 
 
-
+$("#goListBtn ").on("click", function(event) {
+	event.preventDefault();
+	self.location = "/surveyMain/listPage?page=1";
+});
 
 
 

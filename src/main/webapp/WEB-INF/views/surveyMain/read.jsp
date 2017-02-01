@@ -65,13 +65,12 @@ margin-top:-50px;
 				<li>설문수정일자 : <fmt:formatDate value="${SurveyMainVO.smupdatedate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
 			</ul>
 		</div>
-	</form>
-
-	<div class="box-footer">
-		<button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-		<button type="submit" class="btn btn-danger" id="removeBtn">삭제</button>
-		<button type="submit" class="btn btn-primary" id="goListBtn">목록</button>
-	</div>
+</form>
+	
+<div class="box-footer">
+<button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
+</div>	
+	
 	
 	
 <div>
@@ -154,6 +153,13 @@ margin-top:-50px;
 
 
 
+
+
+<div class="box-footer">
+		
+		<button type="submit" class="btn btn-danger" id="removeBtn">목록</button>
+		<button type="submit" class="btn btn-primary" id="goListBtn">등록</button>
+</div>
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="

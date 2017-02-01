@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
 
-self.location = "/surveyMain/listPage?page=1";
+self.location = "/member/login";
 </script>
 
 </body>
