@@ -71,6 +71,12 @@ public class SurveyMainServiceImpl implements SurveyMainService {
 		return dao.listSearchCount(cri);
 	}
 
+	@Override
+	public int maxNumber(Integer smno) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.maxNumber(smno);
+	}
+
 	
 		
 	}

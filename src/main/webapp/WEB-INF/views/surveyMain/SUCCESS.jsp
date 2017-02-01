@@ -7,10 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+ <h1>${smno}</h1>
  
 
 <script type="text/javascript">
-self.location = "/surveyMain/read?smno=15";
+var smno = ${smno}
+
+self.location = "/surveyMain/read?smno="+smno;
 
 </script>
 </body> 

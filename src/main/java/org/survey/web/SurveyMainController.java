@@ -111,13 +111,18 @@ public class SurveyMainController {
 
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-		return "redirect:/surveyMain/listPage?page=1";
+		return "redirect:/surveyMain/SUCCESS?page=1";
 	}
 
 	@GetMapping("/SUCCESS")
-	public void SUCCESS(Model model,@RequestParam("smno") int smno)throws Exception{
+	public void SUCCESS(Integer smno,Model model)throws Exception{
 		logger.info("SUCCESS call........");
-		model.addAttribute("SurveyMainVO", service.read(smno));
+		
+		service.maxNumber(smno);
+		
+		logger.info("smno : " + smno);
+		model.addAttribute("smno",service.maxNumber(smno));
+		
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)

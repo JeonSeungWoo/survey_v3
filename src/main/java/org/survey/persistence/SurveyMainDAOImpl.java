@@ -84,6 +84,12 @@ public class SurveyMainDAOImpl implements SurveyMainDAO {
 		return session.selectOne(NAME + ".listSearchCount", cri);
 	}
 
+	@Override
+	public int maxNumber(Integer smno) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(NAME + ".maxNumber",smno);
+	}
+
 
 
 }

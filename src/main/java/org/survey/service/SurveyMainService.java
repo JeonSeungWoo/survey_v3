@@ -26,5 +26,6 @@ public interface SurveyMainService {
 
 	public int listSearchCount(SearchCriteria cri) throws Exception;
 	
+	public int maxNumber(Integer smno)throws Exception;
 
 }
