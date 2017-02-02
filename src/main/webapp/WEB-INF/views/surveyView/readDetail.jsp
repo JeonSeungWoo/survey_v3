@@ -24,14 +24,18 @@ text-align: center;
 <form action="/surveyView/readDetail" method="get">
 <input type="hidden" name="smno" value="${vo.smno}">
 <input type="hidden" name="page" value="${param.page}">
-<h1>${qnum}</h1>	
+
+<h1>${vo.smno}</h1>
+<h1>${vo.sdno}</h1>
+<h1>${login.userid}</h1>
+
 
 
 <div id = "box-main">
 <ul>
 
-<li>${vo.smno}</li>
-<li>${vo.sdno}</li>
+<li>글번호 :${vo.smno}</li>
+<li>${qnum+1}문제</li>	
 <li>제목 : ${vo.sdtitle}</li>
 <li>내용 : ${vo.sdcontent}</li>
 
@@ -39,8 +43,8 @@ text-align: center;
 
 <li>ox퀴즈</li>
 
-<li><input type="radio" name='stype'>o</li>
-<li><input type="radio" name='stype'>X</li>
+<li><input type="radio" name='answer' value="O" class="oxAnswer">o</li>
+<li><input type="radio" name='answer' value="X" class="oxAnswer">X</li>
 </ul>
 </div>
 
@@ -55,12 +59,53 @@ text-align: center;
 		crossorigin="anonymous"></script>
 
 <script>
+var smno = ${vo.smno};
+
+var sdno = ${vo.sdno};
+
+var userid = '${login.userid}';
 
 
-</script>
+function checkAnswer(){
+	
+	console.log("check Answer.............................................");
+	
+    var answer = $(':input[name=answer]:radio:checked').val();
+     
+    if( answer ){
+        alert(answer+"을 선택했습니다");
+        goNext1();
+        
+        var data ={ smno : smno,
+    		    sdno : sdno,
+    		    userid : userid,
+    		      answer : answer};
+        
+        $.ajax({
+    		type : "post",
+    		url : "/answer/oxAnswer/",
+    		headers : {
+    			"Content-Type":"application/json",
+    			"X-HTTP-Method-Override" : "POST"
+    		},
+    		data :JSON.stringify(data),
+    		success : function(result){
+    			if(result == "SUCCESS"){
+    				alert("버튼 입력 성공!!!!!!!!!");
+    			}
+    		}
+    	});
+        
+        return true;
+        
+        
+    }else{
+        alert("번호를 선택 하세요.");
+        return false;
+    }  
+}
 
 
-<script>
 
 var qnum = ${qnum};
 
@@ -71,18 +116,21 @@ var next = "";
 var prev = "";
 
 if(qnum >= 0){
-	var next = "<button id='qnumNext'>다음</button>";
+	var next = "<button id='qnumNext' onclick='checkAnswer()'>다음</button>";
 }
 $("#next").html(next);
 
 
-$("#qnumNext").on("click",function(){
-	alert("다음 페이지로");
+function goNext1(){
+	alert("go Next 다음 페이지로");
 	qnum = qnum+1;
 	self.location = "/surveyView/readDetail?smno="+smno+"&page=1&qnum="+qnum;
 	
-	alert("qnum  :" + qnum);
-});
+	
+
+}
+
+$("#qnumNext").on("click", goNext);
 
 
 
