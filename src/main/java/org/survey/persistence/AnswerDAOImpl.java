@@ -44,4 +44,16 @@ public class AnswerDAOImpl implements AnswerDAO {
 		session.delete(NAME + ".deleteAnswer",paramMap);
 	}
 
+
+	@Override
+	public int oxStatistics(Integer smno, Integer sdno, String answer) throws Exception {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("smno", smno);
+		map.put("smno", sdno);
+		map.put("smno", answer);
+		return 0;
+		
+	}
+
 }

@@ -25,4 +25,10 @@ public class AnswerServiceImpl implements AnswerService {
 		
 	}
 
+	@Override
+	public int oxStatistics(Integer smno, Integer sdno, String answer) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.oxStatistics(smno, sdno, answer);
+	}
+
 }

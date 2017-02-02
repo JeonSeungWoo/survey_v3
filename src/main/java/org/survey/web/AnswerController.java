@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,7 @@ public class AnswerController {
 	@Inject
 	private AnswerService service;
 	
+	//DB정보 추가
 	@RequestMapping(value = "/oxAnswer", method = RequestMethod.POST)
 	public ResponseEntity<String> oxAnswer(@RequestBody OXAnswerVO vo,Model model)throws Exception{
 		ResponseEntity<String> entity = null;
@@ -47,7 +49,7 @@ public class AnswerController {
 		return entity;
 	}
 	
-	
+	//DB정보 삭제
 	@RequestMapping(value = "/{sdno}/{userid}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> remove(
 			@PathVariable("sdno") Integer sdno,
@@ -67,5 +69,19 @@ public class AnswerController {
 		}
 		return entity;
 	}
+	
+	//통꼐
+	@GetMapping("/oxStatistics")
+	public void oxStatistics(OXAnswerVO vo,Model model,
+			Integer smno,Integer sdno,String answer)throws Exception{
+		
+		logger.info("oxStatistics call.....!!!!");
+		
+		logger.info("oxStatistics :" + smno + sdno + answer);
+		model.addAttribute("oxstat",service.oxStatistics(smno, sdno, answer));
+		
+	}
+	
+	
 	
 }

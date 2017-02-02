@@ -8,6 +8,5 @@ public interface AnswerDAO {
 	
 	public void delete(Integer sdno, String userid)throws Exception;
 	
-	
-	
+	public int oxStatistics(Integer smno,Integer sdno,String answer)throws Exception;
 }

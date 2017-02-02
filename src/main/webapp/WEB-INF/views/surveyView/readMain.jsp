@@ -24,7 +24,7 @@
 	
 	<div class = "statisticsAction">
 	<ul>
-	<li><a href="/">통계</a></li>
+	<li><a href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1">통계</a></li>
 	</ul>
 	</div>
 		
@@ -52,9 +52,12 @@
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
 		
+	
+		
+		
 	<script>
 		$(document).ready(function() {
-
+			
 			var formObj = $("#f1");
 
 			console.log(formObj);
