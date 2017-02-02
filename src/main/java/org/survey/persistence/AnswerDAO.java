@@ -9,4 +9,5 @@ public interface AnswerDAO {
 	public void delete(Integer sdno, String userid)throws Exception;
 	
 	
+	
 }
