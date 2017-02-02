@@ -144,22 +144,10 @@ $("#prevNext").on("click",function(){
 			if(result == "SUCCESS"){
 				alert("삭제 되었습니다.");
 				
-			}
+			}						
 		}
 	});
-	
-	$.ajax({
-		type : "delete",
-		url : "/answer/"+sdno+"/"+userid,
-		
-		success : function(result){
-			console.log("result : " +result );
-			if(result == "SUCCESS"){
-				alert("삭제 되었습니다.");
-				
-			}
-		}
-	});
+
 	
 	alert("qnum  :" + qnum);
 });

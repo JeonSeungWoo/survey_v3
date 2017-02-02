@@ -10,6 +10,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+
+
 <form action="/surveyView/readMain" method="get" id="f1">
 
 	<input type="hidden" name="smno" value="${SurveyMainVO.smno}">
@@ -17,7 +20,14 @@
 	<input type="hidden" name="qnum" id='qnum'value="${param.qnum}">
 	
 	
-	<div>
+	<div class="box-main">
+	
+	<div class = "statisticsAction">
+	<ul>
+	<li><a href="/">통계</a></li>
+	</ul>
+	</div>
+		
 			<ul>
 				<li>글번호 : ${SurveyMainVO.smno }</li>
 				<li>제목 : ${SurveyMainVO.smtitle }</li>
