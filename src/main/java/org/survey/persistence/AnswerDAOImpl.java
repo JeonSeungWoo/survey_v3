@@ -1,5 +1,8 @@
 package org.survey.persistence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -28,6 +31,17 @@ public class AnswerDAOImpl implements AnswerDAO {
 		
 		
 		session.insert(NAME + ".createAnswer",vo);
+	}
+
+
+	@Override
+	public void delete(Integer sdno, String userid) throws Exception {
+		
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("sdno",sdno);
+		paramMap.put("userid",userid);
+		
+		session.delete(NAME + ".deleteAnswer",paramMap);
 	}
 
 }

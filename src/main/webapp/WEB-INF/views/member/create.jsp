@@ -43,11 +43,11 @@
 		
 <script>
 
-$("#goListBtn ").on("click", function() {
-	formObj.attr("action","/surveyMain/listPage?page=1");
-	formObj.attr("method", "get");
-	formObj.submit();
+$("#goListBtn ").on("click", function(event) {
+	event.preventDefault();
+	self.location = "/member/login";
 });
+
 		$(document).ready(function(){
 			
 			
@@ -81,8 +81,8 @@ $("#chkDupId").on("click",function(){
 				$("#idck").html('<b style ="font-size:18px; color:blue">사용가능</b>');
 				checkedId = true;
 			}else{
-				alert("시용블기");
-				$("#idck").html('<b style ="font-size:18px; color:red">시용블기</b>');
+				alert("사용불가");
+				$("#idck").html('<b style ="font-size:18px; color:red">사용불가</b>');
 				checkedId = false;
 			}
 		}

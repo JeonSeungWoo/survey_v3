@@ -11,5 +11,9 @@ values(#{smno}, #{sdno}, #{userid}, #{answer})
 </insert>
 
 
+<delete id="deleteAnswer">
+delete from tbl_oxanswer where sdno = #{sdno} and userid = #{userid}
+</delete>
+
 
 </mapper>

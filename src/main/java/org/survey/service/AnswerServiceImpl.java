@@ -19,4 +19,10 @@ public class AnswerServiceImpl implements AnswerService {
 
 	}
 
+	@Override
+	public void delete(Integer sdno, String userid) throws Exception {
+		dao.delete(sdno, userid);
+		
+	}
+
 }

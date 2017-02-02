@@ -6,4 +6,6 @@ public interface AnswerDAO {
 
 	public void create(OXAnswerVO vo) throws Exception;
 	
+	public void delete(Integer sdno, String userid)throws Exception;
+	
 }

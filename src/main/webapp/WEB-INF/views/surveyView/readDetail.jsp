@@ -64,7 +64,7 @@ var smno = ${vo.smno};
 var sdno = ${vo.sdno};
 
 var userid = '${login.userid}';
-
+var qnum = ${qnum};
 
 function checkAnswer(){
 	
@@ -105,12 +105,6 @@ function checkAnswer(){
     }  
 }
 
-
-
-var qnum = ${qnum};
-
-var smno = ${vo.smno};
-
 var next = "";
 
 var prev = "";
@@ -126,12 +120,7 @@ function goNext1(){
 	qnum = qnum+1;
 	self.location = "/surveyView/readDetail?smno="+smno+"&page=1&qnum="+qnum;
 	
-	
-
 }
-
-$("#qnumNext").on("click", goNext);
-
 
 
 if(qnum > 0){
@@ -143,7 +132,34 @@ $("#prev").html(prev);
 $("#prevNext").on("click",function(){
 	alert("이전 페이지로");
 	qnum = qnum-1;
+	
 	self.location = "/surveyView/readDetail?smno="+smno+"&page=1&qnum="+qnum;
+	var sdnomus = ${vo.sdno-1};
+	$.ajax({
+		type : "delete",
+		url : "/answer/"+sdnomus+"/"+userid,
+		
+		success : function(result){
+			console.log("result : " +result );
+			if(result == "SUCCESS"){
+				alert("삭제 되었습니다.");
+				
+			}
+		}
+	});
+	
+	$.ajax({
+		type : "delete",
+		url : "/answer/"+sdno+"/"+userid,
+		
+		success : function(result){
+			console.log("result : " +result );
+			if(result == "SUCCESS"){
+				alert("삭제 되었습니다.");
+				
+			}
+		}
+	});
 	
 	alert("qnum  :" + qnum);
 });
