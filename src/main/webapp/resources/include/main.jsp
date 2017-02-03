@@ -6,7 +6,7 @@
 
 <html lang="en" class="no-js">
 <head>
-	<title>Survey</title>
+	<title>SurveyPatient</title>
 
 	<meta charset="utf-8">
 
@@ -274,7 +274,7 @@
 	</div> 오른쪽 상단의 조그만한 퀵메뉴-->
 
 	<div class="preloader">
-		<img alt="" src="images/preloader.gif">
+		<img alt="" src="/images/preloader.gif">
 	</div>
 
 	<script type="text/javascript" src="/js/jquery.min.js"></script>

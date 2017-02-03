@@ -3,66 +3,55 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
-
-
-
+<%@ include file="/resources/include/menu.jsp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
 
 <style>
-.page {
-	list-style: none;
-}
-
-.page ul{
-background: aqua;
-width: 200px;
-height: 200px;
-}
+height: 1372px;
+	
 
 .page li{
-border: 1px solid black;
-padding: 10px;
+padding: 5px;
 }
 
-.pagination li {
-	list-style: none;
+.pagination li {	
 	float: left;
-	margin: 0.5em;
-	border: 1px solid black;
-}
-
-.pagination .prev {
-	background-color: red;
-}
-
-.pagination .next {
-	background-color: red;
-}
-
-
-img{
-width: 200px;
-height: 200px;
-background-image: url(/resources/img/no-image.png);
-text-align: center;
+	margin: 0.5rem;	
 }
 
 .box-body{
-text-align: center;
+text-align: left;
+border-radius: 10px;
+}
 
+.box-main ul{
+    float: left;
+    border: 1rem;
+}
+
+.box-main li{
+text-align: center;
+width: 220px;
 
 }
+
+.box-main img{
+width: 220px;
+height: 220px;
+}
+
 </style>
 
 </head>
-<%@ include file="/resources/include/menu.jsp" %>
 <body>
-
-	<h1>모든 설문조사</h1>
+	
+	<h1>설문조사 리스트</h1>
 
 	<div class='box-body'>
 
@@ -98,27 +87,29 @@ text-align: center;
 
 
 
+
 	<form action="listPage">
-		<input type="hidden" name="page" value="${param.page}">
 
 
-		<c:forEach items="${listPage}" var="SurveyMainVO">
 		<div class ="box-main">
+		<input type="hidden" name="page" value="${param.page}">
+		<c:forEach items="${listPage}" var="SurveyMainVO" >
+			<div id="pic">
 			<ul class="page">
-				<li><a href='read?smno=${SurveyMainVO.smno}&page=${param.page}
+				<%-- <li><a href='read?smno=${SurveyMainVO.smno}&page=${param.page}
 				&searchType=${param.searchType}&keyword=${param.keyword}'>
-						글 번호 :${SurveyMainVO.smno}</a></li>
+						글 번호 :${SurveyMainVO.smno}</a></li> --%>
 						
 				<li><a href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}
 				&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
-				<img src="show?name=${SurveyMainVO.smimage}"></a></li>	
-					
+				<img src="show?name=${SurveyMainVO.smimage}"></a></li><br>
 				<li>${SurveyMainVO.smtitle}</li>
 				<li>${SurveyMainVO.smcontent}</li>
 				<li>${SurveyMainVO.smwriter}</li>
 			</ul>
-		</div>
+			</div>
 		</c:forEach>
+		</div>
 
 	</form>
 

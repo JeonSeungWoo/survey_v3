@@ -9,7 +9,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>SurveyPatient</title>
+
+
 </head>
 <%@ include file="/resources/include/menu.jsp" %>
 <body>

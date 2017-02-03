@@ -5,8 +5,14 @@
 
 
 <html lang="en" class="no-js">
+<style>
+.logo-box img{
+width: 200px;
+height: 200px;
+}
+</style>
 <head>
-	<title>Survey</title>
+	<title>SurveyPatient</title>
 
 	<meta charset="utf-8">
 
@@ -43,19 +49,19 @@
 					<li><a href="about.html"><span>설문조사 만들기</span></a></li>
 					
 					<li><a href="single-post.html"><span>뭐만들지?</span></a></li>
-					<li class="drop"><a href="#"><span>Go To Level 2</span></a>
+					<li class="drop"><a href="#"><span>내 페이지</span></a>
 						<ul class="drop-down">
-							<li><a href="#"><span>Level 2</span></a></li>
-							<li class="drop"><a href="#"><span>Go To Level 3</span></a>
+							<li><a href="#"><span>내가 참여한 설문조사</span></a></li>
+							<li class="drop"><a href="#"><span>하하하</span></a>
 								<ul class="drop-down">
-									<li><a href="#"><span>Level 3</span></a></li>
+									<li><a href="#"><span>여기 다 뭐 만들지?</span></a></li>
 									<li><a href="#"><span>Level 3</span></a></li>
 								</ul>
 							</li>
-							<li><a href="#"><span>Level 2</span></a></li>
+							<li><a href="#"><span>내가 등록한 설문조사</span></a></li>
 						</ul>
 					</li>
-					<li><a href="contact.html"><span>Contact</span></a></li>
+					<li><a href="contact.html"><span>통계</span></a></li>
 				</ul>				
 			</div>
 
@@ -85,7 +91,7 @@
 		<!-- End Header -->
 
 		<div class="preloader">
-		<img alt="" src="images/preloader.gif">
+		<img alt="" src="/images/preloader.gif">
 	</div>
 
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
