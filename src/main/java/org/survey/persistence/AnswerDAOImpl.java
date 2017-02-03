@@ -1,6 +1,7 @@
 package org.survey.persistence;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -9,8 +10,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import org.survey.domain.AnswerStat;
 import org.survey.domain.OXAnswerVO;
-import org.survey.web.AnswerController;
+import org.survey.domain.SurveyDetailVO;
 
 @Repository
 public class AnswerDAOImpl implements AnswerDAO {
@@ -46,14 +48,17 @@ public class AnswerDAOImpl implements AnswerDAO {
 
 
 	@Override
-	public int oxStatistics(Integer smno, Integer sdno, String answer) throws Exception {
+	public List<AnswerStat> oxStatistics(Integer smno, Integer sdno, String answer) throws Exception {
 		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("smno", smno);
-		map.put("smno", sdno);
-		map.put("smno", answer);
-		return 0;
+		return session.selectList(NAME + ".oxStatistics",smno);
 		
+	}
+
+
+	@Override
+	public List<SurveyDetailVO> listAll(Integer smno) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(NAME + ".oxList",smno);
 	}
 
 }

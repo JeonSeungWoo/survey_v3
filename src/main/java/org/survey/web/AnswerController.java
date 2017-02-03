@@ -1,5 +1,7 @@
 package org.survey.web;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.survey.domain.AnswerStat;
 import org.survey.domain.OXAnswerVO;
 import org.survey.service.AnswerService;
 
@@ -78,8 +81,14 @@ public class AnswerController {
 		logger.info("oxStatistics call.....!!!!");
 		
 		logger.info("oxStatistics :" + smno + sdno + answer);
-		model.addAttribute("oxstat",service.oxStatistics(smno, sdno, answer));
 		
+		List<AnswerStat> answerList = service.oxStatistics(smno, sdno, answer);
+		
+		logger.info("TEST:" + answerList);
+		
+		model.addAttribute("answerList", answerList);
+		                                 
+		model.addAttribute("list",service.listAll(smno));
 	}
 	
 	
