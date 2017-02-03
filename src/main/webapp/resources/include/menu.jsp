@@ -6,10 +6,10 @@
 
 <html lang="en" class="no-js">
 <style>
-.logo-box img{
+/* .logo-box img{
 width: 200px;
-height: 200px;
-}
+height: 200px; */
+
 </style>
 <head>
 	<title>SurveyPatient</title>
@@ -44,9 +44,9 @@ height: 200px;
 
 			<div class="menu-box">
 				<ul class="menu">
-					<li><a href="blog.html"><span>로그인</span></a></li>
+					<li><a href="/member/login"><span>로그인</span></a></li>
 					<li><a class="active" href="/surveyMain/listPage?page=1"><span>설문조사 보기</span></a></li>
-					<li><a href="about.html"><span>설문조사 만들기</span></a></li>
+					<li><a href="/surveyMain/register"><span>설문조사 만들기</span></a></li>
 					
 					<li><a href="single-post.html"><span>뭐만들지?</span></a></li>
 					<li class="drop"><a href="#"><span>내 페이지</span></a>
@@ -84,12 +84,13 @@ height: 200px;
 					<li><a href="#" class="google" ><i class="fa fa-google-plus"></i></a></li>
 					<li><a href="#" class="youtube" ><i class="fa fa-youtube"></i></a></li>
 					<li><a href="#" class="github" ><i class="fa fa-github"></i></a></li>
-				</ul>
-				
+				</ul>	
 			</div>
+			
 		</header>
+	
 		<!-- End Header -->
-
+	</div>
 		<div class="preloader">
 		<img alt="" src="/images/preloader.gif">
 	</div>

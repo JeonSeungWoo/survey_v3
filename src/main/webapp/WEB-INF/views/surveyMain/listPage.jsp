@@ -8,13 +8,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, maximum-scale=1">
+
 
 <style>
-height: 1372px;
-	
 
 .page li{
 padding: 5px;
@@ -25,11 +21,6 @@ padding: 5px;
 	margin: 0.5rem;	
 }
 
-.box-body{
-text-align: left;
-border-radius: 10px;
-}
-
 .box-main ul{
     float: left;
     border: 1rem;
@@ -37,13 +28,21 @@ border-radius: 10px;
 
 .box-main li{
 text-align: center;
-width: 220px;
+width: 200px;
 
 }
 
 .box-main img{
-width: 220px;
-height: 220px;
+width: 200px;
+height: 200px;
+}
+
+.pic{
+padding: 10px;
+}
+
+.text-center{
+
 }
 
 </style>
@@ -90,42 +89,30 @@ height: 220px;
 
 	<form action="listPage">
 
-
+	
 		<div class ="box-main">
 		<input type="hidden" name="page" value="${param.page}">
 		<c:forEach items="${listPage}" var="SurveyMainVO" >
-			<div id="pic">
+			
 			<ul class="page">
+				<div class="pic">
 				<%-- <li><a href='read?smno=${SurveyMainVO.smno}&page=${param.page}
 				&searchType=${param.searchType}&keyword=${param.keyword}'>
 						글 번호 :${SurveyMainVO.smno}</a></li> --%>
 						
 				<li><a href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}
 				&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
-				<img src="show?name=${SurveyMainVO.smimage}"></a></li><br>
+				<img src="show?name=${SurveyMainVO.smimage}"></a></li>
 				<li>${SurveyMainVO.smtitle}</li>
 				<li>${SurveyMainVO.smcontent}</li>
 				<li>${SurveyMainVO.smwriter}</li>
+				</div>
 			</ul>
-			</div>
 		</c:forEach>
 		</div>
 
 	</form>
 
-	<%-- 	<c:forEach items="${listPage}" var="SurveyMainVO">
-
-		<tr>
-			<td>${SurveyMainVO.smno}</td>
-			<td><a
-				href='/surveyMain/read${pageMaker.makeSearch(pageMaker.cri.page) }&smno=${SurveyMainVO.smno}'>
-					${SurveyMainVO.smtitle} </a></td>
-			<td>${SurveyMainVO.smwriter}</td>
-						<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-					value="${SurveyMainVO.regdate}" /></td>
-		</tr>
-
-	</c:forEach> --%>
 
 
 	<div class="text-center">
@@ -148,9 +135,9 @@ height: 220px;
 					href="listPage${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 			</c:if>
 
-		</ul>
-	</div>
-
+			</ul>
+		</div>
+	
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>

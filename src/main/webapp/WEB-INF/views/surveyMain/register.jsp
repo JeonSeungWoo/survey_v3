@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<%@ include file="/resources/include/menu.jsp" %>
 <body>
 
 	<style>
