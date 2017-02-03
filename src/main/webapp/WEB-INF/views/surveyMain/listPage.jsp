@@ -41,9 +41,7 @@ height: 200px;
 padding: 10px;
 }
 
-.text-center{
 
-}
 
 </style>
 

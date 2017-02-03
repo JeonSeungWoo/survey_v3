@@ -5,12 +5,7 @@
 
 
 <html lang="en" class="no-js">
-<style>
-/* .logo-box img{
-width: 200px;
-height: 200px; */
 
-</style>
 <head>
 	<title>SurveyPatient</title>
 
