@@ -4,39 +4,65 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>JoinPage</title>
+<style>
+
+#all{
+	
+	position:absolute;
+  	top:25%;
+  	left:50%;
+ 	width:100px;
+  	height:100px;
+	display: table;
+  	margin:-50px 0 0 -50px;
+	margin-left: auto;
+	margin-right: auto;
+	width:500px;
+	padding:0.5rem;
+
+}
+
+.main-button{
+border-radius: 10px;
+}
+
+</style>
 </head>
 <%@ include file="/resources/include/menu.jsp" %>
 
 <body>
-
-<form action="/member/create" method="post" id ="f1">
-<div class="box-header"> 
-<h1>회원가입 </h1>
-</div>
-
-<div class="box-body">
-<ul>
-<li>
-아이디 : <input type="text" name="userid" id ="userid">
-<input type="button" value="Id체크" id="chkDupId">
-<span id="idck"></span>
-</li>
-
-<li>비밀번호  : <input type="password" name="userpw"></li>
-<li>이메일 : <input type="text" name="email"></li>
-</ul>
-</div>
-
-<div class="box-footer">
-<button type="submit">회원 가입</button>
-
-<button id="goListBtn">목록으로</button>
-</div>
-
+<div id="all">
+<form id="contact-form" action="/member/create" method="post">
+	<h1>회원가입</h1>
+	<div class="text-fields"> 
+		<div class="float-input">
+			<input type="text" name="userid" id ="userid" placeholder="아이디">
+			<span><i class="fa fa-user"></i></span>
+		</div>
+		
+		<div class="float-input">
+			<input type="text" name="email" placeholder="이메일">
+			<span><i class="fa fa-envelope-o"></i></span>
+		</div>
+		
+		<div class="float-input">
+			<input type="password" name="userpw" placeholder="비밀번호" id="password" style="width: 176px; padding: 17.5px;">
+			<span><i class="fa fa-link"></i></span>
+		</div>
+		
+		<input type="submit"  class="main-button" value="회원가입" style="margin: 1px;">
+		
+		<input type="submit" id="goListBtn" class="main-button" value="목록으로">
+			
+	</div>
+		
+		<div>
+			<input type="submit" value="Id체크" id="chkDupId" style="width: 110.5px; border-radius: 10px;">
+				<span id="idck"></span>
+		</div>	
+		
 </form>
-
-
 
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
@@ -57,7 +83,7 @@ $("#goListBtn ").on("click", function(event) {
 			
 			var checkedId = false;
 			
-			$("#f1").submit(function(event){
+			$("#contact-form").submit(function(event){
 				
 				if(checkedId == true){
 					alert("회원가입 되셨습니다.");
@@ -98,6 +124,6 @@ $("#chkDupId").on("click",function(){
 		
 </script>
 		
-
+</div>
 </body>
 </html>
