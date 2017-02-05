@@ -72,7 +72,7 @@ return IOUtils.toByteArray(in);
 		if(list == null || list.size() == 0){
 			
 			model.addAttribute("qnum", qnum	= -1);
-			return "redirect:/surveyView/success"; 
+			return "redirect:/surveyView/success?smno="+smno; 
 		}
 		
 		SurveyDetailVO vo = list.get(0);
@@ -85,8 +85,8 @@ return IOUtils.toByteArray(in);
 	}
 	
 	@GetMapping("/success")
-	public void success()throws Exception{
-		
+	public void success( Model model,Integer smno)throws Exception{
+		model.addAttribute("vo",smno);
 	}
 	
 }
