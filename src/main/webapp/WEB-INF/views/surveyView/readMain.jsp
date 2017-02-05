@@ -12,39 +12,85 @@
 <%@ include file="/resources/include/menu.jsp" %>
 </head>
 <style>
+img {
+border:0;
+outline: 0;
+}
+
+.allPage{
+position:absolute;
+top:20%;
+left:40%;
+}
 
 #imgread{
-width: 200px;
-height: 200px;
-background-: 
+
+width: 300px;
+height: 300px;
+border-radius: 100px; 
+background : url(/resources/images/no-image.jpg);
+background-size:cover;
 }
 
 .statisticsAction{
 
-}
 
-.box-main{
- position: relative;
- top: 100px;
- right: 50;
-}
-
-.box-main ul{
-border: 3px solid #73AD21;
-width:700px;
-height:400px;
-padding: 10px;
+padding:10px;
+background : url(/resources/images/a1.jpg);
+background-size:cover;
+width:200px;
 text-align: center;
 }
 
-.box-main li{
+
+
+.box-main{
+
 
 }
+
+.box-main ul{
+width:500px;
+height:580px;
+padding: 10px;
+text-align: center;
+background-color: black;
+
+}
+
+.box-main li{
+font-size: 20px;
+padding: 10px;
+color: white;
+}
+
 
 .box-footer{
+text-align: right;
+}
 
+#aTag{
+color : black;
+font-style: italic;
+font-weight: bold;
+font-size: 30px;
+}
+
+#aTag:HOVER {
+	background : url(/resources/images/a2.jpg);
+	background-size:cover;
+	padding:15px;
+	width:200px;
+	color: white;
+}
+#aTag:ACTIVE {
+	color: blue;
+	background-color: red;  
+	padding:15px;
+	width:200px;
 }
 </style>
+
 <body>
 
 
@@ -57,10 +103,10 @@ text-align: center;
 	
 	
 
-	
+	<div class ="allPage">
 	<div class = "statisticsAction">
 	<ul>
-	<li><a href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1">통계</a></li>
+	<li><a id="aTag" href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1" >통계</a></li>
 	</ul>
 	</div>
 	
@@ -69,20 +115,22 @@ text-align: center;
 				<li>글번호 : ${SurveyMainVO.smno }</li>
 				<li>제목 : ${SurveyMainVO.smtitle }</li>
 				<li>설문내용 : ${SurveyMainVO.smcontent }</li>
-				<li><img id="imgread" src="show?name=${SurveyMainVO.smimage}"></li>
-
 				<li>설문시작일자 : <fmt:formatDate value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
 				<li>설문수정일자 : <fmt:formatDate value="${SurveyMainVO.smupdatedate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
+				
+				<li><img id="imgread" src="show?name=${SurveyMainVO.smimage}"></li>
 			</ul>
 	</div>
 		
-
-
-	<div class="box-footer">
+		<div class="box-footer">
 	
 		<button type="submit" class="btn btn-primary" id="goListBtn">목록</button>
 		<button type="submit" class="btn btn-start" id="startBtn">설문 시작</button>
 	</div>
+	</div>
+		
+</form>
+
 	
 	
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
@@ -119,7 +167,7 @@ text-align: center;
 	</script>		
 
 
-</form>
+
 
 
 </body>

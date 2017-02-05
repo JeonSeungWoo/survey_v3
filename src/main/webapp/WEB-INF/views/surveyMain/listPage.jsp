@@ -39,12 +39,7 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen">	
-	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="css/flexslider.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen">
+
 	
 </head>
 <body>
@@ -111,7 +106,7 @@
 		
 	
 	<div class="preloader">
-		<img alt="" src="images/preloader.gif">
+		<img alt="" src="/images/preloader.gif">
 	</div>
 
 
