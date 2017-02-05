@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<%@ include file="/resources/include/menu.jsp" %>
+<%@ include file="/resources/include/menu.jsp"%>
 <body>
 
 	<style>
@@ -14,125 +14,339 @@
 	width: 150px;
 	height: 160px;
 	border: 3px dotted blue;
+	margin-left: 300px;
+}
+
+.page-header {
+	background-color: #ff9400;
+	margin-top: 0;
+	padding: 20px 20px 20px 40px;
 }
 
 li {
 	list-style: none;
 }
+
+.page-header h1 {
+	color: #ffffff;
+	font-size: 36pt;
+	text-decoration: none;
+}
+
+h1 {
+	font-family: 'Lobster', cursive;
+}
+
+.Btn {
+	border: 3px solid #18402a;
+	background: #3e9c54;
+	background: -webkit-gradient(linear, left top, left bottom, from(#65b2d6),
+		to(#3e9c54));
+	background: -webkit-linear-gradient(top, #65b2d6, #3e9c54);
+	background: -moz-linear-gradient(top, #65b2d6, #3e9c54);
+	background: -ms-linear-gradient(top, #65b2d6, #3e9c54);
+	background: -o-linear-gradient(top, #65b2d6, #3e9c54);
+	background-image: -ms-linear-gradient(top, #65b2d6 0%, #3e9c54 100%);
+	padding: 10.5px 21px;
+	-webkit-border-radius: 14px;
+	-moz-border-radius: 14px;
+	border-radius: 14px;
+	-webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset
+		rgba(255, 255, 255, 0.4) 0 1px 0;
+	-moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset
+		rgba(255, 255, 255, 0.4) 0 1px 0;
+	box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset
+		rgba(255, 255, 255, 0.4) 0 1px 0;
+	text-shadow: #000000 0 1px 0;
+	color: #000000;
+	font-size: 18px;
+	font-family: helvetica, serif;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	margin: 1em;
+	max-width: 350px;
+	width: calc(100% - 2em);
+	vertical-align: top;
+}
+
+.input__field {
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: 400;
+	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
+	-webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.input__field:focus {
+	outline: none;
+}
+
+.input__label {
+	display: inline-block;
+	float: right;
+	padding: 0 1em;
+	width: 40%;
+	color: #696969;
+	font-weight: bold;
+	font-size: 70.25%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.input__label-content {
+	position: relative;
+	display: block;
+	padding: 1.6em 0;
+	width: 100%;
+}
+
+.graphic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: none;
+}
+
+.icon {
+	color: #ddd;
+	font-size: 150%;
+}
+
+.input--shoko {
+	overflow: hidden;
+	padding-bottom: 2.5em;
+}
+
+.input__field--shoko {
+	padding: 0;
+	margin-top: 1.2em;
+	width: 100%;
+	background: transparent;
+	color: #fff;
+	font-size: 1.55em;
+}
+
+.input__label--shoko {
+	position: absolute;
+	top: 2em;
+	left: 0;
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 0em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #A09C9C;
+	pointer-events: none;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	-webkit-transition: -webkit-transform 0.2s 0.1s, color 0.3s;
+	transition: transform 0.2s 0.1s, color 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.graphic--shoko {
+	stroke: #A09C9C;
+	pointer-events: none;
+	stroke-width: 2px;
+	top: 1.25em;
+	bottom: 0px;
+	height: 3.275em;
+	-webkit-transition: -webkit-transform 0.7s, stroke 0.7s;
+	transition: transform 0.7s, stroke 0.7s;
+	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+}
+
+.input__field--shoko:focus+.input__label--shoko, .input--filled .input__label--shoko
+	{
+	color: #A58282;
+	-webkit-transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
+	transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
+}
+
+.input__field--shoko:focus ~ .graphic--shoko, .input--filled .graphic--shoko
+	{
+	stroke: #A58282;
+	-webkit-transform: translate3d(-66.6%, 0, 0);
+	transform: translate3d(-66.6%, 0, 0);
+}
 </style>
 
-	<form role="form" action="register" method="post" enctype="multipart/form-data" id="f1">
+	<form role="form" action="register" method="post"
+		enctype="multipart/form-data" id="f1">
 		<input type="hidden" name="smno" value="${param.page}">
-		
-		<h1> 광고성 글이나 욕설은 기재할 수 없습니다.</h1>
+
+		<div class="page-header">
+			<h1>광고성 글이나 욕설은 기재할 수 없습니다.</h1>
+		</div>
+
 		<div>
-			<ul>
+			<!-- 		<ul>
+
 				<li>제목<input type="text" id='smtitle' name="smtitle"
 					onfocus="if(this.value =='설문조사 제목') this.value='';"
-					onblur="if(this.value =='') this.value='설문조사 제목';" value="설문조사 제목" onclick="select_area()"></li>
+					onblur="if(this.value =='') this.value='설문조사 제목';" value="설문조사 제목"
+					onclick="select_area()"></li>
 
 				<li>설명<input type="text" name="smcontent"
 					onfocus="if(this.value =='설문조사 내용') this.value='';"
 					onblur="if(this.value =='') this.value='설문조사 내용';" value="설문조사 내용"></li>
 
 				<li>작성자<input type="text" name="smwriter" value="user">
-				<li>이미지<li><input type="hidden" name="smimage" id="smimage"></li>
+				<li>이미지
+				<li><input type="hidden" name="smimage" id="smimage"></li>
 
+			</ul> -->
 
-			</ul>
+			<section class="content bgcolor-10"> <span
+				class="input input--shoko"> <input
+				class="input__field input__field--shoko" type="text" id="smtitle"
+				name="smtitle" /> <label class="input__label input__label--shoko"
+				for="smtitle"> <span
+					class="input__label-content input__label-content--shoko">제목</span>
+			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
+					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
+					d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+				<path
+					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+				</svg>
+				
+				
+			</span> <span class="input input--shoko"> <input
+				class="input__field input__field--shoko" type="text" id="smcontent"
+				name="smcontent" /> <label class="input__label input__label--shoko"
+				for="smcontent"> <span
+					class="input__label-content input__label-content--shoko">내용</span>
+			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
+					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
+					d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+				<path
+					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+				</svg>
+				
+				
+			</span> <span class="input input--shoko"> <input
+				class="input__field input__field--shoko" type="text" id="smwriter"
+				name="smwriter" /> <label class="input__label input__label--shoko"
+				for="smwriter"> <span
+					class="input__label-content input__label-content--shoko">작성자</span>
+			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
+					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
+					d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+				<path
+					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+				</svg>
+			</span> </section>
+			<input type="hidden" name="smimage" id="smimage">
 			<div class='fileDrop'>
 				Drop Here
 				<div class="uploadedList"></div>
 			</div>
 		</div>
 
-		<button id="rBtn" onclick="validate_user_text();">등록</button>
-		<button id="goListBtn">목록으로</button>
+
+		<button id="rBtn" class="Btn" onclick="validate_user_text();">등록</button>
+		<button id="goListBtn" class="Btn">목록으로</button>
+
 	</form>
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
 
-<script>
-	var swear_words_arr = new Array("섹스","대출","무이자","병신","씨발","개새끼","십새끼","개년","누드","조건만남",
-        "필로폰","마약","바다이야기","바카라","시알리스","비아그라", "c", "멍청이", "똥개"); // 제한 목록
-     
-        
-    var swear_alert_arr = new Array;
-        
-    var swear_alert_count = 0;
-    
-    function reset_alert_count(){
-        swear_alert_count = 0;
-    }
-    
-    function validate_user_text()
-    {
-        reset_alert_count();
-        var compare_text = document.getElementById("smtitle").value;
-        for(var i=0; i<swear_words_arr.length; i++)
-        {
-            for(var j=0; j<(compare_text.length); j++)
-            {
-                if(swear_words_arr[i]==compare_text.substring(j,(j+swear_words_arr[i].length)).toLowerCase())
-                {
-                    swear_alert_arr[swear_alert_count]=compare_text.substring(j,(j+swear_words_arr[i].length));
-                    swear_alert_count++;
-                }
-            }
-        }
-        var alert_text="";
-        for(var k=1; k <= swear_alert_count; k++){
-            alert_text+="n" + "(" + k + ")" + swear_alert_arr[k-1];
-        }
-        
-        if(swear_alert_count > 0){
-        	
-        	$("#f1").submit(function(event){
-        		event.preventDefault();
-        		// 불량단어 나왔을때 멘트
-        	       alert(alert_text+"는 입력할 수 없는 단어입니다. 예쁜말을 써주세요");
-                // 불량단어 나왔을때 멘트
-        	       document.getElementById("smtitle").select();
-        	});
-       return;
-            
-       }else{
-    	alert(alert_text + "등록 되었습니다.");
-       	var formObj = $("#f1");
-           $("#rBtn").on("click",function(){
-           	formObj.attr("action", "/surveyMain/register");
-				formObj.attr("method", "post");
-				formObj.submit();
+	<script>
+		var swear_words_arr = new Array("섹스", "대출", "무이자", "병신", "씨발", "개새끼",
+				"십새끼", "개년", "누드", "조건만남", "필로폰", "마약", "바다이야기", "바카라", "시알리스",
+				"비아그라", "c", "멍청이", "똥개"); // 제한 목록
+
+		var swear_alert_arr = new Array;
+
+		var swear_alert_count = 0;
+
+		function reset_alert_count() {
+			swear_alert_count = 0;
+		}
+
+		function validate_user_text() {
+			reset_alert_count();
+			var compare_text = document.getElementById("smtitle").value;
+			for (var i = 0; i < swear_words_arr.length; i++) {
+				for (var j = 0; j < (compare_text.length); j++) {
+					if (swear_words_arr[i] == compare_text.substring(j,
+							(j + swear_words_arr[i].length)).toLowerCase()) {
+						swear_alert_arr[swear_alert_count] = compare_text
+								.substring(j, (j + swear_words_arr[i].length));
+						swear_alert_count++;
+					}
+				}
+			}
+			var alert_text = "";
+			for (var k = 1; k <= swear_alert_count; k++) {
+				alert_text += "n" + "(" + k + ")" + swear_alert_arr[k - 1];
+			}
+
+			if (swear_alert_count > 0) {
+
+				$("#f1").submit(function(event) {
+					event.preventDefault();
+					// 불량단어 나왔을때 멘트
+					alert(alert_text + "는 입력할 수 없는 단어입니다. 예쁜말을 써주세요");
+					// 불량단어 나왔을때 멘트
+					document.getElementById("smtitle").select();
+				});
 				return;
-           });
-        }
-       
-    }
-    function select_area(){
-    	
-    	
-    	 document.getElementById("smtitle").select();
-    }
-    
-    window.onload = reset_alert_count;
-</script>
+
+			} else {
+				alert(alert_text + "등록 되었습니다.");
+				var formObj = $("#f1");
+				$("#rBtn").on("click", function() {
+					formObj.attr("action", "/surveyMain/register");
+					formObj.attr("method", "post");
+					formObj.submit();
+					return;
+				});
+			}
+
+		}
+		function select_area() {
+
+			document.getElementById("smtitle").select();
+		}
+
+		window.onload = reset_alert_count;
+	</script>
 
 
 	<script>
-	
-
-	
-	
 		$(document).ready(function() {
-			
+
 			$("#goListBtn ").on("click", function(event) {
 				event.preventDefault();
 				self.location = "/surveyMain/listPage?page=1";
 			});
 
-		
 			var uploadedList = $(".uploadedList");
 			$(".fileDrop").on("dragenter dragover", function(event) {
 				event.preventDefault();
