@@ -40,7 +40,7 @@
 			<div class="menu-box">
 				<ul class="menu">
 					<li><a href="/member/login"><span>로그인</span></a></li>
-					<li><a href="/surveyMain/listPage?page=1"><span>설문조사 보기</span></a></li>
+					<li><a href="/surveyMain/listPage?page=1"><span>설문조사 리스트</span></a></li>
 					<li><a href="/surveyMain/register"><span>설문조사 만들기</span></a></li>
 					
 					

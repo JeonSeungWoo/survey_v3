@@ -32,13 +32,12 @@ margin: auto;
 #modDiv{
 width:400px;
 height:300px;
-background-color: gray;
-position: absolute;
+background-color: #d0eced;
+position: relative;
 padding: 10px;
 z-index: 1000;
-top: 50%;
-left: 50%;  
-margin-top:-50px; 
+top: 50%;  
+
 }
 
 .divSmno{
@@ -72,12 +71,23 @@ background-color: #E0E6F8;
 .allListPage{
 position: absolute;
 top: 10%;
-left: 50%;
+left: 40%;
 height: 240px;
 
 
 }
+.surAddBtn{
 
+text-align: center;
+}
+
+#surveyDetailAddIDval{
+background: #7fd8bb;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 10px; 
+}
 </style>
 
 </head>
@@ -150,9 +160,9 @@ height: 240px;
 </div>
 </div>
 	
-
-<div id="surveyDetailAdd"> +항목추가 </div>	
-	
+<div class="surAddBtn">
+<div id="surveyDetailAdd"> <input type="submit" value="+질문 추가" id="surveyDetailAddIDval"></div>	
+</div>	
 	
 <!-- SurveyDetailCreate -->
 <div class ="SurveyDetailMainCreate" style="display: none;">

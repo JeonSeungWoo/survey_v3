@@ -10,7 +10,15 @@
 <head>
 
 
+
 <style>
+
+html { background: url(/resources/images/1.jpg) no-repeat center center fixed;
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+   -o-background-size: cover;
+    background-size: cover;
+}
 
 
 
@@ -51,42 +59,54 @@ height: 200px;
 }
 
 .box-main a:HOVER{
- filter: blur(3px); 
+ 
 }
 
-
-
-.h1Tag{
-text-align: center;
-font-size: 35px;
-font-family: fantasy;
-font-style: italic;
-border:groove;
-position: static;
-width: 550px;
-left:30%;
-color: white;
-
-}
 
 .page{
 padding: 20px;
 
 }
 
+.comment-form1{
+  background: #1ab5b3;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 10px; 	  
+}
 
 
+
+#keywordInput{
+ padding: 10px;
+ border-radius: 10px;
+ width: 500px;
+ 
+}
+
+#searchTypeID{
+padding: 10px;
+border-radius: 10px;
+}
+
+.box-body{
+
+margin: 40px; 
+float: right;
+
+}
 
 </style>
 
 </head>
 <body>
    
-   <h1 class="h1Tag">설문조사 리스트</h1>
+  
 
    <div class='box-body'>
-
-      <select name="searchType">
+	<div id = "commentBtn">
+      <select name="searchType" id="searchTypeID">
          <option value="n"
             <c:out value="${cri.searchType == null?'selected':''}"/>>
             ---</option>
@@ -107,13 +127,20 @@ padding: 20px;
          <option value="tcw"
             <c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
             제목 OR 설문내용 OR 작성자</option>
-      </select> <input type="text" name='keyword' id="keywordInput"
-         value='${cri.keyword }'>
-      <button id='searchBtn'>검색</button>
-      <button id='newBtn'>등록</button>
-      <button id='listBtn'>목록</button>
-      <button id="partiBtn">참여한목록</button>
-
+      </select> 
+      
+      <input type="text" name='keyword' id="keywordInput" value='${cri.keyword }'>
+         
+         
+      <button id='searchBtn' class="comment-form1">검색</button>
+      
+     
+      
+       <input type="submit" id='newBtn' class="comment-form1" value="설문조사 등록">
+      <input type="submit" id='listBtn' class="comment-form1" value="목록">
+      <input type="submit" id="partiBtn" class="comment-form1" value="참여한목록">
+      </div>		
+      
    </div>
 
 
