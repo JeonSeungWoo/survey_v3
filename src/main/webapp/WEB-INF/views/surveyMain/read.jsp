@@ -57,7 +57,7 @@ margin-top:-50px;
 
 		<div>
 			<ul>
-				<li>글번호 : ${SurveyMainVO.smno }</li>
+				
 				<li>제목 : ${SurveyMainVO.smtitle }</li>
 				<li>설문내용 : ${SurveyMainVO.smcontent }</li>
 				<li><img src="show?name=${SurveyMainVO.smimage}"></li>

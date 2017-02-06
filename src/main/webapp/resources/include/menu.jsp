@@ -40,16 +40,16 @@
 			<div class="menu-box">
 				<ul class="menu">
 					<li><a href="/member/login"><span>로그인</span></a></li>
-					<li><a class="active" href="/surveyMain/listPage?page=1"><span>설문조사 보기</span></a></li>
+					<li><a href="/surveyMain/listPage?page=1"><span>설문조사 보기</span></a></li>
 					<li><a href="/surveyMain/register"><span>설문조사 만들기</span></a></li>
 					
-					<li><a href="single-post.html"><span>뭐만들지?</span></a></li>
+					
 					<li class="drop"><a href="#"><span>내 페이지</span></a>
 						<ul class="drop-down">
 							<li><a href="#"><span>내가 참여한 설문조사</span></a></li>
 							<li class="drop"><a href="#"><span>하하하</span></a>
 								<ul class="drop-down">
-									<li><a href="#"><span>여기 다 뭐 만들지?</span></a></li>
+									
 									<li><a href="#"><span>Level 3</span></a></li>
 								</ul>
 							</li>
@@ -75,18 +75,20 @@
 			<div class="social-box">
 				<ul class="social-icons">
 					<li><a href="#" class="facebook" ><i class="fa fa-facebook"></i></a></li>
-					<li><a href="#" class="naver" ><i class="fa fa-naver"></i></a></li>
+					<li><a href="#" class="twitter" ><i class="fa fa-twitter"></i></a></li>
 					<li><a href="#" class="google" ><i class="fa fa-google-plus"></i></a></li>
+					<li><a href="#" class="linkedin" ><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="#" class="pinterest" ><i class="fa fa-pinterest"></i></a></li>
 					<li><a href="#" class="youtube" ><i class="fa fa-youtube"></i></a></li>
 					<li><a href="#" class="github" ><i class="fa fa-github"></i></a></li>
-				</ul>	
+				</ul>
 			</div>
 			
 		</header>
 	
 		<!-- End Header -->
 	</div>
-		<div class="preloader">
+	<div class="preloader">
 		<img alt="" src="/images/preloader.gif">
 	</div>
 

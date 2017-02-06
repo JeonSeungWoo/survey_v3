@@ -6,53 +6,189 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Survey</title>
 
 <style>
 #img{
-width: 200px;
-height: 200px;
-text-align: center;
+	width: 200px;
+	height: 200px;
+	text-align: center;
 }
 
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
 </style>
+
+
 </head>
+
+<%@ include file="/resources/include/menu.jsp" %>
 <body>
 
+<!-- Main content -->
+    <section class="content">
 
+      <!-- SELECT2 EXAMPLE -->
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">글번호 :${vo.smno}</h3> 
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>${qnum+1}문제</label>
+                
+                <form action="/surveyView/readDetail" method="get">
+				<input type="hidden" name="smno" value="${vo.smno}">
+				<input type="hidden" name="page" value="${param.page}">
 
-<form action="/surveyView/readDetail" method="get">
-<input type="hidden" name="smno" value="${vo.smno}">
-<input type="hidden" name="page" value="${param.page}">
+					<div id = "box-main">
+						<ul>
+							<li>제목 : ${vo.sdtitle}</li>
+							<li>내용 : ${vo.sdcontent}</li>
+							<li><img id = "img"src='/upload/displayFile?fileName=${vo.attachFile}'></li>
 
-<h1>${vo.smno}</h1>
-<h1>${vo.sdno}</h1>
-<h1>${login.userid}</h1>
-
-
-
-<div id = "box-main">
-<ul>
-
-<li>글번호 :${vo.smno}</li>
-<li>${qnum+1}문제</li>	
-<li>제목 : ${vo.sdtitle}</li>
-<li>내용 : ${vo.sdcontent}</li>
-
-<li><img id = "img"src='/upload/displayFile?fileName=${vo.attachFile}'></li>
-
-<li>ox퀴즈</li>
-
-<li><input type="radio" name='answer' value="O" class="oxAnswer">o</li>
-<li><input type="radio" name='answer' value="X" class="oxAnswer">X</li>
-</ul>
-</div>
-
-
+							<input type="radio" name='answer' value="O" class="oxAnswer">O
+							<input type="radio" name='answer' value="X" class="oxAnswer">X
+						</ul>
+					</div>
 </form>
 <div id = "prev"></div>
 <button id="goListBtn">목록으로</button>
 <div id = "next"></div>
+                
+
+
+
+
+                
+                
+                
+                
+
+
+        
+
+
+
+          <!-- <div class="box box-success">
+            <div class="box-header">
+              <h3 class="box-title">iCheck - Checkbox &amp; Radio Inputs</h3>
+            </div>
+            <div class="box-body">
+             
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" class="minimal" checked>
+                </label>
+                <label>
+                  <input type="checkbox" class="minimal">
+                </label>
+                <label>
+                  <input type="checkbox" class="minimal" disabled>
+                  Minimal skin checkbox
+                </label>
+              </div>
+
+              
+              <div class="form-group">
+                <label>
+                  <input type="radio" name="r1" class="minimal" checked>
+                </label>
+                <label>
+                  <input type="radio" name="r1" class="minimal">
+                </label>
+                <label>
+                  <input type="radio" name="r1" class="minimal" disabled>
+                  Minimal skin radio
+                </label>
+              </div>
+
+             
+
+             
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" class="minimal-red" checked>
+                </label>
+                <label>
+                  <input type="checkbox" class="minimal-red">
+                </label>
+                <label>
+                  <input type="checkbox" class="minimal-red" disabled>
+                  Minimal red skin checkbox
+                </label>
+              </div>
+
+              
+              <div class="form-group">
+                <label>
+                  <input type="radio" name="r2" class="minimal-red" checked>
+                </label>
+                <label>
+                  <input type="radio" name="r2" class="minimal-red">
+                </label>
+                <label>
+                  <input type="radio" name="r2" class="minimal-red" disabled>
+                  Minimal red skin radio
+                </label>
+              </div>
+
+            
+
+
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" class="flat-red" checked>
+                </label>
+                <label>
+                  <input type="checkbox" class="flat-red">
+                </label>
+                <label>
+                  <input type="checkbox" class="flat-red" disabled>
+                  Flat green skin checkbox
+                </label>
+              </div>
+
+         
+              <div class="form-group">
+                <label>
+                  <input type="radio" name="r3" class="flat-red" checked>
+                </label>
+                <label>
+                  <input type="radio" name="r3" class="flat-red">
+                </label>
+                <label>
+                  <input type="radio" name="r3" class="flat-red" disabled>
+                  Flat green skin radio
+                </label>
+              </div>
+            </div> 
+          </div> -->
+
+
+
+        </div>
+  
+      </div>
+
+		</div>
+	</div>
+</div>
+    </section>
+    <!-- /.content -->
+
+
+
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
@@ -162,6 +298,16 @@ $("#goListBtn ").on("click", function(event) {
 
 
 
+</script>
+
+<script>
+$(document).ready(function(){
+  $('input').iCheck({
+    checkboxClass: 'icheckbox_polaris',
+    radioClass: 'iradio_polaris',
+    increaseArea: '-10%' // optional
+  });
+});
 </script>
 
 </body>
