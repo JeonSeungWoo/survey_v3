@@ -3,13 +3,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 </head>
 <%@ include file="/resources/include/menu.jsp"%>
 <body>
 
 	<style>
+html {
+	background-color: lightblue;
+}
+
+.post {
+	background-color: lightblue;
+}
+
 .fileDrop {
 	width: 150px;
 	height: 160px;
@@ -132,6 +140,7 @@ h1 {
 	font-size: 150%;
 }
 
+/* Shoko */
 .input--shoko {
 	overflow: hidden;
 	padding-bottom: 2.5em;
@@ -181,27 +190,26 @@ h1 {
 
 .input__field--shoko:focus+.input__label--shoko, .input--filled .input__label--shoko
 	{
-	color: #A58282;
+	color: #fc0000;
 	-webkit-transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
 	transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
 }
 
 .input__field--shoko:focus ~ .graphic--shoko, .input--filled .graphic--shoko
 	{
-	stroke: #A58282;
+	stroke: #fc0000;
 	-webkit-transform: translate3d(-66.6%, 0, 0);
 	transform: translate3d(-66.6%, 0, 0);
 }
 </style>
 
-	<form role="form" action="register" method="post"
+	<form role="form" class="post" action="register" method="post"
 		enctype="multipart/form-data" id="f1">
 		<input type="hidden" name="smno" value="${param.page}">
 
 		<div class="page-header">
 			<h1>광고성 글이나 욕설은 기재할 수 없습니다.</h1>
 		</div>
-
 		<div>
 			<!-- 		<ul>
 
@@ -232,8 +240,8 @@ h1 {
 				<path
 					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
 				</svg>
-				
-				
+
+
 			</span> <span class="input input--shoko"> <input
 				class="input__field input__field--shoko" type="text" id="smcontent"
 				name="smcontent" /> <label class="input__label input__label--shoko"
@@ -245,8 +253,8 @@ h1 {
 				<path
 					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
 				</svg>
-				
-				
+
+
 			</span> <span class="input input--shoko"> <input
 				class="input__field input__field--shoko" type="text" id="smwriter"
 				name="smwriter" /> <label class="input__label input__label--shoko"
@@ -264,12 +272,10 @@ h1 {
 				Drop Here
 				<div class="uploadedList"></div>
 			</div>
+
+			<button id="rBtn" class="Btn" onclick="validate_user_text();">등록</button>
+			<button id="goListBtn" class="Btn">목록으로</button>
 		</div>
-
-
-		<button id="rBtn" class="Btn" onclick="validate_user_text();">등록</button>
-		<button id="goListBtn" class="Btn">목록으로</button>
-
 	</form>
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
@@ -376,5 +382,42 @@ h1 {
 		});
 	</script>
 
+	<script src="/js/classie.js"></script>
+	<script>
+		(function() {
+			// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+			if (!String.prototype.trim) {
+				(function() {
+					// Make sure we trim BOM and NBSP
+					var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+					String.prototype.trim = function() {
+						return this.replace(rtrim, '');
+					};
+				})();
+			}
+
+			[].slice.call(document.querySelectorAll('input.input__field'))
+					.forEach(function(inputEl) {
+						// in case the input is already filled..
+						if (inputEl.value.trim() !== '') {
+							classie.add(inputEl.parentNode, 'input--filled');
+						}
+
+						// events:
+						inputEl.addEventListener('focus', onInputFocus);
+						inputEl.addEventListener('blur', onInputBlur);
+					});
+
+			function onInputFocus(ev) {
+				classie.add(ev.target.parentNode, 'input--filled');
+			}
+
+			function onInputBlur(ev) {
+				if (ev.target.value.trim() === '') {
+					classie.remove(ev.target.parentNode, 'input--filled');
+				}
+			}
+		})();
+	</script>
 </body>
 </html>
