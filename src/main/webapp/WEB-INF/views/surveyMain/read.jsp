@@ -9,11 +9,16 @@
 <%@ include file="/resources/include/menu.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
+
+
+
 img{
 width: 200px;
 height: 200px;
-
 text-align: center;
+border-radius: 50px; 
+background : url(/resources/images/no-image.jpg);
+background-size:cover;
 }
 
 .fileDrop{
@@ -36,20 +41,50 @@ left: 50%;
 margin-top:-50px; 
 }
 
-#surveyDetailAdd{
-background:
+.divSmno{
+border:1px solid silver;
+text-align: center;
+font-size: 25px;
+font-style: inherit;
+background-color: #FFFFFF;
 }
 
+.box-footer{
+ 
+}
+
+.detailDiv{
+border: 1px solid red;
+text-align: center;
+font-size: 25px;
+font-style: inherit;
+background-color: #EFFBFB;
+}
+
+.divSdno{
+border:  1px solid green; 
+text-align: center;
+font-size: 25px;
+font-style: inherit;
+background-color: #E0E6F8;
+}
+
+.allListPage{
+position: absolute;
+top: 10%;
+left: 50%;
+height: 240px;
 
 
+}
 
 </style>
 
 </head>
 <body>
 
+<div class="allListPage">
 	<form role="form" action="/update" method="post">
-	
 
 		<input type='hidden' name='smno' value="${SurveyMainVO.smno}">
 		<input type='hidden' name='page' value="${cri.page}"> <input
@@ -59,12 +94,11 @@ background:
 
 	</form>
 
-
 	<form action="SurveyMainVO" id="f1">
 		<input type="hidden" name="smno" value="${SurveyMainVO.smno}">
 		<input type="hidden" name="page" value="${param.page}">
 
-		<div class ="box-main1">
+		<div class="divSmno">
 			<ul>
 				
 				<li>제목 : ${SurveyMainVO.smtitle }</li>
@@ -72,12 +106,12 @@ background:
 				<li><img src="show?name=${SurveyMainVO.smimage}"></li>
 
 				<li>설문시작일자 : <fmt:formatDate value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
-				
+				<li>설문수정일자 : <fmt:formatDate value="${SurveyMainVO.smupdatedate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
 			</ul>
 		</div>
 </form>
 	
-<div class="box-footer1">
+<div class="box-footer">
 <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
 </div>	
 	
@@ -90,13 +124,10 @@ background:
 	
 	
 
-	
-
-
 <!-- SurveyDetail modDiv Button -->
 <div id ="modDiv" style="display: none;">
 <div class="modal-title"></div>
-<div class="box-main2">
+<div>
 <ul>
 <input type='hidden' name='attachFile' class='hiddenfile'>
 <li>SDNO<input type = "text" name="sdno" class ="sdno" readonly="readonly"></li>
@@ -112,7 +143,7 @@ background:
 </ul>       
 </div>
 
-<div class="box-footer2">
+<div>
 <button type="submit" id ="surveyDetailUpdateBtn">수정</button>
 <button type="submit" id ="surveyDetailDelBtn">삭제</button>
 <button type="submit" id ="closeBtn">닫기</button>
@@ -125,9 +156,9 @@ background:
 	
 <!-- SurveyDetailCreate -->
 <div class ="SurveyDetailMainCreate" style="display: none;">
-<div>
-<form id="detailForm" method="post"action="/surveyDetail" target="zeroFrame" enctype="multipart/form-data">
 
+<form id="detailForm" method="post"action="/surveyDetail" target="zeroFrame" enctype="multipart/form-data">
+<div class="divSdno">
 <ul>
 
 <li>번호<input type = "text" name="smno" class ="newSmno" value="${SurveyMainVO.smno}" readonly="readonly"></li>
@@ -150,9 +181,10 @@ background:
  
 <li>이미지<input type ="file" name="sdAttach" class ="newSdtype"></li>
 <li><button type ="submit"  class= "surveyAddBtn">항목 등록</button></li>
-</ul>        
+</ul> 
+  </div>     
 </form>
-</div>
+
 
 
 </div>
@@ -172,7 +204,8 @@ background:
 </div>
 
 
-
+</div>
+</body>
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
