@@ -36,12 +36,20 @@ left: 50%;
 margin-top:-50px; 
 }
 
+#surveyDetailAdd{
+background:
+}
+
+
+
+
 </style>
 
 </head>
 <body>
 
 	<form role="form" action="/update" method="post">
+	
 
 		<input type='hidden' name='smno' value="${SurveyMainVO.smno}">
 		<input type='hidden' name='page' value="${cri.page}"> <input
@@ -51,24 +59,25 @@ margin-top:-50px;
 
 	</form>
 
+
 	<form action="SurveyMainVO" id="f1">
 		<input type="hidden" name="smno" value="${SurveyMainVO.smno}">
 		<input type="hidden" name="page" value="${param.page}">
 
-		<div>
+		<div class ="box-main1">
 			<ul>
-				<li>글번호 : ${SurveyMainVO.smno }</li>
+				
 				<li>제목 : ${SurveyMainVO.smtitle }</li>
 				<li>설문내용 : ${SurveyMainVO.smcontent }</li>
 				<li><img src="show?name=${SurveyMainVO.smimage}"></li>
 
 				<li>설문시작일자 : <fmt:formatDate value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
-				<li>설문수정일자 : <fmt:formatDate value="${SurveyMainVO.smupdatedate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
+				
 			</ul>
 		</div>
 </form>
 	
-<div class="box-footer">
+<div class="box-footer1">
 <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
 </div>	
 	
@@ -87,7 +96,7 @@ margin-top:-50px;
 <!-- SurveyDetail modDiv Button -->
 <div id ="modDiv" style="display: none;">
 <div class="modal-title"></div>
-<div>
+<div class="box-main2">
 <ul>
 <input type='hidden' name='attachFile' class='hiddenfile'>
 <li>SDNO<input type = "text" name="sdno" class ="sdno" readonly="readonly"></li>
@@ -103,7 +112,7 @@ margin-top:-50px;
 </ul>       
 </div>
 
-<div>
+<div class="box-footer2">
 <button type="submit" id ="surveyDetailUpdateBtn">수정</button>
 <button type="submit" id ="surveyDetailDelBtn">삭제</button>
 <button type="submit" id ="closeBtn">닫기</button>
@@ -161,6 +170,8 @@ margin-top:-50px;
 		<button type="submit" class="btn btn-danger" id="removeBtn">목록</button>
 		<button type="submit" class="btn btn-primary" id="goListBtn">등록</button>
 </div>
+
+
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
