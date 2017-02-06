@@ -9,6 +9,10 @@
 <html>
 <head>
 <style>
+#image{
+width: 300px;
+height: 300px;
+}
 .flex{
 	padding: 1rem;
 	float: left;
@@ -25,9 +29,6 @@
 	padding:1rem;
 }
 
-.pagination {
-	
-}
 
 </style>
 	<title>Survey List</title>
@@ -86,7 +87,7 @@
 						<ul class="page">
 							<li><a href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}
 								&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
-								<img src="show?name=${SurveyMainVO.smimage}"></a></li>
+								<img id="image" src="show?name=${SurveyMainVO.smimage}"></a></li>
 					<li>${SurveyMainVO.smtitle}</li>
 				</ul>
 							
