@@ -7,10 +7,13 @@
 <title>JoinPage</title>
 <style>
 
+html { background: url(/resources/images/create11.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+
+
 #all{
 	
 	position:absolute;
-  	top:25%;
+  	top:30%;
   	left:50%;
  	width:100px;
   	height:100px;
@@ -34,7 +37,7 @@ border-radius: 10px;
 <body>
 <div id="all">
 <form id="contact-form" action="/member/create" method="post">
-	<h1>회원가입</h1>
+	
 	<div class="text-fields"> 
 		<div class="float-input">
 			<input type="text" name="userid" id ="userid" placeholder="아이디">
