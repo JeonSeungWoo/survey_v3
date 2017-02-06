@@ -11,11 +11,11 @@
 
 	<style>
 html {
-	background-color: lightblue;
+	background-color: #ffffff;
 }
 
 .post {
-	background-color: lightblue;
+	background-color: #ffffff;
 }
 
 .fileDrop {
@@ -26,7 +26,7 @@ html {
 }
 
 .page-header {
-	background-color: #ff9400;
+	background-color: #1ab5b3;
 	margin-top: 0;
 	padding: 20px 20px 20px 40px;
 }
@@ -45,7 +45,7 @@ h1 {
 	font-family: 'Lobster', cursive;
 }
 
-.Btn {
+.rBtn, .lBtn {
 	border: 3px solid #18402a;
 	background: #3e9c54;
 	background: -webkit-gradient(linear, left top, left bottom, from(#65b2d6),
@@ -71,6 +71,18 @@ h1 {
 	font-family: helvetica, serif;
 	text-decoration: none;
 	vertical-align: middle;
+}
+
+.rBtn {
+	position: absolute;
+	bottom: 0px;
+	left: 300px;
+}
+
+.lBtn {
+	position: absolute;
+	bottom: 0px;
+	left: 385px;
 }
 
 .input {
@@ -151,7 +163,7 @@ h1 {
 	margin-top: 1.2em;
 	width: 100%;
 	background: transparent;
-	color: #fff;
+	color: #000000;
 	font-size: 1.55em;
 }
 
@@ -228,34 +240,43 @@ h1 {
 
 			</ul> -->
 
-			<section class="content bgcolor-10"> <span
-				class="input input--shoko"> <input
-				class="input__field input__field--shoko" type="text" id="smtitle"
-				name="smtitle" /> <label class="input__label input__label--shoko"
-				for="smtitle"> <span
-					class="input__label-content input__label-content--shoko">제목</span>
-			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
-					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
-					d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
-				<path
-					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
-				</svg>
+			<section class="content bgcolor-10">
+
+			<p>
+				<span class="input input--shoko"> <input
+					class="input__field input__field--shoko" type="text" id="smtitle"
+					name="smtitle" /> <label class="input__label input__label--shoko"
+					for="smtitle"> <span
+						class="input__label-content input__label-content--shoko">제목</span>
+				</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
+						viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
+						d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+					<path
+						d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+					</svg>
 
 
-			</span> <span class="input input--shoko"> <input
-				class="input__field input__field--shoko" type="text" id="smcontent"
-				name="smcontent" /> <label class="input__label input__label--shoko"
-				for="smcontent"> <span
-					class="input__label-content input__label-content--shoko">내용</span>
-			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
-					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
-					d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
-				<path
-					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
-				</svg>
+				</span>
+			</p>
+
+			<p>
+				<span class="input input--shoko"> <input
+					class="input__field input__field--shoko" type="text" id="smcontent"
+					name="smcontent" /> <label
+					class="input__label input__label--shoko" for="smcontent"> <span
+						class="input__label-content input__label-content--shoko">내용</span>
+				</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
+						viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
+						d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+					<path
+						d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+					</svg>
 
 
-			</span> <span class="input input--shoko"> <input
+				</span>
+			</p>
+
+			<span class="input input--shoko"> <input
 				class="input__field input__field--shoko" type="text" id="smwriter"
 				name="smwriter" /> <label class="input__label input__label--shoko"
 				for="smwriter"> <span
@@ -273,8 +294,10 @@ h1 {
 				<div class="uploadedList"></div>
 			</div>
 
-			<button id="rBtn" class="Btn" onclick="validate_user_text();">등록</button>
-			<button id="goListBtn" class="Btn">목록으로</button>
+			<p>
+				<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
+				<button id="goListBtn" class="lBtn">목록으로</button>
+			</p>
 		</div>
 	</form>
 
@@ -419,5 +442,6 @@ h1 {
 			}
 		})();
 	</script>
+
 </body>
 </html>
