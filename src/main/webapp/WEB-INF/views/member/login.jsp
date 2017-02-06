@@ -58,7 +58,7 @@ padding:1.5px;
 		</div>
 		
 		<div class="float-input">
-			<input name="userpw" id="mail" type="text" placeholder="비밀번호">
+			<input name="userpw" id="mail" type="password" placeholder="비밀번호" style="height:58px;">
 			<span><i class="fa fa-envelope-o"></i></span>
 		</div>
 		

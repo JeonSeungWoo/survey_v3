@@ -8,44 +8,49 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+
 <style>
-#image{
-width: 300px;
-height: 300px;
-}
-.flex{
-	padding: 1rem;
-	float: left;
-	width:215px;
+
+.page li{
+padding: 5px;
 }
 
-.inner-post {
-	position:absolute;
-  	top:15%;
-  	left:22%;
- 	width:1100px;
-  	height:500px;
-	display: table;
-	padding:1rem;
+.pagination li {	
+	float: left;
+	margin: 0.5rem;	
 }
+
+.box-main ul{
+    float: left;
+    border: 1rem;
+}
+
+.box-main li{
+text-align: center;
+width: 200px;
+
+}
+
+.box-main img{
+width: 200px;
+height: 200px;
+}
+
+.pic{
+padding: 10px;
+}
+
 
 
 </style>
-	<title>Survey List</title>
 
-	<meta charset="utf-8">
-
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
-
-
-	
 </head>
 <body>
+	
+	<h1>설문조사 리스트</h1>
 
-<div class='box-body'>
+	<div class='box-body'>
 
 		<select name="searchType">
 			<option value="n"
@@ -76,43 +81,40 @@ height: 300px;
 		<button id="partiBtn">참여한목록</button>
 
 	</div>
-	
-<form action="listPage">
 
-	<div class="blog-post gallery-post">
-			<div class="inner-post">
-				<input type="hidden" name="page" value="${param.page}">
-				<c:forEach items="${listPage}" var="SurveyMainVO" >
-					<div class="flex">
-						<ul class="page">
-							<li><a href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}
-								&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
-								<img id="image" src="show?name=${SurveyMainVO.smimage}"></a></li>
-					<li>${SurveyMainVO.smtitle}</li>
-				</ul>
-							
-					<div class="post-content">
-						<p>${SurveyMainVO.smcontent}</p>
-					</div>
-				
-					<ul class="post-tags">
-						<li>${SurveyMainVO.smwriter}</li>
-					</ul>
+
+
+
+	<form action="listPage">
+
+	
+		<div class ="box-main">
+		<input type="hidden" name="page" value="${param.page}">
+		<c:forEach items="${listPage}" var="SurveyMainVO" >
+			
+			<ul class="page">
+				<div class="pic">
+				<%-- <li><a href='read?smno=${SurveyMainVO.smno}&page=${param.page}
+				&searchType=${param.searchType}&keyword=${param.keyword}'>
+						글 번호 :${SurveyMainVO.smno}</a></li> --%>
+						
+				<li><a href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}
+				&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
+				<img src="show?name=${SurveyMainVO.smimage}"></a></li>
+				<li>${SurveyMainVO.smtitle}</li>
+				<li>${SurveyMainVO.smcontent}</li>
+				<li>${SurveyMainVO.smwriter}</li>
 				</div>
-				</c:forEach>
-			</div>
-	</div>
-</form>
+			</ul>
+		</c:forEach>
+		</div>
 
-		
-	
-	<div class="preloader">
-		<img alt="" src="/images/preloader.gif">
-	</div>
+	</form>
 
 
-<div class="text-center">
-			<ul class="pagination">
+
+	<div class="text-center">
+		<ul class="pagination">
 
 			<c:if test="${pageMaker.prev}">
 				<li class="prev"><a
@@ -134,7 +136,7 @@ height: 300px;
 			</ul>
 		</div>
 	
-<script src="https://code.jquery.com/jquery-2.2.4.js"
+	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
 
@@ -169,9 +171,7 @@ height: 300px;
 					});
 				});
 	</script>
+
 </body>
 
-
-
 </html>
-
