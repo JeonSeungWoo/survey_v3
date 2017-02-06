@@ -41,26 +41,52 @@
           <h3 class="box-title">글번호 :${vo.smno}</h3> 
         </div>
         <!-- /.box-header -->
+        
+        <div class="testimonial">
+								
+								<ul>
+									
+										<div class="client-test">
+											<h3>Collis Ta’eed - CEO at Envato</h3>
+										</div>
+										
+									
+									<li>
+										<p>문제<label>${qnum+1}</label></p>
+									</li>
+								</ul>
+							</div>
+        
+        
         <div class="box-body">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label>${qnum+1}문제</label>
+               
                 
                 <form action="/surveyView/readDetail" method="get">
 				<input type="hidden" name="smno" value="${vo.smno}">
 				<input type="hidden" name="page" value="${param.page}">
 
-					<div id = "box-main">
-						<ul>
-							<li>제목 : ${vo.sdtitle}</li>
-							<li>내용 : ${vo.sdcontent}</li>
-							<li><img id = "img"src='/upload/displayFile?fileName=${vo.attachFile}'></li>
 
-							<input type="radio" name='answer' value="O" class="oxAnswer">O
-							<input type="radio" name='answer' value="X" class="oxAnswer">X
-						</ul>
-					</div>
+							<div class="post-info">
+								
+								<ul>
+									<li>
+										<span><i class="fa fa-comment"></i></span>${vo.sdtitle}
+									</li>
+									<li>
+										<span><i class="fa fa-comment"></i></span>${vo.sdcontent}
+									</li>
+									<li><img id = "img"src='/upload/displayFile?fileName=${vo.attachFile}'></li>
+									<li>
+										<input type="radio" name='answer' value="O" class="oxAnswer">O
+										<input type="radio" name='answer' value="X" class="oxAnswer">X
+									</li>
+									</ul>
+							</div>
+			
+					
 </form>
 <div id = "prev"></div>
 <button id="goListBtn">목록으로</button>
