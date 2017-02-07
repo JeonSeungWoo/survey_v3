@@ -20,7 +20,7 @@ html {
 
 .fileDrop {
 	width: 380px;
-	height: 160px;
+	height: 200px;
 	border: 3px dotted #3e5ea2;
 	margin: 15px;
 	font-size: 15pt;

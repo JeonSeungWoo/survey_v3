@@ -24,6 +24,10 @@
     width: 100%;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
+
+.box-header with-border ul{
+border: 10px solid red;
+}
 </style>
 
 
@@ -38,19 +42,13 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">글번호 :${vo.smno}</h3> 
+          <ul>글번호 :${vo.smno}</ul> 
         </div>
         <!-- /.box-header -->
         
-        <div class="testimonial">
+        					<div class="testimonial">
 								
 								<ul>
-									
-										<div class="client-test">
-											<h3>Collis Ta’eed - CEO at Envato</h3>
-										</div>
-										
-									
 									<li>
 										<p>문제<label>${qnum+1}</label></p>
 									</li>
@@ -88,10 +86,12 @@
 			
 					
 </form>
-<div id = "prev"></div>
-<button id="goListBtn">목록으로</button>
-<div id = "next"></div>
-                
+
+<form class="comment-form">
+	<div id = "prev"></div>
+		<button id="goListBtn">목록으로</button>
+	<div id = "next"></div>
+</form>                
 
 
 
