@@ -30,9 +30,9 @@ public class AnswerServiceImpl implements AnswerService {
 	}
 
 	@Override
-	public List<AnswerStat> oxStatistics(Integer smno, Integer sdno, String answer) throws Exception {
+	public List<AnswerStat> oxStatistics(Integer smno) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.oxStatistics(smno, sdno, answer);
+		return dao.oxStatistics(smno);
 	}
 
 	@Override
@@ -41,10 +41,6 @@ public class AnswerServiceImpl implements AnswerService {
 		return dao.listAll(smno);
 	}
 
-	@Override
-	public List<AnswerStat> oxStatisticsOne(Integer smno, Integer sdno) throws Exception {
-		// TODO Auto-generated method stub
-		return dao.oxStatisticsOne(smno, sdno);
-	}
+	
 
 }

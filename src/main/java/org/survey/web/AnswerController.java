@@ -82,7 +82,7 @@ public class AnswerController {
 		
 		logger.info("oxStatistics :" + smno + sdno + answer);
 		
-		List<AnswerStat> answerList = service.oxStatisticsOne(smno, sdno);
+		List<AnswerStat> answerList = service.oxStatistics(smno);
 		
 		logger.info("TEST:" + answerList);
 		

@@ -48,7 +48,7 @@ public class AnswerDAOImpl implements AnswerDAO {
 
 
 	@Override
-	public List<AnswerStat> oxStatistics(Integer smno, Integer sdno, String answer) throws Exception {
+	public List<AnswerStat> oxStatistics(Integer smno) throws Exception {
 		
 		return session.selectList(NAME + ".oxStatistics",smno);
 		
@@ -61,15 +61,5 @@ public class AnswerDAOImpl implements AnswerDAO {
 		return session.selectList(NAME + ".oxList",smno);
 	}
 
-
-	@Override
-	public List<AnswerStat> oxStatisticsOne(Integer smno, Integer sdno) throws Exception {
-			
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("smno",smno);
-		map.put("sdno",sdno);
-		
-		return session.selectList(NAME + ".oxStatisticsOne",map);
-	}
 
 }

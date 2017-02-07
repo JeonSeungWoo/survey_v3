@@ -16,18 +16,14 @@ delete from tbl_oxanswer where sdno = #{sdno} and userid = #{userid}
 </delete>
 
 <select id="oxStatistics" resultType="AnswerStat">
-select answer, count(*) count from tbl_oxanswer where smno = #{smno} group by answer
+select sdno, min(answer), count(sdno) from tbl_oxanswer where smno = #{smno} 
+group by sdno, answer
 </select>
 
 <select id="oxList" resultType="SurveyDetailVO">
 select * from tbl_surveydetail where smno = #{smno}
 </select>
 
-<select id="oxStatisticsOne" resultType="AnswerStat">
-select answer, count(*) count
-from tbl_oxanswer
-where smno = #{smno} and sdno =#{sdno}
-group by answer
-</select>
+
 
 </mapper>
