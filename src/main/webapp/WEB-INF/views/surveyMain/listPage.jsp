@@ -61,8 +61,7 @@
 
 					<ul class="page">
 						<li><a
-							href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}
-            &searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
+							href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
 								<img src="show?name=${SurveyMainVO.smimage}">
 						</a></li>
 						<li>${SurveyMainVO.smtitle}</li>

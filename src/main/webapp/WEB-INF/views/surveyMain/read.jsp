@@ -3,14 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
 <%@ include file="/resources/include/menu.jsp" %>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <style type="text/css">
-
-
 
 img{
 width: 200px;
@@ -89,9 +84,6 @@ background: #7fd8bb;
   border-radius: 10px; 
 }
 </style>
-
-</head>
-<body>
 
 <div class="allListPage">
 	<form role="form" action="/update" method="post">
