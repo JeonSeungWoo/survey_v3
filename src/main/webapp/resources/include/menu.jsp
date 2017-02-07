@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!doctype html>
 
 
@@ -39,8 +41,19 @@
 
 			<div class="menu-box">
 				<ul class="menu">
+				
+				<c:if test="${login.userid == null}">
 					<li><a href="/member/login"><span>로그인</span></a></li>
+				</c:if>	
+				
+				<c:if test="${login.userid != null}">	
+					<li><a href="/member/logout"><span>로그아웃</span></a></li>
+				</c:if>
+				
+				
 					<li><a href="/surveyMain/listPage?page=1"><span>설문조사 리스트</span></a></li>
+					
+					
 					<li><a href="/surveyMain/register"><span>설문조사 만들기</span></a></li>
 					
 					

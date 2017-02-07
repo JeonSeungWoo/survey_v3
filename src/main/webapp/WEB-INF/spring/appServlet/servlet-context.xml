@@ -60,7 +60,6 @@
 	<mapping path="/surveyMain/delete"/>
 	<mapping path="/surveyMain/read"/>
 	<mapping path="/surveyView/readMain"/>
-	
 	<beans:ref bean="memberAuthIntercetor"/>
 	
 	</interceptor>
