@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 
 
@@ -32,26 +36,36 @@
 			</div>
 			
 			<a class="elemadded responsive-link" href="#">Menu</a>
-
+			
 			<div class="menu-box">
 				<ul class="menu">
-					<li><a class="active" href="index.html"><span>Home</span></a></li>
-					<li><a href="about.html"><span>About</span></a></li>
-					<li><a href="blog.html"><span>blog</span></a></li>
-					<li><a href="single-post.html"><span>Single Post</span></a></li>
-					<li class="drop"><a href="#"><span>Go To Level 2</span></a>
+				
+				<c:if test="${login.userid == null}">
+					<li><a href="/member/login"><span>로그인</span></a></li>
+				</c:if>	
+				
+				<c:if test="${login.userid != null}">	
+					<li><a href="/member/logout"><span>로그아웃</span></a></li>
+				</c:if>
+			
+			<div class="menu-box">
+				<ul class="menu">
+					<li><a class="active" href="/surveyMain/listPage?page=1"><span>설문조사 리스트</span></a></li>
+					<li><a href="/surveyMain/register"><span>설문조사 만들기</span></a></li>
+					
+					<li class="drop"><a href="#"><span>내 페이지</span></a>
 						<ul class="drop-down">
-							<li><a href="#"><span>Level 2</span></a></li>
-							<li class="drop"><a href="#"><span>Go To Level 3</span></a>
+							<li><a href="#"><span>내가 참여한 설문조사</span></a></li>
+							<li class="drop"><a href="#"><span>하하하</span></a>
 								<ul class="drop-down">
 									<li><a href="#"><span>Level 3</span></a></li>
-									<li><a href="#"><span>Level 3</span></a></li>
+									
 								</ul>
 							</li>
-							<li><a href="#"><span>Level 2</span></a></li>
+							<li><a href="#"><span>내가 등록한 설문조사</span></a></li>
 						</ul>
 					</li>
-					<li><a href="contact.html"><span>Contact</span></a></li>
+					<li><a href="contact.html"><span>통계</span></a></li>
 				</ul>				
 			</div>
 
@@ -77,7 +91,7 @@
 					<li><a href="#" class="youtube" ><i class="fa fa-youtube"></i></a></li>
 					<li><a href="#" class="github" ><i class="fa fa-github"></i></a></li>
 				</ul>
-				<p class="copyright">&#169; 2014 Kappe, All Rights Reserved</p>
+				
 			</div>
 		</header>
 		<!-- End Header -->
@@ -318,16 +332,7 @@
 	</div>
 	<!-- End Container -->
 
-	<div class="info-box">
-		<a class="info-toggle" href="#"><i class="fa fa-info-circle"></i></a>
-		<div class="info-content">
-			<ul>
-				<li><i class="fa fa-phone"></i>9930 1234 5679</li>
-				<li><i class="fa fa-envelope"></i><a href="#">contact@domain.com</a></li>
-				<li><i class="fa fa-home"></i>street address example</li>
-			</ul>
-		</div>
-	</div>
+	
 
 	<div class="preloader">
 		<img alt="" src="images/preloader.gif">
