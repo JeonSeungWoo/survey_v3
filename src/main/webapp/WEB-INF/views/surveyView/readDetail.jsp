@@ -25,8 +25,18 @@
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
 
-.box-header with-border ul{
-border: 10px solid red;
+.box-title{
+
+background-color: #1ab5b3;
+padding: 25px;
+}
+
+#goListBtn, #qnumNext, #prevNext{
+	background: #1ab5b3;
+  	color: #fff;
+  	border: none;
+  	padding: 8px;
+  	border-radius: 10px;
 }
 </style>
 
@@ -42,13 +52,13 @@ border: 10px solid red;
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <ul>글번호 :${vo.smno}</ul> 
+          <h3 class="box-title">글번호 : ${vo.smno}</h3> 
         </div>
         <!-- /.box-header -->
         
-        					<div class="testimonial">
+        <div class="testimonial">
 								
-								<ul>
+								<ul>												
 									<li>
 										<p>문제<label>${qnum+1}</label></p>
 									</li>
@@ -85,122 +95,13 @@ border: 10px solid red;
 							</div>
 			
 					
-</form>
+				</form>
 
-<form class="comment-form">
+
 	<div id = "prev"></div>
 		<button id="goListBtn">목록으로</button>
 	<div id = "next"></div>
-</form>                
-
-
-
-
-                
-                
-                
-                
-
-
-        
-
-
-
-          <!-- <div class="box box-success">
-            <div class="box-header">
-              <h3 class="box-title">iCheck - Checkbox &amp; Radio Inputs</h3>
-            </div>
-            <div class="box-body">
              
-              <div class="form-group">
-                <label>
-                  <input type="checkbox" class="minimal" checked>
-                </label>
-                <label>
-                  <input type="checkbox" class="minimal">
-                </label>
-                <label>
-                  <input type="checkbox" class="minimal" disabled>
-                  Minimal skin checkbox
-                </label>
-              </div>
-
-              
-              <div class="form-group">
-                <label>
-                  <input type="radio" name="r1" class="minimal" checked>
-                </label>
-                <label>
-                  <input type="radio" name="r1" class="minimal">
-                </label>
-                <label>
-                  <input type="radio" name="r1" class="minimal" disabled>
-                  Minimal skin radio
-                </label>
-              </div>
-
-             
-
-             
-              <div class="form-group">
-                <label>
-                  <input type="checkbox" class="minimal-red" checked>
-                </label>
-                <label>
-                  <input type="checkbox" class="minimal-red">
-                </label>
-                <label>
-                  <input type="checkbox" class="minimal-red" disabled>
-                  Minimal red skin checkbox
-                </label>
-              </div>
-
-              
-              <div class="form-group">
-                <label>
-                  <input type="radio" name="r2" class="minimal-red" checked>
-                </label>
-                <label>
-                  <input type="radio" name="r2" class="minimal-red">
-                </label>
-                <label>
-                  <input type="radio" name="r2" class="minimal-red" disabled>
-                  Minimal red skin radio
-                </label>
-              </div>
-
-            
-
-
-              <div class="form-group">
-                <label>
-                  <input type="checkbox" class="flat-red" checked>
-                </label>
-                <label>
-                  <input type="checkbox" class="flat-red">
-                </label>
-                <label>
-                  <input type="checkbox" class="flat-red" disabled>
-                  Flat green skin checkbox
-                </label>
-              </div>
-
-         
-              <div class="form-group">
-                <label>
-                  <input type="radio" name="r3" class="flat-red" checked>
-                </label>
-                <label>
-                  <input type="radio" name="r3" class="flat-red">
-                </label>
-                <label>
-                  <input type="radio" name="r3" class="flat-red" disabled>
-                  Flat green skin radio
-                </label>
-              </div>
-            </div> 
-          </div> -->
-
 
 
         </div>
