@@ -14,7 +14,7 @@
 
 <div class='blog-page'>
 
-<div class="text-center" style="background-color: white;">
+<div class="text-center" style="background-color: grey;">
       <select name="searchType" id="searchTypeID">
          <option value="n"
             <c:out value="${cri.searchType == null?'selected':''}"/>>
@@ -79,7 +79,7 @@
 </div>
 
 
-<div class="text-center" style="background-color: white;">
+<div class="text-center" style="background-color: grey;">
 	<ul class="pagination">
 
 		<c:if test="${pageMaker.prev}">
