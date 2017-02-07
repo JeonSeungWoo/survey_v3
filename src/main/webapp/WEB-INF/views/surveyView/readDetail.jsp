@@ -38,6 +38,29 @@ padding: 25px;
   	padding: 8px;
   	border-radius: 10px;
 }
+
+#prevNext{
+background-color: #107cb7;
+}
+
+#qnumNext{
+background-color: #107cb7;
+}
+
+#prev{
+float:left;
+border: 5px solid white;
+}
+#goListBtn{
+float:left;
+border: 5px solid white;
+}
+#next{
+float: left;
+border: 5px solid white;
+
+}
+
 </style>
 
 
@@ -97,11 +120,15 @@ padding: 25px;
 					
 				</form>
 
-
+	
+	
 	<div id = "prev"></div>
+		
 		<button id="goListBtn">목록으로</button>
+		
 	<div id = "next"></div>
-             
+	
+          
 
 
         </div>
