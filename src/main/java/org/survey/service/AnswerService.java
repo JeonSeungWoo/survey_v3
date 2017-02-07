@@ -12,4 +12,6 @@ public interface AnswerService {
 	public void delete(Integer sdno, String userid)throws Exception;
 	public List<AnswerStat> oxStatistics(Integer smno,Integer sdno,String answer)throws Exception;
 	public List<SurveyDetailVO> listAll(Integer smno) throws Exception;
+	
+	public List<AnswerStat> oxStatisticsOne(Integer smno,Integer sdno)throws Exception;
 }

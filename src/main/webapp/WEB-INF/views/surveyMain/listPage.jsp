@@ -18,7 +18,9 @@ padding: 10px;
 
 .pagination li {   
    float: left;
-   margin: 0.5rem;  
+   margin: 1rem;  
+   font-size: 30px;
+   border-radius: 10px; 
  
 }
 
@@ -32,7 +34,7 @@ padding: 10px;
 
 .box-main li{
 text-align: center;
-width: 180px;
+width: 300px;
 box-shadow: 5px 5px 5px #7CD0D5;
 color: black;
 border-radius: 10px;

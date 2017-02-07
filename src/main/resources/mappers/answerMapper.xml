@@ -23,5 +23,11 @@ select answer, count(*) count from tbl_oxanswer where smno = #{smno} group by an
 select * from tbl_surveydetail where smno = #{smno}
 </select>
 
+<select id="oxStatisticsOne" resultType="AnswerStat">
+select answer, count(*) count
+from tbl_oxanswer
+where smno = #{smno} and sdno =#{sdno}
+group by answer
+</select>
 
 </mapper>

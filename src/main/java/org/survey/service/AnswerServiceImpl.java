@@ -41,4 +41,10 @@ public class AnswerServiceImpl implements AnswerService {
 		return dao.listAll(smno);
 	}
 
+	@Override
+	public List<AnswerStat> oxStatisticsOne(Integer smno, Integer sdno) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.oxStatisticsOne(smno, sdno);
+	}
+
 }

@@ -73,7 +73,7 @@ public class AnswerController {
 		return entity;
 	}
 	
-	//통꼐
+	//통계
 	@GetMapping("/oxStatistics")
 	public void oxStatistics(OXAnswerVO vo,Model model,
 			Integer smno,Integer sdno,String answer)throws Exception{
@@ -82,13 +82,13 @@ public class AnswerController {
 		
 		logger.info("oxStatistics :" + smno + sdno + answer);
 		
-		List<AnswerStat> answerList = service.oxStatistics(smno, sdno, answer);
+		List<AnswerStat> answerList = service.oxStatisticsOne(smno, sdno);
 		
 		logger.info("TEST:" + answerList);
 		
-		model.addAttribute("answerList", answerList);
+		//model.addAttribute("answerList", answerList);
 		                                 
-		model.addAttribute("list",service.listAll(smno));
+		//model.addAttribute("list",service.listAll(smno));
 	}
 	
 	
