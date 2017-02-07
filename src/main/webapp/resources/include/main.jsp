@@ -260,18 +260,7 @@
 		<!-- End content -->
 
 	</div>
-	<!-- End Container -->
 
-	<!-- <div class="info-box">
-		<a class="info-toggle" href="#"><i class="fa fa-info-circle"></i></a>
-		<div class="info-content">
-			<ul>
-				<li><i class="fa fa-phone"></i>010 3015 1360</li>
-				<li><i class="fa fa-envelope"></i><a href="#">contact@domain.com</a></li>
-				<li><i class="fa fa-home"></i>street address example</li>
-			</ul> 
-		</div>
-	</div> 오른쪽 상단의 조그만한 퀵메뉴-->
 
 	<div class="preloader">
 		<img alt="" src="/images/preloader.gif">

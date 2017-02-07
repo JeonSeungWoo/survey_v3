@@ -19,16 +19,19 @@ html {
 }
 
 .fileDrop {
-	width: 150px;
+	width: 380px;
 	height: 160px;
-	border: 3px dotted blue;
-	margin-left: 300px;
+	border: 3px dotted #3e5ea2;
+	margin: 15px;
+	font-size: 15pt;
+	
 }
 
 .page-header {
 	background-color: #1ab5b3;
 	margin-top: 0;
-	padding: 20px 20px 20px 40px;
+	padding: 10px 10px 10px 10px;
+	
 }
 
 li {
@@ -37,52 +40,30 @@ li {
 
 .page-header h1 {
 	color: #ffffff;
-	font-size: 36pt;
-	text-decoration: none;
+	font-size: 40pt;
+	text-decoration: blink;
 }
 
 h1 {
 	font-family: 'Lobster', cursive;
 }
 
-.rBtn, .lBtn {
-	border: 3px solid #18402a;
-	background: #3e9c54;
-	background: -webkit-gradient(linear, left top, left bottom, from(#65b2d6),
-		to(#3e9c54));
-	background: -webkit-linear-gradient(top, #65b2d6, #3e9c54);
-	background: -moz-linear-gradient(top, #65b2d6, #3e9c54);
-	background: -ms-linear-gradient(top, #65b2d6, #3e9c54);
-	background: -o-linear-gradient(top, #65b2d6, #3e9c54);
-	background-image: -ms-linear-gradient(top, #65b2d6 0%, #3e9c54 100%);
-	padding: 10.5px 21px;
-	-webkit-border-radius: 14px;
-	-moz-border-radius: 14px;
-	border-radius: 14px;
-	-webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset
-		rgba(255, 255, 255, 0.4) 0 1px 0;
-	-moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset
-		rgba(255, 255, 255, 0.4) 0 1px 0;
-	box-shadow: rgba(255, 255, 255, 0.4) 0 0px 0, inset
-		rgba(255, 255, 255, 0.4) 0 1px 0;
-	text-shadow: #000000 0 1px 0;
-	color: #000000;
-	font-size: 18px;
-	font-family: helvetica, serif;
-	text-decoration: none;
-	vertical-align: middle;
-}
+
 
 .rBtn {
-	position: absolute;
-	bottom: 0px;
-	left: 300px;
+	background: #1ab5b3;
+  	color: #fff;
+  	border: none;
+  	padding: 8px;
+  	border-radius: 10px;
 }
 
 .lBtn {
-	position: absolute;
-	bottom: 0px;
-	left: 385px;
+	background: #1ab5b3;
+  	color: #fff;
+  	border: none;
+  	padding: 8px;
+  	border-radius: 10px;
 }
 
 .input {
@@ -213,14 +194,27 @@ h1 {
 	-webkit-transform: translate3d(-66.6%, 0, 0);
 	transform: translate3d(-66.6%, 0, 0);
 }
-</style>
 
+.page-header{
+border-radius: 10px;
+width: 360px;
+text-align: justify;"
+
+}
+
+#all{
+	position:absolute;
+  	top:5%;
+  	left:50%;
+}
+</style>
+<div id="all">
 	<form role="form" class="post" action="register" method="post"
 		enctype="multipart/form-data" id="f1">
 		<input type="hidden" name="smno" value="${param.page}">
 
 		<div class="page-header">
-			<h1>광고성 글이나 욕설은 기재할 수 없습니다.</h1>
+			<h1>광고, 욕설 X</h1>
 		</div>
 		<div>
 			<!-- 		<ul>
@@ -290,17 +284,17 @@ h1 {
 			</span> </section>
 			<input type="hidden" name="smimage" id="smimage">
 			<div class='fileDrop'>
-				Drop Here
+				여기에 사진을 넣어주세요
 				<div class="uploadedList"></div>
 			</div>
 
 			<p>
 				<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
-				<button id="goListBtn" class="lBtn">목록으로</button>
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="goListBtn" class="lBtn">목록으로</button>
 			</p>
 		</div>
 	</form>
-
+</div>
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
@@ -308,7 +302,7 @@ h1 {
 	<script>
 		var swear_words_arr = new Array("섹스", "대출", "무이자", "병신", "씨발", "개새끼",
 				"십새끼", "개년", "누드", "조건만남", "필로폰", "마약", "바다이야기", "바카라", "시알리스",
-				"비아그라", "c", "멍청이", "똥개"); // 제한 목록
+				"비아그라", "c", "멍청이", "똥개", "씹년", "미친년", "엠창", "호로새끼"); // 제한 목록
 
 		var swear_alert_arr = new Array;
 
@@ -341,7 +335,7 @@ h1 {
 				$("#f1").submit(function(event) {
 					event.preventDefault();
 					// 불량단어 나왔을때 멘트
-					alert(alert_text + "는 입력할 수 없는 단어입니다. 예쁜말을 써주세요");
+					alert(alert_text + "는 입력할 수 없는 단어입니다. 예쁜 말을 써주세요");
 					// 불량단어 나왔을때 멘트
 					document.getElementById("smtitle").select();
 				});

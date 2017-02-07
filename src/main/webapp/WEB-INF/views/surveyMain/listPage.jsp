@@ -3,27 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
-<%@ include file="/resources/include/menu.jsp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <style>
 
-html { background: url(/resources/images/1.jpg) no-repeat center center fixed;
- -webkit-background-size: cover;
-  -moz-background-size: cover;
-   -o-background-size: cover;
-    background-size: cover;
-}
-
-
 
 .page li{
-padding: 5px;
+padding: 10px;
 }
 
 .pagination li {   
@@ -36,37 +26,35 @@ padding: 5px;
     float: left;
   
     margin: 20px;
-    background-color: #ADE7F7;
+    background-color: #B0E8F1;
     
 }
 
 .box-main li{
 text-align: center;
-width: 200px;
-border: inset;
-color: white;
+width: 180px;
+box-shadow: 5px 5px 5px #7CD0D5;
+color: black;
+border-radius: 10px;
+
 }
 
 .box-main img{
 
-border-radius: 50px; 
+border-radius: 10px; 
 background : url(/resources/images/no-image.jpg);
 background-size:cover;
-width: 200px;
-height: 200px;
-
+width: 160px;
+height: 160px;
 
 }
 
 .box-main a:HOVER{
- 
+
+border:5px solid #B0E8F1;background:#B0E8F1;padding:0.5px;	
 }
 
 
-.page{
-padding: 20px;
-
-}
 
 .comment-form1{
   background: #1ab5b3;
@@ -82,7 +70,7 @@ padding: 20px;
  padding: 10px;
  border-radius: 10px;
  width: 500px;
- 
+ border-radius: 10px;
 }
 
 #searchTypeID{
@@ -94,17 +82,21 @@ border-radius: 10px;
 
 margin: 40px; 
 float: right;
+border-radius: 10px;
 
+}
+
+.page{
+border-radius: 10px;
 }
 
 </style>
 
 </head>
+<%@ include file="/resources/include/menu.jsp" %>
 <body>
    
-  
-
-   <div class='box-body'>
+  <div class='box-body'>
 	<div id = "commentBtn">
       <select name="searchType" id="searchTypeID">
          <option value="n"
@@ -136,47 +128,44 @@ float: right;
       
      
       
-       <input type="submit" id='newBtn' class="comment-form1" value="설문조사 등록">
+      <input type="submit" id='newBtn' class="comment-form1" value="설문조사 등록">
       <input type="submit" id='listBtn' class="comment-form1" value="목록">
       <input type="submit" id="partiBtn" class="comment-form1" value="참여한목록">
       </div>		
       
    </div>
 
+  
 
+	
 
 
    <form action="listPage">
 
-   
-      
       <input type="hidden" name="page" value="${param.page}">
-      <c:forEach items="${listPage}" var="SurveyMainVO" >
-      
-         <div class ="box-main">
+      <c:forEach items="${listPage}" var="SurveyMainVO">
+     
+       <div class ="box-main">
          <ul class="page">
-                 
-            <li><a href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}
+           	<li><a href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}
             &searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
             <img src="show?name=${SurveyMainVO.smimage}"></a></li>
             
             <div class="liTag">
-            <li>${SurveyMainVO.smtitle}</li>
-            <li>${SurveyMainVO.smcontent}</li>
-            <li>${SurveyMainVO.smwriter}</li>
+            	<li>${SurveyMainVO.smtitle}</li>
+            	<li>${SurveyMainVO.smcontent}</li>
+            	<li>${SurveyMainVO.smwriter}</li>
             </div>
             </ul>
-           
          </div>
-         
+       
       </c:forEach>
-      
+ </form>  
+ 
+ 
+ 
 
-   </form>
-
-
-
-   <div class="text-center">
+<div class="text-center" style="background-color: white;">
       <ul class="pagination">
 
          <c:if test="${pageMaker.prev}">
@@ -198,7 +187,9 @@ float: right;
 
          </ul>
       </div>
-   
+
+ 	
+ 
    <script src="https://code.jquery.com/jquery-2.2.4.js"
       integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
       crossorigin="anonymous"></script>
