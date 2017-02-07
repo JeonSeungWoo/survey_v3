@@ -272,7 +272,7 @@ text-align: justify;"
 
 			<span class="input input--shoko"> 
 			<input class="input__field input__field--shoko" type="text" id="smwriter"
-				name="smwriter" value="${login.userid}"/> <label class="input__label input__label--shoko"
+				name="smwriter" value="${login.userid}" readonly="readonly"/> <label class="input__label input__label--shoko"
 				for="smwriter"> <span
 					class="input__label-content input__label-content--shoko">작성자</span>
 			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
