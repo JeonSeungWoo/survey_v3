@@ -32,7 +32,7 @@ border-radius: 10px;
 
 </style>
 </head>
-<%@ include file="/resources/include/menu.jsp" %>
+<%@ include file="/resources/include/menu2.jsp" %>
 
 <body>
 <div id="all">
@@ -128,5 +128,4 @@ $("#chkDupId").on("click",function(){
 </script>
 		
 </div>
-</body>
-</html>
+<%@ include file="/resources/include/main.jsp"%>
