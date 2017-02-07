@@ -1,15 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
 
-<title>Insert title here</title>
-</head>
 <%@ include file="/resources/include/menu.jsp"%>
-<body>
-
-	<style>
+<style>
 html {
 	background-color: #ffffff;
 }
@@ -437,5 +430,4 @@ text-align: justify;"
 		})();
 	</script>
 
-</body>
-</html>
+<%@ include file="/resources/include/main.jsp"%>

@@ -43,9 +43,9 @@ border-radius: 10px;
 padding:1.5px;
 }
 
+<%@ include file="/resources/include/menu.jsp" %>
 </style>
 </head>
-<%@ include file="/resources/include/menu.jsp" %>
 
 <body>
 <div id="all">
@@ -87,5 +87,5 @@ padding:1.5px;
 		crossorigin="anonymous"></script>
 </div>	
 
-</body>
-</html>
+
+<%@ include file="/resources/include/main.jsp"%>

@@ -19,7 +19,7 @@ outline: 0;
 
 .allPage{
 position:absolute;
-top:20%;
+top:0%;
 left:40%;
 }
 
@@ -34,19 +34,11 @@ background-size:cover;
 
 .statisticsAction{
 
-
 padding:10px;
-background : url(/resources/images/a1.jpg);
+background : url(/resources/images/1.jpg);
 background-size:cover;
 width:200px;
 text-align: center;
-}
-
-
-
-.box-main{
-
-
 }
 
 .box-main ul{
@@ -54,7 +46,7 @@ width:500px;
 height:580px;
 padding: 10px;
 text-align: center;
-background-color: black;
+
 
 }
 
@@ -77,13 +69,15 @@ font-size: 30px;
 }
 
 #aTag:HOVER {
-	background : url(/resources/images/a2.jpg);
+	
+	background : url(/resources/images/2.jpg);
 	background-size:cover;
 	padding:15px;
 	width:200px;
 	color: white;
 }
 #aTag:ACTIVE {
+	
 	color: blue;
 	background-color: red;  
 	padding:15px;
