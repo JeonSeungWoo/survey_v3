@@ -17,7 +17,7 @@ html {
 	border: 3px dotted #3e5ea2;
 	margin: 15px;
 	font-size: 15pt;
-	background: #E6EAF5;
+	background: #a6dbdd;
 	
 }
 
@@ -40,7 +40,7 @@ h1 {
 
 
 .rBtn {
-	background: #428bca;
+	background: #197f84;
   	color: #fff;
   	border: none;
   	padding: 8px;
@@ -172,14 +172,14 @@ h1 {
 
 .input__field--shoko:focus+.input__label--shoko, .input--filled .input__label--shoko
 	{
-	color: #fc0000;
+	color: #3ca7ad;
 	-webkit-transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
 	transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
 }
 
 .input__field--shoko:focus ~ .graphic--shoko, .input--filled .graphic--shoko
 	{
-	stroke: #fc0000;
+	stroke: #3ca7ad;
 	-webkit-transform: translate3d(-66.6%, 0, 0);
 	transform: translate3d(-66.6%, 0, 0);
 }
