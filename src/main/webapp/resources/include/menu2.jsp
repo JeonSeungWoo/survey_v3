@@ -85,7 +85,7 @@
 				</ul>
 			</div>
 
-			<div class="social-box">
+<!-- 			<div class="social-box">
 				<ul class="social-icons">
 					<li><a href="#" class="facebook" ><i class="fa fa-facebook"></i></a></li>
 					<li><a href="#" class="twitter" ><i class="fa fa-twitter"></i></a></li>
@@ -95,7 +95,7 @@
 					<li><a href="#" class="youtube" ><i class="fa fa-youtube"></i></a></li>
 					<li><a href="#" class="github" ><i class="fa fa-github"></i></a></li>
 				</ul>
-			</div>
+			</div> -->
 			
 		</header>
 	
