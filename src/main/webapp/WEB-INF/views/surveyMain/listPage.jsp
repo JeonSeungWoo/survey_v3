@@ -11,25 +11,29 @@
 	min-height: 700px;
 }
 .page{
-background: #ADE7F7;
+background: #d3ebed;
 
 }
+
 .inner-post{
 font-size: 23px;
 font-family: sans-serif, dotum,gulim, arial, helvetica;
 font-weight: bold;
 color: black;
-background-color: #BBD1E8;
+background-color: #d3ebed;
 text-align: center;
+
 }
 
-.comment-form1{
+.inner-post ul li{
+padding: 10px;
+border-bottom: 2px solid white;
+} 
+
+.comment-form{
 color: white;
-border: none;
+border-radius: 10px;
 font-size: 14px;
-font-family: 'Roboto', sans-serif;
-font-weight: 300;
-background-color:#7BCEEF;
 padding: 10px;
 text-transform: uppercase;
  transition: all 0.2s ease-in-out;
@@ -39,10 +43,13 @@ text-transform: uppercase;
 }
 
 #keywordInput{
+border-radius: 10px;
+width:500px;
 padding: 6px;
 }
 
 #searchTypeID{
+border-radius: 10px;
 padding: 6px;
 }
 
@@ -53,9 +60,12 @@ background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-
 html { background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
 
 .text-center{
-border-radius: 10px;
+
 background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
 }
+
+
+
 </style>
 
 <div class='blog-page'>
@@ -75,27 +85,27 @@ background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-
             작성자</option>
          <option value="tc"
             <c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
-            제목 OR 설문내용</option>
+            제목 or 설문내용</option>
          <option value="cw"
             <c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
-            설문내용 OR 작성자</option>
+            설문내용 or 작성자</option>
          <option value="tcw"
             <c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
-            제목 OR 설문내용 OR 작성자</option>
+            제목 or 설문내용 or 작성자</option>
       </select> 
       
       <input type="text" name='keyword' id="keywordInput" value='${cri.keyword }'>
          
          
-      <button id='searchBtn' class="comment-form1">검색</button>
+      <button id='searchBtn' class="comment-form" style="background-color: #70a3a5">검색</button>
       
      
      
-      <input type="submit" id='newBtn' class="comment-form1" value="설문조사 등록">
-      <input type="submit" id='listBtn' class="comment-form1" value="목록">
-      <input type="submit" id="partiBtn" class="comment-form1" value="참여한목록">
+      <input type="submit" id='newBtn' class="comment-form" style="background-color:#488d91" value="설문조사 등록">
+      <input type="submit" id='listBtn' class="comment-form" style="background-color:#237175" value="목록">
+      <input type="submit" id="partiBtn" class="comment-form" style="background-color:#014b4f"value="참여한목록">
     
-
+	
 </div>
 
 	<div class="blog-box">
