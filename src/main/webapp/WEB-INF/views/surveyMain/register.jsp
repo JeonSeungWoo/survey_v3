@@ -274,14 +274,14 @@ background: #DDDDFF;
 				</svg>
 			</span> </section>
 			<input type="hidden" name="smimage" id="smimage">
-		 	<div class='fileDrop'>
+			<div class='fileDrop'>
 				메인화면에 쓸 사진을 넣어주세요
 			<div class="uploadedList"></div>
-
+			</div>
 
 			<p>
-			<button id="goListBtn" class="lBtn">목록으로</button>
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
+			<button id="goListBtn" class="lBtn" style="margin-left: 19px;">목록으로</button>
+			<button id="rBtn" class="rBtn" onclick="validate_user_text();" style="margin-left: 40px;">등록</button>
 				
 			</p>
 		</div>
