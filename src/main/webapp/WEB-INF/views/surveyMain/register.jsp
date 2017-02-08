@@ -21,12 +21,7 @@ html {
 	
 }
 
-.page-header {
-	background-color: #1ab5b3;
-	margin-top: 0;
-	padding: 10px 10px 10px 10px;
-	
-}
+
 
 li {
 	list-style: none;
@@ -45,7 +40,7 @@ h1 {
 
 
 .rBtn {
-	background: #1ab5b3;
+	background: #428bca;
   	color: #fff;
   	border: none;
   	padding: 8px;
@@ -214,28 +209,24 @@ background: #DDDDFF;
 		enctype="multipart/form-data" id="f1">
 		<input type="hidden" name="smno" value="${param.page}">
 
-		<div class="page-header">
-			<h1>광고, 욕설 X</h1>
-		</div>
-		<div class ="contentBox">
-			<!-- 		<ul>
 
-				<li>제목<input type="text" id='smtitle' name="smtitle"
-					onfocus="if(this.value =='설문조사 제목') this.value='';"
-					onblur="if(this.value =='') this.value='설문조사 제목';" value="설문조사 제목"
-					onclick="select_area()"></li>
-
-				<li>설명<input type="text" name="smcontent"
-					onfocus="if(this.value =='설문조사 내용') this.value='';"
-					onblur="if(this.value =='') this.value='설문조사 내용';" value="설문조사 내용"></li>
-
-				<li>작성자<input type="text" name="smwriter" value="user">
-				<li>이미지
-				<li><input type="hidden" name="smimage" id="smimage"></li>
-
-			</ul> -->
 
 			<section class="content bgcolor-10">
+
+			<span class="input input--shoko"> 
+			<input class="input__field input__field--shoko" type="text"
+				value="설문조사 만들기" readonly="readonly"/> <label class="input__label input__label--shoko"
+				for="smwriter"> <span
+					class="input__label-content input__label-content--shoko">작성자</span>
+			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
+					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
+					d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+				<path
+					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+				</svg>
+			</span>
+		
+
 
 			<p>
 				<span class="input input--shoko"> <input
@@ -285,13 +276,13 @@ background: #DDDDFF;
 			</span> </section>
 			<input type="hidden" name="smimage" id="smimage">
 			<div class='fileDrop'>
-				여기에 사진을 넣어주세요
+				여기에 메인화면에 쓸 사진을 넣어주세요
 				<div class="uploadedList"></div>
 			</div>
 
 			<p>
 			<button id="goListBtn" class="lBtn">목록으로</button>
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
 				
 			</p>
 		</div>
