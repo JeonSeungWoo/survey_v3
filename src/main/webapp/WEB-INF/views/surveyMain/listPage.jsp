@@ -13,7 +13,7 @@
 	min-height: 700px;
 }
 .page{
-background: #d3ebed;
+background: #c3dcdd;
 }
 
 
@@ -22,7 +22,7 @@ font-size: 23px;
 font-family: sans-serif, dotum,gulim, arial, helvetica;
 font-weight: bold;
 color: black;
-background-color: #d3ebed;
+background-color: #c3dcdd;
 text-align: center;
 }
 
@@ -114,9 +114,7 @@ background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-
 	}
 }
 
-.page a:ACTIVE {
-	
-}
+
 
 
 </style>
