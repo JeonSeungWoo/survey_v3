@@ -274,17 +274,12 @@ img {
 
 	function getAllList() {
 
-		$
-				.getJSON(
-						"/surveyDetail/all/" + smno,
+		$.getJSON("/surveyDetail/all/" + smno,
 						function(data) {
-
-							var str = "";
+			var str = "";
 							console.log(data.length);
 
-							$(data)
-									.each(
-											function() {
+							$(data).each(function() {
 
 												var attachFile = this.attachFile;
 

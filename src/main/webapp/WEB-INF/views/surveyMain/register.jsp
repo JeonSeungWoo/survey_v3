@@ -205,10 +205,9 @@ background: #DDDDFF;
 </style>
 
 <div id="all">
-	<form role="form" class="post" action="register" method="post"
-		enctype="multipart/form-data" id="f1">
+	<form role="form" class="post" action="register" method="post"enctype="multipart/form-data" id="f1">
 		<input type="hidden" name="smno" value="${param.page}">
-
+</form>
 
 
 			<section class="content bgcolor-10">
@@ -285,8 +284,8 @@ background: #DDDDFF;
 				
 			</p>
 		</div>
-	</form>
-</div>
+		
+
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
