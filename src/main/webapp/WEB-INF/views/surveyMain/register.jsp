@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ include file="/resources/include/menu.jsp"%>
+
 <style>
 html {
 	background-color: #ffffff;
@@ -12,7 +13,7 @@ html {
 }
 
 .fileDrop {
-	width: 380px;
+	width: 310px;
 	height: 340px;
 	border: 3px dotted #3e5ea2;
 	margin: 15px;
@@ -274,13 +275,13 @@ background: #DDDDFF;
 			</span> </section>
 			<input type="hidden" name="smimage" id="smimage">
 			<div class='fileDrop'>
-				여기에 메인화면에 쓸 사진을 넣어주세요
-				<div class="uploadedList"></div>
+				메인화면에 쓸 사진을 넣어주세요
+			<div class="uploadedList"></div>
 			</div>
 
 			<p>
 			<button id="goListBtn" class="lBtn">목록으로</button>
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
 				
 			</p>
 		</div>
