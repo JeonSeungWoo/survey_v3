@@ -10,11 +10,47 @@
 .isotope {
 	min-height: 700px;
 }
+.page{
+background: #ADE7F7;
+
+}
+.inner-post{
+font-size: 23px;
+font-family: sans-serif, dotum,gulim, arial, helvetica;
+font-weight: bold;
+color: black;
+background-color: #BBD1E8;
+text-align: center;
+}
+
+.comment-form1{
+color: white;
+border: none;
+font-size: 14px;
+font-family: 'Roboto', sans-serif;
+font-weight: 300;
+background-color:#7BCEEF;
+padding: 10px;
+text-transform: uppercase;
+ transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+#keywordInput{
+padding: 6px;
+}
+
+#searchTypeID{
+padding: 6px;
+}
+
 </style>
 
 <div class='blog-page'>
 
-<div class="text-center" style="background-color: grey;">
+<div class="text-center" style="background-color: BDBDBD;">
       <select name="searchType" id="searchTypeID">
          <option value="n"
             <c:out value="${cri.searchType == null?'selected':''}"/>>
@@ -44,10 +80,11 @@
       <button id='searchBtn' class="comment-form1">검색</button>
       
      
-      
+     
       <input type="submit" id='newBtn' class="comment-form1" value="설문조사 등록">
       <input type="submit" id='listBtn' class="comment-form1" value="목록">
       <input type="submit" id="partiBtn" class="comment-form1" value="참여한목록">
+    
 
 </div>
 
@@ -79,7 +116,7 @@
 </div>
 
 
-<div class="text-center" style="background-color: grey;">
+<div class="text-center" style="background-color: BDBDBD;">
 	<ul class="pagination">
 
 		<c:if test="${pageMaker.prev}">
@@ -113,5 +150,43 @@
 <script type="text/javascript" src="/js/retina-1.1.0.min.js"></script>
 <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
 <script type="text/javascript" src="/js/script.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"
+      integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+      crossorigin="anonymous"></script>
+
+
+   <script>
+      var result = '${msg}';
+      if (result == 'SUCCESS') {
+         alert("처리가 완료되었습니다.");
+      }
+   </script>
+
+   <script>
+      $(document).ready(
+            function() {
+               $('#searchBtn').on(
+                     "click",
+                     function(event) {
+                        self.location = "listPage"
+                              + '${pageMaker.makeQuery(1)}'
+                              + "&searchType="
+                              + $("select option:selected").val()
+                              + "&keyword="
+                              + $('#keywordInput').val();
+                     });
+
+               $('#newBtn').on("click", function(event) {
+                  self.location = "register";
+               });
+
+               $('#listBtn').on("click", function(event) {
+                  self.location = "listPage?page=${cri.page}";
+               });
+            });
+   </script>
+
 
 <%@ include file="/resources/include/main.jsp"%>

@@ -7,16 +7,6 @@
 
 
 <style>
-img {
-border:0;
-outline: 0;
-}
-
-.allPage{
-position:absolute;
-top:0%;
-left:40%;
-}
 
 #imgread{
 
@@ -27,57 +17,60 @@ background : url(/resources/images/no-image.jpg);
 background-size:cover;
 }
 
-.statisticsAction{
+.allPage{
 
-padding:10px;
-background : url(/resources/images/1.jpg);
-background-size:cover;
-width:200px;
-text-align: center;
+position:absolute;
+position:absolute;
+top:150px;
+left:40%;
 }
 
-.box-main ul{
-width:500px;
-height:580px;
-padding: 10px;
+.box-main{
+background-color : #ACACD1;
+color:white;
+border: 1px solid blue;
 text-align: center;
+font-size: 30px;
+font-family: sans-serif, dotum,gulim, arial, helvetica;
+padding: 10px;
+font-weight: bold;
+}
 
 
+.statisticsAction{
+border: 1px solid black;
+font-size: 30px;
+font-family: sans-serif, dotum,gulim, arial, helvetica;
+font-weight: bold;
+color: #E8E8E8;
+background-color: #BBD1E8;
+text-align: center;
 }
 
 .box-main li{
-font-size: 20px;
 padding: 10px;
-color: white;
 }
-
 
 .box-footer{
+border: 1px solid red;
 text-align: right;
-}
 
-#aTag{
-color : black;
-font-style: italic;
-font-weight: bold;
-font-size: 30px;
 }
 
 #aTag:HOVER {
 	
-	background : url(/resources/images/2.jpg);
+	background : black;
 	background-size:cover;
-	padding:15px;
-	width:200px;
 	color: white;
 }
 #aTag:ACTIVE {
 	
 	color: blue;
 	background-color: red;  
-	padding:15px;
-	width:200px;
+	
 }
+
+
 </style>
 
 
@@ -94,6 +87,7 @@ font-size: 30px;
 
 	<div class ="allPage">
 	<div class = "statisticsAction">
+	
 	<ul>
 	<li><a id="aTag" href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1" >통계</a></li>
 	</ul>

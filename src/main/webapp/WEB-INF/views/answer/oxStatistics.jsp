@@ -15,7 +15,7 @@
 <input type="hidden" name="smno" value="${oxStatistics.smno}">
 <input type="hidden" name="page" value="${param.page}">
 
-
+<h1>성공?</h1>
 <c:forEach items="${list}" var="SurveyDetailVO">
 
 		<div class ="box-main">
@@ -27,9 +27,10 @@
 			</ul>
 			
 		<h4>${answerList}</h4>
-		<h4>${answerList[0].count}</h4>
-		<h4>${answerList[1].count}</h4>
+
+		<!-- 
 	 	<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+	 	 -->
 		</div>
 </c:forEach>
 
@@ -40,7 +41,7 @@
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
-
+<!-- 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
     
@@ -64,7 +65,7 @@
         chart.draw(data, options);
       }
     </script>
-
+ -->
 
 
 </body>

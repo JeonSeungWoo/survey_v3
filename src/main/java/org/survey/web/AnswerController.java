@@ -73,6 +73,7 @@ public class AnswerController {
 		return entity;
 	}
 	
+	
 	//통계
 	@GetMapping("/oxStatistics")
 	public void oxStatistics(OXAnswerVO vo,Model model,
@@ -80,7 +81,7 @@ public class AnswerController {
 		
 		logger.info("oxStatistics call.....!!!!");
 		
-		logger.info("oxStatistics :" + smno + sdno + answer);
+		logger.info("oxStatistics : " + smno);
 		
 		List<AnswerStat> answerList = service.oxStatistics(smno);
 		

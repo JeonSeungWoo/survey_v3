@@ -17,6 +17,7 @@ html {
 	border: 3px dotted #3e5ea2;
 	margin: 15px;
 	font-size: 15pt;
+	background: #E6EAF5;
 	
 }
 
@@ -200,7 +201,14 @@ text-align: justify;"
   	top:5%;
   	left:50%;
 }
+
+.contentBox{
+background: #DDDDFF;
+}
+
+
 </style>
+
 <div id="all">
 	<form role="form" class="post" action="register" method="post"
 		enctype="multipart/form-data" id="f1">
@@ -209,7 +217,7 @@ text-align: justify;"
 		<div class="page-header">
 			<h1>광고, 욕설 X</h1>
 		</div>
-		<div>
+		<div class ="contentBox">
 			<!-- 		<ul>
 
 				<li>제목<input type="text" id='smtitle' name="smtitle"
@@ -282,8 +290,9 @@ text-align: justify;"
 			</div>
 
 			<p>
-				<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="goListBtn" class="lBtn">목록으로</button>
+			<button id="goListBtn" class="lBtn">목록으로</button>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
+				
 			</p>
 		</div>
 	</form>
@@ -331,6 +340,7 @@ text-align: justify;"
 					alert(alert_text + "는 입력할 수 없는 단어입니다. 예쁜 말을 써주세요");
 					// 불량단어 나왔을때 멘트
 					document.getElementById("smtitle").select();
+					self.location = "/surveyMain/register";
 				});
 				return;
 

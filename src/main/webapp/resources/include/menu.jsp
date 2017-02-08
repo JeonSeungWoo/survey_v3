@@ -69,7 +69,7 @@
 							<li><a href="#"><span>내가 등록한 설문조사</span></a></li>
 						</ul>
 					</li>
-					<li><a href="contact.html"><span>통계</span></a></li>
+					<li><a href="/statistics/statistics"><span>통계</span></a></li>
 				</ul>				
 			</div>
 

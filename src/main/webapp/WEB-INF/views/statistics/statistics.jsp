@@ -7,36 +7,13 @@
 <title>Insert title here</title>
 </head>
 <style>
-.box-main ul{
-float: left;
-
-
-}
-.box-main li{
-
-}
 
 </style>
 
 <body>
 
-<div class="box-main">
 
 
-<ul>
-<li>1번문제</li>
-<li>비교할 1번째 값  : <input type="text" id="oneItem1"></li>
-<li>비교할 2번째 값  : <input type="text" id="oneItem2"></li>
-</ul>
-
-<ul>
-<li>2번문제</li>
-<li>비교할 1번째 값  : <input type="text" id="twoItem1"></li>
-<li>비교할 2번째 값  : <input type="text" id="oneItem2"></li>
-</ul>
-
-<button>summit</button>
-</div>
 
 
 
