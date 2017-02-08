@@ -80,6 +80,38 @@ img {
 	border-radius: 10px;
 }
 
+<<<<<<< HEAD
+=======
+.icono-image {
+	width: 30px;
+	height: 26px;
+	border-radius: 3px;
+	overflow: hidden;
+	margin: 4px 2px
+}
+
+.icono-image:before {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: -2px;
+	top: 14px;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	box-shadow: inset 0 0 0 32px, 10px -6px 0 0
+}
+
+.icono-image:after {
+	position: absolute;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 32px;
+	top: 5px;
+	right: 5px
+}
+>>>>>>> branch 'master' of https://github.com/janseoungwoo/survey_v3
 </style>
 
 

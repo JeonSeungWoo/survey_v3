@@ -46,11 +46,21 @@ padding: 6px;
 padding: 6px;
 }
 
+.blog-page{
+background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+}
+
+html { background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+
+.text-center{
+border-radius: 10px;
+background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+}
 </style>
 
 <div class='blog-page'>
 
-<div class="text-center" style="background-color: BDBDBD;">
+<div class="text-center">
       <select name="searchType" id="searchTypeID">
          <option value="n"
             <c:out value="${cri.searchType == null?'selected':''}"/>>
@@ -116,7 +126,7 @@ padding: 6px;
 </div>
 
 
-<div class="text-center" style="background-color: BDBDBD;">
+<div class="text-center">
 	<ul class="pagination">
 
 		<c:if test="${pageMaker.prev}">
