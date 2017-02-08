@@ -194,7 +194,7 @@ public class SurveyMainController {
 		g.dispose();
 		origin = destImg;
 
-		destImg = Scalr.resize(origin, Scalr.Mode.FIT_EXACT, 150, Scalr.OP_ANTIALIAS);
+		destImg = Scalr.resize(origin, Scalr.Mode.FIT_EXACT, 300, Scalr.OP_ANTIALIAS);
 
 		FileOutputStream fos = new FileOutputStream("C:\\sss\\" + file.getOriginalFilename());
 		FileOutputStream foss = new FileOutputStream("C:\\sss\\" + uploadName);
