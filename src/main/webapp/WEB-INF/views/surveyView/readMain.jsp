@@ -1,60 +1,51 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ include file="/resources/include/menu.jsp" %>
 
+
+<%@ include file="/resources/include/menu.jsp"%>
 
 <style>
+html{background-color: white;}
 
 #imgread{
-
-width: 300px;
-height: 300px;
-border-radius: 100px; 
-background : url(/resources/images/no-image.jpg);
-background-size:cover;
-}
-
-.allPage{
-
-position:absolute;
-position:absolute;
-top:150px;
-left:40%;
+	width: 300px;
+	height: 300px;
+	border-radius: 50px; 
+	background : url(/resources/images/no-image.jpg);
+	background-size:cover;
 }
 
 .box-main{
-background-color : #ACACD1;
-color:white;
-border: 1px solid blue;
+color:black;
 text-align: center;
 font-size: 30px;
 font-family: sans-serif, dotum,gulim, arial, helvetica;
 padding: 10px;
 font-weight: bold;
+width: 100%;
+
 }
 
 
 .statisticsAction{
-border: 1px solid black;
+
 font-size: 30px;
 font-family: sans-serif, dotum,gulim, arial, helvetica;
 font-weight: bold;
 color: #E8E8E8;
-background-color: #BBD1E8;
+
 text-align: center;
 }
 
-.box-main li{
-padding: 10px;
+.box-main ul li{
+background:#eee url(/data/201012/IJ12929573850979/c_bl.gif) bottom left no-repeat; margin:5px 0; padding:0; float:left;  margin-left: 50px; margin-right:20px; width:40%;
+
 }
 
 .box-footer{
-border: 1px solid red;
-text-align: right;
-
+float: right;
 }
 
 #aTag:HOVER {
@@ -66,11 +57,13 @@ text-align: right;
 #aTag:ACTIVE {
 	
 	color: blue;
-	background-color: red;  
+	background-color: white;  
 	
 }
 
-
+#f1{
+background-color: white; 
+}
 </style>
 
 
@@ -85,35 +78,38 @@ text-align: right;
 	
 	
 
-	<div class ="allPage">
-	<div class = "statisticsAction">
+	<div class ="allPage" >
 	
-	<ul>
-	<li><a id="aTag" href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1" >통계</a></li>
-	</ul>
-	</div>
 	
 	<div class="box-main">
 			<ul>
-				<li>글번호 : ${SurveyMainVO.smno }</li>
-				<li>제목 : ${SurveyMainVO.smtitle }</li>
-				<li>설문내용 : ${SurveyMainVO.smcontent }</li>
-				<li>설문시작일자 : <fmt:formatDate value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
-				<li>설문수정일자 : <fmt:formatDate value="${SurveyMainVO.smupdatedate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
+				<li>글번호</li><li>${SurveyMainVO.smno }</li>
+				<li>제목 </li><li>${SurveyMainVO.smtitle }</li>
+				<li>설문내용 </li><li>${SurveyMainVO.smcontent }</li>
+				<li>설문시작일자</li><li><fmt:formatDate value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
 				
-				<li><img id="imgread" src="show?name=${SurveyMainVO.smimage}"></li>
+				
+				<img id="imgread" src="show?name=${SurveyMainVO.smimage}">
 			</ul>
 	</div>
+		
+		<div class = "statisticsAction">
+			<ul>
+				<li><a id="aTag" href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1" >통계</a></li>
+			</ul>
+		</div>
+		
 		
 		<div class="box-footer">
 	
 		<button type="submit" class="btn btn-primary" id="goListBtn">목록</button>
-		<button type="submit" class="btn btn-start" id="startBtn">설문 시작</button>
+		&nbsp;<button type="submit" class="btn btn-start" id="startBtn">설문 시작</button>&emsp;
 	</div>
 	</div>
+	
 		
 </form>
-
+	
 	
 	
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
