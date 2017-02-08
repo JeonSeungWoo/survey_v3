@@ -40,7 +40,7 @@ border-radius: 10px;
 	
 	<div class="text-fields"> 
 		<div class="float-input">
-			<input type="text" name="userid" id ="userid" placeholder="아이디">
+			<input type="text" name="userid" id ="userid"  placeholder="아이디">
 			<span><i class="fa fa-user"></i></span>
 		</div>
 		
@@ -54,7 +54,7 @@ border-radius: 10px;
 			<span><i class="fa fa-link"></i></span>
 		</div>
 		
-		<input type="submit"  class="main-button" value="회원가입" style="margin: 1px;">
+		<input type="submit"  class="main-button" value="회원가입" style="margin: 1px;"  onclick="validate_user_text();">
 		
 		<input type="submit" id="goListBtn" class="main-button" value="목록으로">
 			
@@ -71,6 +71,75 @@ border-radius: 10px;
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
+		
+		
+			<script src="https://code.jquery.com/jquery-2.2.4.js"
+		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+		crossorigin="anonymous"></script>
+
+	<script>
+		var swear_words_arr = new Array("섹스", "대출", "무이자", "병신", "씨발", "개새끼",
+				"십새끼", "개년", "누드", "조건만남", "필로폰", "마약", "바다이야기", "바카라", "시알리스",
+				"비아그라", "멍청이", "똥개", "씹년", "미친년", "엠창", "호로새끼", "자지", "보지"); // 제한 목록
+
+		var swear_alert_arr = new Array;
+
+		var swear_alert_count = 0;
+
+		function reset_alert_count() {
+			swear_alert_count = 0;
+		}
+
+		function validate_user_text() {
+			reset_alert_count();
+			var compare_text = document.getElementById("userid").value;
+			for (var i = 0; i < swear_words_arr.length; i++) {
+				for (var j = 0; j < (compare_text.length); j++) {
+					if (swear_words_arr[i] == compare_text.substring(j,
+							(j + swear_words_arr[i].length)).toLowerCase()) {
+						swear_alert_arr[swear_alert_count] = compare_text
+								.substring(j, (j + swear_words_arr[i].length));
+						swear_alert_count++;
+					}
+				}
+			}
+			var alert_text = "";
+			for (var k = 1; k <= swear_alert_count; k++) {
+				alert_text += "n" + "(" + k + ")" + swear_alert_arr[k - 1];
+			}
+
+			if (swear_alert_count > 0) {
+
+				$("#contact-form").submit(function(event) {
+					event.preventDefault();
+					// 불량단어 나왔을때 멘트
+					alert(alert_text + "는 입력할 수 없는 단어입니다. 예쁜 말을 써주세요");
+					// 불량단어 나왔을때 멘트
+					document.getElementById("userid").select();
+					self.location = "/member/create";
+				});
+				return;
+
+			} else {
+				alert(alert_text + "회원 가입 되셨습니다.");
+				var formObj = $("#contact-form");
+				$(".main-button").on("click", function() {
+					formObj.attr("action", "/member/create");
+					formObj.attr("method", "post");
+					formObj.submit();
+					return;
+				});
+			}
+
+		}
+		function select_area() {
+
+			document.getElementById("userid").select();
+		}
+
+		window.onload = reset_alert_count;
+	</script>
+		
 		
 <script>
 

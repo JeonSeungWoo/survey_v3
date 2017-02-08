@@ -87,9 +87,9 @@ public class AnswerController {
 		
 		logger.info("TEST:" + answerList);
 		
-		//model.addAttribute("answerList", answerList);
+		model.addAttribute("answerList", answerList);
 		                                 
-		//model.addAttribute("list",service.listAll(smno));
+		model.addAttribute("list",service.listAll(smno));
 	}
 	
 	

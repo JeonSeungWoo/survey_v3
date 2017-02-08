@@ -15,7 +15,8 @@
 <input type="hidden" name="smno" value="${oxStatistics.smno}">
 <input type="hidden" name="page" value="${param.page}">
 
-<h1>성공?</h1>
+<h1>통계 페이지</h1>
+
 <c:forEach items="${list}" var="SurveyDetailVO">
 
 		<div class ="box-main">
@@ -27,7 +28,11 @@
 			</ul>
 			
 		<h4>${answerList}</h4>
-
+		
+		
+		<h4>${answerList[0]}</h4>
+		
+		
 		<!-- 
 	 	<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 	 	 -->

@@ -79,6 +79,7 @@ img {
 	padding: 8px;
 	border-radius: 10px;
 }
+
 </style>
 
 
@@ -222,10 +223,7 @@ img {
 
 
 <script>
-	var smno = $
-	{
-		SurveyMainVO.smno
-	};
+	var smno = ${SurveyMainVO.smno};
 
 	function showResult(result, savedName) {
 		alert(result);

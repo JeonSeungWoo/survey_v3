@@ -16,7 +16,7 @@ delete from tbl_oxanswer where sdno = #{sdno} and userid = #{userid}
 </delete>
 
 <select id="oxStatistics" resultType="AnswerStat">
-select sdno, min(answer), count(sdno) from tbl_oxanswer where smno = #{smno} 
+select sdno, min(answer) answer , count(sdno) count from tbl_oxanswer where smno = #{smno} 
 group by sdno, answer
 </select>
 
