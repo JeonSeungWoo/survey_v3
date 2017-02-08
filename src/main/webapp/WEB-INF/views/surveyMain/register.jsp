@@ -2,18 +2,15 @@
 	pageEncoding="UTF-8"%>
 
 <%@ include file="/resources/include/menu.jsp"%>
-
 <style>
 html {
 	background-color: #ffffff;
 }
-
 .post {
 	background-color: #ffffff;
 }
-
 .fileDrop {
-	width: 310px;
+	width: 330px;
 	height: 340px;
 	border: 3px dotted #3e5ea2;
 	margin: 15px;
@@ -21,25 +18,17 @@ html {
 	background: #a6dbdd;
 	
 }
-
-
-
 li {
 	list-style: none;
 }
-
 .page-header h1 {
 	color: #ffffff;
 	font-size: 40pt;
 	text-decoration: blink;
 }
-
 h1 {
 	font-family: 'Lobster', cursive;
 }
-
-
-
 .rBtn {
 	background: #197f84;
   	color: #fff;
@@ -47,7 +36,6 @@ h1 {
   	padding: 8px;
   	border-radius: 10px;
 }
-
 .lBtn {
 	background: #1ab5b3;
   	color: #fff;
@@ -55,7 +43,6 @@ h1 {
   	padding: 8px;
   	border-radius: 10px;
 }
-
 .input {
 	position: relative;
 	z-index: 1;
@@ -65,7 +52,6 @@ h1 {
 	width: calc(100% - 2em);
 	vertical-align: top;
 }
-
 .input__field {
 	position: relative;
 	display: block;
@@ -81,11 +67,9 @@ h1 {
 		sans-serif;
 	-webkit-appearance: none; /* for box shadows to show on iOS */
 }
-
 .input__field:focus {
 	outline: none;
 }
-
 .input__label {
 	display: inline-block;
 	float: right;
@@ -103,32 +87,27 @@ h1 {
 	-ms-user-select: none;
 	user-select: none;
 }
-
 .input__label-content {
 	position: relative;
 	display: block;
 	padding: 1.6em 0;
 	width: 100%;
 }
-
 .graphic {
 	position: absolute;
 	top: 0;
 	left: 0;
 	fill: none;
 }
-
 .icon {
 	color: #ddd;
 	font-size: 150%;
 }
-
 /* Shoko */
 .input--shoko {
 	overflow: hidden;
 	padding-bottom: 2.5em;
 }
-
 .input__field--shoko {
 	padding: 0;
 	margin-top: 1.2em;
@@ -137,7 +116,6 @@ h1 {
 	color: #000000;
 	font-size: 1.55em;
 }
-
 .input__label--shoko {
 	position: absolute;
 	top: 2em;
@@ -157,7 +135,6 @@ h1 {
 	-webkit-transition-timing-function: ease-out;
 	transition-timing-function: ease-out;
 }
-
 .graphic--shoko {
 	stroke: #A09C9C;
 	pointer-events: none;
@@ -170,45 +147,38 @@ h1 {
 	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
 	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
 }
-
 .input__field--shoko:focus+.input__label--shoko, .input--filled .input__label--shoko
 	{
 	color: #3ca7ad;
 	-webkit-transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
 	transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
 }
-
 .input__field--shoko:focus ~ .graphic--shoko, .input--filled .graphic--shoko
 	{
 	stroke: #3ca7ad;
 	-webkit-transform: translate3d(-66.6%, 0, 0);
 	transform: translate3d(-66.6%, 0, 0);
 }
-
 .page-header{
 border-radius: 10px;
 width: 360px;
 text-align: justify;"
-
 }
-
 #all{
 	position:absolute;
   	top:5%;
   	left:50%;
 }
-
 .contentBox{
 background: #DDDDFF;
 }
-
-
 </style>
 
 <div id="all">
-	<form role="form" class="post" action="register" method="post"enctype="multipart/form-data" id="f1">
+	<form role="form" class="post" action="register" method="post"
+		enctype="multipart/form-data" id="f1">
 		<input type="hidden" name="smno" value="${param.page}">
-</form>
+
 
 
 			<section class="content bgcolor-10">
@@ -216,7 +186,8 @@ background: #DDDDFF;
 			<span class="input input--shoko"> 
 			<input class="input__field input__field--shoko" type="text"
 				value="설문조사 만들기" readonly="readonly"/> <label class="input__label input__label--shoko"
-				for="smwriter">
+				for="smwriter"> <span
+					class="input__label-content input__label-content--shoko">작성자</span>
 			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
 					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
 					d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
@@ -275,18 +246,18 @@ background: #DDDDFF;
 			</span> </section>
 			<input type="hidden" name="smimage" id="smimage">
 			<div class='fileDrop'>
-				메인화면에 쓸 사진을 넣어주세요
-			<div class="uploadedList"></div>
+				여기에 메인화면에 쓸 사진을 넣어주세요
+				<div class="uploadedList"></div>
 			</div>
 
 			<p>
-			<button id="goListBtn" class="lBtn" >목록으로</button>
-			<button id="rBtn" class="rBtn" onclick="validate_user_text();" >등록</button>
+			<button id="goListBtn" class="lBtn">목록으로</button>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
 				
 			</p>
 		</div>
-		
-
+	</form>
+</div>
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
@@ -294,16 +265,12 @@ background: #DDDDFF;
 	<script>
 		var swear_words_arr = new Array("섹스", "대출", "무이자", "병신", "씨발", "개새끼",
 				"십새끼", "개년", "누드", "조건만남", "필로폰", "마약", "바다이야기", "바카라", "시알리스",
-				"비아그라", "멍청이", "똥개", "씹년", "미친년", "엠창", "호로새끼", "자지", "보지", "빙신", "개쉑"); // 제한 목록
-
+				"비아그라", "멍청이", "똥개", "씹년", "미친년", "엠창", "호로새끼", "자지", "보지"); // 제한 목록
 		var swear_alert_arr = new Array;
-
 		var swear_alert_count = 0;
-
 		function reset_alert_count() {
 			swear_alert_count = 0;
 		}
-
 		function validate_user_text() {
 			reset_alert_count();
 			var compare_text = document.getElementById("smtitle").value;
@@ -321,9 +288,7 @@ background: #DDDDFF;
 			for (var k = 1; k <= swear_alert_count; k++) {
 				alert_text += "n" + "(" + k + ")" + swear_alert_arr[k - 1];
 			}
-
 			if (swear_alert_count > 0) {
-
 				$("#f1").submit(function(event) {
 					event.preventDefault();
 					// 불량단어 나왔을때 멘트
@@ -333,7 +298,6 @@ background: #DDDDFF;
 					self.location = "/surveyMain/register";
 				});
 				return;
-
 			} else {
 				alert(alert_text + "등록 되었습니다.");
 				var formObj = $("#f1");
@@ -344,25 +308,20 @@ background: #DDDDFF;
 					return;
 				});
 			}
-
 		}
 		function select_area() {
-
 			document.getElementById("smtitle").select();
 		}
-
 		window.onload = reset_alert_count;
 	</script>
 
 
 	<script>
 		$(document).ready(function() {
-
 			$("#goListBtn ").on("click", function(event) {
 				event.preventDefault();
 				self.location = "/surveyMain/listPage?page=1";
 			});
-
 			var uploadedList = $(".uploadedList");
 			$(".fileDrop").on("dragenter dragover", function(event) {
 				event.preventDefault();
@@ -405,23 +364,19 @@ background: #DDDDFF;
 					};
 				})();
 			}
-
 			[].slice.call(document.querySelectorAll('input.input__field'))
 					.forEach(function(inputEl) {
 						// in case the input is already filled..
 						if (inputEl.value.trim() !== '') {
 							classie.add(inputEl.parentNode, 'input--filled');
 						}
-
 						// events:
 						inputEl.addEventListener('focus', onInputFocus);
 						inputEl.addEventListener('blur', onInputBlur);
 					});
-
 			function onInputFocus(ev) {
 				classie.add(ev.target.parentNode, 'input--filled');
 			}
-
 			function onInputBlur(ev) {
 				if (ev.target.value.trim() === '') {
 					classie.remove(ev.target.parentNode, 'input--filled');
