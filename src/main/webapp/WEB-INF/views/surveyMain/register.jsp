@@ -273,20 +273,11 @@ background: #DDDDFF;
 					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
 				</svg>
 			</span> </section>
-			<!-- <input type="hidden" name="smimage" id="smimage"> -->
-		<!-- 	<div class='fileDrop'>
+			<input type="hidden" name="smimage" id="smimage">
+		 	<div class='fileDrop'>
 				메인화면에 쓸 사진을 넣어주세요
-			<div class="uploadedList"></div> -->
-			 <div id="picture" class="fileDrop" >
-               <!-- <input type="hidden"value="" name="picture" id="Vpicture"> -->
-               <input type="hidden" name="smimage" id="smimage">
-               <span class='glyphicon glyphicon-remove-sign' id='delImgBtn' aria-hidden='true'></span>
-                 
-               <div id="noImg">
-                 <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
-                  <h5>Drag&Drop<br>HERE!</h5>
-               </div>
-			</div>
+			<div class="uploadedList"></div>
+
 
 			<p>
 			<button id="goListBtn" class="lBtn">목록으로</button>
