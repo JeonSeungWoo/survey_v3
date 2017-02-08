@@ -280,8 +280,8 @@ background: #DDDDFF;
 			</div>
 
 			<p>
-			<button id="goListBtn" class="lBtn" style="margin-left: 19px;">목록으로</button>
-			<button id="rBtn" class="rBtn" onclick="validate_user_text();" style="margin-left: 40px;">등록</button>
+			<button id="goListBtn" class="lBtn" >목록으로</button>
+			<button id="rBtn" class="rBtn" onclick="validate_user_text();" >등록</button>
 				
 			</p>
 		</div>
@@ -294,7 +294,7 @@ background: #DDDDFF;
 	<script>
 		var swear_words_arr = new Array("섹스", "대출", "무이자", "병신", "씨발", "개새끼",
 				"십새끼", "개년", "누드", "조건만남", "필로폰", "마약", "바다이야기", "바카라", "시알리스",
-				"비아그라", "멍청이", "똥개", "씹년", "미친년", "엠창", "호로새끼", "자지", "보지"); // 제한 목록
+				"비아그라", "멍청이", "똥개", "씹년", "미친년", "엠창", "호로새끼", "자지", "보지", "빙신", "개쉑"); // 제한 목록
 
 		var swear_alert_arr = new Array;
 
