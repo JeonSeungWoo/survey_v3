@@ -24,6 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/flexslider.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="/css/style.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="/css/responsive.css" media="screen">
+	<link rel="stylesheet" href="http://icono-49d6.kxcdn.com/icono.min.css">
 	
 </head>
 <body>
