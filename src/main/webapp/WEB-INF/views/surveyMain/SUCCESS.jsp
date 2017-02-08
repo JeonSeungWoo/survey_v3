@@ -12,3 +12,4 @@ self.location = "/surveyMain/read?smno="+smno;
 </script>
 
 <%@ include file="/resources/include/main.jsp"%>
+
