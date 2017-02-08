@@ -7,13 +7,15 @@
 <%@ include file="/resources/include/menu.jsp"%>
 
 <style>
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
 .isotope {
 	min-height: 700px;
 }
 .page{
 background: #d3ebed;
-
 }
+
 
 .inner-post{
 font-size: 23px;
@@ -22,7 +24,6 @@ font-weight: bold;
 color: black;
 background-color: #d3ebed;
 text-align: center;
-
 }
 
 .inner-post ul li{
@@ -64,6 +65,58 @@ html { background: url(/resources/images/3.jpg) no-repeat center center fixed; -
 background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
 }
 
+
+.page a::BEFORE{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 0;
+	height: 0;
+	background: rgba(255,255,255,.2);
+	border-radius: 100%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+
+.page a:HOVER::BEFORE{
+	-webkit-animation: circle .75s;
+	animation: circle .75s;
+}
+
+@-webkit-keyframes circle {
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		width: 200%;
+		height: 200%;
+		opacity: 0;
+	}
+}
+@keyframes circle {
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		width: 200%;
+		height: 200%;
+		opacity: 0;
+	}
+}
+
+.page a:ACTIVE {
+	
+}
 
 
 </style>
@@ -121,9 +174,9 @@ background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-
 							href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
 								<img src="show?name=${SurveyMainVO.smimage}">
 						</a></li>
-						<li style="font-size: ">${SurveyMainVO.smtitle}</li>
-						<li>${SurveyMainVO.smcontent}</li>
-						<li>${SurveyMainVO.smwriter}</li>
+						<li>${SurveyMainVO.smtitle}</li>
+						<li style="font-size: 15px">${SurveyMainVO.smcontent}</li>
+						<li style="font-size: 15px">${SurveyMainVO.smwriter}</li>
 					</ul>
 
 				</div>
