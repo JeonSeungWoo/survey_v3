@@ -121,7 +121,7 @@ background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-
 							href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
 								<img src="show?name=${SurveyMainVO.smimage}">
 						</a></li>
-						<li>${SurveyMainVO.smtitle}</li>
+						<li style="font-size: ">${SurveyMainVO.smtitle}</li>
 						<li>${SurveyMainVO.smcontent}</li>
 						<li>${SurveyMainVO.smwriter}</li>
 					</ul>
