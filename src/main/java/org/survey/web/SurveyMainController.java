@@ -176,7 +176,7 @@ public class SurveyMainController {
 		return "redirect:/surveyMain/listPage";
 	}
 
-	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST, produces="text/plain; charset=UTF-8")
 	@ResponseBody
 	public String uploadFile(MultipartFile file) throws Exception {
 

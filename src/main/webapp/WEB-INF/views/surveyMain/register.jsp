@@ -10,12 +10,14 @@ html {
 	background-color: #ffffff;
 }
 .fileDrop {
-	width: 330px;
+	width: 312px;
 	height: 340px;
 	border: 3px dotted #3e5ea2;
 	margin: 15px;
 	font-size: 15pt;
 	background: #a6dbdd;
+	background-image: url(/resources/images/Upload-icon.jpg);
+	background-size: 312px 340px; 
 	
 }
 li {
@@ -175,10 +177,10 @@ background: #DDDDFF;
 </style>
 
 <div id="all">
-	<form role="form" class="post" action="register" method="post"
-		enctype="multipart/form-data" id="f1">
+	<form role="form" class="post" action="register" method="post" 
+	enctype="multipart/form-data" id="f1">
 		<input type="hidden" name="smno" value="${param.page}">
-
+	</form>
 
 
 			<section class="content bgcolor-10">
@@ -186,8 +188,7 @@ background: #DDDDFF;
 			<span class="input input--shoko"> 
 			<input class="input__field input__field--shoko" type="text"
 				value="설문조사 만들기" readonly="readonly"/> <label class="input__label input__label--shoko"
-				for="smwriter"> <span
-					class="input__label-content input__label-content--shoko">작성자</span>
+				for="smwriter">
 			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
 					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
 					d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
@@ -246,18 +247,16 @@ background: #DDDDFF;
 			</span> </section>
 			<input type="hidden" name="smimage" id="smimage">
 			<div class='fileDrop'>
-				여기에 메인화면에 쓸 사진을 넣어주세요
 				<div class="uploadedList"></div>
 			</div>
 
 			<p>
-			<button id="goListBtn" class="lBtn">목록으로</button>
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
+			<button id="goListBtn" class="lBtn" style="margin-left: 16px">목록으로</button>
+			<button id="rBtn" class="rBtn" onclick="validate_user_text();" style="margin-left: 10px">등록</button>
 				
 			</p>
 		</div>
-	</form>
-</div>
+
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
