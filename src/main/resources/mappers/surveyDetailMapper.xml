@@ -20,7 +20,7 @@ values(#{smno},#{sdtitle},#{sdcontent},#{sdtype})
 update tbl_surveydetail set 
 sdtitle = #{sdtitle},
  sdcontent = #{sdcontent},
- sdtype = #{sdtype} 
+ sdtype = #{sdtype}
  where sdno = #{sdno}
 </update>
 

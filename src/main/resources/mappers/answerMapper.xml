@@ -16,14 +16,24 @@ delete from tbl_oxanswer where sdno = #{sdno} and userid = #{userid}
 </delete>
 
 <select id="oxStatistics" resultType="AnswerStat">
-select sdno, min(answer) answer , count(sdno) count from tbl_oxanswer where smno = #{smno} 
-group by sdno, answer
+select s1.sdno, s1.smno, min(sdcontent)sdcontent , min(answer)answer, count(*)count
+from 
+  (select smno, sdno, sdcontent from tbl_surveydetail where smno = #{smno} ) s1,
+  (select smno, sdno, answer from tbl_oxanswer where smno = #{smno} ) s2
+where s1.sdno = s2.sdno 
+and s1.smno = s2.smno  
+group by s1.sdno, s1.smno, answer
 </select>
+
 
 <select id="oxList" resultType="SurveyDetailVO">
 select * from tbl_surveydetail where smno = #{smno}
 </select>
 
-
+<select id="oxNum" resultType="AnswerStat">
+select sdno, min(answer)answer,
+ count(sdno)count from tbl_oxanswer where smno = #{smno} and sdno=#{sdno}
+group by sdno, answer
+</select>
 
 </mapper>

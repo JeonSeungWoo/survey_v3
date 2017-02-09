@@ -49,6 +49,8 @@ public class AnswerDAOImpl implements AnswerDAO {
 
 	@Override
 	public List<AnswerStat> oxStatistics(Integer smno) throws Exception {
+	
+		
 		
 		return session.selectList(NAME + ".oxStatistics",smno);
 		
@@ -58,7 +60,7 @@ public class AnswerDAOImpl implements AnswerDAO {
 	@Override
 	public List<SurveyDetailVO> listAll(Integer smno) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectList(NAME + ".oxList",smno);
+		return session.selectList(NAME +".oxList",smno);
 	}
 
 
