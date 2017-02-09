@@ -5,29 +5,27 @@
 <style>
 html {
 	background-color: #ffffff;
-/*     	background: url(/resources/images/3.jpg) no-repeat center center
-		fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover; */
 }
 
 .post {
 	background-color: #ffffff;
 }
 
-
-
 .fileDrop {
-	width: 312px;
-	height: 340px;
+	width: 310px;
+	height: 350px;
 	border: 3px dotted #3e5ea2;
 	margin: 15px;
 	font-size: 15pt;
 	background: #a6dbdd;
 	background-image: url(/resources/images/Upload-icon.jpg);
-	background-size: 312px 340px;
+	background-size: 312px 305px;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+}
+
+.DropImage {
+	margin-top: 2%;
 }
 
 li {
@@ -199,9 +197,6 @@ h1 {
 	position: absolute;
 	top: 5%;
 	left: 50%;
-/*  	background: url(/resources/images/register_all.jpg);
-	background-size: cover; */
-	
 }
 
 .contentBox {
@@ -210,26 +205,27 @@ h1 {
 </style>
 
 <div id="all">
-	<form role="form" class="post" action="register" method="post" 
-	enctype="multipart/form-data" id="f1">
+	<form role="form" class="post" action="register" method="post"
+		enctype="multipart/form-data" id="f1">
 		<input type="hidden" name="smno" value="${param.page}">
-	</form>
 
 
-			<section class="content bgcolor-10">
 
-			<span class="input input--shoko"> 
-			<input class="input__field input__field--shoko" type="text"
-				value="설문조사 만들기" readonly="readonly"/> <label class="input__label input__label--shoko"
-				for="smwriter">
+		<section class="content bgcolor-10">
+
+			<span class="input input--shoko"> <input
+				class="input__field input__field--shoko" type="text"
+				value="설문조사 만들기" readonly="readonly" /> <label
+				class="input__label input__label--shoko" for="sm"> <span
+					class="input__label-content input__label-content--shoko"></span>
 			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
 					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
-					d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+						d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
 				<path
-					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+						d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
 				</svg>
 			</span>
-		
+
 
 
 			<p>
@@ -240,9 +236,9 @@ h1 {
 						class="input__label-content input__label-content--shoko">제목</span>
 				</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
 						viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
-						d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+							d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
 					<path
-						d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+							d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
 					</svg>
 
 
@@ -257,164 +253,169 @@ h1 {
 						class="input__label-content input__label-content--shoko">내용</span>
 				</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
 						viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
-						d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+							d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
 					<path
-						d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+							d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
 					</svg>
 
 
 				</span>
 			</p>
 
-			<span class="input input--shoko"> 
-			<input class="input__field input__field--shoko" type="text" id="smwriter"
-				name="smwriter" value="${login.userid}" readonly="readonly"/> <label class="input__label input__label--shoko"
-				for="smwriter"> <span
+			<span class="input input--shoko"> <input
+				class="input__field input__field--shoko" type="text" id="smwriter"
+				name="smwriter" value="${login.userid}" readonly="readonly" /> <label
+				class="input__label input__label--shoko" for="smwriter"> <span
 					class="input__label-content input__label-content--shoko">작성자</span>
 			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
 					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
-					d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+						d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
 				<path
-					d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+						d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
 				</svg>
-			</span> </section>
-			<input type="hidden" name="smimage" id="smimage">
-			<div class='fileDrop'>
-				<div class="uploadedList"></div>
-			</div>
-
-			<p>
-			<button id="goListBtn" class="lBtn" style="margin-left: 16px">목록으로</button>
-			<button id="rBtn" class="rBtn" onclick="validate_user_text();" style="margin-left: 10px">등록</button>
-				
-			</p>
+			</span>
+		</section>
+		<input type="hidden" name="smimage" id="smimage">
+		<div class='fileDrop'>
+			<h3 class="DropImage">메인화면 사진을 올려주세요</h3>
+			<div class="uploadedList"></div>
 		</div>
 
-	<script src="https://code.jquery.com/jquery-2.2.4.js"
-		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-		crossorigin="anonymous"></script>
+		<p>
+			<button id="goListBtn" class="lBtn" style="margin-left: 16px">목록으로</button>
+			<button id="rBtn" class="rBtn" onclick="validate_user_text();"
+				style="margin-left: 10px">등록</button>
 
-	<script>
-		var swear_words_arr = new Array("섹스", "대출", "무이자", "병신", "씨발", "개새끼",
-				"십새끼", "개년", "누드", "조건만남", "필로폰", "마약", "바다이야기", "바카라", "시알리스",
-				"비아그라", "멍청이", "똥개", "씹년", "미친년", "엠창", "호로새끼", "자지", "보지"); // 제한 목록
-		var swear_alert_arr = new Array;
-		var swear_alert_count = 0;
-		function reset_alert_count() {
-			swear_alert_count = 0;
-		}
-		function validate_user_text() {
-			reset_alert_count();
-			var compare_text = document.getElementById("smtitle").value;
-			for (var i = 0; i < swear_words_arr.length; i++) {
-				for (var j = 0; j < (compare_text.length); j++) {
-					if (swear_words_arr[i] == compare_text.substring(j,
-							(j + swear_words_arr[i].length)).toLowerCase()) {
-						swear_alert_arr[swear_alert_count] = compare_text
-								.substring(j, (j + swear_words_arr[i].length));
-						swear_alert_count++;
-					}
+		</p>
+</div>
+</form>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"
+	integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+	crossorigin="anonymous"></script>
+
+<script>
+	var swear_words_arr = new Array("섹스", "대출", "무이자", "병신", "씨발", "개새끼",
+			"십새끼", "개년", "누드", "조건만남", "필로폰", "마약", "바다이야기", "바카라", "시알리스",
+			"비아그라", "멍청이", "똥개", "씹년", "미친년", "엠창", "호로새끼", "자지", "보지"); // 제한 목록
+	var swear_alert_arr = new Array;
+	var swear_alert_count = 0;
+	function reset_alert_count() {
+		swear_alert_count = 0;
+	}
+	function validate_user_text() {
+		reset_alert_count();
+		var compare_text = document.getElementById("smtitle").value;
+		for (var i = 0; i < swear_words_arr.length; i++) {
+			for (var j = 0; j < (compare_text.length); j++) {
+				if (swear_words_arr[i] == compare_text.substring(j,
+						(j + swear_words_arr[i].length)).toLowerCase()) {
+					swear_alert_arr[swear_alert_count] = compare_text
+							.substring(j, (j + swear_words_arr[i].length));
+					swear_alert_count++;
 				}
 			}
-			var alert_text = "";
-			for (var k = 1; k <= swear_alert_count; k++) {
-				alert_text += "n" + "(" + k + ")" + swear_alert_arr[k - 1];
-			}
-			if (swear_alert_count > 0) {
-				$("#f1").submit(function(event) {
-					event.preventDefault();
-					// 불량단어 나왔을때 멘트
-					alert(alert_text + "는 입력할 수 없는 단어입니다. 예쁜 말을 써주세요");
-					// 불량단어 나왔을때 멘트
-					document.getElementById("smtitle").select();
-					self.location = "/surveyMain/register";
-				});
+		}
+		var alert_text = "";
+		for (var k = 1; k <= swear_alert_count; k++) {
+			alert_text += "n" + "(" + k + ")" + swear_alert_arr[k - 1];
+		}
+		if (swear_alert_count > 0) {
+			$("#f1").submit(function(event) {
+				event.preventDefault();
+				// 불량단어 나왔을때 멘트
+				alert(alert_text + "는 입력할 수 없는 단어입니다. 예쁜 말을 써주세요");
+				// 불량단어 나왔을때 멘트
+				document.getElementById("smtitle").select();
+				self.location = "/surveyMain/register";
+			});
+			return;
+		} else {
+			alert(alert_text + "등록 되었습니다.");
+			var formObj = $("#f1");
+			$("#rBtn").on("click", function() {
+				formObj.attr("action", "/surveyMain/register");
+				formObj.attr("method", "post");
+				formObj.submit();
 				return;
-			} else {
-				alert(alert_text + "등록 되었습니다.");
-				var formObj = $("#f1");
-				$("#rBtn").on("click", function() {
-					formObj.attr("action", "/surveyMain/register");
-					formObj.attr("method", "post");
-					formObj.submit();
-					return;
-				});
-			}
+			});
 		}
-		function select_area() {
-			document.getElementById("smtitle").select();
-		}
-		window.onload = reset_alert_count;
-	</script>
+	}
+	function select_area() {
+		document.getElementById("smtitle").select();
+	}
+	window.onload = reset_alert_count;
+</script>
 
 
-	<script>
-		$(document).ready(function() {
-			$("#goListBtn ").on("click", function(event) {
-				event.preventDefault();
-				self.location = "/surveyMain/listPage?page=1";
-			});
-			var uploadedList = $(".uploadedList");
-			$(".fileDrop").on("dragenter dragover", function(event) {
-				event.preventDefault();
-			});
-			$(".fileDrop").on("drop", function(event) {
-				event.preventDefault();
-				var files = event.originalEvent.dataTransfer.files;
-				var file = files[0];
-				var formData = new FormData();
-				$('.uploadedList').empty();
-				formData.append("file", file);
-				console.log(formData);
-				$.ajax({
-					url : "uploadFile",
-					data : formData,
-					dataType : 'text',
-					type : "post",
-					contentType : false,
-					processData : false,
-					success : function(data) {
-						console.log(data);
-						uploadedList.html("<img src=show?name=" + data + ">");
-						$("#smimage").val(data);
-					}
-				});
+<script>
+	$(document).ready(function() {
+		$("#goListBtn ").on("click", function(event) {
+			event.preventDefault();
+			self.location = "/surveyMain/listPage?page=1";
+		});
+		var uploadedList = $(".uploadedList");
+		$(".fileDrop").on("dragenter dragover", function(event) {
+			event.preventDefault();
+		});
+		$(".fileDrop").on("drop", function(event) {
+			event.preventDefault();
+			var files = event.originalEvent.dataTransfer.files;
+			var file = files[0];
+			var formData = new FormData();
+			$('.uploadedList').empty();
+			formData.append("file", file);
+			console.log(formData);
+			$.ajax({
+				url : "uploadFile",
+				data : formData,
+				dataType : 'text',
+				type : "post",
+				contentType : false,
+				processData : false,
+				success : function(data) {
+					console.log(data);
+					uploadedList.html("<img src=show?name=" + data + ">");
+					$("#smimage").val(data);
+				}
 			});
 		});
-	</script>
+	});
+</script>
 
-	<script src="/js/classie.js"></script>
-	<script>
-		(function() {
-			// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
-			if (!String.prototype.trim) {
-				(function() {
-					// Make sure we trim BOM and NBSP
-					var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-					String.prototype.trim = function() {
-						return this.replace(rtrim, '');
-					};
-				})();
+<script src="/js/classie.js"></script>
+<script>
+	(function() {
+		// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+		if (!String.prototype.trim) {
+			(function() {
+				// Make sure we trim BOM and NBSP
+				var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+				String.prototype.trim = function() {
+					return this.replace(rtrim, '');
+				};
+			})();
+		}
+		[].slice.call(document.querySelectorAll('input.input__field')).forEach(
+				function(inputEl) {
+					// in case the input is already filled..
+					if (inputEl.value.trim() !== '') {
+						classie.add(inputEl.parentNode, 'input--filled');
+					}
+					// events:
+					inputEl.addEventListener('focus', onInputFocus);
+					inputEl.addEventListener('blur', onInputBlur);
+				});
+		function onInputFocus(ev) {
+			classie.add(ev.target.parentNode, 'input--filled');
+		}
+		function onInputBlur(ev) {
+			if (ev.target.value.trim() === '') {
+				classie.remove(ev.target.parentNode, 'input--filled');
 			}
-			[].slice.call(document.querySelectorAll('input.input__field'))
-					.forEach(function(inputEl) {
-						// in case the input is already filled..
-						if (inputEl.value.trim() !== '') {
-							classie.add(inputEl.parentNode, 'input--filled');
-						}
-						// events:
-						inputEl.addEventListener('focus', onInputFocus);
-						inputEl.addEventListener('blur', onInputBlur);
-					});
-			function onInputFocus(ev) {
-				classie.add(ev.target.parentNode, 'input--filled');
-			}
-			function onInputBlur(ev) {
-				if (ev.target.value.trim() === '') {
-					classie.remove(ev.target.parentNode, 'input--filled');
-				}
-			}
-		})();
-	</script>
+		}
+	})();
+</script>
 
 <%@ include file="/resources/include/main.jsp"%>
