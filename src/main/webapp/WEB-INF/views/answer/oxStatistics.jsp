@@ -23,17 +23,26 @@
 
 		<div class="answerList">
 			<c:forEach items="${answerList}" var="answerList">
-
-				<ul class="page">
+				
+				<div style="color:black; border:1em	;  border-style: solid; margin: 1em;">
+				  <ul class="page">
 
 					<li>${answerList.smno}</li>
 					<li>${answerList.sdno}</li>
-					
 					<li>${answerList.sdcontent}</li>
-					<li>${answerList.answer}</li>
-					<li>${answerList.count}</li>
 					
-				</ul> 
+					
+					  <li>${answerList.answer} </li>
+					  <li>${answerList.count} </li>
+					
+					
+					
+					  <li>                     ${answerList.answer}</li>
+					  <li>                    ${answerList.count}</li>
+					
+				 
+				  </ul>
+				</div> 
 			</c:forEach>
 			
 		</div>
@@ -48,6 +57,8 @@
 
 	<script>
 
+	
+	
 	
 	</script>
 
