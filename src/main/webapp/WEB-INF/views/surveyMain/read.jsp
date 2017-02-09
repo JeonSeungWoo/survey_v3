@@ -63,10 +63,14 @@ border-radius: 10px;
 .divSdno {
    border: 1px solid green;
    text-align: center;
-   font-size: 25px;
+   font-size: 20px;
    font-style: inherit;
    background-color: #E0E6F8;
-   border-radius: 10px;
+   border-radius: 10px;   
+}
+
+.divSdno ul li{
+	width: 100%;
 }
 
 .allListPage {
@@ -147,9 +151,9 @@ border-radius: 10px;
             <li>${SurveyMainVO.smcontent }</li>
             <li><img src="show?name=${SurveyMainVO.smimage}"></li>
 
-            <li>설문시작일 : <fmt:formatDate value="${SurveyMainVO.smregdate}"
+            <li style="font-size: 20px;">설문시작일 : <fmt:formatDate value="${SurveyMainVO.smregdate}"
                   pattern="yyyy-MM-dd HH:mm:ss" /></li>
-            <li>설문수정일 : <fmt:formatDate
+            <li style="font-size: 20px;">설문수정일 : <fmt:formatDate
                   value="${SurveyMainVO.smupdatedate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
          </ul>
       </div>
@@ -216,9 +220,9 @@ border-radius: 10px;
                <li><input type="text" name="smno" class="newSmno"
                   value="${SurveyMainVO.smno}" hidden=""></li>
                <li><input type="text" name="sdtitle" class="newSdtitle"
-                  value="제목을 입력해주세요"></li>
+                  placeholder="제목을 입력해주세요"></li>
                <li><input type="text" name="sdcontent" class="newSdcontent"
-                  value="내용을 입력해주세요"></li>
+                  placeholder="내용을 입력해주세요"></li>
 
 
                <li><select name="sdtype">
