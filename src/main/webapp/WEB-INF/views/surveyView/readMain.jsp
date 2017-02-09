@@ -28,6 +28,9 @@ width: 100%;
 
 }
 
+.box-main p{
+background-color: red;
+}
 
 .statisticsAction{
 
@@ -83,10 +86,10 @@ background-color: white;
    
    <div class="box-main">
          <ul>
-            <li>글번호</li><li>${SurveyMainVO.smno }</li>
-            <li>제목 </li><li>${SurveyMainVO.smtitle }</li>
-            <li>설문내용 </li><li>${SurveyMainVO.smcontent }</li>
-            <li>설문시작일자</li><li><fmt:formatDate value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
+            <p>글번호 : ${SurveyMainVO.smno }</p>
+            <p>${SurveyMainVO.smtitle }</p>
+            <p>${SurveyMainVO.smcontent }</p>
+            <p>설문시작일자 : <fmt:formatDate value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
             
             
             <img id="imgread" src="show?name=${SurveyMainVO.smimage}">

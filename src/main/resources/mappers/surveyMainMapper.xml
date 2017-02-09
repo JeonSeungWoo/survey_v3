@@ -82,7 +82,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    tbl_surveymain
  where smno > 0 
  order by smno desc, smregdate desc
- limit #{page}, 15
+ limit #{page}, 12
  ]]>
 	</select>
 
