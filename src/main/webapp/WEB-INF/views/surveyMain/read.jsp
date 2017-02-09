@@ -5,15 +5,11 @@
 
 <%@ include file="/resources/include/menu.jsp"%>
 
-<style type="text/css">
-img {
-   width: 200px;
-   height: 200px;
-   text-align: center;
-   border-radius: 50px;
-   background: url(/resources/images/no-image.jpg);
-   background-size: cover;
+<style>
+html{
+background: linear-gradient(#689976, #ACDACC);
 }
+
 
 .fileDrop {
    width: 80%;
@@ -34,15 +30,26 @@ img {
 }
 
 .divSmno {
-   border: 1px solid silver;
+   border: groove;
    text-align: center;
    font-size: 25px;
    font-style: inherit;
    background-color: #FFFFFF;
+   border-radius: 10px;
 }
 
-.box-footer {
-   
+.divSmno ul li{
+border: 1px solid black;
+border-radius: 10px;
+}
+
+.divSmno ul li img{
+	width: 200px;
+   height: 200px;
+   text-align: center;
+   border-radius: 50px;
+   background: url(/resources/images/no-image.jpg);
+   background-size: cover;
 }
 
 .detailDiv {
@@ -59,6 +66,7 @@ img {
    font-size: 25px;
    font-style: inherit;
    background-color: #E0E6F8;
+   border-radius: 10px;
 }
 
 .allListPage {
@@ -80,8 +88,8 @@ img {
    border-radius: 10px;
 }
 
-<<<<<<< HEAD
-=======
+
+
 .icono-image {
    width: 30px;
    height: 26px;
@@ -111,7 +119,9 @@ img {
    top: 5px;
    right: 5px
 }
->>>>>>> branch 'master' of https://github.com/janseoungwoo/survey_v3
+
+
+
 </style>
 
 
@@ -133,13 +143,13 @@ img {
       <div class="divSmno">
          <ul>
 
-            <li>제목 : ${SurveyMainVO.smtitle }</li>
-            <li>설문내용 : ${SurveyMainVO.smcontent }</li>
+            <li style="font-size: 30px;">${SurveyMainVO.smtitle }</li>
+            <li>${SurveyMainVO.smcontent }</li>
             <li><img src="show?name=${SurveyMainVO.smimage}"></li>
 
-            <li>설문시작일자 : <fmt:formatDate value="${SurveyMainVO.smregdate}"
+            <li>설문시작일 : <fmt:formatDate value="${SurveyMainVO.smregdate}"
                   pattern="yyyy-MM-dd HH:mm:ss" /></li>
-            <li>설문수정일자 : <fmt:formatDate
+            <li>설문수정일 : <fmt:formatDate
                   value="${SurveyMainVO.smupdatedate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
          </ul>
       </div>
@@ -203,12 +213,12 @@ img {
          <div class="divSdno">
             <ul>
 
-               <li>번호<input type="text" name="smno" class="newSmno"
-                  value="${SurveyMainVO.smno}" readonly="readonly"></li>
-               <li>제목<input type="text" name="sdtitle" class="newSdtitle"
-                  value="제목입력하세요"></li>
-               <li>내용<input type="text" name="sdcontent" class="newSdcontent"
-                  value="내용을 입력하세요"></li>
+               <li><input type="text" name="smno" class="newSmno"
+                  value="${SurveyMainVO.smno}" hidden=""></li>
+               <li><input type="text" name="sdtitle" class="newSdtitle"
+                  value="제목을 입력해주세요"></li>
+               <li><input type="text" name="sdcontent" class="newSdcontent"
+                  value="내용을 입력해주세요"></li>
 
 
                <li><select name="sdtype">
@@ -234,7 +244,7 @@ img {
 
    </div>
 
-   <iframe name='zeroFrame' width='0px' height='0px'></iframe>
+   <iframe hidden="" name='zeroFrame' width='0px' height='0px'></iframe>
 
    <div class="box-footer">
 
@@ -308,7 +318,7 @@ img {
                                           + "<small class='surveyType'>"
                                           + this.sdtype
                                           + "</small></li>"
-                                          + "<li>이미지  : "
+                                          + "<li>"
                                           + "<small class='surveryImage' >"
                                           + link
                                           + "</small></li></ul></div>";
@@ -482,3 +492,9 @@ img {
 
 
 <%@ include file="/resources/include/main.jsp"%>
+
+
+
+
+
+

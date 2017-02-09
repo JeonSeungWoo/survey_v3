@@ -65,53 +65,17 @@ html { background: url(/resources/images/3.jpg) no-repeat center center fixed; -
 background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
 }
 
+.page a{
 
-.page a::BEFORE{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	z-index: 2;
-	display: block;
-	content: '';
-	width: 0;
-	height: 0;
-	background: rgba(255,255,255,.2);
-	border-radius: 100%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	opacity: 0;
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }
 
-.page a:HOVER::BEFORE{
-	-webkit-animation: circle .75s;
-	animation: circle .75s;
-}
-
-@-webkit-keyframes circle {
-	0% {
-		opacity: 1;
-	}
-	40% {
-		opacity: 1;
-	}
-	100% {
-		width: 200%;
-		height: 200%;
-		opacity: 0;
-	}
-}
-@keyframes circle {
-	0% {
-		opacity: 1;
-	}
-	40% {
-		opacity: 1;
-	}
-	100% {
-		width: 200%;
-		height: 200%;
-		opacity: 0;
-	}
+.page a:HOVER{
+	-webkit-filter: blur(0);
+	filter: blur(0);
 }
 
 
@@ -170,7 +134,7 @@ background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-
 					<ul class="page">
 						<li><a
 							href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
-								<img src="show?name=${SurveyMainVO.smimage}">
+								<img  src="show?name=${SurveyMainVO.smimage}">
 						</a></li>
 						<li>${SurveyMainVO.smtitle}</li>
 						<li style="font-size: 15px">${SurveyMainVO.smcontent}</li>
