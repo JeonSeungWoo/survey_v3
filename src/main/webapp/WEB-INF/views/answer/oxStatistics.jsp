@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+	pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,42 +11,49 @@
 <body>
 
 
-<form action="/answer/oxStatistics" method="get">
-<input type="hidden" name="smno" value="${oxStatistics.smno}">
-<input type="hidden" name="page" value="${param.page}">
+	<form action="/answer/oxStatistics/" method="get">
+		<input type="hidden" name="smno" value="${list[0].smno}"> <input
+			type="hidden" name="page" value="${param.page}">
 
-<h1>통계 페이지</h1>
+		<h1>통계 페이지</h1>
+<%-- 		<h1>${list[0].smno}</h1> --%>
+<%-- 		<h1>${list[0].sdno}</h1> --%>
 
-<c:forEach items="${list}" var="SurveyDetailVO">
 
-		<div class ="box-main">
-			<ul class="page">
-				<li>${SurveyDetailVO.smno}</li>
-				<li>${SurveyDetailVO.sdno}</li>
-				<li>${SurveyDetailVO.sdtitle}</li>
-				<li>${SurveyDetailVO.sdcontent}</li>
-			</ul>
+
+		<div class="answerList">
+			<c:forEach items="${answerList}" var="answerList">
+
+				<ul class="page">
+
+					<li>${answerList.smno}</li>
+					<li>${answerList.sdno}</li>
+					
+					<li>${answerList.sdcontent}</li>
+					<li>${answerList.answer}</li>
+					<li>${answerList.count}</li>
+					
+				</ul> 
+			</c:forEach>
 			
-		<h4>${answerList}</h4>
-		
-		
-		<h4>${answerList[0]}</h4>
-		
-		
-		<!-- 
-	 	<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-	 	 -->
 		</div>
-</c:forEach>
 
-
-</form>
+	</form>
 
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
-<!-- 
+
+
+	<script>
+
+	
+	</script>
+
+
+
+	<!-- 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
     

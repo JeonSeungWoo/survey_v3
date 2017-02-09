@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.survey.domain.AnswerStat;
 import org.survey.domain.OXAnswerVO;
 import org.survey.service.AnswerService;
@@ -77,21 +79,51 @@ public class AnswerController {
 	//통계
 	@GetMapping("/oxStatistics")
 	public void oxStatistics(OXAnswerVO vo,Model model,
-			Integer smno,Integer sdno,String answer)throws Exception{
+			@RequestParam("smno")Integer smno)throws Exception{
 		
 		logger.info("oxStatistics call.....!!!!");
 		
-		logger.info("oxStatistics : " + smno);
+		logger.info("oxStatisticsSmno : " + smno);
+		
 		
 		List<AnswerStat> answerList = service.oxStatistics(smno);
 		
 		logger.info("TEST:" + answerList);
 		
+
 		model.addAttribute("answerList", answerList);
-		                                 
-		model.addAttribute("list",service.listAll(smno));
+		
+//		                                 
+//		model.addAttribute("list",service.listAll(smno));
+		
 	}
+
 	
 	
+//	@RequestMapping("/oxStatistics/{smno}/{sdno}")
+//	@ResponseBody
+//	public List<AnswerStat> oxStatisticsAjax(Model model,
+//			@PathVariable("smno")Integer smno,
+//			@PathVariable("sdno")Integer sdno)throws Exception{
+//		
+//		logger.info("oxStatisticsAjax Call ......!!!!!!!");
+//		
+//		
+//		
+//		service.oxStatistics(smno, sdno);
+//		
+//		logger.info("TEST1:" + service.oxStatistics(smno, sdno));
+//		logger.info("oxStatisticsSmno2 : " + smno);
+//		logger.info("oxStatisticsSdno2 : " + sdno);
+//		
+//		List<AnswerStat> answerList = service.oxStatistics(smno, sdno);
+//		
+//		logger.info("TEST:" + answerList);
+//		logger.info("oxStatisticsSmno1 : " + smno);
+//		logger.info("oxStatisticsSdno1 : " + sdno);
+//		model.addAttribute("answerList", answerList);
+//		return answerList;
+//		
+//	}
 	
 }

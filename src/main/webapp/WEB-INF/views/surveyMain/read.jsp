@@ -226,7 +226,7 @@ border-radius: 10px;
                      <option value="OX">OX</option>
                      <option value="objective">객관식</option>
                      <option value="subjective">주관식</option>
-                     <option value="table">표형</option>
+                     <option value="table">표형</option>	
 
                </select></li>
 
