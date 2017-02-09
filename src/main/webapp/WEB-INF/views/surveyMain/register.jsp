@@ -5,10 +5,20 @@
 <style>
 html {
 	background-color: #ffffff;
+/*     	background: url(/resources/images/3.jpg) no-repeat center center
+		fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover; */
 }
+
 .post {
 	background-color: #ffffff;
 }
+
+
+
 .fileDrop {
 	width: 312px;
 	height: 340px;
@@ -17,34 +27,39 @@ html {
 	font-size: 15pt;
 	background: #a6dbdd;
 	background-image: url(/resources/images/Upload-icon.jpg);
-	background-size: 312px 340px; 
-	
+	background-size: 312px 340px;
 }
+
 li {
 	list-style: none;
 }
+
 .page-header h1 {
 	color: #ffffff;
 	font-size: 40pt;
 	text-decoration: blink;
 }
+
 h1 {
 	font-family: 'Lobster', cursive;
 }
+
 .rBtn {
 	background: #197f84;
-  	color: #fff;
-  	border: none;
-  	padding: 8px;
-  	border-radius: 10px;
+	color: #fff;
+	border: none;
+	padding: 8px;
+	border-radius: 10px;
 }
+
 .lBtn {
 	background: #1ab5b3;
-  	color: #fff;
-  	border: none;
-  	padding: 8px;
-  	border-radius: 10px;
+	color: #fff;
+	border: none;
+	padding: 8px;
+	border-radius: 10px;
 }
+
 .input {
 	position: relative;
 	z-index: 1;
@@ -54,6 +69,7 @@ h1 {
 	width: calc(100% - 2em);
 	vertical-align: top;
 }
+
 .input__field {
 	position: relative;
 	display: block;
@@ -69,9 +85,11 @@ h1 {
 		sans-serif;
 	-webkit-appearance: none; /* for box shadows to show on iOS */
 }
+
 .input__field:focus {
 	outline: none;
 }
+
 .input__label {
 	display: inline-block;
 	float: right;
@@ -89,18 +107,21 @@ h1 {
 	-ms-user-select: none;
 	user-select: none;
 }
+
 .input__label-content {
 	position: relative;
 	display: block;
 	padding: 1.6em 0;
 	width: 100%;
 }
+
 .graphic {
 	position: absolute;
 	top: 0;
 	left: 0;
 	fill: none;
 }
+
 .icon {
 	color: #ddd;
 	font-size: 150%;
@@ -110,6 +131,7 @@ h1 {
 	overflow: hidden;
 	padding-bottom: 2.5em;
 }
+
 .input__field--shoko {
 	padding: 0;
 	margin-top: 1.2em;
@@ -118,6 +140,7 @@ h1 {
 	color: #000000;
 	font-size: 1.55em;
 }
+
 .input__label--shoko {
 	position: absolute;
 	top: 2em;
@@ -137,6 +160,7 @@ h1 {
 	-webkit-transition-timing-function: ease-out;
 	transition-timing-function: ease-out;
 }
+
 .graphic--shoko {
 	stroke: #A09C9C;
 	pointer-events: none;
@@ -149,30 +173,39 @@ h1 {
 	-webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
 	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
 }
+
 .input__field--shoko:focus+.input__label--shoko, .input--filled .input__label--shoko
 	{
 	color: #3ca7ad;
 	-webkit-transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
 	transform: translate3d(0, 3.5em, 0) scale3d(0.85, 0.85, 1);
 }
+
 .input__field--shoko:focus ~ .graphic--shoko, .input--filled .graphic--shoko
 	{
 	stroke: #3ca7ad;
 	-webkit-transform: translate3d(-66.6%, 0, 0);
 	transform: translate3d(-66.6%, 0, 0);
 }
-.page-header{
-border-radius: 10px;
-width: 360px;
-text-align: justify;"
+
+.page-header {
+	border-radius: 10px;
+	width: 360px;
+	text-align: justify;
+	"
 }
-#all{
-	position:absolute;
-  	top:5%;
-  	left:50%;
+
+#all {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+/*  	background: url(/resources/images/register_all.jpg);
+	background-size: cover; */
+	
 }
-.contentBox{
-background: #DDDDFF;
+
+.contentBox {
+	background: #DDDDFF;
 }
 </style>
 
