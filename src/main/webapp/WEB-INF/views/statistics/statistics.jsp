@@ -380,7 +380,7 @@ var data3 = google.visualization.arrayToDataTable([
 ['10달', eval(document.getElementById('A1_10').value), eval(document.getElementById('A2_10').value), eval(document.getElementById('A3_10').value), eval(document.getElementById('A4_10').value)],
 ['11달', eval(document.getElementById('A1_11').value), eval(document.getElementById('A2_11').value), eval(document.getElementById('A3_11').value), eval(document.getElementById('A4_11').value)],
 ['12달', eval(document.getElementById('A1_12').value), eval(document.getElementById('A2_12').value), eval(document.getElementById('A3_12').value), eval(document.getElementById('A4_12').value)]
-]);
+]);  
 drawChart(data3);
 return; //-->입력시킨다.
 }
