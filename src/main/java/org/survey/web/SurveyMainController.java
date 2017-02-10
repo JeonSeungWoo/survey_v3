@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
 import org.apache.commons.io.IOUtils;
+import org.aspectj.weaver.ast.Call;
 import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -227,6 +228,15 @@ public class SurveyMainController {
 		model.addAttribute("uploadName", profile);
 
 		return "success";
+	}
+	
+	@RequestMapping(value = "/testoption", method = RequestMethod.GET)
+	public void test()throws Exception{
+		logger.info("test Call............................");
+		logger.info("test Call............................");
+		logger.info("test Call............................");
+		logger.info("test Call............................");
+		
 	}
 
 }
