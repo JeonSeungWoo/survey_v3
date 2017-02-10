@@ -109,7 +109,7 @@
 		<img alt="" src="/images/preloader.gif">
 	</div>
 	
-	<div id='content'>
+	<div id='content' style="background-color: white;">
 		<div class='inner-content'>	
 	
 

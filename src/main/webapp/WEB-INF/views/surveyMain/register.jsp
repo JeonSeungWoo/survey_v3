@@ -287,8 +287,8 @@ h1 {
 				style="margin-left: 10px">등록</button>
 
 		</p>
-</div>
 </form>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"

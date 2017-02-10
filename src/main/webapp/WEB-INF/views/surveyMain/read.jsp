@@ -20,13 +20,18 @@ background: linear-gradient(#689976, #ACDACC);
 }
 
 #modDiv {
-   width: 400px;
-   height: 300px;
+   width: 100%;
+   height: 130%;
    background-color: #d0eced;
    position: relative;
    padding: 10px;
    z-index: 1000;
    top: 50%;
+   border-radius: 10px;
+}
+
+#modDiv button{
+border-radius: 10px;
 }
 
 .divSmno {
@@ -39,8 +44,8 @@ background: linear-gradient(#689976, #ACDACC);
 }
 
 .divSmno ul li{
-border: 1px solid black;
-border-radius: 10px;
+border-bottom: 1px solid;
+
 }
 
 .divSmno ul li img{
@@ -53,12 +58,13 @@ border-radius: 10px;
 }
 
 .detailDiv {
-   border: 1px solid red;
+   border-radius: 10px;
    text-align: center;
    font-size: 25px;
    font-style: inherit;
    background-color: #EFFBFB;
 }
+
 
 .divSdno {
    border: 1px solid green;
@@ -124,8 +130,6 @@ border-radius: 10px;
    right: 5px
 }
 
-
-
 </style>
 
 
@@ -177,29 +181,38 @@ border-radius: 10px;
       <div>
          <ul>
             <input type='hidden' name='attachFile' class='hiddenfile'>
-            <li>SDNO<input type="text" name="sdno" class="sdno"
-               readonly="readonly"></li>
-            <li>제목<input type="text" name="sdtitle" class="sdtitle"></li>
-            <li>내용<input type="text" name="sdcontent" class="sdcontent"></li>
-            <li>타입<input type="text" name="sdtype" class="sdtype"></li>
+            <li><input type="text" name="sdno" class="sdno"
+               hidden=""></li>
+            <li>제목 <input type="text" name="sdtitle" class="sdtitle" style="width: 90%;"></li>
+            <li>내용 <input type="text" name="sdcontent" class="sdcontent" style="width: 90%;"></li>
+            <li>타입 <select name="sdtype">
+                     <option value="null">==선택하세요==</option>
+                     <option value="OX">OX</option>
+                     <option value="objective">객관식</option>
+                     <option value="subjective">주관식</option>
+                     <option value="table">표형</option>	
+
+               </select></li>
+            
+            
             <li><div>
-                  이미지<img name="sdimage" class="sdimage"
+                 	이미지 <img name="sdimage" class="sdimage"
                      style='width: 100px; height: 100px;'>
-                  <p class='modDelImage'>이미지삭제</p>
+                  <button class='modDelImage' style="background-color: #4a905e; color: white;">이미지삭제</button>
                </div></li>
             <li>
                <form id="modImageForm" method="post" action="/upload/uploadForm"
-                  target="zeroFrame" enctype="multipart/form-data">
+                  target="zeroFrame" enctype="multipart/form-data" style="border-radius: 10px;">
                   <input type='file' name='modImageFile' id="modImageFile">
-                  <button id='changeImageBtn'>CHANGE IMAGE</button>
+                  <button id='changeImageBtn' style="background-color: #074f2d; color: white;">CHANGE IMAGE</button>
                </form>
          </ul>
       </div>
 
       <div>
-         <button type="submit" id="surveyDetailUpdateBtn">수정</button>
-         <button type="submit" id="surveyDetailDelBtn">삭제</button>
-         <button type="submit" id="closeBtn">닫기</button>
+         <button type="submit" id="surveyDetailUpdateBtn" style="background-color: #90ad41; color: white;">수정</button>
+         <button type="submit" id="surveyDetailDelBtn" style="background-color: #ad4141; color: white;">삭제</button>
+         <button type="submit" id="closeBtn" style="background-color: #4170ad; color: white;">닫기</button>
       </div>
    </div>
 
@@ -220,9 +233,9 @@ border-radius: 10px;
                <li><input type="text" name="smno" class="newSmno"
                   value="${SurveyMainVO.smno}" hidden=""></li>
                <li><input type="text" name="sdtitle" class="newSdtitle"
-                  placeholder="제목을 입력해주세요"></li>
+                  placeholder="제목을 입력해주세요" style="width: 95%;"></li>
                <li><input type="text" name="sdcontent" class="newSdcontent"
-                  placeholder="내용을 입력해주세요"></li>
+                  placeholder="내용을 입력해주세요" style="width: 95%;"></li>
 
 
                <li><select name="sdtype">
@@ -239,7 +252,7 @@ border-radius: 10px;
  -->
 
                <li>이미지<input type="file" name="sdAttach" class="newSdtype"></li>
-               <li><button type="submit" class="surveyAddBtn">항목 등록</button></li>
+               <li><button type="submit" class="surveyAddBtn" style="background-color: #81c47d; color: white; border-radius: 10px;">항목 등록</button></li>
             </ul>
          </div>
       </form>
@@ -263,7 +276,7 @@ border-radius: 10px;
    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
    crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/resources/js/jquery.form.js"></script>
+
 
 
 
