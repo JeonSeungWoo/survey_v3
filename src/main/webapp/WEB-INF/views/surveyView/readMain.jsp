@@ -53,9 +53,9 @@ html {
 }
 
 #aTag:HOVER {
-	background: black;
+	background: #b9c9fe;
 	background-size: cover;
-	color: white;
+	color: black;
 }
 
 #aTag:ACTIVE {
@@ -183,7 +183,7 @@ html {
 		<div class="statisticsAction">
 			<ul>
 				<li><a id="aTag"
-					href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1">통계</a></li>
+					href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1">설문결과</a></li>
 			</ul>
 		</div>
 

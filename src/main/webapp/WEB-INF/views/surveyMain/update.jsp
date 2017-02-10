@@ -207,20 +207,36 @@ h1 {
 <div id="all">
 	<form role="form" class="post" action="update" method="post"
 		enctype="multipart/form-data" id="f1">
-		<input type="hidden" name="smno" value="${param.page}">
-		<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
-		<input type='hidden' name='searchType' value="${cri.searchType}">
-		<input type='hidden' name='keyword' value="${cri.keyword}">
+		<input type="hidden" name="smno" value="${param.page}"> <input
+			type='hidden' name='perPageNum' value="${cri.perPageNum}"> <input
+			type='hidden' name='searchType' value="${cri.searchType}"> <input
+			type='hidden' name='keyword' value="${cri.keyword}">
 
 		<section class="content bgcolor-10">
 
-				
+			<input type="hidden" name="smno" value="${SurveyMainVO.smno}">
+			<input type="hidden" name="page" value="${param.page}"> <span
+				class="input input--shoko"> <input
+				class="input__field input__field--shoko" type="text"
+				value="설문조사 만들기" readonly="readonly" /> <label
+				class="input__label input__label--shoko" for="sm"> <span
+					class="input__label-content input__label-content--shoko"></span>
+			</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
+					viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
+						d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+				<path
+						d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0" />
+				</svg>
+			</span>
+
+
 
 			<p>
-				<span class="input input--shoko"> 
-				<input class="input__field input__field--shoko" type="text" id="smtitle"
-					name="smtitle" value="${SurveyMainVO.smtitle}"/> <label class="input__label input__label--shoko"
-					for="smtitle"> <span
+				<span class="input input--shoko"> <input
+					class="input__field input__field--shoko" type="text"
+					value="${SurveyMainVO.smtitle }" onfocus="this.value=''"
+					id="smtitle" name="smtitle" /> <label
+					class="input__label input__label--shoko" for="smtitle"> <span
 						class="input__label-content input__label-content--shoko">제목</span>
 				</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
 						viewBox="0 0 1200 60" preserveAspectRatio="none"> <path
@@ -235,8 +251,9 @@ h1 {
 
 			<p>
 				<span class="input input--shoko"> <input
-					class="input__field input__field--shoko" type="text" id="smcontent"
-					name="smcontent" value="${SurveyMainVO.smcontent}"  /> <label
+					class="input__field input__field--shoko" type="text"
+					value="${SurveyMainVO.smcontent }" onfocus="this.value=''"
+					id="smcontent" name="smcontent" /> <label
 					class="input__label input__label--shoko" for="smcontent"> <span
 						class="input__label-content input__label-content--shoko">내용</span>
 				</label> <svg class="graphic graphic--shoko" width="300%" height="100%"
@@ -268,12 +285,14 @@ h1 {
 			<h3 class="DropImage">메인화면 사진을 올려주세요</h3>
 			<div class="uploadedList"></div>
 		</div>
-		
+
 		<div class="box-footer">
-		<button type="submit" class="lBtn" id="saveBtn" style="margin-left: 16px">저장</button>
-		<button type="submit" class="rBtn" id="cancelBtn" style="margin-left: 10px">취소</button>
+			<button type="submit" class="lBtn" id="saveBtn"
+				style="margin-left: 16px">저장</button>
+			<button type="submit" class="rBtn" id="cancelBtn"
+				style="margin-left: 10px">취소</button>
 		</div>
-</form>
+	</form>
 </div>
 
 
@@ -337,7 +356,7 @@ h1 {
 
 <script>
 	$(document).ready(function() {
-		
+
 		var uploadedList = $(".uploadedList");
 		$(".fileDrop").on("dragenter dragover", function(event) {
 			event.preventDefault();
@@ -399,78 +418,71 @@ h1 {
 			}
 		}
 	})();
+</script>
 
+<script>
+	$(document)
+			.ready(
+					function() {
+						var formObj = $("form[role='form']");
+						console.log(formObj);
 
+						$("#saveBtn")
+								.on(
+										"click",
+										function() {
+											self.location = "/surveyMain/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
+													+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
+											formObj.submit();
+										});
 
-	<script src="https://code.jquery.com/jquery-2.2.4.js"
-		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-		crossorigin="anonymous"></script>
+						var uploadedList = $(".uploadedList");
 
-	<script>
-		$(document)
-				.ready(
-						function() {
-							var formObj = $("form[role='form']");
-							console.log(formObj);
+						$(".fileDrop").on("dragenter dragover",
+								function(event) {
+									event.preventDefault();
+								});
+						$(".fileDrop")
+								.on(
+										"drop",
+										function(event) {
+											event.preventDefault();
+											var files = event.originalEvent.dataTransfer.files;
+											var file = files[0];
+											var formData = new FormData();
+											$('.uploadedList').empty();
+											formData.append("file", file);
+											console.log(formData);
+											$
+													.ajax({
+														url : "uploadFile",
+														data : formData,
+														dataType : 'text',
+														type : "post",
+														contentType : false,
+														processData : false,
+														success : function(data) {
+															console.log(data);
+															uploadedList
+																	.html("<img src=show?name="
+																			+ data
+																			+ ">");
+															$("#smimage").val(
+																	data);
+														}
+													});
+										});
 
-							$("#saveBtn")
-									.on(
-											"click",
-											function() {
-												self.location = "/surveyMain/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
-														+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
-												formObj.submit();
-											});
+						$("#cancelBtn").on(
+								"click",
+								function() {
+									formObj.attr("action",
+											"listPage?page=${cri.page}");
+									formObj.attr("method", "get");
+									formObj.submit();
+								});
 
-							var uploadedList = $(".uploadedList");
-
-							$(".fileDrop").on("dragenter dragover",
-									function(event) {
-										event.preventDefault();
-									});
-							$(".fileDrop")
-									.on(
-											"drop",
-											function(event) {
-												event.preventDefault();
-												var files = event.originalEvent.dataTransfer.files;
-												var file = files[0];
-												var formData = new FormData();
-												$('.uploadedList').empty();
-												formData.append("file", file);
-												console.log(formData);
-												$.ajax({
-															url : "uploadFile",
-															data : formData,
-															dataType : 'text',
-															type : "post",
-															contentType : false,
-															processData : false,
-															success : function(
-																	data) {
-																console
-																		.log(data);
-																uploadedList
-																		.html("<img src=show?name="
-																				+ data
-																				+ ">");
-																$("#smimage")
-																		.val(
-																				data);
-															}
-														});
-											});
-
-							$("#cancelBtn").on(
-									"click",
-									function() {
-										formObj.attr("action",
-												"listPage?page=${cri.page}");
-										formObj.attr("method", "get");
-										formObj.submit();
-									});
-
-						});
-	</script>
+					});
+</script>
 
 <%@ include file="/resources/include/main.jsp"%>
