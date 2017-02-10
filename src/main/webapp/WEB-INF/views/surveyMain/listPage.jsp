@@ -20,15 +20,29 @@ background: #c3dcdd;
 .inner-post{
 font-size: 23px;
 font-family: sans-serif, dotum,gulim, arial, helvetica;
-font-weight: bold;
+
 color: black;
 background-color: #c3dcdd;
 text-align: center;
+
 }
 
 .inner-post ul li{
 padding: 10px;
 border-bottom: 2px solid white;
+}
+
+
+.ellipsis{
+ overflow: hidden;
+ text-overflow: ellipsis;
+ display: -webkit-box;
+ -webkit-line-clamp: 1; /* 라인수 */
+ -webkit-box-orient: vertical;
+
+ word-wrap:break-word; 
+ line-height: 1.2em;
+ height: 1.8em;
 } 
 
 .comment-form{
@@ -136,9 +150,9 @@ background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-
 							href='/surveyView/readMain?smno=${SurveyMainVO.smno}&page=${param.page}&searchType=${param.searchType}&keyword=${param.keyword}&qnum=${param.qnum}&sdno=${param.sdno}'>
 								<img  src="show?name=${SurveyMainVO.smimage}">
 						</a></li>
-						<li>${SurveyMainVO.smtitle}</li>
-						<li style="font-size: 15px">${SurveyMainVO.smcontent}</li>
-						<li style="font-size: 15px">${SurveyMainVO.smwriter}</li>
+						<li class="ellipsis" style="font-weight: bold;">${SurveyMainVO.smtitle}</li>
+						<li class="ellipsis" style="font-size: 15px">${SurveyMainVO.smcontent}</li>
+						<li class="ellipsis" style="font-size: 15px">${SurveyMainVO.smwriter}</li>
 					</ul>
 
 				</div>
