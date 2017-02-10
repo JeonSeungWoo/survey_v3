@@ -11,11 +11,10 @@
 <body>
 
 
-	<form action="/answer/oxStatistics/" method="get">
-		<input type="hidden" name="smno" value="${list[0].smno}"> <input
-			type="hidden" name="page" value="${param.page}">
+	<form action="/answer/oxStatistics/" method="get"> 
+		<input type="hidden" name="page" value="${param.page}">
 
-		<h1>통계 페이지</h1>
+	<h1>통계 페이지</h1>
 <%-- 		<h1>${list[0].smno}</h1> --%>
 <%-- 		<h1>${list[0].sdno}</h1> --%>
 
@@ -30,22 +29,18 @@
 					<li>${answerList.smno}</li>
 					<li>${answerList.sdno}</li>
 					<li>${answerList.sdcontent}</li>
-					
-					
-					  <li>${answerList.answer} </li>
-					  <li>${answerList.count} </li>
-					
-					
-					
-					  <li>                     ${answerList.answer}</li>
-					  <li>                    ${answerList.count}</li>
-					
-				 
-				  </ul>
+					<li>${answerList.answer} </li>
+					<li>${answerList.count} </li>
+				
+				</ul>
+				
+				   <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 				</div> 
 			</c:forEach>
 			
 		</div>
+	<div id ="statisticsList"/></div>
+	
 
 	</form>
 
@@ -57,14 +52,11 @@
 
 	<script>
 
-	
-	
-	
 	</script>
 
 
 
-	<!-- 
+	
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
     
@@ -88,7 +80,7 @@
         chart.draw(data, options);
       }
     </script>
- -->
+
 
 
 </body>
