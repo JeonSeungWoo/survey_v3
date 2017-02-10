@@ -21,28 +21,49 @@
 
 
 		<div class="answerList">
-			<c:forEach items="${answerList}" var="answerList">
-				
-				<div style="color:black; border:1em	;  border-style: solid; margin: 1em;">
-				  <ul class="page">
 
-					<li>${answerList.smno}</li>
-					<li>${answerList.sdno}</li>
-					<li>${answerList.sdcontent}</li>
-					<li>${answerList.answer} </li>
-					<li>${answerList.count} </li>
-				
-				</ul>
-				
-				   <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-				</div> 
-			</c:forEach>
 			
 		</div>
-	<div id ="statisticsList"/></div>
+	
+	
+	<c:forEach var="an" items="${answerList}" varStatus="status">
+	
+	  <c:set var="current" value ="${an.sdno} : ${an.sdcontent} "></c:set>
+	  
+	  <ul>
+	    
+	    <c:if test="${current != text}">
+	    <li>${an.sdcontent}</li>
+	    </c:if> 
+	    
+	    
+	    <li>${status.index}</li>
+	  	<li>${an.sdno}</li>
+	  	
+	  	<li>${an.answer}</li>
+	  	<li>${an.count}</li>
+	  </ul>
+	  
+	  <c:set var="text" value ="${an.sdno} : ${an.sdcontent} "></c:set>
+	   
+	</c:forEach>
+	
+	
 	
 
 	</form>
+	
+	<div id='graphDiv'>
+	  
+	  
+	  <h1>${list.size() }</h1>
+	 
+	  <c:forEach varStatus="st" items="${list}">
+	  	
+	    <div id='g${st.index}'></div>
+	  </c:forEach>
+	</div>
+
 
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
@@ -51,6 +72,11 @@
 
 
 	<script>
+	
+	
+	
+	
+	
 
 	</script>
 
@@ -61,24 +87,97 @@
     <script type="text/javascript">
     
     
+    function getData(){
+    	
+    	$.getJSON("/answer/oxStatisticsAjax" ,{smno:11}, function(result){
+    		
+    		console.log("---------------------------------");
+    		console.log(result);
+    		console.log("---------------------------------");
+    		
+    		var str = "";
+    		
+    		for(var i = 0; i < result.length; i++){
+    			
+    			
+    			result[i]['target'] ='g'+i;
+    			
+    			str += "<div id='g"+i+"'></div>";
+    			
+    		}
+    		
+    		$("#graphDiv").append(str);
+    		
+    		
+    		drawGraph(result);
+    	})
+    	
+    }
     
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['O',  11],
-          ['X',  7]
-        ]);
+    getData();
+    
+    
+    
+    function drawGraph(resultArr){
+    	
+    	//console.log("====================================");
+    	//console.log(resultArr);
+    	
+    	var that = this;
+    	
+    	for (var i = 0; i < resultArr.length; i++){
+    		
+    		
+    		
+    		//console.log('drawGraph' + resultArr[i]);
+    		console.log(resultArr[i]);
+    		
+    		//google.charts.load("current", {packages:["corechart"]});
+    	    //google.charts.setOnLoadCallback(drawChart);
+    	    
+    	    (function(targetData){
+    	    	
+    	    	google.charts.load("current", {packages:["corechart"]});
+        	    google.charts.setOnLoadCallback(drawChart);
+    	    	
+        	    //console.log("-----------------------");
+        	    //console.log(targetData);
+        	    //console.log("-----------------------");
+        	    
+        	    
+    	    	function drawChart() {
+        	        var data = google.visualization.arrayToDataTable([
+        	          ['Task', 'Hours per Day'],
+        	          ['O',  targetData.oresult],
+        	          ['X',  targetData.xresult]
+        	        ]);
 
-        var options = {
-          title: 'My Daily Activities',
-          is3D: true,
-        };
+    	    	    var options = {
+    	    	          title: 'My Daily Activities',
+    	    	          is3D: true,
+    	    	        };
+    				
+    	    	    console.log("CHART==================");
+    	    	    console.log(targetData.target);
+    	    	    
+    	    	    
+    	    	    var chart = new google.visualization.PieChart(document.getElementById(targetData.target) );
+    	    	    
+    	    	    
+    	    	    chart.draw(data, options);
+        	    }   	    
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
+    	    	
+    	    })(resultArr[i]);
+    	    
+    	        		
+    	}
+    	
+    }
+    
+    //drawGraph(['aaa','bbb','ccc']);
+    
+
     </script>
 
 

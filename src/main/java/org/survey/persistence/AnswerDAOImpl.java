@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-import org.survey.domain.AnswerStat;
+import org.survey.domain.AnswerStat2;
 import org.survey.domain.OXAnswerVO;
 import org.survey.domain.SurveyDetailVO;
 
@@ -48,8 +48,9 @@ public class AnswerDAOImpl implements AnswerDAO {
 
 
 	@Override
-	public List<AnswerStat> oxStatistics(Integer smno) throws Exception {
+	public List<AnswerStat2> oxStatistics(Integer smno) throws Exception {
 	
+		
 		
 		
 		return session.selectList(NAME + ".oxStatistics",smno);

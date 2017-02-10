@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.survey.domain.AnswerStat;
+import org.survey.domain.AnswerStat2;
 import org.survey.domain.OXAnswerVO;
 import org.survey.service.AnswerService;
 
@@ -75,8 +75,6 @@ public class AnswerController {
 		return entity;
 	}
 	
-	
-	//통계
 	@GetMapping("/oxStatistics")
 	public void oxStatistics(OXAnswerVO vo,Model model,
 			@RequestParam("smno")Integer smno)throws Exception{
@@ -85,13 +83,31 @@ public class AnswerController {
 		
 		logger.info("oxStatisticsSmno : " + smno);
 		
+		List<AnswerStat2> answerList = service.oxStatistics(smno);
 		
-		List<AnswerStat> answerList = service.oxStatistics(smno);
+		model.addAttribute("list",answerList);
+			
+	}
+	
+	//통계
+	@GetMapping("/oxStatisticsAjax")
+	@ResponseBody
+	public List<AnswerStat2> oxStatisticsAjax(OXAnswerVO vo,Model model,
+			@RequestParam("smno")Integer smno)throws Exception{
+		
+		logger.info("oxStatistics call.....!!!!");
+		
+		logger.info("oxStatisticsSmno : " + smno);
+		
+		
+		List<AnswerStat2> answerList = service.oxStatistics(smno);
 		
 		logger.info("TEST:" + answerList);
 		
 
-		model.addAttribute("answerList", answerList);
+		//model.addAttribute("answerList", answerList);
+		
+		return answerList;
 		
 //		                                 
 //		model.addAttribute("list",service.listAll(smno));
