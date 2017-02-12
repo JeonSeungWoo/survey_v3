@@ -6,9 +6,7 @@
 <%@ include file="/resources/include/menu.jsp"%>
 
 <style>
-html{
-background: linear-gradient(#689976, #ACDACC);
-}
+
 
 
 .fileDrop {
@@ -63,6 +61,7 @@ border-bottom: 1px solid;
    font-size: 25px;
    font-style: inherit;
    background-color: #EFFBFB;
+   margin: 3%;
 }
 
 
@@ -130,6 +129,12 @@ border-bottom: 1px solid;
    right: 5px
 }
 
+#f1{
+width: 250%;
+left: -15%;
+position: relative;
+}
+
 </style>
 
 
@@ -182,10 +187,10 @@ border-bottom: 1px solid;
          <ul>
             <input type='hidden' name='attachFile' class='hiddenfile'>
             <li><input type="text" name="sdno" class="sdno"
-               hidden=""></li>
+               hidden="" ></li>
             <li>제목 <input type="text" name="sdtitle" class="sdtitle" style="width: 90%;"></li>
             <li>내용 <input type="text" name="sdcontent" class="sdcontent" style="width: 90%;"></li>
-            <li>타입 <select name="sdtype">
+            <li>타입 <select name="sdtype" class="sdtype">
                      <option value="null">==선택하세요==</option>
                      <option value="OX">OX</option>
                      <option value="objective">객관식</option>

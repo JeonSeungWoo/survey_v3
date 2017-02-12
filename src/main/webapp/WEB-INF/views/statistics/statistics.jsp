@@ -1,97 +1,185 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="/resources/include/menu.jsp"%>
+
+
 <style>
-.section {
-			border: 4px solid #fff;
-			margin: 100px;
-			padding: 10px 20px;
-			overflow: hidden;
-			width: 310px;
 
-			  background-image: -moz-linear-gradient(top, #f6f2ec, #e2dbce); /* FF3.6 */
-			  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f6f2ec),color-stop(1, #e2dbce)); /* Saf4+, Chrome */
-			            filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#f6f2ec', EndColorStr='#e2dbce'); /* IE6,IE7 */
-			        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#f6f2ec', EndColorStr='#e2dbce')"; /* IE8 */
-		
-			     -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.35), 0 85px 180px 0 #fff, 0 12px 8px -5px rgba(0, 0, 0, 0.85); /* FF3.5+ */
-			  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.35), 0 85px 810px -68px #fff, 0 12px 8px -5px rgba(0, 0, 0, 0.65); /* Saf3.0+, Chrome */
-			          box-shadow: 0 0 2px rgba(0, 0, 0, 0.35), 0 85px 180px 0 #fff, 0 12px 8px -5px rgba(0, 0, 0, 0.85); /* Opera 10.5, IE 9.0 */
+	* { 
+		margin: 0; 
+		padding: 0; 
+	}
+	body { 
+		font: 14px/1.4 Georgia, Serif; 
+	}
+	#page-wrap {
+		margin: 50px;
+	}
+	p {
+		margin: 20px 0; 
+	}
 
-		}	
-		.reveal {
-			     -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.35), 0 85px 180px 0 #f90, 0 12px 8px -5px rgba(0, 0, 0, 0.85); /* FF3.5+ */
-			  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.35), 0 85px 810px -68px #f90, 0 12px 8px -5px rgba(0, 0, 0, 0.65); /* Saf3.0+, Chrome */
-			          box-shadow: 0 0 2px rgba(0, 0, 0, 0.35), 0 85px 180px 0 #f90, 0 12px 8px -5px rgba(0, 0, 0, 0.85); /* Opera 10.5, IE 9.0 */			
+		/* 
+		Generic Styling, for Desktops/Laptops 
+		*/
+		table { 
+			width: 95%;
+			position:relative;
+			left: 2%; 
+			border-collapse: collapse; 
 		}
+		/* Zebra striping */
+		tr:nth-of-type(odd) { 
+			background: #eee; 
+		}
+		th { 
+			background: #333; 
+			color: white; 
+			font-weight: bold; 
+		}
+		td, th { 
+			padding: 6px; 
+			border: 1px solid #ccc; 
+			text-align: left; 
+		}
+	
+	@media 
+	only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px)  {
+	
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr { 
+			display: block; 
+		}
+		
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr { 
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+		
+		tr { border: 1px solid #ccc; }
+		
+		td { 
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee; 
+			position: relative;
+			padding-left: 50%; 
+		}
+		
+		td:before { 
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 6px;
+			left: 6px;
+			width: 45%; 
+			padding-right: 10px; 
+			white-space: nowrap;
+		}
+		
+		/*
+		Label the data
+		*/
+		td:nth-of-type(1):before { content: "First Name"; }
+		td:nth-of-type(2):before { content: "Last Name"; }
+		td:nth-of-type(3):before { content: "Job Title"; }
+		td:nth-of-type(4):before { content: "Favorite Color"; }
+		td:nth-of-type(5):before { content: "Wars of Trek?"; }
+		td:nth-of-type(6):before { content: "Porn Name"; }
+		td:nth-of-type(7):before { content: "Date of Birth"; }
+		td:nth-of-type(8):before { content: "Dream Vacation City"; }
+		td:nth-of-type(9):before { content: "GPA"; }
+		td:nth-of-type(10):before { content: "Arbitrary Data"; }
+	}
+	
+	/* Smartphones (portrait and landscape) ----------- */
+	@media only screen
+	and (min-device-width : 320px)
+	and (max-device-width : 480px) {
+		body { 
+			padding: 0; 
+			margin: 0; 
+			width: 320px; }
+		}
+	
+	/* iPads (portrait and landscape) ----------- */
+	@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+		body { 
+			width: 495px; 
+		}
+	}
 </style>
 
-<body>
 
-A1.<br><table width="800" height="500" border="1" cellpadding="0" cellspacing="0">
+
+
+<table class="namietable" width="800" height="500" border="1" cellpadding="0" cellspacing="0">
+<caption><h1>ì´ë™í‰ê· (MA)</h1></caption>
+	<tr>
+		<th scope="col" class="date">êµ¬ë¶„ í•­ëª©</th>
+		<th scope="col" class="place">2ê°œì›”</th>
+		<th scope="col" class="place">4ê°œì›”</th>
+		<th scope="col" class="place">6ê°œì›”</th>
+		<th scope="col" class="place">12ê°œì›”</th>
+		
+	</tr>
+
+
+
 <tr>
-<td width="150">±¸ºĞ Ç×¸ñ</td>
-<td width="150">2°³¿ù</td>
-<td width="150">4°³¿ù</td>
-<td width="150">6°³¿ù</td>
-<td width="150">12°³¿ù</td>
-</tr>
-<tr>
-<td>A. È°µ¿</td>
-<td><input type='text' id='A4_1' size=4 value ="0"></td>
+<td>1ì›”</td>
+<td class="t1"><input type='text' id='A4_1' size=4 value ="0"></td>
 <td><input type='text' id='A3_1' size=4 value ="0"></td>
 <td><input type='text' id='A2_1' size=4 value ="0"></td>
 <td><input type='text' id='A1_1' size=4 value ="0"></td>
 </tr>
 <tr>
-<td>B. È°µ¿</td>
+<td>2ì›”</td>
 <td><input type='text' id='A4_2' size=4></td>
 <td><input type='text' id='A3_2' size=4></td>
 <td><input type='text' id='A2_2' size=4></td>
 <td><input type='text' id='A1_2' size=4></td>
 </tr>
 <tr>
-<td>C. È°µ¿</td>
+<td>3ì›”</td>
 <td><input type='text' id='A4_3' size=4></td>
 <td><input type='text' id='A3_3' size=4></td>
 <td><input type='text' id='A2_3' size=4></td>
 <td><input type='text' id='A1_3' size=4></td>
 </tr>
 <tr>
-<td>D. È°µ¿</td>
+<td>4ì›”</td>
 <td><input type='text' id='A4_4' size=4></td>
 <td><input type='text' id='A3_4' size=4></td>
 <td><input type='text' id='A2_4' size=4></td>
 <td><input type='text' id='A1_4' size=4></td>
 </tr>
 <tr>
-<td>E. È°µ¿</td>
+<td>5ì›”</td>
 <td><input type='text' id='A4_5' size=4></td>
 <td><input type='text' id='A3_5' size=4></td>
 <td><input type='text' id='A2_5' size=4></td>
 <td><input type='text' id='A1_5' size=4></td>
 </tr>
 <tr>
-<td>F. È°µ¿</td>
+<td>6ì›”</td>
 <td><input type='text' id='A4_6' size=4></td>
 <td><input type='text' id='A3_6' size=4></td>
 <td><input type='text' id='A2_6' size=4></td>
 <td><input type='text' id='A1_6' size=4></td>
 </tr>
 <tr>
-<td>G. È°µ¿</td>
+<td>7ì›”</td>
 <td><input type='text' id='A4_7' size=4></td>
 <td><input type='text' id='A3_7' size=4></td>
 <td><input type='text' id='A2_7' size=4></td>
 <td><input type='text' id='A1_7' size=4></td>
 </tr>
 <tr>
-<td>H. È°µ¿</td>
+<td>8ì›”</td>
 <td><input type='text' id='A4_8' size=4></td>
 <td><input type='text' id='A3_8' size=4></td>
 <td><input type='text' id='A2_8' size=4></td>
@@ -99,7 +187,7 @@ A1.<br><table width="800" height="500" border="1" cellpadding="0" cellspacing="0
 </tr>
 
 <tr>
-<td>I. È°µ¿</td>
+<td>9ì›”</td>
 <td><input type='text' id='A4_9' size=4></td>
 <td><input type='text' id='A3_9' size=4></td>
 <td><input type='text' id='A2_9' size=4></td>
@@ -107,7 +195,7 @@ A1.<br><table width="800" height="500" border="1" cellpadding="0" cellspacing="0
 </tr>
 
 <tr>
-<td>J. È°µ¿</td>
+<td>10ì›”</td>
 <td><input type='text' id='A4_10' size=4></td>
 <td><input type='text' id='A3_10' size=4></td>
 <td><input type='text' id='A2_10' size=4></td>
@@ -115,7 +203,7 @@ A1.<br><table width="800" height="500" border="1" cellpadding="0" cellspacing="0
 </tr>
 
 <tr>
-<td>K. È°µ¿</td>
+<td>11ì›”</td>
 <td><input type='text' id='A4_11' size=4></td>
 <td><input type='text' id='A3_11' size=4></td>
 <td><input type='text' id='A2_11' size=4></td>
@@ -124,7 +212,7 @@ A1.<br><table width="800" height="500" border="1" cellpadding="0" cellspacing="0
 
 
 <tr>
-<td>L. È°µ¿</td>
+<td>12ì›”</td>
 <td><input type='text' id='A4_12' size=4></td>
 <td><input type='text' id='A3_12' size=4></td>
 <td><input type='text' id='A2_12' size=4></td>
@@ -132,7 +220,8 @@ A1.<br><table width="800" height="500" border="1" cellpadding="0" cellspacing="0
 </tr>
 
 </table>
-<div id="curve_chart" style="width: 900px; height: 500px"></div>
+</div>
+<div id="curve_chart" style="width: 1200px; height: 700px"></div>
 
 
 
@@ -145,10 +234,10 @@ A1.<br><table width="800" height="500" border="1" cellpadding="0" cellspacing="0
 google.load('visualization', '1', {packages: ['corechart']});
 </script>
 <script type="text/javascript">
-//¸¶¿ì½º ¿À¸¥ ÂÊ ±İÁö
+//ë§ˆìš°ìŠ¤ ì˜¤ë¥¸ ìª½ ê¸ˆì§€
 document.oncontextmenu = function() { return false; }
-//»õ·Î°íÄ§ ¹æÁö
-// Ctrl+R, Ctrl+N, F5 Å° ¸·À½
+//ìƒˆë¡œê³ ì¹¨ ë°©ì§€
+// Ctrl+R, Ctrl+N, F5 í‚¤ ë§‰ìŒ
 function doNotReload(){
 if( (event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode == 116)) // function F5 //78 ,82 ctrl+N , ctrl+R
 {
@@ -162,18 +251,18 @@ function drawVisualization() {
 // Create and populate the data table.
  var data = google.visualization.arrayToDataTable([
 ['Year', 'one','two','three','four'],
-['A. È°µ¿', 1 , 1,1,1],
-['B. È°µ¿', 1, 1,1,1 ],
-['C. È°µ¿', 1, 1,1,1 ],
-['D. È°µ¿', 1, 1,1,1 ],
-['E. È°µ¿', 1, 1,1,1 ],
-['F. È°µ¿', 1, 1,1,1 ],
-['G. È°µ¿', 1, 1,1,1 ],
-['H. È°µ¿', 1, 1,1,1 ],
-['I. È°µ¿', 1, 1,1,1 ],
-['J. È°µ¿', 1, 1,1,1 ],
-['K. È°µ¿', 1, 1,1,1 ],
-['L. È°µ¿', 1, 1,1,1 ]
+['A. í™œë™', 1 , 1,1,1],
+['B. í™œë™', 1, 1,1,1 ],
+['C. í™œë™', 1, 1,1,1 ],
+['D. í™œë™', 1, 1,1,1 ],
+['E. í™œë™', 1, 1,1,1 ],
+['F. í™œë™', 1, 1,1,1 ],
+['G. í™œë™', 1, 1,1,1 ],
+['H. í™œë™', 1, 1,1,1 ],
+['I. í™œë™', 1, 1,1,1 ],
+['J. í™œë™', 1, 1,1,1 ],
+['K. í™œë™', 1, 1,1,1 ],
+['L. í™œë™', 1, 1,1,1 ]
 ]);
 // Create and draw the visualization.
 var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
@@ -341,73 +430,73 @@ buttonThree11.onkeyup = handlerNum;
 buttonThree12.onkeyup = handlerNum;
 
 function handlerNum1( obj ) {
-//¼ıÀÚ¸¸ ÀÔ·Â ¹Ş°Ô²û ÇÏ´Â ÇÔ¼ö.
-e = window.event; //À©µµ¿ìÀÇ event¸¦ Àâ´Â°ÍÀÔ´Ï´Ù.
-//ÀÔ·Â Çã¿ë Å°
-if( ( e.keyCode >= 48 && e.keyCode <= 57 ) || //¼ıÀÚ¿­ 0 ~ 9 : 48 ~ 57
-( e.keyCode >= 96 && e.keyCode <= 105 ) || //Å°ÆĞµå 0 ~ 9 : 96 ~ 105
+//ìˆ«ìë§Œ ì…ë ¥ ë°›ê²Œë” í•˜ëŠ” í•¨ìˆ˜.
+e = window.event; //ìœˆë„ìš°ì˜ eventë¥¼ ì¡ëŠ”ê²ƒì…ë‹ˆë‹¤.
+//ì…ë ¥ í—ˆìš© í‚¤
+if( ( e.keyCode >= 48 && e.keyCode <= 57 ) || //ìˆ«ìì—´ 0 ~ 9 : 48 ~ 57
+( e.keyCode >= 96 && e.keyCode <= 105 ) || //í‚¤íŒ¨ë“œ 0 ~ 9 : 96 ~ 105
 e.keyCode == 8 || //BackSpace
 e.keyCode == 46 || //Delete
-//e.keyCode == 110 || //¼Ò¼öÁ¡(.) : ¹®ÀÚÅ°¹è¿­
-//e.keyCode == 190 || //¼Ò¼öÁ¡(.) : Å°ÆĞµå
-e.keyCode == 37 || //ÁÂ È­»ìÇ¥
-e.keyCode == 39 || //¿ì È­»ìÇ¥
-e.keyCode == 35 || //End Å°
-e.keyCode == 36 || //Home Å°
-e.keyCode == 9 //Tab Å°
+//e.keyCode == 110 || //ì†Œìˆ˜ì (.) : ë¬¸ìí‚¤ë°°ì—´
+//e.keyCode == 190 || //ì†Œìˆ˜ì (.) : í‚¤íŒ¨ë“œ
+e.keyCode == 37 || //ì¢Œ í™”ì‚´í‘œ
+e.keyCode == 39 || //ìš° í™”ì‚´í‘œ
+e.keyCode == 35 || //End í‚¤
+e.keyCode == 36 || //Home í‚¤
+e.keyCode == 9 //Tab í‚¤
 ) {
-if(e.keyCode == 48 || e.keyCode == 96) { //0À» ´­·¶À»°æ¿ì
-if ( obj.value == "" || obj.value == '0' ) //¾Æ¹«°Íµµ ¾ø°Å³ª ÇöÀç °ªÀÌ 0ÀÏ °æ¿ì¿¡¼­ 0À» ´­·¶À»°æ¿ì
-e.returnValue=false; //-->ÀÔ·ÂµÇÁö¾Ê´Â´Ù.
-else //´Ù¸¥¼ıÀÚµÚ¿¡¿À´Â 0Àº
-return; //-->ÀÔ·Â½ÃÅ²´Ù.
+if(e.keyCode == 48 || e.keyCode == 96) { //0ì„ ëˆŒë €ì„ê²½ìš°
+if ( obj.value == "" || obj.value == '0' ) //ì•„ë¬´ê²ƒë„ ì—†ê±°ë‚˜ í˜„ì¬ ê°’ì´ 0ì¼ ê²½ìš°ì—ì„œ 0ì„ ëˆŒë €ì„ê²½ìš°
+e.returnValue=false; //-->ì…ë ¥ë˜ì§€ì•ŠëŠ”ë‹¤.
+else //ë‹¤ë¥¸ìˆ«ìë’¤ì—ì˜¤ëŠ” 0ì€
+return; //-->ì…ë ¥ì‹œí‚¨ë‹¤.
 }
-else //0ÀÌ ¾Æ´Ñ¼ıÀÚ
-return; //-->ÀÔ·Â½ÃÅ²´Ù.
+else //0ì´ ì•„ë‹Œìˆ«ì
+return; //-->ì…ë ¥ì‹œí‚¨ë‹¤.
 }
-else //¼ıÀÚ°¡ ¾Æ´Ï¸é ³ÖÀ»¼ö ¾ø´Ù.
+else //ìˆ«ìê°€ ì•„ë‹ˆë©´ ë„£ì„ìˆ˜ ì—†ë‹¤.
 {
-//alert('¼ıÀÚ¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù');
+//alert('ìˆ«ìë§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤');
 e.returnValue=false;
 }
 }
 function handlerNum( obj ) {
-//¼ıÀÚ¸¸ ÀÔ·Â ¹Ş°Ô²û ÇÏ´Â ÇÔ¼ö.
-e = window.event; //À©µµ¿ìÀÇ event¸¦ Àâ´Â°ÍÀÔ´Ï´Ù.
-//ÀÔ·Â Çã¿ë Å°
-if( ( e.keyCode >= 48 && e.keyCode <= 57 ) || //¼ıÀÚ¿­ 0 ~ 9 : 48 ~ 57
-( e.keyCode >= 96 && e.keyCode <= 105 ) || //Å°ÆĞµå 0 ~ 9 : 96 ~ 105
+//ìˆ«ìë§Œ ì…ë ¥ ë°›ê²Œë” í•˜ëŠ” í•¨ìˆ˜.
+e = window.event; //ìœˆë„ìš°ì˜ eventë¥¼ ì¡ëŠ”ê²ƒì…ë‹ˆë‹¤.
+//ì…ë ¥ í—ˆìš© í‚¤
+if( ( e.keyCode >= 48 && e.keyCode <= 57 ) || //ìˆ«ìì—´ 0 ~ 9 : 48 ~ 57
+( e.keyCode >= 96 && e.keyCode <= 105 ) || //í‚¤íŒ¨ë“œ 0 ~ 9 : 96 ~ 105
 e.keyCode == 8 || //BackSpace
 e.keyCode == 46 || //Delete
-//e.keyCode == 110 || //¼Ò¼öÁ¡(.) : ¹®ÀÚÅ°¹è¿­
-//e.keyCode == 190 || //¼Ò¼öÁ¡(.) : Å°ÆĞµå
-e.keyCode == 37 || //ÁÂ È­»ìÇ¥
-e.keyCode == 39 || //¿ì È­»ìÇ¥
-e.keyCode == 35 || //End Å°
-e.keyCode == 36 || //Home Å°
-e.keyCode == 9 //Tab Å°
+//e.keyCode == 110 || //ì†Œìˆ˜ì (.) : ë¬¸ìí‚¤ë°°ì—´
+//e.keyCode == 190 || //ì†Œìˆ˜ì (.) : í‚¤íŒ¨ë“œ
+e.keyCode == 37 || //ì¢Œ í™”ì‚´í‘œ
+e.keyCode == 39 || //ìš° í™”ì‚´í‘œ
+e.keyCode == 35 || //End í‚¤
+e.keyCode == 36 || //Home í‚¤
+e.keyCode == 9 //Tab í‚¤
 ) {
 var data3 = google.visualization.arrayToDataTable([
-['±¸ºĞ Ç×¸ñ', '12°³¿ù','6°³¿ù','4°³¿ù','2°³¿ù'],
-['1´Ş', eval(document.getElementById('A1_1').value), eval(document.getElementById('A2_1').value),eval(document.getElementById('A3_1').value),eval(document.getElementById('A4_1').value)],
-['2´Ş', eval(document.getElementById('A1_2').value), eval(document.getElementById('A2_2').value), eval(document.getElementById('A3_2').value), eval(document.getElementById('A4_2').value)],
-['3´Ş', eval(document.getElementById('A1_3').value), eval(document.getElementById('A2_3').value), eval(document.getElementById('A3_3').value), eval(document.getElementById('A4_3').value)],
-['4´Ş', eval(document.getElementById('A1_4').value), eval(document.getElementById('A2_4').value), eval(document.getElementById('A3_4').value), eval(document.getElementById('A4_4').value)],
-['5´Ş', eval(document.getElementById('A1_5').value), eval(document.getElementById('A2_5').value), eval(document.getElementById('A3_5').value), eval(document.getElementById('A4_5').value)],
-['6´Ş', eval(document.getElementById('A1_6').value), eval(document.getElementById('A2_6').value), eval(document.getElementById('A3_6').value), eval(document.getElementById('A4_6').value)],
-['7´Ş', eval(document.getElementById('A1_7').value), eval(document.getElementById('A2_7').value), eval(document.getElementById('A3_7').value), eval(document.getElementById('A4_7').value)],
-['8´Ş', eval(document.getElementById('A1_8').value), eval(document.getElementById('A2_8').value), eval(document.getElementById('A3_8').value), eval(document.getElementById('A4_8').value)],
-['9´Ş', eval(document.getElementById('A1_9').value), eval(document.getElementById('A2_9').value), eval(document.getElementById('A3_9').value), eval(document.getElementById('A4_9').value)],
-['10´Ş', eval(document.getElementById('A1_10').value), eval(document.getElementById('A2_10').value), eval(document.getElementById('A3_10').value), eval(document.getElementById('A4_10').value)],
-['11´Ş', eval(document.getElementById('A1_11').value), eval(document.getElementById('A2_11').value), eval(document.getElementById('A3_11').value), eval(document.getElementById('A4_11').value)],
-['12´Ş', eval(document.getElementById('A1_12').value), eval(document.getElementById('A2_12').value), eval(document.getElementById('A3_12').value), eval(document.getElementById('A4_12').value)]
+['êµ¬ë¶„ í•­ëª©', '12ê°œì›”','6ê°œì›”','4ê°œì›”','2ê°œì›”'],
+['1ì›”', eval(document.getElementById('A1_1').value), eval(document.getElementById('A2_1').value),eval(document.getElementById('A3_1').value),eval(document.getElementById('A4_1').value)],
+['2ì›”', eval(document.getElementById('A1_2').value), eval(document.getElementById('A2_2').value), eval(document.getElementById('A3_2').value), eval(document.getElementById('A4_2').value)],
+['3ì›”', eval(document.getElementById('A1_3').value), eval(document.getElementById('A2_3').value), eval(document.getElementById('A3_3').value), eval(document.getElementById('A4_3').value)],
+['4ì›”', eval(document.getElementById('A1_4').value), eval(document.getElementById('A2_4').value), eval(document.getElementById('A3_4').value), eval(document.getElementById('A4_4').value)],
+['5ì›”', eval(document.getElementById('A1_5').value), eval(document.getElementById('A2_5').value), eval(document.getElementById('A3_5').value), eval(document.getElementById('A4_5').value)],
+['6ì›”', eval(document.getElementById('A1_6').value), eval(document.getElementById('A2_6').value), eval(document.getElementById('A3_6').value), eval(document.getElementById('A4_6').value)],
+['7ì›”', eval(document.getElementById('A1_7').value), eval(document.getElementById('A2_7').value), eval(document.getElementById('A3_7').value), eval(document.getElementById('A4_7').value)],
+['8ì›”', eval(document.getElementById('A1_8').value), eval(document.getElementById('A2_8').value), eval(document.getElementById('A3_8').value), eval(document.getElementById('A4_8').value)],
+['9ì›”', eval(document.getElementById('A1_9').value), eval(document.getElementById('A2_9').value), eval(document.getElementById('A3_9').value), eval(document.getElementById('A4_9').value)],
+['10ì›”', eval(document.getElementById('A1_10').value), eval(document.getElementById('A2_10').value), eval(document.getElementById('A3_10').value), eval(document.getElementById('A4_10').value)],
+['11ì›”', eval(document.getElementById('A1_11').value), eval(document.getElementById('A2_11').value), eval(document.getElementById('A3_11').value), eval(document.getElementById('A4_11').value)],
+['12ì›”', eval(document.getElementById('A1_12').value), eval(document.getElementById('A2_12').value), eval(document.getElementById('A3_12').value), eval(document.getElementById('A4_12').value)]
 ]);  
 drawChart(data3);
-return; //-->ÀÔ·Â½ÃÅ²´Ù.
+return; //-->ì…ë ¥ì‹œí‚¨ë‹¤.
 }
-else //¼ıÀÚ°¡ ¾Æ´Ï¸é ³ÖÀ»¼ö ¾ø´Ù.
+else //ìˆ«ìê°€ ì•„ë‹ˆë©´ ë„£ì„ìˆ˜ ì—†ë‹¤.
 {
-alert('¼ıÀÚ¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù');
+alert('ìˆ«ìë§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤');
 e.returnValue=false;
 }
 }
@@ -415,5 +504,4 @@ e.returnValue=false;
 google.setOnLoadCallback(drawVisualization);
 </script>
 
-</body>
-</html>
+<%@ include file="/resources/include/main.jsp"%>

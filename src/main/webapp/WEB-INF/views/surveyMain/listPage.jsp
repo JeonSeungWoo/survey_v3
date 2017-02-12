@@ -67,14 +67,14 @@ padding: 6px;
 }
 
 .blog-page{
-background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+background: background-color: white;
 }
 
-html { background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+html { background-color: white;}
 
 .text-center{
 
-background: url(/resources/images/3.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+background-color: white;
 }
 
 .page a{
