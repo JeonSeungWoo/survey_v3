@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.survey.domain.SurveyDetailVO;
 import org.survey.service.SurveyDetailService;
+import org.survey.util.UploadFileUtils;
 
 @Controller
 @RequestMapping("/surveyDetail")
@@ -31,6 +33,10 @@ public class SurveyDetailController {
 	
 	@Inject
 	private SurveyDetailService service;
+	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
+	
 	
 	private String uploadFile(String originalName, byte[]fileData)throws Exception{
 		
@@ -48,7 +54,7 @@ public class SurveyDetailController {
 	
 	
 	@PostMapping("")
-	public String register(SurveyDetailVO vo, MultipartFile sdAttach, Model model)throws Exception{
+	public ResponseEntity<String> register(SurveyDetailVO vo, MultipartFile sdAttach, Model model)throws Exception{
 		
 		ResponseEntity<String> entity = null;
 		
@@ -87,7 +93,11 @@ public class SurveyDetailController {
 			model.addAttribute("result", "FAIL");
 		}
 		
-		return "uploadResult";
+		return new ResponseEntity<>(
+				UploadFileUtils.uploadFile(uploadPath,
+						sdAttach.getOriginalFilename(), 
+						sdAttach.getBytes()),
+				HttpStatus.CREATED);
 	}
 	
 /*	@PostMapping("")
