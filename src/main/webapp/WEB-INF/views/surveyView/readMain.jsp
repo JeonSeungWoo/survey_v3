@@ -52,6 +52,10 @@ html {
 	float: right;
 }
 
+#aTag{
+margin-right: 18%;
+}
+
 #aTag:HOVER {
 	background: #b9c9fe;
 	background-size: cover;
@@ -70,7 +74,7 @@ html {
 #rounded-corner {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 30px;
-	margin: 45px;
+	margin-left: 14%;
 	width: 550x;
 	text-align: left;
 	border-collapse: collapse;
@@ -159,7 +163,7 @@ html {
 			<tfoot>
 				<tr>
 					<td colspan="1" class="rounded-foot-left"><em><fmt:formatDate
-								value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm:ss" /></em></td>
+								value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm" /></em></td>
 					<td class="rounded-foot-right"></td>
 				</tr>
 			</tfoot>
@@ -170,13 +174,13 @@ html {
 				<tr>
 					<td colspan="2">${SurveyMainVO.smcontent }</td>
 				</tr>
-
+ 
 			</tbody>
 		</table>
 
 
 
-		<img id="imgread" style="margin-left: 14%;"
+		<img id="imgread" style="margin-left: 22%;"
 			src="show?name=${SurveyMainVO.smimage}">
 
 

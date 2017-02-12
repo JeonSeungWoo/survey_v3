@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
+import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -89,28 +90,6 @@ public class SurveyDetailController {
 		
 		return "uploadResult";
 	}
-	
-/*	@PostMapping("")
-	public ResponseEntity<String> register(SurveyDetailVO vo){
-		
-		ResponseEntity<String> entity = null;
-		
-		try {
-			
-			//service.create(vo);
-			//entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-			logger.info("vo : " + vo);
-			//logger.info("entity :" +entity);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-			
-			logger.info("entity :" +entity);
-		}
-		
-		return entity;
-	}*/
 	
 	@GetMapping("/all/{smno}")
 	public ResponseEntity<List<SurveyDetailVO>>list(
