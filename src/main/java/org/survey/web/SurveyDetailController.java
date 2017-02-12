@@ -4,9 +4,9 @@ import java.io.File;
 import java.util.List;
 import java.util.UUID;
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
 
+import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.survey.domain.SurveyDetailVO;
 import org.survey.service.SurveyDetailService;
-import org.survey.util.UploadFileUtils;
 
 @Controller
 @RequestMapping("/surveyDetail")
@@ -33,10 +32,6 @@ public class SurveyDetailController {
 	
 	@Inject
 	private SurveyDetailService service;
-	
-	@Resource(name = "uploadPath")
-	private String uploadPath;
-	
 	
 	private String uploadFile(String originalName, byte[]fileData)throws Exception{
 		
@@ -54,7 +49,7 @@ public class SurveyDetailController {
 	
 	
 	@PostMapping("")
-	public ResponseEntity<String> register(SurveyDetailVO vo, MultipartFile sdAttach, Model model)throws Exception{
+	public String register(SurveyDetailVO vo, MultipartFile sdAttach, Model model)throws Exception{
 		
 		ResponseEntity<String> entity = null;
 		
@@ -93,34 +88,8 @@ public class SurveyDetailController {
 			model.addAttribute("result", "FAIL");
 		}
 		
-		return new ResponseEntity<>(
-				UploadFileUtils.uploadFile(uploadPath,
-						sdAttach.getOriginalFilename(), 
-						sdAttach.getBytes()),
-				HttpStatus.CREATED);
+		return "uploadResult";
 	}
-	
-/*	@PostMapping("")
-	public ResponseEntity<String> register(SurveyDetailVO vo){
-		
-		ResponseEntity<String> entity = null;
-		
-		try {
-			
-			//service.create(vo);
-			//entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-			logger.info("vo : " + vo);
-			//logger.info("entity :" +entity);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-			
-			logger.info("entity :" +entity);
-		}
-		
-		return entity;
-	}*/
 	
 	@GetMapping("/all/{smno}")
 	public ResponseEntity<List<SurveyDetailVO>>list(
