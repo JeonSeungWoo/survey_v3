@@ -229,14 +229,5 @@ public class SurveyMainController {
 
 		return "success";
 	}
-	
-	@RequestMapping(value = "/testoption", method = RequestMethod.GET)
-	public void test()throws Exception{
-		logger.info("test Call............................");
-		logger.info("test Call............................");
-		logger.info("test Call............................");
-		logger.info("test Call............................");
-		
-	}
 
 }

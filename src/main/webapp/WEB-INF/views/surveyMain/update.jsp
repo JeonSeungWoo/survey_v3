@@ -207,15 +207,18 @@ h1 {
 <div id="all">
 	<form role="form" class="post" action="update" method="post"
 		enctype="multipart/form-data" id="f1">
-		<input type="hidden" name="smno" value="${param.page}"> <input
-			type='hidden' name='perPageNum' value="${cri.perPageNum}"> <input
-			type='hidden' name='searchType' value="${cri.searchType}"> <input
-			type='hidden' name='keyword' value="${cri.keyword}">
+		<input type="hidden" id="smno" name="smno" value="${param.smno}">
+		<input type='hidden' id="perPageNum" name='perPageNum'
+			value="${cri.perPageNum}"> <input type='hidden'
+			id="serachType" name='searchType' value="${cri.searchType}">
+		<input type='hidden' id="keyword" name='keyword'
+			value="${cri.keyword}">
 
 		<section class="content bgcolor-10">
 
-			<input type="hidden" name="smno" value="${SurveyMainVO.smno}">
-			<input type="hidden" name="page" value="${param.page}"> <span
+			<input type="hidden" id="smno" name="smno"
+				value="${SurveyMainVO.smno}"> <input type="hidden" id="page"
+				name="page" value="${param.page}"> <span
 				class="input input--shoko"> <input
 				class="input__field input__field--shoko" type="text"
 				value="설문조사 만들기" readonly="readonly" /> <label
@@ -426,7 +429,6 @@ h1 {
 					function() {
 						var formObj = $("form[role='form']");
 						console.log(formObj);
-
 						$("#saveBtn")
 								.on(
 										"click",
@@ -435,9 +437,7 @@ h1 {
 													+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
 											formObj.submit();
 										});
-
 						var uploadedList = $(".uploadedList");
-
 						$(".fileDrop").on("dragenter dragover",
 								function(event) {
 									event.preventDefault();
@@ -472,16 +472,15 @@ h1 {
 														}
 													});
 										});
-
 						$("#cancelBtn").on(
 								"click",
 								function() {
 									formObj.attr("action",
 											"listPage?page=${cri.page}");
+
 									formObj.attr("method", "get");
 									formObj.submit();
 								});
-
 					});
 </script>
 
