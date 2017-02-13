@@ -5,6 +5,14 @@
 
 <!doctype html>
 
+<style>
+img{
+width: 58.7%;
+height:58.7%;
+}
+
+</style>
+
 
 <html lang="en" class="no-js">
 

@@ -4,6 +4,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 
+<style>
+img{
+width: 58.7%;
+height:58.7%;
+}
+
+</style>
+
+
 
 <html lang="en" class="no-js">
 <head>
