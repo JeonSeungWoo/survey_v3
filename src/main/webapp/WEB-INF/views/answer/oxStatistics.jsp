@@ -68,15 +68,19 @@
 	<div id='graphDiv'>
 
 
-		<h1>${list.size() }</h1>
+		
 
 		<c:forEach varStatus="st" items="${list}" var="list">
 		
-		<h1>${list.sdtitle}</h1>	
-		<h1>${list.sdcontent}</h1>		
+		<div class="listMain">
+		<ul>
+		<li>${list.sdtitle}</li>	
+		<li>${list.sdcontent}</li>		
+		</ul>
+		</div>	 
 		
-			 
-			<div id='g${st.index}'></div>
+		
+			<div id='g${st.index}' class="listDetail"></div>
 		</c:forEach>
 		
 	</div>
