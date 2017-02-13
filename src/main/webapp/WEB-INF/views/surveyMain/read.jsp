@@ -7,6 +7,10 @@
 
 <style>
 
+#image{
+width: 200px;
+height: 200px;
+}
 
 
 .fileDrop {
@@ -62,6 +66,8 @@ border-bottom: 1px solid;
    font-style: inherit;
    background-color: #EFFBFB;
    margin: 3%;
+   left: 40%;
+	position: relative;
 }
 
 
@@ -86,7 +92,8 @@ border-bottom: 1px solid;
 }
 
 .surAddBtn {
-   text-align: center;
+   left: 70%;
+   position: relative;
 }
 
 #surveyDetailAddIDval {
@@ -130,8 +137,18 @@ border-bottom: 1px solid;
 }
 
 #f1{
-width: 250%;
+width: 200%;
 left: -15%;
+position: relative;
+}
+
+#modifyBtn{
+left: 75%;
+position: relative;
+}
+
+.box-footer{
+left: 145%;
 position: relative;
 }
 
@@ -168,9 +185,9 @@ position: relative;
       </div>
    </form>
 
-   <div class="box-footer">
+   
       <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-   </div>
+
 
 
 
@@ -318,7 +335,7 @@ position: relative;
                                     var link = "";
 
                                     if (attachFile) {
-                                       link = "<img data-file='"
+                                       link = "<img id='image' data-file='"
                                              + attachFile
                                              + "'"
                                              + " src='/upload/displayFile?fileName="
