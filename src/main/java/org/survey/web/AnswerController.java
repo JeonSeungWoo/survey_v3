@@ -86,7 +86,11 @@ public class AnswerController {
 		List<AnswerStat2> answerList = service.oxStatistics(smno);
 		
 		model.addAttribute("list",answerList);
-			
+		
+		
+		logger.info("list:" + answerList);
+		model.addAttribute("All",service.listAll(smno));
+		
 	}
 	
 	//통계

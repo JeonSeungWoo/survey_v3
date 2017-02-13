@@ -50,7 +50,6 @@
 					<li>${an.sdcontent}</li>
 				</c:if>
 
-
 				<li>${status.index}</li>
 				<li>${an.sdno}</li>
 
@@ -71,15 +70,20 @@
 
 		<h1>${list.size() }</h1>
 
-		<c:forEach varStatus="st" items="${list}">
-
+		<c:forEach varStatus="st" items="${list}" var="list">
+		
+	
+		<h1>${list.sdcontent}</h1>		
+		
+			
 			<div id='g${st.index}'></div>
 		</c:forEach>
+		
 	</div>
 
 	<div>
 		<input type="submit" id="rBtn" class="comment-form"
-			 value="목록으로">
+			 value="설문페이지">
 	</div>
 
 
@@ -102,9 +106,7 @@
 	<script type="text/javascript">
 		function getData() {
 
-			$.getJSON("/answer/oxStatisticsAjax", {
-				smno : 11
-			}, function(result) {
+			$.getJSON("/answer/oxStatisticsAjax", {smno : ${list[0].smno}}, function(result) {
 
 				console.log("---------------------------------");
 				console.log(result);

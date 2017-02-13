@@ -16,9 +16,9 @@ delete from tbl_oxanswer where sdno = #{sdno} and userid = #{userid}
 </delete>
 
 <select id="oxStatistics" resultType="AnswerStat2">
-select s1.sdno, s1.smno, min(sdcontent)sdcontent ,  sum(if(STRCMP(answer,'O'),0,1)) oresult , sum(if(STRCMP(answer,'X'),0,1)) xresult
+select s1.sdno, s1.smno,min(sdtitle)sdtitle, min(sdcontent)sdcontent ,  sum(if(STRCMP(answer,'O'),0,1)) oresult , sum(if(STRCMP(answer,'X'),0,1)) xresult
 from 
-  (select smno, sdno, sdcontent from tbl_surveydetail where smno = #{smno} ) s1,
+  (select smno, sdno,sdtitle, sdcontent from tbl_surveydetail where smno = #{smno} ) s1,
   (select smno, sdno, answer from tbl_oxanswer where smno = #{smno} ) s2
 where s1.sdno = s2.sdno 
 and s1.smno = s2.smno  
