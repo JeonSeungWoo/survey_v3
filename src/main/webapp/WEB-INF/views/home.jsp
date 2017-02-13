@@ -59,7 +59,7 @@ height:58.7%;
 			
 			<div class="menu-box">
 				<ul class="menu">
-					<li><a class="active" href="/surveyMain/listPage?page=1"><span>설문조사 리스트</span></a></li>
+					<li><a  href="/surveyMain/listPage?page=1"><span>설문조사 리스트</span></a></li>
 					<li><a href="/surveyMain/register"><span>설문조사 만들기</span></a></li>
 					
 					<li class="drop"><a href="#"><span>내 페이지</span></a>
