@@ -174,7 +174,7 @@ public class SurveyMainController {
 
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/surveyMain/listPage";
+		return "redirect:/surveyMain/SUCCESS?page=1";
 	}
 
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST, produces="text/plain; charset=UTF-8")

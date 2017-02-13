@@ -290,7 +290,7 @@ h1 {
 		</div>
 
 		<div class="box-footer">
-			<button type="submit" class="lBtn" id="saveBtn"
+			<button type="submit" class="lBtn" id="saveBtn" onclick="validate_user_text();"
 				style="margin-left: 16px">저장</button>
 			<button type="submit" class="rBtn" id="cancelBtn"
 				style="margin-left: 10px">취소</button>
@@ -314,7 +314,18 @@ h1 {
 	}
 	function validate_user_text() {
 		reset_alert_count();
-		var compare_text = document.getElementById("smtitle").value;
+		var compare_title = document.getElementById("smtitle").value;
+		for (var i = 0; i < swear_words_arr.length; i++) {
+			for (var j = 0; j < (compare_title.length); j++) {
+				if (swear_words_arr[i] == compare_title.substring(j,
+						(j + swear_words_arr[i].length)).toLowerCase()) {
+					swear_alert_arr[swear_alert_count] = compare_title
+							.substring(j, (j + swear_words_arr[i].length));
+					swear_alert_count++;
+				}
+			}
+		}
+		var compare_text = document.getElementById("smcontent").value;
 		for (var i = 0; i < swear_words_arr.length; i++) {
 			for (var j = 0; j < (compare_text.length); j++) {
 				if (swear_words_arr[i] == compare_text.substring(j,
@@ -325,6 +336,7 @@ h1 {
 				}
 			}
 		}
+		
 		var alert_text = "";
 		for (var k = 1; k <= swear_alert_count; k++) {
 			alert_text += "n" + "(" + k + ")" + swear_alert_arr[k - 1];
@@ -352,6 +364,9 @@ h1 {
 	}
 	function select_area() {
 		document.getElementById("smtitle").select();
+	}
+	function select_area1() {
+		document.getElementById("smcontent").select();
 	}
 	window.onload = reset_alert_count;
 </script>
@@ -476,7 +491,7 @@ h1 {
 								"click",
 								function() {
 									formObj.attr("action",
-											"listPage?page=${cri.page}");
+											"/surveyMain/read?smno=${param.smno}");
 
 									formObj.attr("method", "get");
 									formObj.submit();
