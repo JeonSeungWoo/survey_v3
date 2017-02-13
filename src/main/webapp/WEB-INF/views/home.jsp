@@ -4,6 +4,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 
+<style>
+img{
+width: 58.7%;
+height:58.7%;
+}
+
+</style>
+
+
 
 <html lang="en" class="no-js">
 <head>
@@ -65,7 +74,7 @@
 							<li><a href="#"><span>내가 등록한 설문조사</span></a></li>
 						</ul>
 					</li>
-					<li><a href="contact.html"><span>통계</span></a></li>
+					<li><a href="/statistics/statistics"><span>통계</span></a></li>
 				</ul>				
 			</div>
 

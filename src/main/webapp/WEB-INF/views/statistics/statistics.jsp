@@ -111,6 +111,11 @@
 			width: 495px; 
 		}
 	}
+	
+#curve_chart{
+width:100%;
+height: 500px;
+}	
 </style>
 
 
@@ -221,7 +226,7 @@
 
 </table>
 </div>
-<div id="curve_chart" style="width: 1200px; height: 700px"></div>
+<div id="curve_chart"></div>
 
 
 

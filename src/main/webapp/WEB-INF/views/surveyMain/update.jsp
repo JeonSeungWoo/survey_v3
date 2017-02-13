@@ -237,7 +237,7 @@ h1 {
 			<p>
 				<span class="input input--shoko"> <input
 					class="input__field input__field--shoko" type="text"
-					value="${SurveyMainVO.smtitle }" onfocus="this.value=''"
+					value="${SurveyMainVO.smtitle }" 
 					id="smtitle" name="smtitle" /> <label
 					class="input__label input__label--shoko" for="smtitle"> <span
 						class="input__label-content input__label-content--shoko">제목</span>
@@ -255,7 +255,7 @@ h1 {
 			<p>
 				<span class="input input--shoko"> <input
 					class="input__field input__field--shoko" type="text"
-					value="${SurveyMainVO.smcontent }" onfocus="this.value=''"
+					value="${SurveyMainVO.smcontent }" 
 					id="smcontent" name="smcontent" /> <label
 					class="input__label input__label--shoko" for="smcontent"> <span
 						class="input__label-content input__label-content--shoko">내용</span>
