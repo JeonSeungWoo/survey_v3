@@ -6,10 +6,19 @@ public class AnswerStat {
 	private int sdno;
 	private int smno;
 	private String sdcontent;
+	private String sdtitle;
 	private String answer;
 	private int count;
 	
 	
+	
+	
+	public String getSdtitle() {
+		return sdtitle;
+	}
+	public void setSdtitle(String sdtitle) {
+		this.sdtitle = sdtitle;
+	}
 	public int getSdno() {
 		return sdno;
 	}
@@ -40,12 +49,17 @@ public class AnswerStat {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
 	@Override
 	public String toString() {
-		return "AnswerStat [sdno=" + sdno + ", smno=" + smno + ", sdcontent=" + sdcontent + ", answer=" + answer
-				+ ", count=" + count + "]";
+		return "AnswerStat [sdno=" + sdno + ", smno=" + smno + ", sdcontent=" + sdcontent + ", sdtitle=" + sdtitle
+				+ ", answer=" + answer + ", count=" + count + ", getSdtitle()=" + getSdtitle() + ", getSdno()="
+				+ getSdno() + ", getSmno()=" + getSmno() + ", getSdcontent()=" + getSdcontent() + ", getAnswer()="
+				+ getAnswer() + ", getCount()=" + getCount() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
+	
+	
+	
 	
 
 	

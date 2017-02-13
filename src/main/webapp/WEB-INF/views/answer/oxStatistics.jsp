@@ -72,7 +72,7 @@
 
 		<c:forEach varStatus="st" items="${list}" var="list">
 		
-	
+		<h1>${list.sdtitle}</h1>	
 		<h1>${list.sdcontent}</h1>		
 		
 			

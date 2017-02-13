@@ -5,8 +5,20 @@ public class AnswerStat2 {
 	private int sdno;
 	private int smno;
 	private String sdcontent;
+	private String sdtitle;
 	private int oresult;
 	private int xresult;
+	
+	
+	
+	
+	
+	public String getSdtitle() {
+		return sdtitle;
+	}
+	public void setSdtitle(String sdtitle) {
+		this.sdtitle = sdtitle;
+	}
 	public int getSdno() {
 		return sdno;
 	}
@@ -37,12 +49,14 @@ public class AnswerStat2 {
 	public void setXresult(int xresult) {
 		this.xresult = xresult;
 	}
-	
 	@Override
 	public String toString() {
-		return "AnswerStat2 [sdno=" + sdno + ", smno=" + smno + ", sdcontent=" + sdcontent + ", oresult=" + oresult
-				+ ", xresult=" + xresult + "]";
+		return "AnswerStat2 [sdno=" + sdno + ", smno=" + smno + ", sdcontent=" + sdcontent + ", sdtitle=" + sdtitle
+				+ ", oresult=" + oresult + ", xresult=" + xresult + "]";
 	}
+	
+
+	
 	
 	
 }
