@@ -75,7 +75,7 @@
 		<h1>${list.sdtitle}</h1>	
 		<h1>${list.sdcontent}</h1>		
 		
-			
+			 
 			<div id='g${st.index}'></div>
 		</c:forEach>
 		
