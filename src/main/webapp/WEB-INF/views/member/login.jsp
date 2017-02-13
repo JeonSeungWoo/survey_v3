@@ -1,29 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@ include file="/resources/include/menu2.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ include file="/resources/include/menu.jsp"%>
 
 <style>
 html { background: url(/resources/images/login.gif) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
 
 
-
-
 #all{
 	
 	position: absolute;
-  	top:27%;
+  	margin-top: 14%;
   	left:80%;
- 	width:100px;
-  	height:100px;
-	display: table;
-  	margin:-50px 0 0 -50px;
-	margin-left: auto;
-	margin-right: auto;
-	width:500px;
-	padding:0.5rem;
-	
-	
+ 	
 }
 
 #join input{
@@ -38,10 +28,13 @@ border-radius: 10px;
 }
 
 .comment-form{
+
 padding:1.5px;
 }
 
-
+.text-fields{
+width:100%;
+}
 </style>
 
 
@@ -51,7 +44,7 @@ padding:1.5px;
 
 	<div class="text-fields">
 		<div class="float-input">
-			<input name="userid" id="name" type="text" placeholder="아이디">
+			<input name="userid" id="name" type="text" placeholder="아이디" style="width: 174px;">
 			<span><i class="fa fa-user"></i></span>
 		</div>
 		

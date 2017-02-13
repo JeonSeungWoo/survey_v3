@@ -6,10 +6,14 @@
 <%@ include file="/resources/include/menu.jsp"%>
 
 <style>
+html{
+background: url(/resources/images/ccc.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+}
 
 #image{
 width: 200px;
 height: 200px;
+border-radius: 10px;
 }
 
 
@@ -22,13 +26,14 @@ height: 200px;
 }
 
 #modDiv {
-   width: 100%;
-   height: 130%;
+   width: 50%;
+   height: 110%;
    background-color: #d0eced;
    position: relative;
    padding: 10px;
    z-index: 1000;
-   top: 50%;
+   top: -280%;
+   left: 45%;
    border-radius: 10px;
 }
 
@@ -66,8 +71,9 @@ border-bottom: 1px solid;
    font-style: inherit;
    background-color: #EFFBFB;
    margin: 3%;
-   left: 40%;
+   left: -9%;
 	position: relative;
+	width: 700px;
 }
 
 
@@ -77,7 +83,10 @@ border-bottom: 1px solid;
    font-size: 20px;
    font-style: inherit;
    background-color: #E0E6F8;
-   border-radius: 10px;   
+   border-radius: 10px;
+   left: 5%;
+   position: relative;
+   width: 500px;   
 }
 
 .divSdno ul li{
@@ -92,7 +101,7 @@ border-bottom: 1px solid;
 }
 
 .surAddBtn {
-   left: 70%;
+   left: 28%;
    position: relative;
 }
 
@@ -137,18 +146,18 @@ border-bottom: 1px solid;
 }
 
 #f1{
-width: 200%;
-left: -15%;
+width: 900px;
+left: -17%;
 position: relative;
 }
 
 #modifyBtn{
-left: 75%;
+left: 30%;
 position: relative;
 }
 
 .box-footer{
-left: 145%;
+left: 70%;
 position: relative;
 }
 
