@@ -71,7 +71,7 @@ margin-right: 18%;
 	background-color: white;
 }
 
-#rounded-corner {
+/* #rounded-corner {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 30px;
 	margin-left: 14%;
@@ -79,7 +79,7 @@ margin-right: 18%;
 	text-align: left;
 	border-collapse: collapse;
 	text-align: center;
-}
+} 
 
 #rounded-corner thead th.rounded-company {
 	background: #b9c9fe url('/resources/images/left.png') left -1px
@@ -119,9 +119,57 @@ margin-right: 18%;
 
 #rounded-corner tbody tr:hover td {
 	background: #d0dafd;
-}
-</style>
+} */
 
+
+
+
+
+
+
+
+.logo{
+
+}
+
+
+.logo a {
+  text-decoration: none;
+  -webkit-transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
+  -moz-transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
+  -ms-transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
+  -o-transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
+  transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 150px;
+  font-weight: 700;
+  font-family: 'Exo 2';
+  line-height: 0.8;
+  color: rgba(36,176,174,0.9);
+  text-shadow: 0 -1px 15px rgba(0, 0, 0, 0.9), 0 1px 0 #048e87, 0 3px 0 #10968f
+, 0 5px 0 #1ea09a, 0 7px 0 #48a8a3, 0 9px 0 #33a09b, 0 6px 50px rgba(142, 229, 225, 0.8);
+}
+.logo a:first-line {
+  font-size: 0.8em;
+}
+.logo a:hover {
+  -webkit-transform: perspective(8em) rotateX(11deg) scale(1.2);
+  -moz-transform: perspective(8em) rotateX(11deg) scale(1.2);
+  -ms-transform: perspective(8em) rotateX(11deg) scale(1.2);
+  -o-transform: perspective(8em) rotateX(11deg) scale(1.2);
+  transform: perspective(8em) rotateX(11deg) scale(1.2);
+  text-shadow: 0 -1px 15px black, 0 1px 0 #048e87, 0 2px 0 #10968f, 0 0px 0 #1ea09a, 0 1px 0 #48a8a3, 0 2px 0 #937203, 0 2px 30px rgba(142, 229, 225, 0.6);
+}
+
+
+
+
+</style>
 
 
 
@@ -151,32 +199,33 @@ margin-right: 18%;
 				<img id="imgread" src="show?name=${SurveyMainVO.smimage}">
 				</tr>
 		</div> --%>
+		
+		
+		
 
 		<table id="rounded-corner" summary="2007 Major IT Companies' Profit">
-			<thead>
-				<tr>
-					<th scope="col" class="rounded-company">글번호</th>
+			
+					<!-- <th scope="col" class="rounded-company">글번호</th> -->
 
-					<th scope="col" class="rounded-q4">${SurveyMainVO.smno }</th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td colspan="1" class="rounded-foot-left"><em><fmt:formatDate
-								value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm" /></em></td>
-					<td class="rounded-foot-right"></td>
-				</tr>
-			</tfoot>
-			<tbody>
-				<tr>
-					<td colspan="2">${SurveyMainVO.smtitle }</td>
-				</tr>
-				<tr>
-					<td colspan="2">${SurveyMainVO.smcontent }</td>
-				</tr>
+					<th scope="col" class="rounded-q4" hidden="">${SurveyMainVO.smno }</th>
+			
+			<div class="logo">
+				
+					<a href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1">${SurveyMainVO.smtitle }</a>
+				
+			</div>
+					<li>${SurveyMainVO.smcontent }</li>
+					<li colspan="1" class="rounded-foot-left"><em><fmt:formatDate
+								value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm" /></em></li>
+			
  
-			</tbody>
+			
 		</table>
+		
+  			
+		</div>
+		
+		
 
 
 
