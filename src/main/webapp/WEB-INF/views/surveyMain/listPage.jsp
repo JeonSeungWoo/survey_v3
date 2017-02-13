@@ -124,7 +124,7 @@ background-color: white;
       <input type="text" name='keyword' id="keywordInput" value='${cri.keyword }'>
          
          
-      <button id='searchBtn' class="comment-form" >검색</button>
+      <button id='searchBtn' class="comment-form" style="background-color: #70a3a5" >검색</button>
       
      
      
