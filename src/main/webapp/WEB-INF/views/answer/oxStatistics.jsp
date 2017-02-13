@@ -32,10 +32,6 @@
 		<input type="hidden" name="page" value="${param.page}">
 
 		<h1>통계 페이지</h1>
-		<%-- 		<h1>${list[0].smno}</h1> --%>
-		<%-- 		<h1>${list[0].sdno}</h1> --%>
-
-
 
 		<div class="answerList"></div>
 
