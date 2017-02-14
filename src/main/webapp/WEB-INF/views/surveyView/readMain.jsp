@@ -27,12 +27,9 @@ html {
 	font-family: sans-serif, dotum, gulim, arial, helvetica;
 	font-weight: bold;
 	color: #E8E8E8;
-	text-align: center;
+	
 }
 
-.statisticsAction ul li{
-float: right;
-}
 
 
 #aTag:HOVER {
@@ -41,17 +38,9 @@ float: right;
 	color: black;
 }
 
-#aTag:ACTIVE {
-	color: blue;
-	background-color: white;
-}
-
-#f1 {
-	background-color: white;
-}
 
 
-.logo a {
+.col-md-12 a {
   text-decoration: none;
   -webkit-transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
   -moz-transform: perspective(2.5em) rotateX(15deg) scaleY(0.8);
@@ -72,10 +61,10 @@ float: right;
   text-shadow: 0 -1px 15px rgba(0, 0, 0, 0.9), 0 1px 0 #048e87, 0 3px 0 #10968f
 , 0 5px 0 #1ea09a, 0 7px 0 #48a8a3, 0 9px 0 #33a09b, 0 6px 50px rgba(142, 229, 225, 0.8);
 }
-.logo a:first-line {
+.col-md-12 a:first-line {
   font-size: 0.8em;
 }
-.logo a:hover {
+.col-md-12 a:hover {
   -webkit-transform: perspective(8em) rotateX(11deg) scale(1.2);
   -moz-transform: perspective(8em) rotateX(11deg) scale(1.2);
   -ms-transform: perspective(8em) rotateX(11deg) scale(1.2);
@@ -93,46 +82,43 @@ font-size: x-large;
 </style>
 
 
-
-
 <form action="/surveyView/readMain" method="get" id="f1">
 
 	<input type="hidden" name="smno" value="${SurveyMainVO.smno}">
 	<input type="hidden" name="page" value="${param.page}"> <input
-		type="hidden" name="qnum" id='qnum' value="${param.qnum}">
+		type="hidden" name="qnum" id='qnum' value="${param.qnum}">	
 
 
 
-	<div class="allPage">
 
-		<table id="rounded-corner" summary="2007 Major IT Companies' Profit">
-			
-					
-
-					<th scope="col" class="rounded-q4" hidden="">${SurveyMainVO.smno }</th>
-			
-			<div class="logo">
+			<div class="rounded-q4" hidden="">${SurveyMainVO.smno }</div>
+			<div class="low">
+			<div class="col-md-12">
 				
 					<a href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1">${SurveyMainVO.smtitle }</a>
-				
 			</div>
-			<div class="post-info">
-				<ul>
-					<li>${SurveyMainVO.smcontent }</li>
-					<li colspan="1" class="rounded-foot-left"><em><fmt:formatDate
-								value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm" /></em></li>
-				</ul>
 			</div>
- 
 			
-		</table>
-		
-  			
-		</div>
+			<div class="low">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="post-info">
+					<ul>
+						<li>${SurveyMainVO.smcontent }</li>
+						<li colspan="1" class="rounded-foot-left"><em><fmt:formatDate
+								value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm" /></em></li>
+					</ul>
+					</div>
+ 				</div>
+ 			</div>
+			
+			<div class="low">
+				
+				<img class="col-md-8 col-md-offset-4" id="imgread" src="show?name=${SurveyMainVO.smimage}">
+				
+			</div>	
 
-					
-		<img id="imgread" src="show?name=${SurveyMainVO.smimage}" class="col-md-14 col-md-offset-5">
-
+		<div class="low">
+		<div class="col-md-4 col-md-offset-8">
 		
 		<div class="statisticsAction">
 			<ul>
@@ -146,6 +132,8 @@ font-size: x-large;
 				시작</button></li>
 			
 			</ul>
+		</div>
+		</div>
 		</div>
 
 
