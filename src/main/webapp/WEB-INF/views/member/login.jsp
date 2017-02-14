@@ -43,7 +43,7 @@ width:100%;
 
 	<div class="text-fields">
 		<div class="float-input">
-			<input name="userid" id="name" type="text" placeholder="아이디" style="width: 174px;">
+			<input name="userid" id="name" type="text" placeholder="아이디" style="width: 62%;">
 			<span><i class="fa fa-user"></i></span>
 		</div>
 		
