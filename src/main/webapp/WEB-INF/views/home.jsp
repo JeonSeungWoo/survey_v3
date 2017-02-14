@@ -107,7 +107,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>고귀한</h2>
 									<span>1. 고귀한 페이지 입니다.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="https://www.google.com/trends"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -118,7 +118,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>고귀한</h2>
 									<span>2. 아주 고귀하죠</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="https://www.jobkorea.co.kr/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -129,7 +129,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>고귀한</h2>
 									<span>3. 고기한개</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="http://kostat.go.kr"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -140,7 +140,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>고귀한</h2>
 									<span>4. 참 귀한 사람입니다.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="https://www.jobplanet.co.kr/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -151,7 +151,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>고귀한</h2>
 									<span>5. 최고 연장자 입니다.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="https://ko.wikipedia.org/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -162,7 +162,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>이승찬</h2>
 									<span>1. 본인은 30이라 우기지만</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="https://www.google.com/intl/ko_kr/forms/about/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -173,7 +173,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>이승찬</h2>
 									<span>2. 87년생. 2017년 기준 31살 입니다.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="http://office.naver.com/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -184,7 +184,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>이승찬</h2>
 									<span>3. 이승은 일본식 표현. 이제곱이 맞습니다.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="https://ko.surveymonkey.com"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -195,7 +195,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>이승찬</h2>
 									<span>4. 이제 이제곱찬이라 부르기로 하죠.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="https://www.nownsurvey.com/‎"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -206,7 +206,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>이승찬</h2>
 									<span>5. 저승보다 이승이 훨씬 훌륭합니다.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="https://dart.fss.or.kr/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -217,7 +217,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>전승우</h2>
 									<span>1. 전 승우예요.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="https://www.krx.co.kr/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -228,7 +228,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>전승우</h2>
 									<span>2. 다시한번 말하지만 승은 일본식 표현. 제곱이 맞습니다.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="http://finance.naver.com/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -239,7 +239,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>전승우</h2>
 									<span>3. 전제곱우</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="http://finance.daum.net/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -250,7 +250,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>전승우</h2>
 									<span>4. 롤 실력을 보면 이름값 합니다.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="http://finance.yahoo.com/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -261,7 +261,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>전승우</h2>
 									<span>5. 하는 족족 이기죠. 역시 전승을 하는 전승우 입니다.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="https://www.work.go.kr/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
