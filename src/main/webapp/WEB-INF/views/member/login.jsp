@@ -48,7 +48,7 @@ width:100%;
 		</div>
 		
 		<div class="float-input">
-			<input name="userpw" id="mail" type="password" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;비밀번호" style="height:58px;">
+			<input name="userpw" id="mail" type="password" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;비밀번호" style="height:58px; border: 1px solid white;">
 			<span><i class="fa fa-envelope-o"></i></span>
 		</div>
 		

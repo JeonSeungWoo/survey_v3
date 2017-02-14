@@ -17,6 +17,7 @@ html {
 	border-radius: 50px;
 	background: url(/resources/images/no-image.jpg);
 	background-size: cover;
+	
 }
 
 .box-main {
@@ -34,7 +35,7 @@ html {
 	font-family: sans-serif, dotum, gulim, arial, helvetica;
 	font-weight: bold;
 	color: #E8E8E8;
-	text-align: center;
+	
 }
 
 .box-main ul li {
@@ -49,7 +50,7 @@ html {
 }
 
 .box-footer {
-	float: right;
+	float: left;
 }
 
 #aTag{
@@ -69,67 +70,6 @@ margin-right: 18%;
 
 #f1 {
 	background-color: white;
-}
-
-/* #rounded-corner {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 30px;
-	margin-left: 14%;
-	width: 550x;
-	text-align: left;
-	border-collapse: collapse;
-	text-align: center;
-} 
-
-#rounded-corner thead th.rounded-company {
-	background: #b9c9fe url('/resources/images/left.png') left -1px
-		no-repeat;
-}
-
-#rounded-corner thead th.rounded-q4 {
-	background: #b9c9fe url('/resources/images/right.png') right -1px
-		no-repeat;
-}
-
-#rounded-corner th {
-	padding: 8px;
-	font-weight: normal;
-	font-size: 30px;
-	color: #039;
-	background: #b9c9fe;
-	text-align: center;
-}
-
-#rounded-corner td {
-	padding: 8px;
-	background: #e8edff;
-	border-top: 1px solid #fff;
-	color: #669;
-}
-
-#rounded-corner tfoot td.rounded-foot-left {
-	background: #e8edff url('/resources/images/botleft.png') left bottom
-		no-repeat;
-}
-
-#rounded-corner tfoot td.rounded-foot-right {
-	background: #e8edff url('/resources/images/botright.png') right bottom
-		no-repeat;
-}
-
-#rounded-corner tbody tr:hover td {
-	background: #d0dafd;
-} */
-
-
-
-
-
-
-
-
-.logo{
-
 }
 
 
@@ -166,7 +106,10 @@ margin-right: 18%;
   text-shadow: 0 -1px 15px black, 0 1px 0 #048e87, 0 2px 0 #10968f, 0 0px 0 #1ea09a, 0 1px 0 #48a8a3, 0 2px 0 #937203, 0 2px 30px rgba(142, 229, 225, 0.6);
 }
 
-
+.post-info{
+text-align: center;
+font-size: x-large;
+}
 
 
 </style>
@@ -184,28 +127,9 @@ margin-right: 18%;
 
 	<div class="allPage">
 
-
-		<%-- <div class="box-main">
-			<tr>
-				<td>글번호 : ${SurveyMainVO.smno }</td>
-				<td>${SurveyMainVO.smtitle }</td>
-				<td>${SurveyMainVO.smcontent }</td> 설문시작일자 :
-				<td>
-			<fmt:formatDate value="${SurveyMainVO.smregdate}"
-					pattern="yyyy-MM-dd HH:mm:ss" />
-				</td>
-
-
-				<img id="imgread" src="show?name=${SurveyMainVO.smimage}">
-				</tr>
-		</div> --%>
-		
-		
-		
-
 		<table id="rounded-corner" summary="2007 Major IT Companies' Profit">
 			
-					<!-- <th scope="col" class="rounded-company">글번호</th> -->
+					
 
 					<th scope="col" class="rounded-q4" hidden="">${SurveyMainVO.smno }</th>
 			
@@ -214,23 +138,22 @@ margin-right: 18%;
 					<a href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1">${SurveyMainVO.smtitle }</a>
 				
 			</div>
+			<div class="post-info">
+				<ul>
 					<li>${SurveyMainVO.smcontent }</li>
 					<li colspan="1" class="rounded-foot-left"><em><fmt:formatDate
 								value="${SurveyMainVO.smregdate}" pattern="yyyy-MM-dd HH:mm" /></em></li>
-			
+				</ul>
+			</div>
  
 			
 		</table>
 		
   			
 		</div>
-		
-		
 
-
-
-		<img id="imgread" style="margin-left: 22%;"
-			src="show?name=${SurveyMainVO.smimage}">
+					
+		<img id="imgread" src="show?name=${SurveyMainVO.smimage}" class="col-md-14 col-md-offset-4">
 
 
 		<div class="statisticsAction">
