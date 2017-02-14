@@ -8,11 +8,8 @@ public class BoardVO {
 	private String btitle;
 	private String bcontent;
 	private String bwriter;
-	private Date bstarttime;
-	private Date bendtime;
-	private Integer bhit;
-	
-	
+	private Date bregdate;
+	private Date bupdatedate;
 	public Integer getBno() {
 		return bno;
 	}
@@ -37,29 +34,26 @@ public class BoardVO {
 	public void setBwriter(String bwriter) {
 		this.bwriter = bwriter;
 	}
-	public Date getBstarttime() {
-		return bstarttime;
+	public Date getBregdate() {
+		return bregdate;
 	}
-	public void setBstarttime(Date bstarttime) {
-		this.bstarttime = bstarttime;
+	public void setBregdate(Date bregdate) {
+		this.bregdate = bregdate;
 	}
-	public Date getBendtime() {
-		return bendtime;
+	public Date getBupdatedate() {
+		return bupdatedate;
 	}
-	public void setBendtime(Date bendtime) {
-		this.bendtime = bendtime;
+	public void setBupdatedate(Date bupdatedate) {
+		this.bupdatedate = bupdatedate;
 	}
-	public Integer getBhit() {
-		return bhit;
-	}
-	public void setBhit(Integer bhit) {
-		this.bhit = bhit;
-	}
-	
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", btitle=" + btitle + ", bcontent=" + bcontent + ", bwriter=" + bwriter
-				+ ", bstarttime=" + bstarttime + ", bendtime=" + bendtime + ", bhit=" + bhit + "]";
+				+ ", bregdate=" + bregdate + ", bupdatedate=" + bupdatedate + "]";
 	}
+	
+	
+	
+	
 	
 }
