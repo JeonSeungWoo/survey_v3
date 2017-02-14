@@ -16,7 +16,7 @@ height:58.7%;
 
 <html lang="en" class="no-js">
 <head>
-	<title>Kappe</title>
+	<title>유통기한 코딩단</title>
 
 	<meta charset="utf-8">
 
