@@ -272,7 +272,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>최원빈</h2>
 									<span>1. 이름이 원빈이예요.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="/menu/BMI"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -283,7 +283,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>최원빈</h2>
 									<span>2. 이름이 잘생겼어요.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="/menu/lotto"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -294,7 +294,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>최원빈</h2>
 									<span>3. 어머니가 강가라 합하면 최강원빈이죠.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="/menu/Quiz"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -305,7 +305,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>최원빈</h2>
 									<span>4. 콩한쪽. 콩한쪽도 나눠먹자.</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="/menu/image"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -316,7 +316,7 @@ height:58.7%;
 								<div class="project-title">
 									<h2>최원빈</h2>
 									<span>5. 언젠간 투빈이 되길</span>
-									<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+									<div><a href="/menu/iwatch"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
