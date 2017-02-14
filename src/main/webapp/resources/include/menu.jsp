@@ -5,19 +5,6 @@
 
 <!doctype html>
 
-<style>
-img{
-width: 58.7%;
-height:58.7%;
-}
-
-
-
-
-</style>
-
-
-
 <html lang="en" class="no-js">
 
 <head>
@@ -49,7 +36,8 @@ height:58.7%;
 		    ================================================== -->
 		<header>
 			<div class="logo-box">
-				<a class="logo" href="/"><img alt="" src="/images/patient.png"></a>
+				<a class="logo" href="/"><img alt="" src="/images/patient.png" style="width: 58.7%;
+height:58.7%;"></a>
 			</div>
 			
 			<a class="elemadded responsive-link" href="#">Menu</a>
