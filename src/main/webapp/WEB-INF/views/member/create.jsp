@@ -1,56 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JoinPage</title>
-<style>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ include file="/resources/include/menu.jsp"%>
 
+<style>
 html { background: url(/resources/images/create11.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
 
-
-#all{
-	
-	position:absolute;
-  	top:30%;
-  	left:50%;
- 	width:100px;
-  	height:100px;
-	display: table;
-  	margin:-50px 0 0 -50px;
-	margin-left: auto;
-	margin-right: auto;
-	width:500px;
-	padding:0.5rem;
-
-}
 
 .main-button{
 border-radius: 10px;
 }
 
-</style>
-</head>
-<%@ include file="/resources/include/menu2.jsp" %>
+.text-fields{
+width: 65%;
+}
 
-<body>
-<div id="all">
+.col-xs-10{
+margin-top: 15%;
+}
+#contact-form{
+width: 150%;
+}
+
+.col-md-1{
+
+}
+</style>
+
+<div class="col-xs-10 col-md-3 col-md-offset-4">
 <form id="contact-form" action="/member/create" method="post">
+	
+			<input type="submit" value="Id체크" id="chkDupId" style="width: 70px; border-radius: 10px; ">
 	
 	<div class="text-fields"> 
 		<div class="float-input">
-			<input type="text" name="userid" id ="userid"  placeholder="아이디">
+			<input type="text" name="userid" id ="userid"  placeholder="아이디" style="width: 100%;">
+			
 			<span><i class="fa fa-user"></i></span>
-		</div>
-		
+		</div>	
 		<div class="float-input">
 			<input type="text" name="email" placeholder="이메일">
 			<span><i class="fa fa-envelope-o"></i></span>
 		</div>
 		
 		<div class="float-input">
-			<input type="password" name="userpw" placeholder="비밀번호" id="password" style="width: 176px; padding: 17.5px;">
+			<input type="password" name="userpw" placeholder="비밀번호" id="password" style="width: 100%; padding: 19px; border: white;">
 			<span><i class="fa fa-link"></i></span>
 		</div>
 		
@@ -59,28 +53,20 @@ border-radius: 10px;
 		<input type="submit" id="goListBtn" class="main-button" value="목록으로">
 			
 	</div>
-		
-		<div>
-			<input type="submit" value="Id체크" id="chkDupId" style="width: 110.5px; border-radius: 10px;">
-				<span id="idck"></span>
-		</div>	
-		
 </form>
 
+
+		
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
-		
-		
-			<script src="https://code.jquery.com/jquery-2.2.4.js"
-		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-		crossorigin="anonymous"></script>
+
 
 	<script>
 		var swear_words_arr = new Array("섹스", "대출", "무이자", "병신", "씨발", "개새끼",
 				"십새끼", "개년", "누드", "조건만남", "필로폰", "마약", "바다이야기", "바카라", "시알리스",
-				"비아그라", "멍청이", "똥개", "씹년", "미친년", "엠창", "호로새끼", "자지", "보지"); // 제한 목록
+				"비아그라", "멍청이", "똥개", "씹년", "미친년", "엠창", "호로새끼", "자지", "보지","빙신","뵹신","잡년"); // 제한 목록
 
 		var swear_alert_arr = new Array;
 
@@ -195,6 +181,5 @@ $("#chkDupId").on("click",function(){
 
 		
 </script>
-		
 </div>
 <%@ include file="/resources/include/main.jsp"%>

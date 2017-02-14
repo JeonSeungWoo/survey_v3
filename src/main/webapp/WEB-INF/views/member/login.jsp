@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="/resources/include/menu.jsp"%>
 
@@ -31,7 +30,7 @@ width:93%;
 </style>
 
 
-<div id="all" class='col-xs-10 col-md-4 col-md-offset-9' style="margin-top: 10%">
+<div id="all" class='col-xs-10 col-md-4 col-md-offset-9' style="margin-top: 12%">
 <form action="/member/loginPost" method="post" class="comment-form">
 
 	<div class="text-fields">
