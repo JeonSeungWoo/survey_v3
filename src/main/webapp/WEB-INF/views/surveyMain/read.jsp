@@ -48,6 +48,7 @@ border-radius: 10px;
    font-style: inherit;
    background-color: #FFFFFF;
    border-radius: 10px;
+   width: 100%;
 }
 
 .divSmno ul li{
@@ -58,7 +59,7 @@ border-bottom: 1px solid;
 .divSmno ul li img{
 	width: 200px;
    height: 200px;
-   text-align: center;
+   
    border-radius: 50px;
    background: url(/resources/images/no-image.jpg);
    background-size: cover;
@@ -100,10 +101,7 @@ border-bottom: 1px solid;
    height: 240px;
 }
 
-.surAddBtn {
-   left: 28%;
-   position: relative;
-}
+
 
 #surveyDetailAddIDval {
    background: #7fd8bb;
@@ -145,11 +143,7 @@ border-bottom: 1px solid;
    right: 5px
 }
 
-#f1{
-width: 900px;
-left: -17%;
-position: relative;
-}
+
 
 #modifyBtn{
 left: 30%;
@@ -157,8 +151,7 @@ position: relative;
 }
 
 .box-footer{
-left: 70%;
-position: relative;
+
 }
 
 </style>
@@ -175,7 +168,7 @@ position: relative;
 
    </form>
 
-   <form action="SurveyMainVO" id="f1">
+   <form action="SurveyMainVO" class="col-md-10" >
       <input type="hidden" name="smno" value="${SurveyMainVO.smno}">
       <input type="hidden" name="page" value="${param.page}">
 
@@ -196,9 +189,6 @@ position: relative;
 
    
       <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-
-
-
 
    <div>
       <div id="surveyDetiles"></div>
@@ -294,7 +284,7 @@ position: relative;
 
    <iframe hidden="" name='zeroFrame' width='0px' height='0px'></iframe>
 
-   <div class="box-footer">
+   <div class="">
 
       <button type="submit" class="btn btn-danger" id="removeBtn">목록</button>
       <button type="submit" class="btn btn-primary" id="goListBtn">등록</button>
