@@ -8,13 +8,13 @@
 html { background: url(/resources/images/login.gif) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
 
 
-#all{
+/* #all{
 	
 	position: absolute;
   	margin-top: 14%;
   	left:80%;
  	
-}
+} */
 
 #join input{
 width:235px;
@@ -38,8 +38,7 @@ width:100%;
 </style>
 
 
-
-<div id="all">
+<div id="all" class='col-xs-10 col-md-4 col-md-offset-9' style="margin-top: 10%">
 <form action="/member/loginPost" method="post" class="comment-form">
 
 	<div class="text-fields">
