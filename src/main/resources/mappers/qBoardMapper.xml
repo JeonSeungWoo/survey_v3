@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.survey.mappers.qBoardMapper">
+
+
+<insert id="qcreate" parameterType="QBoardVO">
+insert into tbl_qaboard(qtitle,qcontent,qwriter)
+values(#{qtitle},#{qcontent},#{qwriter})
+</insert>
+
+<select id="qread" resultType="QBoardVO">
+select * from tbl_qaboard where qno = #{qno}
+</select>
+
+<update id="qupdate" parameterType="QBoardVO">
+update tbl_qaboard
+set qtitle = #{qtitle}, qcontent = #{qcontent}, qwriter =#{qwriter}
+where qno = #{qno}
+</update>
+
+<delete id="qdelete" parameterType="QBoardVO">
+delete from tbl_qaboard where qno = #{qno}
+</delete>
+
+<select id="qlistAll" resultType="QBoardVO">
+select * from tbl_qaboard 
+where qno > 0
+order by qno desc
+</select>
+
+
+
+
+
+
+
+
+
+
+</mapper>
