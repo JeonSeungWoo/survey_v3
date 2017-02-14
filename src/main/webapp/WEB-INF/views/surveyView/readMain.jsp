@@ -20,42 +20,20 @@ html {
 	
 }
 
-.box-main {
-	color: black;
-	text-align: center;
-	font-size: 30px;
-	font-family: sans-serif, dotum, gulim, arial, helvetica;
-	padding: 10px;
-	font-weight: bold;
-	width: 100%;
-}
+
 
 .statisticsAction {
 	font-size: 30px;
 	font-family: sans-serif, dotum, gulim, arial, helvetica;
 	font-weight: bold;
 	color: #E8E8E8;
-	
+	text-align: center;
 }
 
-.box-main ul li {
-	background: #eee url(/data/201012/IJ12929573850979/c_bl.gif) bottom left
-		no-repeat;
-	margin: 5px 0;
-	padding: 0;
-	float: left;
-	margin-left: 50px;
-	margin-right: 20px;
-	width: 40%;
+.statisticsAction ul li{
+float: right;
 }
 
-.box-footer {
-	float: left;
-}
-
-#aTag{
-margin-right: 18%;
-}
 
 #aTag:HOVER {
 	background: #b9c9fe;
@@ -153,26 +131,22 @@ font-size: x-large;
 		</div>
 
 					
-		<img id="imgread" src="show?name=${SurveyMainVO.smimage}" class="col-md-14 col-md-offset-4">
+		<img id="imgread" src="show?name=${SurveyMainVO.smimage}" class="col-md-14 col-md-offset-5">
 
-
+		
 		<div class="statisticsAction">
 			<ul>
 				<li><a id="aTag"
-					href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1">설문결과</a></li>
+					href="/answer/oxStatistics?smno=${SurveyMainVO.smno}&page=1">설문결과</a>
+			
+		
+				<button type="submit" class="btn btn-primary" id="goListBtn">목록</button>
+			
+				<button type="submit" class="btn btn-start" id="startBtn">설문
+				시작</button></li>
+			
 			</ul>
 		</div>
-
-
-		<div class="box-footer">
-
-			<button type="submit" class="btn btn-primary" id="goListBtn">목록</button>
-			&nbsp;
-			<button type="submit" class="btn btn-start" id="startBtn">설문
-				시작</button>
-			&emsp;
-		</div>
-	</div>
 
 
 </form>

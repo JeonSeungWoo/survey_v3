@@ -8,13 +8,6 @@
 html { background: url(/resources/images/login.gif) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
 
 
-/* #all{
-	
-	position: absolute;
-  	margin-top: 14%;
-  	left:80%;
- 	
-} */
 
 #join input{
 width:235px;
@@ -33,7 +26,7 @@ padding:1.5px;
 }
 
 .text-fields{
-width:100%;
+width:93%;
 }
 </style>
 
@@ -43,7 +36,7 @@ width:100%;
 
 	<div class="text-fields">
 		<div class="float-input">
-			<input name="userid" id="name" type="text" placeholder="아이디" style="width: 62%;">
+			<input name="userid" id="name" type="text" placeholder="아이디" style="width:173px;">
 			<span><i class="fa fa-user"></i></span>
 		</div>
 		
