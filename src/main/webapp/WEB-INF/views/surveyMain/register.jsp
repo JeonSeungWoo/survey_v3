@@ -7,9 +7,6 @@ html {
 	background-color: #ffffff;
 }
 
-.post {
-	background-color: #ffffff;
-}
 
 .fileDrop {
 	width: 310px;
@@ -193,18 +190,14 @@ h1 {
 	"
 }
 
-#all {
-	position: absolute;
-	top: 5%;
-	left: 50%;
-}
+
 
 .contentBox {
 	background: #DDDDFF;
 }
 </style>
 
-<div id="all">
+<div class="col-md-8 col-md-offset-4">
 	<form role="form" class="post" action="register" method="post"
 		enctype="multipart/form-data" id="f1">
 		<input type="hidden" name="smno" value="${param.page}">
@@ -282,9 +275,8 @@ h1 {
 		</div>
 
 		<p>
-			<button id="goListBtn" class="lBtn" style="margin-left: 16px">목록으로</button>
-			<button id="rBtn" class="rBtn" onclick="validate_user_text();"
-				style="margin-left: 10px">등록</button>
+			<button id="goListBtn" class="lBtn">목록으로</button>
+			<button id="rBtn" class="rBtn" onclick="validate_user_text();">등록</button>
 
 		</p>
 </form>
