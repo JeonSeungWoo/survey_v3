@@ -84,13 +84,6 @@ border-bottom: 1px solid;
    border-radius: 10px;
 }
 
-
-
-
-
-
-
-
 #surveyDetailAddIDval {
    background: #7fd8bb;
    color: #fff;
@@ -98,8 +91,6 @@ border-bottom: 1px solid;
    padding: 8px;
    border-radius: 6px;
 }
-
-
 
 .icono-image {
    width: 30px;
@@ -131,9 +122,54 @@ border-bottom: 1px solid;
    right: 5px
 }
 
-
-
-
+4{
+  font-size: 13px;
+}
+div.wrap > div{
+  font-size: 12px;
+  position: relative;
+  float: left;
+  margin-right: 5px;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  input{
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100px;
+  }  
+}
+button{
+  clear: both;
+  display: block;  
+  line-height: 40px;
+  margin-top: 80px;
+  background-color: #eee;  
+  color: #333;
+  border: 1px solid #666;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 4px;
+}
+#ui-datepicker-div{
+ top:-999px; 
+ border: 0;
+ font-size: 14px;
+}
+.ui-datepicker-header{
+  font-size: 13px;
+}
+.ui-datepicker-calendar{
+  background-color: #fff;
+  border: 1px solid #ddd;
+  
+  tr{
+    font-size: 11px;
+  }
+}
 </style>
 
 
@@ -166,54 +202,102 @@ border-bottom: 1px solid;
          </ul>
       </div>
    </form>
-   
-   <form name="frmEX" class="col-md-1 col-md-offset-1">
-시작일 : <input type="text" name="sdate" id="sdate" size="10" maxlength="10"/> ~
-종료일 : <input type="text" name="edate" id="edate" size="10" maxlength="10"/>
 
-</form>
+<h4>기간 선택</h4>
+<div class="wrap">
+  <div>
+      시작일
+  </div>
+  <div>
+      <input type="text" id="from">
+  </div>
+  <div>
+      ~ 종료일
+  </div>
+  <div>
+      <input type="text" id="to">
+  </div>  
+</div>
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script>
-$.datepicker.regional['ko'] = {
-      closeText: '닫기',
-      prevText: '이전달',
-      nextText: '다음달',
-      currentText: '오늘',
-      monthNames: ['1월(JAN)','2월(FEB)','3월(MAR)','4월(APR)','5월(MAY)','6월(JUN)',
-      '7월(JUL)','8월(AUG)','9월(SEP)','10월(OCT)','11월(NOV)','12월(DEC)'],
-      monthNamesShort: ['1월','2월','3월','4월','5월','6월',
-      '7월','8월','9월','10월','11월','12월'],
-      dayNames: ['일','월','화','수','목','금','토'],
-      dayNamesShort: ['일','월','화','수','목','금','토'],
-      dayNamesMin: ['일','월','화','수','목','금','토'],
-      weekHeader: 'Wk',
-      dateFormat: 'yy-mm-dd',
-      firstDay: 0,
-      isRTL: false,
-      showMonthAfterYear: true,
-      yearSuffix: '',
-      showOn: 'both',
-      buttonText: "달력",
-      changeMonth: true,
-      changeYear: true,
-      showButtonPanel: true,
-      yearRange: 'c-99:c+99',
-   };
-   $.datepicker.setDefaults($.datepicker.regional['ko']);
 
-   $('#sdate').datepicker();
-   $('#sdate').datepicker("option", "maxDate", $("#edate").val());
-   $('#sdate').datepicker("option", "onClose", function ( selectedDate ) {
-      $("#edate").datepicker( "option", "minDate", selectedDate );
-   });
+var rangeDate = 31; // set limit day
+var setSdate, setEdate;
+$("#from").datepicker({
+    dateFormat: 'yy-mm-dd',
+    minDate: 0,
+    onSelect: function(selectDate){
+        var stxt = selectDate.split("-");
+            stxt[1] = stxt[1] - 1;
+        var sdate = new Date(stxt[0], stxt[1], stxt[2]);
+        var edate = new Date(stxt[0], stxt[1], stxt[2]);
+            edate.setDate(sdate.getDate() + rangeDate);
+        
+        $('#to').datepicker('option', {
+            minDate: selectDate,
+            beforeShow : function () {
+                $("#to").datepicker( "option", "maxDate", edate );                
+                setSdate = selectDate;
+                console.log(setSdate)
+        }});
+        //to 설정
+    }
+    //from 선택되었을 때
+});
+            
+var rangeDate = 31; // set limit day
+var setSdate, setEdate;
+$("#from").datepicker({
+    dateFormat: 'yy-mm-dd',
+    minDate: 0,
+    onSelect: function(selectDate){
+        var stxt = selectDate.split("-");
+            stxt[1] = stxt[1] - 1;
+        var sdate = new Date(stxt[0], stxt[1], stxt[2]);
+        var edate = new Date(stxt[0], stxt[1], stxt[2]);
+            edate.setDate(sdate.getDate() + rangeDate);
+        
+        $('#to').datepicker('option', {
+            minDate: selectDate,
+            beforeShow : function () {
+                $("#to").datepicker( "option", "maxDate", edate );                
+                setSdate = selectDate;
+                console.log(setSdate)
+        }});
+        //to 설정
+    }
+    //from 선택되었을 때
+});
+            
+$("#to").datepicker({ 
+    dateFormat: 'yy-mm-dd',
+    onSelect : function(selectDate){
+        setEdate = selectDate;
+        console.log(setEdate)
+    }
+});
+$('.btn').on('click', function(e){
+    if($('input#from').val() == ''){
+        alert('시작일을 선택해주세요.');
+        $('input#from').focus();
+        return false;
+    }else if($('input#to').val() == ''){
+        alert('종료일을 선택해주세요.');
+        $('input#to').focus();
+        return false;
+    }
 
-   $('#edate').datepicker();
-   $('#edate').datepicker("option", "minDate", $("#sdate").val());
-   $('#edate').datepicker("option", "onClose", function ( selectedDate ) {
-      $("#sdate").datepicker( "option", "maxDate", selectedDate );
-   });
+    var t1 = $('input#from').val().split("-");
+    var t2 = $('input#to').val().split("-");
+    var t1date = new Date(t1[0], t1[1], t1[2]);
+    var t2date = new Date(t2[0], t2[1], t2[2]);
+    var diff = t2date - t1date;
+    var currDay = 24 * 60 * 60 * 1000;
+
+});
+//조회 버튼 클릭
 </script>
 
    <div class="col-md-1 col-md-offset-5">
