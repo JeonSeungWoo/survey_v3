@@ -193,18 +193,14 @@ h1 {
 	"
 }
 
-#all {
-	position: absolute;
-	top: 5%;
-	left: 50%;
-}
+
 
 .contentBox {
 	background: #DDDDFF;
 }
 </style>
 
-<div id="all">
+<div class="col-md-8 col-md-offset-4">
 	<form role="form" class="post" action="update" method="post"
 		enctype="multipart/form-data" id="f1">
 		<input type="hidden" id="smno" name="smno" value="${param.smno}">
