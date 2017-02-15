@@ -48,7 +48,7 @@ border-radius: 10px;
    font-style: inherit;
    background-color: #FFFFFF;
    border-radius: 10px;
-   width: 100%;
+   
 }
 
 .divSmno ul li{
@@ -65,41 +65,29 @@ border-bottom: 1px solid;
    background-size: cover;
 }
 
-.detailDiv {
+#detailDiv {
    border-radius: 10px;
    text-align: center;
    font-size: 25px;
    font-style: inherit;
    background-color: #EFFBFB;
-   margin: 3%;
-   left: -9%;
-	position: relative;
-	width: 700px;
+  
 }
 
 
-.divSdno {
+#divSdno {
    border: 1px solid green;
    text-align: center;
    font-size: 20px;
    font-style: inherit;
    background-color: #E0E6F8;
    border-radius: 10px;
-   left: 5%;
-   position: relative;
-   width: 500px;   
 }
 
-.divSdno ul li{
-	width: 100%;
-}
 
-.allListPage {
-   position: absolute;
-   top: 10%;
-   left: 40%;
-   height: 240px;
-}
+
+
+
 
 
 
@@ -108,7 +96,7 @@ border-bottom: 1px solid;
    color: #fff;
    border: none;
    padding: 8px;
-   border-radius: 10px;
+   border-radius: 6px;
 }
 
 
@@ -145,19 +133,11 @@ border-bottom: 1px solid;
 
 
 
-#modifyBtn{
-left: 30%;
-position: relative;
-}
-
-.box-footer{
-
-}
 
 </style>
 
 
-<div class="allListPage">
+
    <form role="form" action="/update" method="post">
 
       <input type='hidden' name='smno' value="${SurveyMainVO.smno}">
@@ -168,7 +148,7 @@ position: relative;
 
    </form>
 
-   <form action="SurveyMainVO" class="col-md-10" >
+   <form action="SurveyMainVO" class="col-md-10 col-md-offset-1">
       <input type="hidden" name="smno" value="${SurveyMainVO.smno}">
       <input type="hidden" name="page" value="${param.page}">
 
@@ -187,9 +167,9 @@ position: relative;
       </div>
    </form>
 
-   
+   <div class="col-md-1 col-md-offset-5">
       <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-
+	</div>
    <div>
       <div id="surveyDetiles"></div>
    </div>
@@ -218,7 +198,7 @@ position: relative;
             
             <li><div>
                  	이미지 <img name="sdimage" class="sdimage"
-                     style='width: 100px; height: 100px;'>
+                     style='width: 10%; height: 10%;'>
                   <button class='modDelImage' style="background-color: #4a905e; color: white;">이미지삭제</button>
                </div></li>
             <li>
@@ -237,7 +217,7 @@ position: relative;
       </div>
    </div>
 
-   <div class="surAddBtn">
+   <div class="col-md-7 col-md-offset-5">
       <div id="surveyDetailAdd">
          <input type="submit" value="+질문 추가" id="surveyDetailAddIDval">
       </div>
@@ -248,15 +228,16 @@ position: relative;
 
       <form id="detailForm" method="post" action="/surveyDetail"
          target="zeroFrame" enctype="multipart/form-data">
-         <div class="divSdno">
+         
+         <div id="divSdno" class="col-md-6 col-md-offset-3">
             <ul>
 
                <li><input type="text" name="smno" class="newSmno"
                   value="${SurveyMainVO.smno}" hidden=""></li>
                <li><input type="text" name="sdtitle" class="newSdtitle"
-                  placeholder="제목을 입력해주세요" style="width: 95%;"></li>
+                  placeholder="제목을 입력해주세요"></li>
                <li><input type="text" name="sdcontent" class="newSdcontent"
-                  placeholder="내용을 입력해주세요" style="width: 95%;"></li>
+                  placeholder="내용을 입력해주세요"></li>
 
 
                <li><select name="sdtype">
@@ -268,9 +249,6 @@ position: relative;
 
                </select></li>
 
-               <!-- 
-<li>옵션<input type ="text" name="sdtype" class ="newSdtype"></li>
- -->
 
                <li>이미지<input type="file" name="sdAttach" class="newSdtype"></li>
                <li><button type="submit" class="surveyAddBtn" style="background-color: #81c47d; color: white; border-radius: 10px;">항목 등록</button></li>
@@ -284,14 +262,14 @@ position: relative;
 
    <iframe hidden="" name='zeroFrame' width='0px' height='0px'></iframe>
 
-   <div class="">
+   <div class="col-md-3 col-md-offset-9">
 
       <button type="submit" class="btn btn-danger" id="removeBtn">목록</button>
       <button type="submit" class="btn btn-primary" id="goListBtn">등록</button>
    </div>
 
 
-</div>
+
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"
    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
@@ -341,7 +319,7 @@ position: relative;
                                              + attachFile + "'>";
                                     }
 
-                                    str += "<div class='detailDiv'>"
+                                    str += "<div id='detailDiv'>"
                                           + "<ul><li data-sdno='"+this.sdno+"' class='surveyLi'>"
                                           + "</li>"
                                           + "<li>제목  : "
@@ -387,7 +365,7 @@ position: relative;
 
    });
 
-   $('#surveyDetiles').on("click", ".detailDiv", function(event) {
+   $('#surveyDetiles').on("click", "#detailDiv", function(event) {
 
       console.log("detail div clicked...");
 
