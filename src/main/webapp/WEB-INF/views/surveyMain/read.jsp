@@ -16,35 +16,19 @@ height: 200px;
 border-radius: 10px;
 }
 
-
-.fileDrop {
-   width: 80%;
-   height: 100px;
-   border: 1px dotted black;
-   background-color: gray;
-   margin: auto;
-}
-
 #modDiv {
    width: 50%;
-   height: 110%;
    background-color: #d0eced;
-   position: relative;
-   padding: 10px;
-   z-index: 1000;
-   top: -280%;
-   left: 45%;
    border-radius: 10px;
+   margin-top: 1%;
 }
 
-#modDiv button{
-border-radius: 10px;
-}
+
 
 .divSmno {
    border: groove;
    text-align: center;
-   font-size: 25px;
+   font-size: 20px;
    font-style: inherit;
    background-color: #FFFFFF;
    border-radius: 10px;
@@ -71,9 +55,9 @@ border-bottom: 1px solid;
    font-size: 25px;
    font-style: inherit;
    background-color: #EFFBFB;
+   margin-top: 1%;
   
 }
-
 
 #divSdno {
    border: 1px solid green;
@@ -144,14 +128,11 @@ div.wrap > div{
 }
 button{
   clear: both;
-  display: block;  
-  line-height: 40px;
-  margin-top: 80px;
-  background-color: #eee;  
-  color: #333;
-  border: 1px solid #666;
-  padding-left: 20px;
-  padding-right: 20px;
+    
+  line-height: 30px;
+  border: 1px solid white;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 4px;
 }
 #ui-datepicker-div{
@@ -170,6 +151,11 @@ button{
     font-size: 11px;
   }
 }
+
+#from, #to{
+width: 25%;
+font-size: small;
+}
 </style>
 
 
@@ -184,40 +170,125 @@ button{
 
    </form>
 
-   <form action="SurveyMainVO" class="col-md-10 col-md-offset-1">
-      <input type="hidden" name="smno" value="${SurveyMainVO.smno}">
-      <input type="hidden" name="page" value="${param.page}">
 
-      <div class="divSmno">
+      <div class="divSmno col-md-10 col-md-offset-1">
          <ul>
+		   <form action="SurveyMainVO">
+		      <input type="hidden" name="smno" value="${SurveyMainVO.smno}">
+		      <input type="hidden" name="page" value="${param.page}">
 
-            <li style="font-size: 30px;">${SurveyMainVO.smtitle }</li>
+            <li style="font-size: 40px;">${SurveyMainVO.smtitle }</li>
             <li>${SurveyMainVO.smcontent }</li>
             <li><img src="show?name=${SurveyMainVO.smimage}"></li>
 
-            <li style="font-size: 20px;">설문시작일 : <fmt:formatDate value="${SurveyMainVO.smregdate}"
+            <li>설문작성일 : <fmt:formatDate value="${SurveyMainVO.smregdate}"
                   pattern="yyyy-MM-dd HH:mm:ss" /></li>
-            <li style="font-size: 20px;">설문수정일 : <fmt:formatDate
-                  value="${SurveyMainVO.smupdatedate}" pattern="yyyy-MM-dd HH:mm:ss" /></li>
+                  
+              <div class="wrap">    
+            	<li>시작일<input type="text" id="from"> ~ 종료일<input type="text" id="to"></li>
+		   </form>
          </ul>
       </div>
-   </form>
+   <div class="col-md-1 col-md-offset-5">
+      <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
+   </div>
+   <div>
+      <div id="surveyDetiles"></div>
+   </div>
 
-<h4>기간 선택</h4>
-<div class="wrap">
-  <div>
-      시작일
-  </div>
-  <div>
-      <input type="text" id="from">
-  </div>
-  <div>
-      ~ 종료일
-  </div>
-  <div>
-      <input type="text" id="to">
-  </div>  
-</div>
+
+
+   <!-- SurveyDetail modDiv Button -->
+   <div id="modDiv" class="col-md-1 col-md-offset-3" style="display: none;">
+      
+      <div>
+         <ul>
+            <input type='hidden' name='attachFile' class='hiddenfile'>
+            <li><input type="text" name="sdno" class="sdno"
+               hidden="" ></li>
+            <li>제목 <input type="text" name="sdtitle" class="sdtitle" style="width: 90%;"></li>
+            <li>내용 <input type="text" name="sdcontent" class="sdcontent" style="width: 90%;"></li>
+            <li> <select name="sdtype" class="sdtype" hidden="">
+                     <option value="null">==선택하세요==</option>
+                     <option value="OX">OX</option>
+                     <option value="objective">객관식</option>
+                     <option value="subjective">주관식</option>
+                     <option value="table">표형</option>   
+
+               </select></li>
+            
+            
+            <li><div>
+                                    이미지 <img name="sdimage" class="sdimage" style='width: 30%; height: 30%;'>
+                  <button class='modDelImage' style="background-color: #4a905e; color: white;">이미지삭제</button>
+               </div></li>
+            <li>
+               <form id="modImageForm" method="post" action="/upload/uploadForm"
+                  target="zeroFrame" enctype="multipart/form-data" style="border-radius: 10px;">
+                  <input type='file' name='modImageFile' id="modImageFile">
+                  <button id='changeImageBtn' style="background-color: #074f2d; color: white;">CHANGE IMAGE</button>
+               </form>
+         </ul>
+      </div>
+
+      <div>
+         <button type="submit" id="surveyDetailUpdateBtn" style="background-color: #90ad41; color: white;">수정</button>
+         <button type="submit" id="surveyDetailDelBtn" style="background-color: #ad4141; color: white;">삭제</button>
+         <button type="submit" id="closeBtn" style="background-color: #4170ad; color: white;">닫기</button>
+      </div>
+   </div>
+
+   <div class="col-md-7 col-md-offset-5">
+      <div id="surveyDetailAdd">
+         <input type="submit" value="+질문 추가" id="surveyDetailAddIDval">
+      </div>
+   </div>
+
+   <!-- SurveyDetailCreate -->
+   <div class="SurveyDetailMainCreate" style="display: none;">
+
+      <form id="detailForm" method="post" action="/surveyDetail"
+         target="zeroFrame" enctype="multipart/form-data">
+         
+         <div id="divSdno" class="col-md-6 col-md-offset-3">
+            <ul>
+
+               <li><input type="text" name="smno" class="newSmno"
+                  value="${SurveyMainVO.smno}" hidden=""></li>
+               <li><input type="text" name="sdtitle" class="newSdtitle"
+                  placeholder="제목을 입력해주세요" style="width: 100%;"></li>
+               <li><input type="text" name="sdcontent" class="newSdcontent"
+                  placeholder="내용을 입력해주세요" style="width: 100%;"></li>
+
+
+               <li><select name="sdtype" hidden="">
+                     <option value="null">==선택하세요==</option>
+                     <option value="OX">OX</option>
+                     <option value="objective">객관식</option>
+                     <option value="subjective">주관식</option>
+                     <option value="table">표형</option>   
+
+               </select></li>
+
+
+               <li>이미지<input type="file" name="sdAttach" class="newSdtype"></li>
+               <li><button type="submit" class="surveyAddBtn" style="background-color: #81c47d; color: white; border-radius: 10px;">항목 등록</button></li>
+            </ul>
+         </div>
+      </form>
+
+
+
+   </div>
+
+   <iframe hidden="" name='zeroFrame' width='0px' height='0px'></iframe>
+
+   <div class="col-md-3 col-md-offset-9">
+
+      <button type="submit" class="btn btn-danger" id="removeBtn">목록</button>
+      <button type="submit" class="btn btn-primary" id="goListBtn">등록</button>
+   </div>
+
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -280,7 +351,7 @@ $("#to").datepicker({
 });
 $('.btn').on('click', function(e){
     if($('input#from').val() == ''){
-        alert('시작일을 선택해주세요.');
+        /* alert('시작일을 선택해주세요.'); */
         $('input#from').focus();
         return false;
     }else if($('input#to').val() == ''){
@@ -300,117 +371,10 @@ $('.btn').on('click', function(e){
 //조회 버튼 클릭
 </script>
 
-   <div class="col-md-1 col-md-offset-5">
-      <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-   </div>
-   <div>
-      <div id="surveyDetiles"></div>
-   </div>
-
-
-
-   <!-- SurveyDetail modDiv Button -->
-   <div id="modDiv" style="display: none;">
-      <div class="modal-title"></div>
-      <div>
-         <ul>
-            <input type='hidden' name='attachFile' class='hiddenfile'>
-            <li><input type="text" name="sdno" class="sdno"
-               hidden="" ></li>
-            <li>제목 <input type="text" name="sdtitle" class="sdtitle" style="width: 90%;"></li>
-            <li>내용 <input type="text" name="sdcontent" class="sdcontent" style="width: 90%;"></li>
-            <li>타입 <select name="sdtype" class="sdtype">
-                     <option value="null">==선택하세요==</option>
-                     <option value="OX">OX</option>
-                     <option value="objective">객관식</option>
-                     <option value="subjective">주관식</option>
-                     <option value="table">표형</option>   
-
-               </select></li>
-            
-            
-            <li><div>
-                    이미지 <img name="sdimage" class="sdimage"
-                     style='width: 10%; height: 10%;'>
-                  <button class='modDelImage' style="background-color: #4a905e; color: white;">이미지삭제</button>
-               </div></li>
-            <li>
-               <form id="modImageForm" method="post" action="/upload/uploadForm"
-                  target="zeroFrame" enctype="multipart/form-data" style="border-radius: 10px;">
-                  <input type='file' name='modImageFile' id="modImageFile">
-                  <button id='changeImageBtn' style="background-color: #074f2d; color: white;">CHANGE IMAGE</button>
-               </form>
-         </ul>
-      </div>
-
-      <div>
-         <button type="submit" id="surveyDetailUpdateBtn" style="background-color: #90ad41; color: white;">수정</button>
-         <button type="submit" id="surveyDetailDelBtn" style="background-color: #ad4141; color: white;">삭제</button>
-         <button type="submit" id="closeBtn" style="background-color: #4170ad; color: white;">닫기</button>
-      </div>
-   </div>
-
-   <div class="col-md-7 col-md-offset-5">
-      <div id="surveyDetailAdd">
-         <input type="submit" value="+질문 추가" id="surveyDetailAddIDval">
-      </div>
-   </div>
-
-   <!-- SurveyDetailCreate -->
-   <div class="SurveyDetailMainCreate" style="display: none;">
-
-      <form id="detailForm" method="post" action="/surveyDetail"
-         target="zeroFrame" enctype="multipart/form-data">
-         
-         <div id="divSdno" class="col-md-6 col-md-offset-3">
-            <ul>
-
-               <li><input type="text" name="smno" class="newSmno"
-                  value="${SurveyMainVO.smno}" hidden=""></li>
-               <li><input type="text" name="sdtitle" class="newSdtitle"
-                  placeholder="제목을 입력해주세요"></li>
-               <li><input type="text" name="sdcontent" class="newSdcontent"
-                  placeholder="내용을 입력해주세요"></li>
-
-
-               <li><select name="sdtype">
-                     <option value="null">==선택하세요==</option>
-                     <option value="OX">OX</option>
-                     <option value="objective">객관식</option>
-                     <option value="subjective">주관식</option>
-                     <option value="table">표형</option>   
-
-               </select></li>
-
-
-               <li>이미지<input type="file" name="sdAttach" class="newSdtype"></li>
-               <li><button type="submit" class="surveyAddBtn" style="background-color: #81c47d; color: white; border-radius: 10px;">항목 등록</button></li>
-            </ul>
-         </div>
-      </form>
-
-
-
-   </div>
-
-   <iframe hidden="" name='zeroFrame' width='0px' height='0px'></iframe>
-
-   <div class="col-md-3 col-md-offset-9">
-
-      <button type="submit" class="btn btn-danger" id="removeBtn">목록</button>
-      <button type="submit" class="btn btn-primary" id="goListBtn">등록</button>
-   </div>
-
-
-
 
 <script src="https://code.jquery.com/jquery-2.2.4.js"
    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
    crossorigin="anonymous"></script>
-
-
-
-
 
 
 <script>
@@ -452,7 +416,7 @@ $('.btn').on('click', function(e){
                                              + attachFile + "'>";
                                     }
 
-                                    str += "<div id='detailDiv'>"
+                                    str += "<div id='detailDiv' class='col-md-6 col-md-offset-3'>"
                                           + "<ul><li data-sdno='"+this.sdno+"' class='surveyLi'>"
                                           + "</li>"
                                           + "<li>제목  : "
@@ -463,7 +427,7 @@ $('.btn').on('click', function(e){
                                           + "<small class='surveyContent'>"
                                           + this.sdcontent
                                           + "</small></li>"
-                                          + "<li>타입  : "
+                                          + "<li style='display: none'>타입  : "
                                           + "<small class='surveyType'>"
                                           + this.sdtype
                                           + "</small></li>"
@@ -489,7 +453,7 @@ $('.btn').on('click', function(e){
 
    $("#surveyDetailAdd").on("click", function() {
       var MainCreate = $(".SurveyDetailMainCreate");
-      MainCreate.hide().show('slow');
+      MainCreate.toggle();
    });
 
    $("#closeBtn").on("click", function(event) {
@@ -562,7 +526,7 @@ $('.btn').on('click', function(e){
       var sdno = target.find(".sdno").val();
       var sdtitle = target.find(".sdtitle").val();
       var sdcontent = target.find(".sdcontent").val();
-      var sdtype = target.find(".sdtype").val();
+      var sdtype = target.find(".sdtype").val(); 
       var sdfile = target.find(".hiddenfile").val();
 
       console.log("surveyDetailUpdateBtn..................1");
