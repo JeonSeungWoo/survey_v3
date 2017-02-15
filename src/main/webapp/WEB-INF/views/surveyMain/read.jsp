@@ -167,9 +167,9 @@ border-bottom: 1px solid;
       </div>
    </form>
    
-   <form name="frmEX">
-시작일 : <input type="text" name="sdate" id="sdate" size="10" maxlength="10" value="2017-02-04" /> ~
-종료일 : <input type="text" name="edate" id="edate" size="10" maxlength="10" value="2017-02-14" />
+   <form name="frmEX" class="col-md-1 col-md-offset-1">
+시작일 : <input type="text" name="sdate" id="sdate" size="10" maxlength="10"/> ~
+종료일 : <input type="text" name="edate" id="edate" size="10" maxlength="10"/>
 
 </form>
 
