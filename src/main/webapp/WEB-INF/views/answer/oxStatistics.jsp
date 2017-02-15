@@ -10,7 +10,7 @@
 	color: white;
 	border-radius: 10px;
 	font-size: 14px;
-	padding: 10px;
+	padding: 10px;  
 	text-transform: uppercase;
 	transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
@@ -18,19 +18,28 @@
 	-o-transition: all 0.2s ease-in-out;
 	background-color:#488d91;
 } */
-
+.html{
+background-color: red;
+}
 
 .listMain li{
 	text-align: center;
 	font-size: 25px;
+	padding: 10px;
+	margin: 30px;
+	
+	
 }
+
+
+
 </style>
 
 
 	<form action="/answer/oxStatistics/" method="get">
 		<input type="hidden" name="page" value="${param.page}">
 
-		<h1>통계</h1>
+		<h1 ID="animate">설문 조사 결과 입니다.</h1>
 
 		<div class="answerList"></div>
 
@@ -71,11 +80,11 @@
 		<ul>
 		
 
-		<li ID="animate">${list.sdtitle}</li>
+		<li class="text"><B>제목 : </B>${list.sdtitle}</li>
 	
 		
 		
-		<li ID="animate1">${list.sdcontent}</li>	
+		<li class="text"><B>내용 : </B>${list.sdcontent}</li>	
 		
 		
 			
@@ -99,6 +108,11 @@
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
+		
+
+		
+		
+		
 		
 <script language="javascript">
 var ie4 = false;
@@ -184,7 +198,7 @@ if (next < 0) { delta = delta * -1; next = ind + delta; }
 
 
 	<SCRIPT language="JavaScript">
-   			animate('animate', '#ff0000');
+   			animate('animate', 'silver');
 		</SCRIPT>
 
 	<SCRIPT language="JavaScript">
