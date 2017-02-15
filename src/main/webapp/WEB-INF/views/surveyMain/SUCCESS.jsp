@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 
- <h1>${smno}</h1>
+
  
 
 <script type="text/javascript">
