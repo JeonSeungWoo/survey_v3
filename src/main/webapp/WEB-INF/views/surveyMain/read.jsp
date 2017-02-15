@@ -57,7 +57,7 @@ border-bottom: 1px solid;
 }
 
 .divSmno ul li img{
-	width: 200px;
+   width: 200px;
    height: 200px;
    
    border-radius: 50px;
@@ -177,48 +177,48 @@ border-bottom: 1px solid;
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script>
 $.datepicker.regional['ko'] = {
-		closeText: '닫기',
-		prevText: '이전달',
-		nextText: '다음달',
-		currentText: '오늘',
-		monthNames: ['1월(JAN)','2월(FEB)','3월(MAR)','4월(APR)','5월(MAY)','6월(JUN)',
-		'7월(JUL)','8월(AUG)','9월(SEP)','10월(OCT)','11월(NOV)','12월(DEC)'],
-		monthNamesShort: ['1월','2월','3월','4월','5월','6월',
-		'7월','8월','9월','10월','11월','12월'],
-		dayNames: ['일','월','화','수','목','금','토'],
-		dayNamesShort: ['일','월','화','수','목','금','토'],
-		dayNamesMin: ['일','월','화','수','목','금','토'],
-		weekHeader: 'Wk',
-		dateFormat: 'yy-mm-dd',
-		firstDay: 0,
-		isRTL: false,
-		showMonthAfterYear: true,
-		yearSuffix: '',
-		showOn: 'both',
-		buttonText: "달력",
-		changeMonth: true,
-		changeYear: true,
-		showButtonPanel: true,
-		yearRange: 'c-99:c+99',
-	};
-	$.datepicker.setDefaults($.datepicker.regional['ko']);
+      closeText: '닫기',
+      prevText: '이전달',
+      nextText: '다음달',
+      currentText: '오늘',
+      monthNames: ['1월(JAN)','2월(FEB)','3월(MAR)','4월(APR)','5월(MAY)','6월(JUN)',
+      '7월(JUL)','8월(AUG)','9월(SEP)','10월(OCT)','11월(NOV)','12월(DEC)'],
+      monthNamesShort: ['1월','2월','3월','4월','5월','6월',
+      '7월','8월','9월','10월','11월','12월'],
+      dayNames: ['일','월','화','수','목','금','토'],
+      dayNamesShort: ['일','월','화','수','목','금','토'],
+      dayNamesMin: ['일','월','화','수','목','금','토'],
+      weekHeader: 'Wk',
+      dateFormat: 'yy-mm-dd',
+      firstDay: 0,
+      isRTL: false,
+      showMonthAfterYear: true,
+      yearSuffix: '',
+      showOn: 'both',
+      buttonText: "달력",
+      changeMonth: true,
+      changeYear: true,
+      showButtonPanel: true,
+      yearRange: 'c-99:c+99',
+   };
+   $.datepicker.setDefaults($.datepicker.regional['ko']);
 
-	$('#sdate').datepicker();
-	$('#sdate').datepicker("option", "maxDate", $("#edate").val());
-	$('#sdate').datepicker("option", "onClose", function ( selectedDate ) {
-		$("#edate").datepicker( "option", "minDate", selectedDate );
-	});
+   $('#sdate').datepicker();
+   $('#sdate').datepicker("option", "maxDate", $("#edate").val());
+   $('#sdate').datepicker("option", "onClose", function ( selectedDate ) {
+      $("#edate").datepicker( "option", "minDate", selectedDate );
+   });
 
-	$('#edate').datepicker();
-	$('#edate').datepicker("option", "minDate", $("#sdate").val());
-	$('#edate').datepicker("option", "onClose", function ( selectedDate ) {
-		$("#sdate").datepicker( "option", "maxDate", selectedDate );
-	});
+   $('#edate').datepicker();
+   $('#edate').datepicker("option", "minDate", $("#sdate").val());
+   $('#edate').datepicker("option", "onClose", function ( selectedDate ) {
+      $("#sdate").datepicker( "option", "maxDate", selectedDate );
+   });
 </script>
 
    <div class="col-md-1 col-md-offset-5">
       <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-	</div>
+   </div>
    <div>
       <div id="surveyDetiles"></div>
    </div>
@@ -240,13 +240,13 @@ $.datepicker.regional['ko'] = {
                      <option value="OX">OX</option>
                      <option value="objective">객관식</option>
                      <option value="subjective">주관식</option>
-                     <option value="table">표형</option>	
+                     <option value="table">표형</option>   
 
                </select></li>
             
             
             <li><div>
-                 	이미지 <img name="sdimage" class="sdimage"
+                    이미지 <img name="sdimage" class="sdimage"
                      style='width: 10%; height: 10%;'>
                   <button class='modDelImage' style="background-color: #4a905e; color: white;">이미지삭제</button>
                </div></li>
@@ -294,7 +294,7 @@ $.datepicker.regional['ko'] = {
                      <option value="OX">OX</option>
                      <option value="objective">객관식</option>
                      <option value="subjective">주관식</option>
-                     <option value="table">표형</option>	
+                     <option value="table">표형</option>   
 
                </select></li>
 
@@ -557,7 +557,6 @@ $.datepicker.regional['ko'] = {
 
 
 <%@ include file="/resources/include/main.jsp"%>
-
 
 
 

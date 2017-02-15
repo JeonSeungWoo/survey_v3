@@ -25,7 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/responsive.css" media="screen">
 	<link rel="stylesheet" href="http://icono-49d6.kxcdn.com/icono.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-	
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
 	
 </head>
 <body>
