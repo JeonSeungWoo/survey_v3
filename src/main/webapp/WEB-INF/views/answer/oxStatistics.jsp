@@ -1,19 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-
-<body>
+<%@ include file="/resources/include/menu.jsp"%>
 
 <style>
-.comment-form {
+/* .comment-form {
 	color: white;
 	border-radius: 10px;
 	font-size: 14px;
@@ -24,7 +17,7 @@
 	-webkit-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
 	background-color:#488d91;
-}
+} */
 </style>
 
 
@@ -81,10 +74,10 @@
 		
 	</div>
 
-	<div>
+<!-- 	<div>
 		<input type="submit" id="rBtn" class="comment-form"
 			 value="설문페이지">
-	</div>
+	</div> -->
 
 
 
@@ -92,12 +85,6 @@
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
-
-
-	<script>
-		
-	</script>
-
 
 
 
@@ -164,7 +151,7 @@
 								[ 'X', targetData.xresult ] ]);
 
 						var options = {
-							title : 'My Daily Activities',
+							/* title : 'My Daily Activities', */
 							is3D : true,
 						};
 
@@ -182,11 +169,11 @@
 			}
 
 		}
-
-		//drawGraph(['aaa','bbb','ccc']);
+	//drawGraph(['aaa','bbb','ccc']);
 	</script>
 
-	<script>
+
+<!-- 	<script>
 		$(document)
 				.ready(
 						function() {
@@ -198,9 +185,8 @@
 
 											});
 						});
-	</script>
+	</script> -->
 
 
 
-</body>
-</html>
+<%@ include file="/resources/include/main.jsp"%>
