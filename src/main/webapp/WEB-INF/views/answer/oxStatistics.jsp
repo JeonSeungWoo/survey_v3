@@ -18,13 +18,19 @@
 	-o-transition: all 0.2s ease-in-out;
 	background-color:#488d91;
 } */
+
+
+.listMain li{
+	text-align: center;
+	font-size: 25px;
+}
 </style>
 
 
 	<form action="/answer/oxStatistics/" method="get">
 		<input type="hidden" name="page" value="${param.page}">
 
-		<h1>통계 페이지</h1>
+		<h1>통계</h1>
 
 		<div class="answerList"></div>
 
@@ -63,8 +69,16 @@
 		
 		<div class="listMain">
 		<ul>
-		<li>${list.sdtitle}</li>	
-		<li>${list.sdcontent}</li>		
+		
+
+		<li ID="animate">${list.sdtitle}</li>
+	
+		
+		
+		<li ID="animate1">${list.sdcontent}</li>	
+		
+		
+			
 		</ul>
 		</div>	 
 		
@@ -85,9 +99,98 @@
 	<script src="https://code.jquery.com/jquery-2.2.4.js"
 		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
 		crossorigin="anonymous"></script>
+		
+<script language="javascript">
+var ie4 = false;
+if(document.all) {
+		ie4 = true; 
+}       
+function setContent(name, value) {
+		var d;  
+		if (ie4) { 
+				d = document.all[name];
+		} else {
+				d = document.getElementById(name);
+		}       
+		d.innerHTML = value;    
+}       
+
+function getContent(name) {
+var d;
+		if (ie4) {
+				d = document.all[name];
+		} else {
+				d = document.getElementById(name);
+		}
+		return d.innerHTML;
+}
+
+function setColor(name, value) {
+		var d;  
+		if (ie4) { 
+				d = document.all[name];
+		} else {
+				d = document.getElementById(name);
+		}
+		d.style.color = value;  
+}
+
+function getColor(name) {
+		var d;
+		if (ie4) {
+				d = document.all[name];
+		} else {
+				d = document.getElementById(name);
+		}
+		return d.style.color;
+}
+
+function animate(name, col) {
+var value = getContent(name);
+if (value.indexOf('<span') >= 0) { return; }
+var length = 0;
+		var str = '';
+var ch;
+var token = '';
+var htmltag = false;	
+		for (i = 0; i < value.length; i++) {
+	ch = value.substring(i, i+1);
+	if (i < value.length - 1) { nextch = value.substring(i+1, i+2); } else { nextch = ' '; }
+	token += ch;
+	if (ch == '<' && '/aAbBpPhHiIoOuUlLtT'.indexOf(nextch) >= 0) { htmltag = true; }
+	if (ch == '>' && htmltag) { htmltag = false; }
+	if (!htmltag && ch.charCodeAt(0) > 30 && ch != ' ' && ch != '\n') {		
+					str += '<span id="' + name + '_' + length + '">' + token + '</span>';
+		token = '';
+		length++;
+	}
+		}
+		setContent(name, str);
+		command = 'animateloop(\'' + name + '\', ' + length + ', 0, 1, \'' + col + '\')';
+		setTimeout(command , 100);
+}
+
+function animateloop(name, length, ind, delta, col) {
+var next = ind + delta;
+if (next >= length) { delta = delta * -1; next = ind + delta; }
+if (next < 0) { delta = delta * -1; next = ind + delta; }
+		setColor(name + '_' + ind, getColor(name + '_' + next));
+		setColor(name + '_' + next, col);
+		command = 'animateloop(\'' + name + '\', ' + length + ', ' + next + ', ' + delta + ', \'' + col + '\')';
+		setTimeout(command , 100);
+}
+</script>
 
 
 
+	<SCRIPT language="JavaScript">
+   			animate('animate', '#ff0000');
+		</SCRIPT>
+
+	<SCRIPT language="JavaScript">
+         animate('animate1', 'blue');
+ 	</SCRIPT>
+	
 	<script type="text/javascript"
 		src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript">
