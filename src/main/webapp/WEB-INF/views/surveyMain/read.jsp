@@ -156,6 +156,7 @@ button{
 width: 25%;
 font-size: small;
 }
+
 </style>
 
 
@@ -602,7 +603,6 @@ $('.btn').on('click', function(e){
 
    });
 </script>
-
 
 <%@ include file="/resources/include/main.jsp"%>
 
