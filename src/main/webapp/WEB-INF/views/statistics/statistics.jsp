@@ -83,11 +83,11 @@
 		/*
 		Label the data
 		*/
-		td:nth-of-type(1):before { content: "First Name"; }
-		td:nth-of-type(2):before { content: "Last Name"; }
-		td:nth-of-type(3):before { content: "Job Title"; }
-		td:nth-of-type(4):before { content: "Favorite Color"; }
-		td:nth-of-type(5):before { content: "Wars of Trek?"; }
+		td:nth-of-type(1):before { content: "날짜"; }
+		td:nth-of-type(2):before { content: "2개월"; }
+		td:nth-of-type(3):before { content: "4개월"; }
+		td:nth-of-type(4):before { content: "6개월"; }
+		td:nth-of-type(5):before { content: "12개월"; }
 		td:nth-of-type(6):before { content: "Porn Name"; }
 		td:nth-of-type(7):before { content: "Date of Birth"; }
 		td:nth-of-type(8):before { content: "Dream Vacation City"; }
@@ -240,7 +240,7 @@ google.load('visualization', '1', {packages: ['corechart']});
 </script>
 <script type="text/javascript">
 //마우스 오른 쪽 금지
-/* document.oncontextmenu = function() { return false; }
+document.oncontextmenu = function() { return false;
  *///새로고침 방지
 // Ctrl+R, Ctrl+N, F5 키 막음
 function doNotReload(){
