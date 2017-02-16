@@ -65,7 +65,7 @@ width: 200px;
 					<li><a  href="/surveyMain/listPage?page=1"><span>설문조사 리스트</span></a></li>
 					<li><a href="/surveyMain/register"><span>설문조사 만들기</span></a></li>
 					
-					<li class="drop"><a href="#"><span>내 페이지</span></a>
+					<!-- <li class="drop"><a href="#"><span>내 페이지</span></a>
 						<ul class="drop-down">
 							<li><a href="#"><span>내가 참여한 설문조사</span></a></li>
 							<li class="drop"><a href="#"><span>하하하</span></a>
@@ -76,15 +76,15 @@ width: 200px;
 							</li>
 							<li><a href="#"><span>내가 등록한 설문조사</span></a></li>
 						</ul>
-					</li>
+					</li> -->
 					<li><a href="/statistics/statistics"><span>통계</span></a></li>
 				</ul>				
 			</div>
 
 			<div class="filter-box">
-				<h3>Filter<i class="fa fa-th-large"></i></h3>
+				<h3>필터<i class="fa fa-th-large"></i></h3>
 				<ul class="filter">
-					<li><a href="#" class="active" data-filter="*">All Works</a></li>
+					<li><a href="#" class="active" data-filter="*">모든 사이트</a></li>
 					<li><a href="#" data-filter=".web-design">Web Design</a></li>
 					<li><a href="#" data-filter=".photography">Photography</a></li>
 					<li><a href="#" data-filter=".illustration">Illustration</a></li>

@@ -7,8 +7,8 @@
 
 <style>
 html{
-background: url(/resources/images/ccc.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
-}
+/* background: url(/resources/images/ccc.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+ */ background: #e0e0e0;}
 
 #image{
 width: 200px;

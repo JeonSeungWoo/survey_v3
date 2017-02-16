@@ -83,11 +83,11 @@
 		/*
 		Label the data
 		*/
-		td:nth-of-type(1):before { content: "First Name"; }
-		td:nth-of-type(2):before { content: "Last Name"; }
-		td:nth-of-type(3):before { content: "Job Title"; }
-		td:nth-of-type(4):before { content: "Favorite Color"; }
-		td:nth-of-type(5):before { content: "Wars of Trek?"; }
+		td:nth-of-type(1):before { content: "날짜"; }
+		td:nth-of-type(2):before { content: "2개월"; }
+		td:nth-of-type(3):before { content: "4개월"; }
+		td:nth-of-type(4):before { content: "6개월"; }
+		td:nth-of-type(5):before { content: "12개월"; }
 		td:nth-of-type(6):before { content: "Porn Name"; }
 		td:nth-of-type(7):before { content: "Date of Birth"; }
 		td:nth-of-type(8):before { content: "Dream Vacation City"; }
@@ -113,7 +113,7 @@
 	}
 	
 #curve_chart{
-width:100%;
+
 height: 500px;
 }	
 </style>
@@ -121,7 +121,7 @@ height: 500px;
 
 
 
-<table class="namietable" width="800" height="500" border="1" cellpadding="0" cellspacing="0">
+<table class="namietable col-md-12" border="1" cellpadding="0" cellspacing="0">
 <caption><h1>이동평균(MA)</h1></caption>
 	<tr>
 		<th scope="col" class="date">구분 항목</th>
@@ -226,7 +226,7 @@ height: 500px;
 
 </table>
 </div>
-<div id="curve_chart"></div>
+<div id="curve_chart" class="col-md-12"></div>
 
 
 
@@ -240,8 +240,8 @@ google.load('visualization', '1', {packages: ['corechart']});
 </script>
 <script type="text/javascript">
 //마우스 오른 쪽 금지
-document.oncontextmenu = function() { return false; }
-//새로고침 방지
+document.oncontextmenu = function() { return false;
+ *///새로고침 방지
 // Ctrl+R, Ctrl+N, F5 키 막음
 function doNotReload(){
 if( (event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode == 116)) // function F5 //78 ,82 ctrl+N , ctrl+R
