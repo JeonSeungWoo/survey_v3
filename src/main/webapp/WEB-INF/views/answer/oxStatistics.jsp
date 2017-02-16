@@ -39,7 +39,7 @@ background-color: red;
 	<form action="/answer/oxStatistics/" method="get">
 		<input type="hidden" name="page" value="${param.page}">
 
-		<h1 ID="animate">설문 조사 결과 입니다.</h1>
+		<h1 ID="animate"></h1>
 
 		<div class="answerList"></div>
 
@@ -96,11 +96,6 @@ background-color: red;
 		</c:forEach>
 		
 	</div>
-
-<!-- 	<div>
-		<input type="submit" id="rBtn" class="comment-form"
-			 value="설문페이지">
-	</div> -->
 
 
 
