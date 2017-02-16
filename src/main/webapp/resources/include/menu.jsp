@@ -60,7 +60,7 @@ height:58.7%;"></a>
 					<li><a href="/surveyMain/register"><span>설문조사 만들기</span></a></li>
 					
 					
-					<li class="drop"><a href="#"><span>내 페이지</span></a>
+					<!-- <li class="drop"><a href="#"><span>내 페이지</span></a>
 						<ul class="drop-down">
 							<li><a href="#"><span>내가 참여한 설문조사</span></a></li>
 							<li class="drop"><a href="#"><span>하하하</span></a>
@@ -71,7 +71,7 @@ height:58.7%;"></a>
 							</li>
 							<li><a href="#"><span>내가 등록한 설문조사</span></a></li>
 						</ul>
-					</li>
+					</li> -->
 					<li><a href="/statistics/statistics"><span>통계</span></a></li>
 				</ul>				
 			</div>
