@@ -24,11 +24,7 @@ background-color: red;
 
 .listMain li{
 	text-align: center;
-	font-size: 25px;
-	padding: 10px;
-	margin: 30px;
-	
-	
+	font-size: 25px;	
 }
 
 .listDetail li{
@@ -47,7 +43,9 @@ position: relative;
 left: 60%;
 }
 
-
+.text{
+color: darkgray;
+}
 </style>
 
 
@@ -97,8 +95,8 @@ left: 60%;
 		<div class="listMain">
 		<ul>
 		
-		<li class="text"><B>제목 : </B>${list.sdtitle}</li>
-		
+		<li><B>제목 : </B>${list.sdtitle}</li>
+		<li class="text">----------------------------------------</li>
 		
 		</ul>
 		</div>
