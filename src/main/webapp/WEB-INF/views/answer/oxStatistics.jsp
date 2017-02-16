@@ -31,6 +31,21 @@ background-color: red;
 	
 }
 
+.listDetail li{
+border: 2px double silver;
+font-size: 20px;
+font-style: inherit;
+width: 350px;
+height: 50px;
+color: #7BCEEF;
+background-color: #DDDDFF;
+
+}
+
+.listDetail ul{
+position: relative;
+left: 60%;
+}
 
 
 </style>
@@ -38,8 +53,11 @@ background-color: red;
 
 	<form action="/answer/oxStatistics/" method="get">
 		<input type="hidden" name="page" value="${param.page}">
-
-		<h1 ID="animate"></h1>
+		
+		
+	
+		
+		<h1 ID="animate">응답 수  : ${list[0].xresult+list[0].oresult}</h1>
 
 		<div class="answerList"></div>
 
@@ -79,20 +97,27 @@ background-color: red;
 		<div class="listMain">
 		<ul>
 		
-
 		<li class="text"><B>제목 : </B>${list.sdtitle}</li>
+		
+		
+		</ul>
+		</div>
+		
 	
 		
 		
-		<li class="text"><B>내용 : </B>${list.sdcontent}</li>	
 		
 		
+			<div id='g${st.index}'></div>
 			
+		<div class="listDetail">
+		<ul>
+		<li>내용 :&nbsp;&nbsp; ${list.sdcontent}</li>
+		<li>o 개수 :&nbsp;&nbsp; ${list.oresult}</li>
+		<li>x 개수 &nbsp;&nbsp;: ${list.xresult}</li>
 		</ul>
-		</div>	 
+		</div>
 		
-		
-			<div id='g${st.index}' class="listDetail"></div>
 		</c:forEach>
 		
 	</div>

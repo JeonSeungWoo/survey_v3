@@ -109,7 +109,7 @@ public class AnswerController {
 		logger.info("TEST:" + answerList);
 		
 
-		//model.addAttribute("answerList", answerList);
+		model.addAttribute("answerList", answerList);
 		
 		return answerList;
 		
