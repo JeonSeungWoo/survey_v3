@@ -56,7 +56,7 @@
 
 
    <!-- SurveyDetail modDiv Button -->
-   <div id="modDiv" class="col-md-1 col-md-offset-3" style="display: none;">
+   <div id="modDiv" class="col-md-1 col-md-offset-3 menu-box block" style="display: none;">
       
       <div>
          <ul>
@@ -107,7 +107,7 @@
       <form id="detailForm" method="post" action="/surveyDetail"
          target="zeroFrame" enctype="multipart/form-data">
          
-         <div id="divSdno" class="col-md-6 col-md-offset-3">
+         <div class="col-md-6 col-md-offset-3 menu-box block">
             <ul>
 
                <li><input type="text" name="smno" class="newSmno"
@@ -128,7 +128,7 @@
                </select></li>
 
 
-               <li>이미지<input type="file" name="sdAttach" class="newSdtype"></li>
+               <li style="color: white;">이미지<input type="file" name="sdAttach" class="newSdtype" style="color: white;"></li>
                <li><button type="submit" class="surveyAddBtn" style="background-color: #81c47d; color: white; border-radius: 10px;">항목 등록</button></li>
             </ul>
          </div>
