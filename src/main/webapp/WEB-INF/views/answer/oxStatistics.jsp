@@ -1,51 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ include file="/resources/include/menu.jsp"%>
 
 <style>
-/* .comment-form {
-	color: white;
-	border-radius: 10px;
-	font-size: 14px;
-	padding: 10px;  
-	text-transform: uppercase;
-	transition: all 0.2s ease-in-out;
-	-moz-transition: all 0.2s ease-in-out;
-	-webkit-transition: all 0.2s ease-in-out;
-	-o-transition: all 0.2s ease-in-out;
-	background-color:#488d91;
-} */
-.html{
-background-color: red;
-}
+
 
 .listMain li{
-	text-align: center;
+	
 	font-size: 25px;	
 }
 
-.listDetail li{
-border: 2px double silver;
-font-size: 20px;
-font-style: inherit;
-width: 350px;
-height: 50px;
-color: #7BCEEF;
-background-color: #DDDDFF;
-
+.col-md-11{
+font-size: 50px;
+border-bottom: 5px solid black;
 }
 
-.listDetail ul{
-position: relative;
-left: 60%;
-}
 
-.text{
-color: darkgray;
-}
+
+
 </style>
 
 
@@ -55,7 +28,7 @@ color: darkgray;
 		
 	
 		
-		<h1 ID="animate">응답 수  : ${list[0].xresult+list[0].oresult}</h1>
+		<div ID="animate" class="col-md-11 col-md-offset-1">${list[0].xresult+list[0].oresult}명 응답</div>
 
 		<div class="answerList"></div>
 
@@ -85,7 +58,7 @@ color: darkgray;
 
 	</form>
 
-	<div id='graphDiv'>
+	<div id='graphDiv' class="col-md-12">
 
 
 		
@@ -96,7 +69,7 @@ color: darkgray;
 		<ul>
 		
 		<li><B>제목 : </B>${list.sdtitle}</li>
-		<li class="text">----------------------------------------</li>
+		
 		
 		</ul>
 		</div>
@@ -108,13 +81,14 @@ color: darkgray;
 		
 			<div id='g${st.index}'></div>
 			
-		<div class="listDetail">
+		<div>
 		<ul>
-		<li>내용 :&nbsp;&nbsp; ${list.sdcontent}</li>
-		<li>o 개수 :&nbsp;&nbsp; ${list.oresult}</li>
-		<li>x 개수 &nbsp;&nbsp;: ${list.xresult}</li>
+		<li>내용 :${list.sdcontent}</li>
+		<li>o 개수 :${list.oresult}</li>
+		<li>x 개수 : ${list.xresult}</li>
 		</ul>
 		</div>
+		
 		
 		</c:forEach>
 		
@@ -282,7 +256,7 @@ if (next < 0) { delta = delta * -1; next = ind + delta; }
 					function drawChart() {
 						var data = google.visualization.arrayToDataTable([
 								[ 'Task', 'Hours per Day' ],
-								[ 'O', targetData.oresult ],
+								[ 'O {list.oresult}', targetData.oresult ],
 								[ 'X', targetData.xresult ] ]);
 
 						var options = {

@@ -93,6 +93,10 @@ width: 200px;
 				</ul>
 			</div>
 
+
+			
+	</div>
+	<!-- End Container -->
 			
 		</header>
 		<!-- End Header -->
@@ -333,10 +337,6 @@ width: 200px;
 		</div>
 		<!-- End content -->
 
-	</div>
-	<!-- End Container -->
-
-	
 
 	<div class="preloader">
 		<img alt="" src="images/preloader.gif">
