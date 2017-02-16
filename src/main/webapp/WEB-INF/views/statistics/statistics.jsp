@@ -240,8 +240,8 @@ google.load('visualization', '1', {packages: ['corechart']});
 </script>
 <script type="text/javascript">
 //마우스 오른 쪽 금지
-document.oncontextmenu = function() { return false;
- *///새로고침 방지
+document.oncontextmenu = function() { return false;}
+//새로고침 방지
 // Ctrl+R, Ctrl+N, F5 키 막음
 function doNotReload(){
 if( (event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode == 116)) // function F5 //78 ,82 ctrl+N , ctrl+R

@@ -4,161 +4,33 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ include file="/resources/include/menu.jsp"%>
+<link rel="stylesheet" type="text/css" href="/resources/css/readPageCSS.css">	
+</head>
 
-<style>
-html{
-/* background: url(/resources/images/ccc.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
- */ background: #e0e0e0;}
+        <div class="menu-box block"> <!-- MENU BOX (LEFT-CONTAINER) -->
+                    <h2 class="titular col-md-12">설문조사 마법사</h2>
+                    <ul class="menu-box-menu">
+                        <li>
+                            <a class="menu-box-tab"><span class="icon fontawesome-envelope scnd-font-color"></span>${SurveyMainVO.smtitle }</a>                            
+                        </li>
+                        <li>
+                            <a class="menu-box-tab"><span class="icon entypo-paper-plane scnd-font-color"></span>${SurveyMainVO.smcontent }</a>                            
+                        </li>
+                        <li style="height: 100%;">
+                            <a class="menu-box-tab"><span class="icon entypo-calendar scnd-font-color"></span><img src="show?name=${SurveyMainVO.smimage}"></a>                            
+                        </li>
+                        <li>
+                            <a class="menu-box-tab"><span class="icon entypo-cog scnd-font-color"></span>설문작성일 : <fmt:formatDate value="${SurveyMainVO.smregdate}"
+                  pattern="yyyy-MM-dd HH:mm:ss" /></a>
+                        </li>
+                        <li style="line-height: 40px;">
+                            <a class="menu-box-tab"><sapn class="icon entypo-chart-line scnd-font-color"></sapn>시작일<input type="text" id="from">종료일<input type="text" id="to"></a>
+                        </li>                        
+                    </ul>
+                </div>
+           
 
-#image{
-width: 200px;
-height: 200px;
-border-radius: 10px;
-}
-
-#modDiv {
-   width: 50%;
-   background-color: #d0eced;
-   border-radius: 10px;
-   margin-top: 1%;
-}
-
-
-
-.divSmno {
-   border: groove;
-   text-align: center;
-   font-size: 20px;
-   font-style: inherit;
-   background-color: #FFFFFF;
-   border-radius: 10px;
-   
-}
-
-.divSmno ul li{
-border-bottom: 1px solid;
-
-}
-
-.divSmno ul li img{
-   width: 200px;
-   height: 200px;
-   
-   border-radius: 50px;
-   background: url(/resources/images/no-image.jpg);
-   background-size: cover;
-}
-
-#detailDiv {
-   border-radius: 10px;
-   text-align: center;
-   font-size: 25px;
-   font-style: inherit;
-   background-color: #EFFBFB;
-   margin-top: 1%;
-  
-}
-
-#divSdno {
-   border: 1px solid green;
-   text-align: center;
-   font-size: 20px;
-   font-style: inherit;
-   background-color: #E0E6F8;
-   border-radius: 10px;
-}
-
-#surveyDetailAddIDval {
-   background: #7fd8bb;
-   color: #fff;
-   border: none;
-   padding: 8px;
-   border-radius: 6px;
-}
-
-.icono-image {
-   width: 30px;
-   height: 26px;
-   border-radius: 3px;
-   overflow: hidden;
-   margin: 4px 2px
-}
-
-.icono-image:before {
-   position: absolute;
-   width: 20px;
-   height: 20px;
-   left: -2px;
-   top: 14px;
-   -webkit-transform: rotate(45deg);
-   -ms-transform: rotate(45deg);
-   transform: rotate(45deg);
-   box-shadow: inset 0 0 0 32px, 10px -6px 0 0
-}
-
-.icono-image:after {
-   position: absolute;
-   width: 4px;
-   height: 4px;
-   border-radius: 50%;
-   box-shadow: inset 0 0 0 32px;
-   top: 5px;
-   right: 5px
-}
-
-4{
-  font-size: 13px;
-}
-div.wrap > div{
-  font-size: 12px;
-  position: relative;
-  float: left;
-  margin-right: 5px;
-  height: 30px;
-  line-height: 30px;
-  vertical-align: middle;
-  input{
-    line-height: 30px;
-    margin: 0;
-    padding: 0;
-    padding-left: 5px;
-    padding-right: 5px;
-    width: 100px;
-  }  
-}
-button{
-  clear: both;
-    
-  line-height: 30px;
-  border: 1px solid white;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 4px;
-}
-#ui-datepicker-div{
- top:-999px; 
- border: 0;
- font-size: 14px;
-}
-.ui-datepicker-header{
-  font-size: 13px;
-}
-.ui-datepicker-calendar{
-  background-color: #fff;
-  border: 1px solid #ddd;
-  
-  tr{
-    font-size: 11px;
-  }
-}
-
-#from, #to{
-width: 25%;
-font-size: small;
-}
-
-</style>
-
+           
 
 
    <form role="form" action="/update" method="post">
@@ -170,26 +42,10 @@ font-size: small;
          type='hidden' name='keyword' value="${cri.keyword}">
 
    </form>
+		     
 
 
-      <div class="divSmno col-md-10 col-md-offset-1">
-         <ul>
-		   <form action="SurveyMainVO">
-		      <input type="hidden" name="smno" value="${SurveyMainVO.smno}">
-		      <input type="hidden" name="page" value="${param.page}">
-
-            <li style="font-size: 40px;">${SurveyMainVO.smtitle }</li>
-            <li>${SurveyMainVO.smcontent }</li>
-            <li><img src="show?name=${SurveyMainVO.smimage}"></li>
-
-            <li>설문작성일 : <fmt:formatDate value="${SurveyMainVO.smregdate}"
-                  pattern="yyyy-MM-dd HH:mm:ss" /></li>
-                  
-              <div class="wrap">    
-            	<li>시작일<input type="text" id="from"> ~ 종료일<input type="text" id="to"></li>
-		   </form>
-         </ul>
-      </div>
+      
    <div class="col-md-1 col-md-offset-5">
       <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
    </div>
