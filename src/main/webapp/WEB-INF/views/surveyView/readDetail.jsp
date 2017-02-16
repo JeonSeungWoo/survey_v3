@@ -158,7 +158,6 @@ function checkAnswer(){
     var answer = $(':input[name=answer]:radio:checked').val();
      
     if( answer ){
-        alert(answer+"을 선택했습니다");
         goNext1();
         
         var data ={ smno : smno,
@@ -176,7 +175,7 @@ function checkAnswer(){
     		data :JSON.stringify(data),
     		success : function(result){
     			if(result == "SUCCESS"){
-    				alert("버튼 입력 성공!!!!!!!!!");
+    				
     			}
     		}
     	});
@@ -201,7 +200,7 @@ $("#next").html(next);
 
 
 function goNext1(){
-	alert("go Next 다음 페이지로");
+	
 	qnum = qnum+1;
 	self.location = "/surveyView/readDetail?smno="+smno+"&page=1&qnum="+qnum;
 	
@@ -215,7 +214,7 @@ $("#prev").html(prev);
 
 
 $("#prevNext").on("click",function(){
-	alert("이전 페이지로");
+	
 	qnum = qnum-1;
 	
 	self.location = "/surveyView/readDetail?smno="+smno+"&page=1&qnum="+qnum;
@@ -227,14 +226,14 @@ $("#prevNext").on("click",function(){
 		success : function(result){
 			console.log("result : " +result );
 			if(result == "SUCCESS"){
-				alert("삭제 되었습니다.");
+				
 				
 			}						
 		}
 	});
 
 	
-	alert("qnum  :" + qnum);
+	
 });
 
 
