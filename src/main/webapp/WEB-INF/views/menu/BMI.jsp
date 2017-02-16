@@ -4,6 +4,8 @@
 <html>
 <head>
     <title>BMI</title>
+    
+    
 
     <SCRIPT LANGUAGE="JAVASCRIPT">
         var boy=1;
@@ -70,6 +72,13 @@
             form.c.value = "";
             form.doctor.value = "";
         }
+        
+        
+        
+        
+        
+
+        
     </SCRIPT>
     <!--여기까지의 스크립트를 <head>와 </head>태그 사이에 넣으세요-->
 </html>

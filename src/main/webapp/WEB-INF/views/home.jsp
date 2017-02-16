@@ -85,11 +85,11 @@ width: 200px;
 				<h3>필터<i class="fa fa-th-large"></i></h3>
 				<ul class="filter">
 					<li><a href="#" class="active" data-filter="*">모든 사이트</a></li>
-					<li><a href="#" data-filter=".web-design">Web Design</a></li>
-					<li><a href="#" data-filter=".photography">Photography</a></li>
-					<li><a href="#" data-filter=".illustration">Illustration</a></li>
-					<li><a href="#" data-filter=".nature">Nature</a></li>
-					<li><a href="#" data-filter=".logo">Logo</a></li>
+					<li><a href="#" data-filter=".web-design">개발에 도움</a></li>
+					<li><a href="#" data-filter=".photography">취업 정보</a></li>
+					<li><a href="#" data-filter=".illustration">기업 정보</a></li>
+					<li><a href="#" data-filter=".nature">데이터 수집</a></li>
+					<li><a href="#" data-filter=".logo">실습 데이터</a></li>
 				</ul>
 			</div>
 
@@ -104,13 +104,13 @@ width: 200px;
 				<div class="portfolio-page">
 					<div class="portfolio-box">
 
-						<div class="project-post web-design illustration">
+						<div class="project-post web-design">
 							<img class="img" alt="" src="upload/image1-1.JPG">
 							<div class="hover-box">
 								<div class="project-title">
-									<h2>구글트렌드</h2>
-									<span>트렌드를 검색해줍니다</span>
-									<div><a href="https://www.google.com/trends"><i class="fa fa-arrow-right"></i></a></div>
+									<h2>w3school</h2>
+									<span>web 학습 사이트</span>
+									<div><a href="https://www.w3schools.com/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
@@ -126,7 +126,7 @@ width: 200px;
 							</div>
 						</div>
 
-						<div class="project-post web-design logo">
+						<div class="project-post nature">
 							<img class="img" alt="" src="upload/image1-3.JPG">
 							<div class="hover-box">
 								<div class="project-title">
@@ -137,7 +137,7 @@ width: 200px;
 							</div>
 						</div>
 
-						<div class="project-post photography illustration">
+						<div class="project-post photography">
 							<img class="img" alt="" src="upload/image1-4.JPG">
 							<div class="hover-box">
 								<div class="project-title">
@@ -148,51 +148,51 @@ width: 200px;
 							</div>
 						</div>
 
-						<div class="project-post nature logo">
+						<div class="project-post web-design">
 							<img class="img" alt="" src="upload/image1-5.JPG">
 							<div class="hover-box">
 								<div class="project-title">
-									<h2>위키백과</h2>
-									<span>전 세계 여러 언어로 만들어 나가는 자유 백과사전</span>
-									<div><a href="https://ko.wikipedia.org/"><i class="fa fa-arrow-right"></i></a></div>
+									<h2>깃허브</h2>
+									<span>분산 버전 관리 프로젝트 툴</span>
+									<div><a href="https://github.com/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
 
-						<div class="project-post web-design illustration">
+						<div class="project-post web-design">
 							<img class="img" alt="" src="upload/image1-6.JPG">
 							<div class="hover-box">
 								<div class="project-title">
-									<h2>구글 설문지</h2>
-									<span>구글에서 만든 설문조사 입니다</span>
-									<div><a href="https://www.google.com/intl/ko_kr/forms/about/"><i class="fa fa-arrow-right"></i></a></div>
+									<h2>trello</h2>
+									<span>협업 스케쥴링 도구</span>
+									<div><a href="http://trello.com"><i class="fa fa-arrow-right"></i></a></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="project-post web-design">
+							<img class="img" alt="" src="upload/image1-7.JPG">
+							<div class="hover-box">
+								<div class="project-title">
+									<h2>stackoverflow</h2>
+									<span>프로그래밍 Q&A</span>
+									<div><a href="http://stackoverflow.com/"><i class="fa fa-arrow-right"></i></a></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="project-post illustration">
+							<img class="img" alt="" src="upload/image1-8.JPG">
+							<div class="hover-box">
+								<div class="project-title">
+									<h2>크레딧잡</h2>
+									<span>연봉정보, 기업정보 사이트</span>
+									<div><a href="https://kreditjob.com/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
 
 						<div class="project-post photography">
-							<img class="img" alt="" src="upload/image1-7.JPG">
-							<div class="hover-box">
-								<div class="project-title">
-									<h2>네이버 오피스</h2>
-									<span>네이버에서 만든 오피스</span>
-									<div><a href="http://office.naver.com/"><i class="fa fa-arrow-right"></i></a></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="project-post nature illustration">
-							<img class="img" alt="" src="upload/image1-8.JPG">
-							<div class="hover-box">
-								<div class="project-title">
-									<h2>서베이몽키</h2>
-									<span>유료 설문조사 사이트 입니다</span>
-									<div><a href="https://ko.surveymonkey.com"><i class="fa fa-arrow-right"></i></a></div>
-								</div>
-							</div>
-						</div>
-
-						<div class="project-post logo">
 							<img class="img" alt="" src="upload/image1-9.JPG">
 							<div class="hover-box">
 								<div class="project-title">
@@ -203,7 +203,7 @@ width: 200px;
 							</div>
 						</div>
 
-						<div class="project-post web-design nature">
+						<div class="project-post illustration">
 							<img class="img" alt="" src="upload/image1-10.JPG">
 							<div class="hover-box">
 								<div class="project-title">
@@ -214,7 +214,7 @@ width: 200px;
 							</div>
 						</div>
 
-						<div class="project-post photography illustration">
+						<div class="project-post illustration">
 							<img class="img" alt="" src="upload/image1-11.JPG">
 							<div class="hover-box">
 								<div class="project-title">
@@ -225,40 +225,40 @@ width: 200px;
 							</div>
 						</div>
 
-						<div class="project-post nature logo">
+						<div class="project-post nature">
 							<img class="img" alt="" src="upload/image1-12.JPG">
 							<div class="hover-box">
 								<div class="project-title">
-									<h2>네이버금융</h2>
-									<span>네이버금융 기업 정보 사이트</span>
-									<div><a href="http://finance.naver.com/"><i class="fa fa-arrow-right"></i></a></div>
+									<h2>정부데이터 포털</h2>
+									<span>정부 데이터 포털 사이트</span>
+									<div><a href="https://www.open.go.kr/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
 
-						<div class="project-post web-design illustration">
+						<div class="project-post nature">
 							<img class="img" alt="" src="upload/image1-13.JPG">
 							<div class="hover-box">
 								<div class="project-title">
-									<h2>다음금융</h2>
-									<span>다음금융 기업 정보 사이트</span>
-									<div><a href="http://finance.daum.net/"><i class="fa fa-arrow-right"></i></a></div>
+									<h2>RISS(한국교육학술정보원)</h2>
+									<span>정부 학술 논문 사이트</span>
+									<div><a href="http://riss.kr/index.do"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
 
-						<div class="project-post photography nature">
+						<div class="project-post illustration">
 							<img class="img" alt="" src="upload/image1-14.JPG">
 							<div class="hover-box">
 								<div class="project-title">
-									<h2>야후금융</h2>
+									<h2>finance.yahoo</h2>
 									<span>야후금융 국외 기업 정보 사이트</span>
 									<div><a href="http://finance.yahoo.com/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
 
-						<div class="project-post logo illustration">
+						<div class="project-post photography">
 							<img class="img" alt="" src="upload/image1-15.JPG">
 							<div class="hover-box">
 								<div class="project-title">
@@ -269,18 +269,18 @@ width: 200px;
 							</div>
 						</div>
 
-						<div class="project-post photography logo">
+						<div class="project-post nature">
 							<img class="img" alt="" src="upload/image1-16.JPG">
 							<div class="hover-box">
 								<div class="project-title">
-									<h2>BMI</h2>
-									<span>BMI지수 계산</span>
-									<div><a href="/menu/BMI"><i class="fa fa-arrow-right"></i></a></div>
+									<h2>공공데이터포털</h2>
+									<span>정부 공공데이터 포털 사이트</span>
+									<div><a href="https://www.data.go.kr/"><i class="fa fa-arrow-right"></i></a></div>
 								</div>
 							</div>
 						</div>
 
-						<div class="project-post nature">
+						<div class="project-post logo">
 							<img class="img" alt="" src="upload/image1-17.JPG">
 							<div class="hover-box">
 								<div class="project-title">
@@ -291,7 +291,7 @@ width: 200px;
 							</div>
 						</div>
 
-						<div class="project-post logo illustration">
+						<div class="project-post logo">
 							<img class="img" alt="" src="upload/image1-18.JPG">
 							<div class="hover-box">
 								<div class="project-title">
@@ -302,7 +302,7 @@ width: 200px;
 							</div>
 						</div>
 
-						<div class="project-post photography nature">
+						<div class="project-post logo">
 							<img class="img" alt="" src="upload/image1-19.JPG">
 							<div class="hover-box">
 								<div class="project-title">
@@ -313,7 +313,7 @@ width: 200px;
 							</div>
 						</div>
 
-						<div class="project-post nature logo">
+						<div class="project-post logo">
 							<img class="img" alt="" src="upload/image1-20.JPG">
 							<div class="hover-box">
 								<div class="project-title">
