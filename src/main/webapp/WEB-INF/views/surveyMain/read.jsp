@@ -143,7 +143,7 @@
    <div class="col-md-3 col-md-offset-9">
 
       <button type="submit" class="btn btn-danger" id="removeBtn">목록</button>
-      <button type="submit" class="btn btn-primary" id="goListBtn">등록</button>
+      <button type="submit" class="btn btn-primary" id="goListBtn">설문 등록</button>
    </div>
 
 
