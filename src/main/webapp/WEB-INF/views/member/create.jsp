@@ -107,7 +107,7 @@ width: 150%;
 				return;
 
 			} else {
-				alert(alert_text + "회원 가입 되셨습니다.");
+				
 				var formObj = $("#contact-form");
 				$(".main-button").on("click", function() {
 					formObj.attr("action", "/member/create");

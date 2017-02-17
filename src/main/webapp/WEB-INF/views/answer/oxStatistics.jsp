@@ -4,6 +4,10 @@
 <%@ include file="/resources/include/menu.jsp"%>
 
 <style>
+html{
+background-color: white;
+}
+
 
 
 .listMain li{
@@ -16,6 +20,9 @@ font-size: 50px;
 border-bottom: 5px solid black;
 }
 
+.graph{
+border-bottom: 1px solid black;
+}
 
 
 
@@ -58,7 +65,7 @@ border-bottom: 5px solid black;
 
 	</form>
 
-	<div id='graphDiv' class="col-md-12">
+	<div id='graphDiv' class="col-md-11 col-md-offset-1">
 
 
 		
@@ -69,7 +76,7 @@ border-bottom: 5px solid black;
 		<ul>
 		
 		<li><B>제목 : </B>${list.sdtitle}</li>
-		
+		<li style="font-size: 20px;">내용 :${list.sdcontent}</li>
 		
 		</ul>
 		</div>
@@ -79,15 +86,15 @@ border-bottom: 5px solid black;
 		
 		
 		
-			<div id='g${st.index}'></div>
+			<div id='g${st.index}' class="graph"></div>
 			
-		<div>
+		<%-- <div>
 		<ul>
 		<li>내용 :${list.sdcontent}</li>
 		<li>o 개수 :${list.oresult}</li>
 		<li>x 개수 : ${list.xresult}</li>
 		</ul>
-		</div>
+		</div> --%>
 		
 		
 		</c:forEach>
@@ -256,7 +263,7 @@ if (next < 0) { delta = delta * -1; next = ind + delta; }
 					function drawChart() {
 						var data = google.visualization.arrayToDataTable([
 								[ 'Task', 'Hours per Day' ],
-								[ 'O {list.oresult}', targetData.oresult ],
+								[ 'O', targetData.oresult ],
 								[ 'X', targetData.xresult ] ]);
 
 						var options = {

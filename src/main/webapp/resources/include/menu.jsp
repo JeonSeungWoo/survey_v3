@@ -76,7 +76,7 @@ height:58.7%;"></a>
 				</ul>				
 			</div>
 
-			<div class="filter-box">
+			<!-- <div class="filter-box">
 				<h3>Filter<i class="fa fa-th-large"></i></h3>
 				<ul class="filter">
 					<li><a href="#" class="active" data-filter="*">All Works</a></li>
@@ -86,7 +86,7 @@ height:58.7%;"></a>
 					<li><a href="#" data-filter=".nature">Nature</a></li>
 					<li><a href="#" data-filter=".logo">Logo</a></li>
 				</ul>
-			</div>
+			</div> -->
 
 <!-- 			<div class="social-box">
 				<ul class="social-icons">
