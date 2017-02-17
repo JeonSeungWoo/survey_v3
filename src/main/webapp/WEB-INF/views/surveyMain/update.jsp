@@ -344,14 +344,14 @@ h1 {
 				alert(alert_text + "는 입력할 수 없는 단어입니다. 예쁜 말을 써주세요");
 				// 불량단어 나왔을때 멘트
 				document.getElementById("smtitle").select();
-				self.location = "/surveyMain/register";
+				self.location = "/surveyMain/update";
 			});
 			return;
 		} else {
-			alert(alert_text + "등록 되었습니다.");
+			alert(alert_text + "수정 되었습니다..");
 			var formObj = $("#f1");
-			$("#rBtn").on("click", function() {
-				formObj.attr("action", "/surveyMain/register");
+			$("#saveBtn").on("click", function() {
+				formObj.attr("action", "/surveyMain/update");
 				formObj.attr("method", "post");
 				formObj.submit();
 				return;
@@ -440,19 +440,7 @@ h1 {
 					function() {
 						var formObj = $("form[role='form']");
 						console.log(formObj);
-						$("#saveBtn")
-								.on(
-										"click",
-										function() {
-											self.location = "/surveyMain/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}"
-													+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
-											formObj.submit();
-										});
-						var uploadedList = $(".uploadedList");
-						$(".fileDrop").on("dragenter dragover",
-								function(event) {
-									event.preventDefault();
-								});
+						
 						$(".fileDrop")
 								.on(
 										"drop",
