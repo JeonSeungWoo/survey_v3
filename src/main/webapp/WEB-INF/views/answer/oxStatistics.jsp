@@ -75,8 +75,8 @@ border-bottom: 1px solid black;
 		<div class="listMain">
 		<ul>
 		
-		<li><B>제목 : </B>${list.sdtitle}</li>
-		<li style="font-size: 20px;">내용 :${list.sdcontent}</li>
+		<li><B>${list.sdtitle}</B></li>
+		<li style="font-size: 20px;">${list.sdcontent}</li>
 		
 		</ul>
 		</div>
